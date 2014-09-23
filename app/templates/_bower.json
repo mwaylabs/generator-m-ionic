@@ -1,0 +1,8 @@
+{
+  "name": "package",
+  "version": "0.0.0",
+  "dependencies": <%= bower.dependencies %>,
+  "devDependencies": <%= bower.devDependencies %>,
+  "resolutions": <%= bower.resolutions %>
+}
+

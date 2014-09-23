@@ -1,0 +1,37 @@
+{
+  "name": "generator-gulp-ionic",
+  "version": "0.0.0",
+  "description": "Yeoman generator",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "gruppjo/generator-gulp-ionic",
+  "author": {
+    "name": "Jonathan Grupp",
+    "email": "j.grupp@mwaysolutions.com",
+    "url": "https://github.com/gruppjo"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "chalk": "~0.5.0",
+    "cordova-lib": "0.21.7",
+    "yeoman-generator": "^0.17.0",
+    "yosay": "^0.3.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  }
+}
