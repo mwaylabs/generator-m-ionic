@@ -7,6 +7,7 @@ var chalk = require('chalk');
 var spawn = require('child_process').spawn;
 var exec = require('child_process').exec;
 var cordova = require('cordova-lib').cordova.raw; // get the promise version of all functions
+var wiredep = require('wiredep');
 
 var GulpIonicGenerator = yeoman.generators.Base.extend({
   // initializing: function () {
@@ -118,6 +119,8 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
   //   // prompt and save results in this.answers
   //   yeoman.inquirer.prompt(prompts, function (answers) {
   //     this.answers = answers;
+  //     answers.includeSass = true; // set to true for now
+
   //     this.log(chalk.inverse(JSON.stringify(this.answers, null, '  ')));
   //     done();
   //   }.bind(this));
@@ -126,30 +129,31 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
   writing: {
 
     app: function () {
-       // debugging
+      // debugging
+      // TODO: remove debugging
       this.pkg = {
         name: 'pkgName',
         version: 'pkgVersion'
       };
       this.answers = {
-        "appName": "asdf",
-        "appId": "asdf.asdf.asdf",
-        "includeSass": true,
-        "stableVersions": true,
-        "platforms": [
-          "ios",
-          "android"
+        'appName': 'asdf',
+        'appId': 'asdf.asdf.asdf',
+        'includeSass': true,
+        'stableVersions': true,
+        'platforms': [
+          'ios',
+          'android'
         ],
-        "plugins": [
-          "org.apache.cordova.device",
-          "org.apache.cordova.dialogs",
-          "org.apache.cordova.network-information",
-          "org.apache.cordova.splashscreen"
+        'plugins': [
+          'org.apache.cordova.device',
+          'org.apache.cordova.dialogs',
+          'org.apache.cordova.network-information',
+          'org.apache.cordova.splashscreen'
         ],
       };
 
-      // set initial dependencies
-      this.bower = {
+      // prepare bower.json
+      var bower = this.bower = {
         dependencies: {
           'ionic': 'v1.0.0-beta.12',
           'angular': '~1.3.0-rc.2',
@@ -163,45 +167,49 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
           'angular': '1.3.0-rc.2'
         }
       };
-
       // set all deps to latest?
       if (!this.answers.stableVersions) {
-        for (var topKey in this.bower) {
-          for (var key in this.bower[topKey]) {
-            this.bower[topKey][key] = 'latest';
+        for (var topKey in bower) {
+          for (var key in bower[topKey]) {
+            bower[topKey][key] = 'latest';
           }
         }
       }
+      // add other properties
+      bower.name = this.answers.appName;
+      bower.private = true;
 
-      this.bower.dependencies = JSON.stringify(this.bower.dependencies, null, '  ');
-      this.bower.devDependencies = JSON.stringify(this.bower.devDependencies, null, '  ');
-      this.bower.resolutions = JSON.stringify(this.bower.resolutions, null, '  ');
-
-      this.dest.mkdir('app');
-      this.dest.mkdir('app/templates');
+      // prepare index
+      var indexFile = this.readFileAsString(path.join(this.sourceRoot(), '_index.html'));
+      indexFile = this.engine(indexFile, this); // create template with data from 'this'
+      indexFile = this.appendFiles({
+        html: indexFile,
+        fileType: 'js',
+        optimizedPath: 'scripts/app.js',
+        sourceFileList: ['scripts/app.js', 'scripts/test.js']
+      });
 
       // app  files
-      this.template('_bower.json', 'bower.json');
+      this.copy('_app.js', 'app/scripts/app.js');
+      this.write('bower.json', JSON.stringify(bower, null, 2));
       this.template('_gulpfile.js', 'gulpfile.js');
-      this.template('_index.html', 'app/index.html');
+      this.write('app/index.html', indexFile);
 
       var css = 'main.' + (this.answers.includeSass ? 's' : '') + 'css';
       this.copy(css, 'app/styles/' + css);
-
-      // app files
-
     },
 
     projectfiles: function () {
 
       this.template('_package.json', 'package.json');
-      this.src.copy('editorconfig', '.editorconfig');
-      this.src.copy('gitattributes', '.gitattributes');
-      this.src.copy('gitignore', '.gitignore');
-      this.src.copy('jscsrc', '.jscsrc');
-      this.src.copy('jshintrc', '.jshintrc');
-      this.src.copy('jshintignore', '.jshintignore');
-      this.src.copy('jshintrc', '.jshintrc');
+      this.copy('bowerrc', '.bowerrc');
+      this.copy('editorconfig', '.editorconfig');
+      this.copy('gitattributes', '.gitattributes');
+      this.copy('gitignore', '.gitignore');
+      this.copy('jscsrc', '.jscsrc');
+      this.copy('jshintrc', '.jshintrc');
+      this.copy('jshintignore', '.jshintignore');
+      this.copy('jshintrc', '.jshintrc');
     }
   },
 
@@ -221,7 +229,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
   //   // all
   //   .then(function () {
   //     this.log(chalk.green('Added plugins: ' + this.answers.plugins.join(', ')));
-  //     this.log(chalk.green('Cordova project was set up successfully!'));
+  //     this.log(chalk.green('Cordova project was set up successfully! Project Name: '), chalk.bgGreen(this.appId));
   //   }.bind(this))
   //   .catch(function (err) {
   //     this.log(chalk.red('Couldn\'t finish generator: ' + err));
@@ -229,9 +237,19 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
 
   // },
 
-  // end: function () {
-  //   this.installDependencies();
-  // }
+  end: function () {
+    this.installDependencies({
+      callback: function () {
+        console.log('here');
+        wiredep({
+          bowerJson: this.bower,
+          directory: 'app/bower_components', // TODO read from bowerrc
+          src: 'app/index.html'
+        });
+      }.bind(this)
+    });
+    // this.installDependencies();
+  }
 });
 
 module.exports = GulpIonicGenerator;
