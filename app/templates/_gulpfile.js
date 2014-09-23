@@ -3,7 +3,7 @@
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 
-gulp.task('styles', function () {<% if (includeSass) { %>
+gulp.task('styles', function () {<% if (answers.includeSass) { %>
   return gulp.src('app/styles/main.scss')
     .pipe($.plumber())
     .pipe($.rubySass({
@@ -81,14 +81,14 @@ gulp.task('connect', function () {
     });
 });
 
-gulp.task('serve', ['connect'<% if (includeSass) { %>, 'styles'<% } %>], function () {
+gulp.task('serve', ['connect'<% if (answers.includeSass) { %>, 'styles'<% } %>], function () {
   require('opn')('http://localhost:9000');
 });
 
 // inject bower components
 gulp.task('wiredep', function () {
   var wiredep = require('wiredep').stream;
-<% if (includeSass) { %>
+<% if (answers.includeSass) { %>
   gulp.src('app/styles/*.scss')
     .pipe(wiredep())
     .pipe(gulp.dest('app/styles'));
@@ -109,7 +109,7 @@ gulp.task('watch', ['connect', 'serve'], function () {
     'app/images/**/*'
   ]).on('change', $.livereload.changed);
 
-  gulp.watch('app/styles/**/*.<%= includeSass ? 'scss' : 'css' %>', ['styles']);
+  gulp.watch('app/styles/**/*.<%= answers.includeSass ? 'scss' : 'css' %>', ['styles']);
   gulp.watch('bower.json', ['wiredep']);
 });
 

@@ -127,7 +127,6 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
 
     app: function () {
        // debugging
-      this.includeSass = true;
       this.pkg = {
         name: 'pkgName',
         version: 'pkgVersion'
@@ -135,6 +134,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       this.answers = {
         "appName": "asdf",
         "appId": "asdf.asdf.asdf",
+        "includeSass": true,
         "stableVersions": true,
         "platforms": [
           "ios",
@@ -180,14 +180,27 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       this.dest.mkdir('app');
       this.dest.mkdir('app/templates');
 
-      this.template('_package.json', 'package.json');
+      // app  files
       this.template('_bower.json', 'bower.json');
       this.template('_gulpfile.js', 'gulpfile.js');
       this.template('_index.html', 'app/index.html');
+
+      var css = 'main.' + (this.answers.includeSass ? 's' : '') + 'css';
+      this.copy(css, 'app/styles/' + css);
+
+      // app files
+
     },
 
     projectfiles: function () {
+
+      this.template('_package.json', 'package.json');
       this.src.copy('editorconfig', '.editorconfig');
+      this.src.copy('gitattributes', '.gitattributes');
+      this.src.copy('gitignore', '.gitignore');
+      this.src.copy('jscsrc', '.jscsrc');
+      this.src.copy('jshintrc', '.jshintrc');
+      this.src.copy('jshintignore', '.jshintignore');
       this.src.copy('jshintrc', '.jshintrc');
     }
   },

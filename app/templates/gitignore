@@ -1,0 +1,14 @@
+.DS_Store
+node_modules
+dist
+.tmp
+.sass-cache
+app/bower_components
+cordova/platforms/ios/www/**
+**/xcuserdata/
+xcshareddata/
+coverage/
+
+# sublime project files
+*.sublime-project
+*.sublime-workspace
