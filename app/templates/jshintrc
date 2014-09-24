@@ -17,5 +17,12 @@
   "strict": true,
   "trailing": true,
   "smarttabs": true,
-  "white": true
+  "expr": true,
+
+  "jquery": true,
+  "globals": {
+    "angular": false,
+    "moment": false,
+    "_": false
+  }
 }

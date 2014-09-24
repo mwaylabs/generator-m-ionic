@@ -9,9 +9,9 @@ var os = require('os');
 describe('gulp-ionic:app', function () {
   before(function (done) {
     helpers.run(path.join(__dirname, '../app'))
-      .inDir(path.join(os.tmpdir(), './temp-test'))
-      .withOptions({ 'skip-install': true })
-      .withPrompt({
+      .inDir(path.join(os.tmpdir(), './temp-test')) // create new dir
+      .withOptions({ 'skip-install': true }) // execute with options
+      .withPrompt({ // answer prompts
         someOption: true
       })
       .on('end', done);

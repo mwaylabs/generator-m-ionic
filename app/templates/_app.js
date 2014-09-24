@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('<%= answers.appName %>', [
 ])
 .run(function () {

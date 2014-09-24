@@ -10,9 +10,9 @@ var cordova = require('cordova-lib').cordova.raw; // get the promise version of 
 var wiredep = require('wiredep');
 
 var GulpIonicGenerator = yeoman.generators.Base.extend({
-  // initializing: function () {
-  //   this.pkg = require('../package.json');
-  // },
+  initializing: function () {
+    this.pkg = require('../package.json');
+  },
 
   // prompting: function () {
   //   // say hello
@@ -45,6 +45,59 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
   //         });
   //         return splits.length >= 3 ? true : 'Please enter a valid id! E.g. com.company.project';
   //       }
+  //     },
+  //     // bower packages
+  //     {
+  //       type: 'checkbox',
+  //       name: 'bowerPackages',
+  //       message: 'Choose all bower packages in addition to angular, ionic, angular-ui-router, cordova and ngCordova:',
+  //       choices: [
+  //         {
+  //           value: 'angular-dynamic-locale#~0.1.17',
+  //           name: 'angular-dynamic-locale#~0.1.17',
+  //           checked: true
+  //         },
+  //         {
+  //           value: 'angular-localForage#~0.2.10',
+  //           name: 'angular-localForage#~0.2.10',
+  //           checked: true
+  //         },
+  //         {
+  //           value: 'angular-touch#~1.2.25',
+  //           name: 'angular-touch#~1.2.25',
+  //           checked: true
+  //         },
+  //         {
+  //           value: 'angular-translate#~2.4.0',
+  //           name: 'angular-translate#~2.4.0',
+  //           checked: true
+  //         },
+  //         {
+  //           value: 'angular-translate-loader-static-files#~2.4.0',
+  //           name: 'angular-translate-loader-static-files#~2.4.0',
+  //           checked: true
+  //         },
+  //         {
+  //           value: 'angular-ui-bootstrap-bower#~0.11.0',
+  //           name: 'angular-ui-bootstrap-bower#~0.11.0',
+  //           checked: true
+  //         },
+  //         {
+  //           value: 'fastclick#~1.0.3',
+  //           name: 'fastclick#~1.0.3',
+  //           checked: true
+  //         },
+  //         {
+  //           value: 'ratchet#~2.0.2',
+  //           name: 'ratchet#~2.0.2',
+  //           checked: false
+  //         },
+  //         {
+  //           value: 'restangular#~1.4.0',
+  //           name: 'restangular#~1.4.0',
+  //           checked: true
+  //         }
+  //       ]
   //     },
   //     // stableVersions
   //     {
@@ -90,7 +143,8 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
   //         new yeoman.inquirer.Separator(),
   //         {
   //           value: 'org.apache.cordova.device',
-  //           name: 'Device - org.apache.cordova.device'
+  //           name: 'Device - org.apache.cordova.device',
+  //           checked: true
   //         },
   //         {
   //           value: 'org.apache.cordova.dialogs',
@@ -121,24 +175,28 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
   //     this.answers = answers;
   //     answers.includeSass = true; // set to true for now
 
-  //     this.log(chalk.inverse(JSON.stringify(this.answers, null, '  ')));
   //     done();
   //   }.bind(this));
   // },
 
   writing: {
 
-    app: function () {
-      // debugging
-      // TODO: remove debugging
-      this.pkg = {
-        name: 'pkgName',
-        version: 'pkgVersion'
-      };
+    // TODO: remove debugging
+    debug: function () {
+      this.log(chalk.inverse(JSON.stringify(this.answers, null, '  ')));
       this.answers = {
         'appName': 'asdf',
         'appId': 'asdf.asdf.asdf',
-        'includeSass': true,
+        'bowerPackages': [
+          'angular-dynamic-locale#~0.1.17',
+          'angular-localForage#~0.2.10',
+          'angular-touch#~1.2.25',
+          'angular-translate#~2.4.0',
+          'angular-translate-loader-static-files#~2.4.0',
+          'angular-ui-bootstrap-bower#~0.11.0',
+          'fastclick#~1.0.3',
+          'restangular#~1.4.0'
+        ],
         'stableVersions': true,
         'platforms': [
           'ios',
@@ -150,7 +208,37 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
           'org.apache.cordova.network-information',
           'org.apache.cordova.splashscreen'
         ],
+        'includeSass': true
       };
+    },
+
+    // cordova: function () {
+    //   var done = this.async(); // wait with subsequent tasks since cordova needs an empty folder
+    //   // cordova project
+    //   cordova.create('.', this.answers.appId, this.answers.appName)
+    //   // add platforms
+    //   .then(function () {
+    //     this.log(chalk.green('Created cordova project'));
+    //     return cordova.platform('add', this.answers.platforms);
+    //   }.bind(this))
+    //   // add plugins
+    //   .then(function () {
+    //     this.log(chalk.green('Added platforms: ' + this.answers.platforms.join(', ')));
+    //     return cordova.plugins('add', this.answers.plugins);
+    //   }.bind(this))
+    //   // all
+    //   .then(function () {
+    //     this.log(chalk.green('Added plugins: ' + this.answers.plugins.join(', ')));
+    //     this.log(chalk.green('Cordova project was set up successfully! Project Name: '), chalk.bgGreen(this.answers.appId));
+    //     done();
+    //   }.bind(this))
+    //   .catch(function (err) {
+    //     this.log(chalk.red('Couldn\'t finish generator: \n' + err));
+    //     // halts because done will not be called!
+    //   }.bind(this));
+    // },
+
+    app: function () {
 
       // prepare bower.json
       var bower = this.bower = {
@@ -158,15 +246,21 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
           'ionic': 'v1.0.0-beta.12',
           'angular': '~1.3.0-rc.2',
           'angular-ui-router': '~0.2.10',
-          'ngCordova': '~0.1.4-alpha'
+          'ngCordova': '~0.1.4-alpha',
+          'cordova': '~3.4.0'
         },
         devDependencies: {
 
         },
         resolutions: {
-          'angular': '1.3.0-rc.2'
+          'angular': '~1.3.0-rc.2'
         }
       };
+      // include selected packages
+      for (var i = 0, bowerPackage; (bowerPackage = this.answers.bowerPackages[i]); i++) {
+        bowerPackage = bowerPackage.split('#');
+        this.bower.dependencies[bowerPackage[0]] = bowerPackage[1];
+      }
       // set all deps to latest?
       if (!this.answers.stableVersions) {
         for (var topKey in bower) {
@@ -186,7 +280,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
         html: indexFile,
         fileType: 'js',
         optimizedPath: 'scripts/app.js',
-        sourceFileList: ['scripts/app.js', 'scripts/test.js']
+        sourceFileList: ['scripts/app.js']
       });
 
       // app  files
@@ -213,42 +307,23 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
     }
   },
 
-  // install: function () {
-  //   // cordova project
-  //   cordova.create('.', this.answers.appId, this.answers.appName)
-  //   // add platforms
-  //   .then(function () {
-  //     this.log(chalk.green('Created cordova project'));
-  //     return cordova.platform('add', this.answers.platforms);
-  //   }.bind(this))
-  //   // add plugins
-  //   .then(function () {
-  //     this.log(chalk.green('Added platforms: ' + this.answers.platforms.join(', ')));
-  //     return cordova.plugins('add', this.answers.plugins);
-  //   }.bind(this))
-  //   // all
-  //   .then(function () {
-  //     this.log(chalk.green('Added plugins: ' + this.answers.plugins.join(', ')));
-  //     this.log(chalk.green('Cordova project was set up successfully! Project Name: '), chalk.bgGreen(this.appId));
-  //   }.bind(this))
-  //   .catch(function (err) {
-  //     this.log(chalk.red('Couldn\'t finish generator: ' + err));
-  //   }.bind(this));
-
-  // },
-
-  end: function () {
+  install: function () {
     this.installDependencies({
+      skipInstall: this.options['skip-install'],
       callback: function () {
-        console.log('here');
-        wiredep({
-          bowerJson: this.bower,
-          directory: 'app/bower_components', // TODO read from bowerrc
-          src: 'app/index.html'
-        });
+        if (this.options['skip-install']) {
+          wiredep({
+            bowerJson: this.bower,
+            directory: 'app/bower_components', // TODO read path from bowerrc
+            src: 'app/index.html'
+          });
+        }
       }.bind(this)
     });
-    // this.installDependencies();
+  },
+
+  end: function () {
+
   }
 });
 
