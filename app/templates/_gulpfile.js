@@ -98,8 +98,17 @@ gulp.task('wiredep', function () {
     .pipe(gulp.dest('app'));
 });
 
+// inject app/**/.*js files into index.html
+gulp.task('inject', function () {
+  var sourceFiles = gulp.src(['./app/scripts/**/*.js']);
+  return gulp.src('./app/index.html')
+    .pipe($.inject(sourceFiles.pipe($.angularFilesort()), {relative: true}))
+    .pipe(gulp.dest('./app'));
+});
+
 gulp.task('watch', ['connect', 'serve'], function () {
   $.livereload.listen();
+  gulp.start('inject'); // inject on the first run
 
   // watch for changes
   gulp.watch([
@@ -107,9 +116,15 @@ gulp.task('watch', ['connect', 'serve'], function () {
     '.tmp/styles/**/*.css',
     'app/scripts/**/*.js',
     'app/images/**/*'
-  ]).on('change', $.livereload.changed);
+  ]).on('change', function () {
+    $.livereload.changed();
+    gulp.start('inject'); // TODO: only run when added/deleted files
+    // FIXME: when deleting second watch not started: index.html OK but 404 in livereload
+  });
 
+  // watch for changes in css/scss
   gulp.watch('app/styles/**/*.<%= answers.includeSass ? 'scss' : 'css' %>', ['styles']);
+  // watch for changes in bower.json
   gulp.watch('bower.json', ['wiredep']);
 });
 

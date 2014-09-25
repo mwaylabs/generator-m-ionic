@@ -1,17 +1,15 @@
 'use strict';
-var util = require('util');
+
 var path = require('path');
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 var chalk = require('chalk');
-var spawn = require('child_process').spawn;
-var exec = require('child_process').exec;
-var cordova = require('cordova-lib').cordova.raw; // get the promise version of all functions
+var cordova = require('cordova-lib').cordova.raw; // get the promise version of all methdos
 var wiredep = require('wiredep');
 
 var GulpIonicGenerator = yeoman.generators.Base.extend({
   initializing: function () {
-    this.pkg = require('../package.json');
+    this.pkg = require('../package.json'); // get package.json content
   },
 
   // prompting: function () {
@@ -179,38 +177,43 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
   //   }.bind(this));
   // },
 
-  writing: {
+  configuring: function () {
 
     // TODO: remove debugging
-    debug: function () {
-      this.log(chalk.inverse(JSON.stringify(this.answers, null, '  ')));
-      this.answers = {
-        'appName': 'asdf',
-        'appId': 'asdf.asdf.asdf',
-        'bowerPackages': [
-          'angular-dynamic-locale#~0.1.17',
-          'angular-localForage#~0.2.10',
-          'angular-touch#~1.2.25',
-          'angular-translate#~2.4.0',
-          'angular-translate-loader-static-files#~2.4.0',
-          'angular-ui-bootstrap-bower#~0.11.0',
-          'fastclick#~1.0.3',
-          'restangular#~1.4.0'
-        ],
-        'stableVersions': true,
-        'platforms': [
-          'ios',
-          'android'
-        ],
-        'plugins': [
-          'org.apache.cordova.device',
-          'org.apache.cordova.dialogs',
-          'org.apache.cordova.network-information',
-          'org.apache.cordova.splashscreen'
-        ],
-        'includeSass': true
-      };
-    },
+    // debugging
+    this.log(chalk.inverse(JSON.stringify(this.answers, null, '  ')));
+    this.answers = {
+      'appName': 'asdf',
+      'appId': 'asdf.asdf.asdf',
+      'bowerPackages': [
+        'angular-dynamic-locale#~0.1.17',
+        'angular-localForage#~0.2.10',
+        'angular-touch#~1.2.25',
+        'angular-translate#~2.4.0',
+        'angular-translate-loader-static-files#~2.4.0',
+        'angular-ui-bootstrap-bower#~0.11.0',
+        'fastclick#~1.0.3',
+        'restangular#~1.4.0'
+      ],
+      'stableVersions': true,
+      'platforms': [
+        'ios',
+        'android'
+      ],
+      'plugins': [
+        'org.apache.cordova.device',
+        'org.apache.cordova.dialogs',
+        'org.apache.cordova.network-information',
+        'org.apache.cordova.splashscreen'
+      ],
+      'includeSass': true
+    };
+
+    // store config in .yo-rc.json
+    this.config.set('answers', this.answers);
+  },
+
+  writing: {
 
     // cordova: function () {
     //   var done = this.async(); // wait with subsequent tasks since cordova needs an empty folder
@@ -276,12 +279,6 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       // prepare index
       var indexFile = this.readFileAsString(path.join(this.sourceRoot(), '_index.html'));
       indexFile = this.engine(indexFile, this); // create template with data from 'this'
-      indexFile = this.appendFiles({
-        html: indexFile,
-        fileType: 'js',
-        optimizedPath: 'scripts/app.js',
-        sourceFileList: ['scripts/app.js']
-      });
 
       // app  files
       this.copy('_app.js', 'app/scripts/app.js');
@@ -311,8 +308,8 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
     this.installDependencies({
       skipInstall: this.options['skip-install'],
       callback: function () {
-        if (this.options['skip-install']) {
-          wiredep({
+        if (!this.options['skip-install']) {
+          wiredep({ // write all dependency files
             bowerJson: this.bower,
             directory: 'app/bower_components', // TODO read path from bowerrc
             src: 'app/index.html'

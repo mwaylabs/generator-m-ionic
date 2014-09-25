@@ -3,6 +3,5 @@
 angular.module('<%= answers.appName %>', [
 ])
 .run(function () {
-
-  console.log('Allo! Allo!');
+  console.log('Allo! Allo from Angular!');
 });
