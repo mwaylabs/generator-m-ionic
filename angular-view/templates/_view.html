@@ -1,4 +1,9 @@
-<p>
-  this is your <%= name %> view<% if(options.sample === 'start') {%><br>
-  {{someData.binding}}
- <% } %></p>
+<ion-pane>
+    <ion-header-bar class="bar-stable test">
+      <h1 class="title">Start</h1>
+    </ion-header-bar>
+    <ion-content>
+      this is your <%= name %> view<% if(options.sample === 'start') {%><br>
+      {{someData.binding}}<% } %>
+    </ion-content>
+</ion-pane>
