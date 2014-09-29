@@ -88,13 +88,14 @@ gulp.task('serve', ['connect'<% if (answers.includeSass) { %>, 'styles'<% } %>],
 // inject bower components
 gulp.task('wiredep', function () {
   var wiredep = require('wiredep').stream;
+  var options = {};
 <% if (answers.includeSass) { %>
   gulp.src('app/styles/*.scss')
-    .pipe(wiredep())
+    .pipe(wiredep(options))
     .pipe(gulp.dest('app/styles'));
 <% } %>
   gulp.src('app/*.html')
-    .pipe(wiredep())
+    .pipe(wiredep(<% if(answers.ionicSass) { %>{exclude: ['bower_components/ionic/release/css']}<% } %>))
     .pipe(gulp.dest('app'));
 });
 

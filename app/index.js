@@ -101,6 +101,23 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
   //     // stableVersions
   //     {
   //       type: 'list',
+  //       name: 'ionicSass',
+  //       message: 'Do you want to use the sass version of ionic\'s css?',
+  //       choices: [
+  //         {
+  //           value: true,
+  //           name: 'yes (more flexible)',
+  //           default: true
+  //         },
+  //         {
+  //           value: false,
+  //           name: 'not (faster)',
+  //         }
+  //       ]
+  //     },
+  //     // stableVersions
+  //     {
+  //       type: 'list',
   //       name: 'stableVersions',
   //       message: 'Do you want to use components (bower & npm) we deem stable or the latest ones?',
   //       choices: [
@@ -115,7 +132,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
   //         }
   //       ]
   //     },
-  //     // check platforms
+  //     // select platforms
   //     {
   //       type: 'checkbox',
   //       name: 'platforms',
@@ -133,7 +150,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
   //         }
   //       ]
   //     },
-  //     // check plugins
+  //     // select plugins
   //     {
   //       type: 'checkbox',
   //       name: 'plugins',
@@ -185,7 +202,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
     this.log(chalk.inverse(JSON.stringify(this.answers, null, '  ')));
     this.answers = {
       'appName': 'asdf',
-      'appId': 'asdf.asdf.asdf',
+      'appId': 'com.company.project',
       'bowerPackages': [
         'angular-dynamic-locale#~0.1.17',
         'angular-localForage#~0.2.10',
@@ -196,6 +213,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
         'fastclick#~1.0.3',
         'restangular#~1.4.0'
       ],
+      'ionicSass': true,
       'stableVersions': true,
       'platforms': [
         'ios',
@@ -203,9 +221,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       ],
       'plugins': [
         'org.apache.cordova.device',
-        'org.apache.cordova.dialogs',
-        'org.apache.cordova.network-information',
-        'org.apache.cordova.splashscreen'
+        'org.apache.cordova.dialogs'
       ],
       'includeSass': true
     };
@@ -319,7 +335,8 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
           wiredep({ // write all dependency files
             bowerJson: this.bower,
             directory: 'app/bower_components', // TODO read path from bowerrc
-            src: 'app/index.html'
+            src: 'app/index.html',
+            exclude: this.answers.ionicSass ? ['bower_components/ionic/release/css'] : [] // include ionicSass if requested
           });
         }
       }.bind(this)
