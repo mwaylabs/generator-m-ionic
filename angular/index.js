@@ -1,19 +1,26 @@
 'use strict';
-var util = require('util');
+var chalk = require('chalk');
 var yeoman = require('yeoman-generator');
 
-
-var GulpIonicGenerator = yeoman.generators.Base.extend({
+var GulpIonicGenerator = yeoman.generators.NamedBase.extend({ // NamedBase requires one argument (name)
   initializing: function () {
-    this.argument('component', {
+    this.argument('descriptor', { // retrieve second argument
       required: true,
       type: 'String'
     });
-    this.log('You called the gulp-ionic subgenerator with the argument ' + this.argument + '.');
-  },
 
-  writing: function () {
-    this.src.copy('somefile.js', 'somefile.js');
+    var availableGenerators = [
+      'controller',
+      'service',
+      'view'
+    ];
+    // TODO better way to retrieve available subgenerators?
+    if (availableGenerators.indexOf(this.name) >= 0) {
+      this.composeWith('gulp-ionic:angular-' + this.name, {arguments: [this.descriptor]});
+    }
+    else {
+      this.log(chalk.yellow('Invalid option: ' + this.name + '. Available options are: ' + availableGenerators.join(', ')));
+    }
   }
 });
 

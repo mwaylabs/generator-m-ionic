@@ -115,7 +115,8 @@ gulp.task('watch', ['connect', 'serve'], function () {
     'app/*.html',
     '.tmp/styles/**/*.css',
     'app/scripts/**/*.js',
-    'app/images/**/*'
+    'app/images/**/*',
+    'app/views/**/*.html'
   ]).on('change', function () {
     $.livereload.changed();
     gulp.start('inject'); // TODO: only run when added/deleted files

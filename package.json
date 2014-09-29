@@ -20,7 +20,8 @@
     "app",
     "controller",
     "service",
-    "angular"
+    "angular",
+    "angular-view"
   ],
   "keywords": [
     "yeoman-generator"

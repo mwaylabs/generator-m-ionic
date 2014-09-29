@@ -10,6 +10,7 @@ var wiredep = require('wiredep');
 var GulpIonicGenerator = yeoman.generators.Base.extend({
   initializing: function () {
     this.pkg = require('../package.json'); // get package.json content
+    // TODO: check if .yo-rc.json exists: options: call subgenerator? update project structure? select subgenerator?
   },
 
   // prompting: function () {
@@ -301,6 +302,12 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       this.copy('jshintrc', '.jshintrc');
       this.copy('jshintignore', '.jshintignore');
       this.copy('jshintrc', '.jshintrc');
+    },
+
+    subgenerators: function () {
+      this.composeWith('gulp-ionic:angular-service', {arguments: 'start', options: {sample: 'start'}});
+      this.composeWith('gulp-ionic:angular-controller', {arguments: 'start', options: {sample: 'start'}});
+      this.composeWith('gulp-ionic:angular-view', {arguments: 'start', options: {sample: 'start'}});
     }
   },
 
