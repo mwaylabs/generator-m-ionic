@@ -13,187 +13,187 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
     // TODO: check if .yo-rc.json exists: options: call subgenerator? update project structure? select subgenerator?
   },
 
-  // prompting: function () {
-  //   // say hello
-  //   this.log(yosay(
-  //     'Welcome to the polished GulpIonic generator!'
-  //   ));
+  prompting: function () {
+    // say hello
+    this.log(yosay(
+      'Welcome to the polished GulpIonic generator!'
+    ));
 
-  //   // tell yeoman we're doing asynchronous stuff here
-  //   // so it can wait with subsequent tasks
-  //   var done = this.async();
+    // tell yeoman we're doing asynchronous stuff here
+    // so it can wait with subsequent tasks
+    var done = this.async();
 
-  //   var prompts = [
-  //     // appName
-  //     {
-  //       type: 'input',
-  //       name: 'appName',
-  //       message: 'state the name of your project (the name that will be displayed below the app icon)',
-  //       validate: function (value) {
-  //         return value ? true : 'Please enter a name ';
-  //       }
-  //     },
-  //     // appId
-  //     {
-  //       type: 'input',
-  //       name: 'appId',
-  //       message: 'state the id of your project (e.g. com.company.project)',
-  //       validate: function (value) {
-  //         var splits = value.split('.').filter(function (element) {
-  //           return element.length;
-  //         });
-  //         return splits.length >= 3 ? true : 'Please enter a valid id! E.g. com.company.project';
-  //       }
-  //     },
-  //     // bower packages
-  //     {
-  //       type: 'checkbox',
-  //       name: 'bowerPackages',
-  //       message: 'Choose all bower packages in addition to angular, ionic, angular-ui-router, cordova and ngCordova:',
-  //       choices: [
-  //         {
-  //           value: 'angular-dynamic-locale#~0.1.17',
-  //           name: 'angular-dynamic-locale#~0.1.17',
-  //           checked: true
-  //         },
-  //         {
-  //           value: 'angular-localForage#~0.2.10',
-  //           name: 'angular-localForage#~0.2.10',
-  //           checked: true
-  //         },
-  //         {
-  //           value: 'angular-touch#~1.2.25',
-  //           name: 'angular-touch#~1.2.25',
-  //           checked: true
-  //         },
-  //         {
-  //           value: 'angular-translate#~2.4.0',
-  //           name: 'angular-translate#~2.4.0',
-  //           checked: true
-  //         },
-  //         {
-  //           value: 'angular-translate-loader-static-files#~2.4.0',
-  //           name: 'angular-translate-loader-static-files#~2.4.0',
-  //           checked: true
-  //         },
-  //         {
-  //           value: 'angular-ui-bootstrap-bower#~0.11.0',
-  //           name: 'angular-ui-bootstrap-bower#~0.11.0',
-  //           checked: true
-  //         },
-  //         {
-  //           value: 'fastclick#~1.0.3',
-  //           name: 'fastclick#~1.0.3',
-  //           checked: true
-  //         },
-  //         {
-  //           value: 'ratchet#~2.0.2',
-  //           name: 'ratchet#~2.0.2',
-  //           checked: false
-  //         },
-  //         {
-  //           value: 'restangular#~1.4.0',
-  //           name: 'restangular#~1.4.0',
-  //           checked: true
-  //         }
-  //       ]
-  //     },
-  //     // stableVersions
-  //     {
-  //       type: 'list',
-  //       name: 'ionicSass',
-  //       message: 'Do you want to use the sass version of ionic\'s css?',
-  //       choices: [
-  //         {
-  //           value: true,
-  //           name: 'yes (more flexible)',
-  //           default: true
-  //         },
-  //         {
-  //           value: false,
-  //           name: 'not (faster)',
-  //         }
-  //       ]
-  //     },
-  //     // stableVersions
-  //     {
-  //       type: 'list',
-  //       name: 'stableVersions',
-  //       message: 'Do you want to use components (bower & npm) we deem stable or the latest ones?',
-  //       choices: [
-  //         {
-  //           value: true,
-  //           name: 'stable (recommended)',
-  //           default: true
-  //         },
-  //         {
-  //           value: false,
-  //           name: 'latest (experienced)',
-  //         }
-  //       ]
-  //     },
-  //     // select platforms
-  //     {
-  //       type: 'checkbox',
-  //       name: 'platforms',
-  //       message: 'Select all platforms you want to support:',
-  //       choices: [
-  //         {
-  //           value: 'ios',
-  //           name: 'iOS',
-  //           checked: true
-  //         },
-  //         {
-  //           value: 'android',
-  //           name: 'Android',
-  //           checked: true
-  //         }
-  //       ]
-  //     },
-  //     // select plugins
-  //     {
-  //       type: 'checkbox',
-  //       name: 'plugins',
-  //       message: 'Select all cordova plugins you want to install',
-  //       choices: [
-  //         new yeoman.inquirer.Separator(),
-  //         {
-  //           value: 'org.apache.cordova.device',
-  //           name: 'Device - org.apache.cordova.device',
-  //           checked: true
-  //         },
-  //         {
-  //           value: 'org.apache.cordova.dialogs',
-  //           name: 'Dialogs - org.apache.cordova.dialogs'
-  //         },
-  //         {
-  //           value: 'org.apache.cordova.network-information',
-  //           name: 'Network - org.apache.cordova.network-information'
-  //         },
-  //         {
-  //           value: 'org.apache.cordova.splashscreen',
-  //           name: 'Splashscreen - org.apache.cordova.splashscreen'
-  //         },
-  //         {
-  //           value: 'https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git',
-  //           name: 'Toast - https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git'
-  //         },
-  //         {
-  //           value: 'org.apache.cordova.vibration',
-  //           name: 'Vibration - org.apache.cordova.vibration'
-  //         },
-  //       ]
-  //     },
-  //   ];
+    var prompts = [
+      // appName
+      {
+        type: 'input',
+        name: 'appName',
+        message: 'state the name of your project (the name that will be displayed below the app icon)',
+        validate: function (value) {
+          return value ? true : 'Please enter a name ';
+        }
+      },
+      // appId
+      {
+        type: 'input',
+        name: 'appId',
+        message: 'state the id of your project (e.g. com.company.project)',
+        validate: function (value) {
+          var splits = value.split('.').filter(function (element) {
+            return element.length;
+          });
+          return splits.length >= 3 ? true : 'Please enter a valid id! E.g. com.company.project';
+        }
+      },
+      // bower packages
+      {
+        type: 'checkbox',
+        name: 'bowerPackages',
+        message: 'Choose all bower packages in addition to angular, ionic, angular-ui-router, cordova and ngCordova:',
+        choices: [
+          {
+            value: 'angular-dynamic-locale#~0.1.17',
+            name: 'angular-dynamic-locale#~0.1.17',
+            checked: true
+          },
+          {
+            value: 'angular-localForage#~0.2.10',
+            name: 'angular-localForage#~0.2.10',
+            checked: true
+          },
+          {
+            value: 'angular-touch#~1.2.25',
+            name: 'angular-touch#~1.2.25',
+            checked: true
+          },
+          {
+            value: 'angular-translate#~2.4.0',
+            name: 'angular-translate#~2.4.0',
+            checked: true
+          },
+          {
+            value: 'angular-translate-loader-static-files#~2.4.0',
+            name: 'angular-translate-loader-static-files#~2.4.0',
+            checked: true
+          },
+          {
+            value: 'angular-ui-bootstrap-bower#~0.11.0',
+            name: 'angular-ui-bootstrap-bower#~0.11.0',
+            checked: true
+          },
+          {
+            value: 'fastclick#~1.0.3',
+            name: 'fastclick#~1.0.3',
+            checked: true
+          },
+          {
+            value: 'ratchet#~2.0.2',
+            name: 'ratchet#~2.0.2',
+            checked: false
+          },
+          {
+            value: 'restangular#~1.4.0',
+            name: 'restangular#~1.4.0',
+            checked: true
+          }
+        ]
+      },
+      // stableVersions
+      {
+        type: 'list',
+        name: 'ionicSass',
+        message: 'Do you want to use the sass version of ionic\'s css?',
+        choices: [
+          {
+            value: true,
+            name: 'yes (more flexible)',
+            default: true
+          },
+          {
+            value: false,
+            name: 'not (faster)',
+          }
+        ]
+      },
+      // stableVersions
+      {
+        type: 'list',
+        name: 'stableVersions',
+        message: 'Do you want to use components (bower & npm) we deem stable or the latest ones?',
+        choices: [
+          {
+            value: true,
+            name: 'stable (recommended)',
+            default: true
+          },
+          {
+            value: false,
+            name: 'latest (experienced)',
+          }
+        ]
+      },
+      // select platforms
+      {
+        type: 'checkbox',
+        name: 'platforms',
+        message: 'Select all platforms you want to support:',
+        choices: [
+          {
+            value: 'ios',
+            name: 'iOS',
+            checked: true
+          },
+          {
+            value: 'android',
+            name: 'Android',
+            checked: true
+          }
+        ]
+      },
+      // select plugins
+      {
+        type: 'checkbox',
+        name: 'plugins',
+        message: 'Select all cordova plugins you want to install',
+        choices: [
+          new yeoman.inquirer.Separator(),
+          {
+            value: 'org.apache.cordova.device',
+            name: 'Device - org.apache.cordova.device',
+            checked: true
+          },
+          {
+            value: 'org.apache.cordova.dialogs',
+            name: 'Dialogs - org.apache.cordova.dialogs'
+          },
+          {
+            value: 'org.apache.cordova.network-information',
+            name: 'Network - org.apache.cordova.network-information'
+          },
+          {
+            value: 'org.apache.cordova.splashscreen',
+            name: 'Splashscreen - org.apache.cordova.splashscreen'
+          },
+          {
+            value: 'https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git',
+            name: 'Toast - https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git'
+          },
+          {
+            value: 'org.apache.cordova.vibration',
+            name: 'Vibration - org.apache.cordova.vibration'
+          },
+        ]
+      },
+    ];
 
-  //   // prompt and save results in this.answers
-  //   yeoman.inquirer.prompt(prompts, function (answers) {
-  //     this.answers = answers;
-  //     answers.includeSass = true; // set to true for now
+    // prompt and save results in this.answers
+    yeoman.inquirer.prompt(prompts, function (answers) {
+      this.answers = answers;
+      answers.includeSass = true; // set to true for now
 
-  //     done();
-  //   }.bind(this));
-  // },
+      done();
+    }.bind(this));
+  },
 
   configuring: function () {
 
@@ -232,31 +232,31 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
 
   writing: {
 
-    // cordova: function () {
-    //   var done = this.async(); // wait with subsequent tasks since cordova needs an empty folder
-    //   // cordova project
-    //   cordova.create('.', this.answers.appId, this.answers.appName)
-    //   // add platforms
-    //   .then(function () {
-    //     this.log(chalk.green('Created cordova project'));
-    //     return cordova.platform('add', this.answers.platforms);
-    //   }.bind(this))
-    //   // add plugins
-    //   .then(function () {
-    //     this.log(chalk.green('Added platforms: ' + this.answers.platforms.join(', ')));
-    //     return cordova.plugins('add', this.answers.plugins);
-    //   }.bind(this))
-    //   // all
-    //   .then(function () {
-    //     this.log(chalk.green('Added plugins: ' + this.answers.plugins.join(', ')));
-    //     this.log(chalk.green('Cordova project was set up successfully! Project Name: '), chalk.bgGreen(this.answers.appId));
-    //     done();
-    //   }.bind(this))
-    //   .catch(function (err) {
-    //     this.log(chalk.red('Couldn\'t finish generator: \n' + err));
-    //     // halts because done will not be called!
-    //   }.bind(this));
-    // },
+    cordova: function () {
+      var done = this.async(); // wait with subsequent tasks since cordova needs an empty folder
+      // cordova project
+      cordova.create('.', this.answers.appId, this.answers.appName)
+      // add platforms
+      .then(function () {
+        this.log(chalk.green('Created cordova project'));
+        return cordova.platform('add', this.answers.platforms);
+      }.bind(this))
+      // add plugins
+      .then(function () {
+        this.log(chalk.green('Added platforms: ' + this.answers.platforms.join(', ')));
+        return cordova.plugins('add', this.answers.plugins);
+      }.bind(this))
+      // all
+      .then(function () {
+        this.log(chalk.green('Added plugins: ' + this.answers.plugins.join(', ')));
+        this.log(chalk.green('Cordova project was set up successfully! Project Name: '), chalk.bgGreen(this.answers.appId));
+        done();
+      }.bind(this))
+      .catch(function (err) {
+        this.log(chalk.red('Couldn\'t finish generator: \n' + err));
+        // halts because done will not be called!
+      }.bind(this));
+    },
 
     app: function () {
 
