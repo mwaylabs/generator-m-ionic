@@ -12,7 +12,7 @@ var GulpIonicGenerator = yeoman.generators.NamedBase.extend({ // NamedBase requi
     var availableGenerators = [
       'controller',
       'service',
-      'view'
+      'partial'
     ];
     // TODO better way to retrieve available subgenerators?
     if (availableGenerators.indexOf(this.name) >= 0) {

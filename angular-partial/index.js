@@ -5,12 +5,12 @@ var utils = require('../utils/utils.js');
 var GulpIonicGenerator = yeoman.generators.NamedBase.extend({
 
   initializing: function () {
-    this.log('You called the gulp-ionic:angular-view subgenerator.');
+    this.log('You called the gulp-ionic:angular-partial subgenerator.');
   },
 
   writing: function () {
-    // create view with snake-case file name
-    this.template('_view.html', 'app/views/' + utils.camelToSnake(this.name) + '.html');
+    // create partial with snake-case file name
+    this.template('_partial.html', 'app/partials/' + utils.camelToSnake(this.name) + '.html');
   }
 });
 

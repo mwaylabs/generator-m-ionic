@@ -323,7 +323,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
     subgenerators: function () {
       this.composeWith('gulp-ionic:angular-service', {arguments: 'start', options: {sample: 'start'}});
       this.composeWith('gulp-ionic:angular-controller', {arguments: 'start', options: {sample: 'start'}});
-      this.composeWith('gulp-ionic:angular-view', {arguments: 'start', options: {sample: 'start'}});
+      this.composeWith('gulp-ionic:angular-partial', {arguments: 'start', options: {sample: 'start'}});
     }
   },
 
@@ -332,12 +332,14 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       skipInstall: this.options['skip-install'],
       callback: function () {
         if (!this.options['skip-install']) {
-          wiredep({ // write all dependency files
-            bowerJson: this.bower,
-            directory: 'app/bower_components', // TODO read path from bowerrc
-            src: 'app/index.html',
-            exclude: this.answers.ionicSass ? ['bower_components/ionic/release/css'] : [] // include ionicSass if requested
-          });
+          // inject bower dependencies and app js files
+          var done = this.async();
+          this.spawnCommand('gulp', ['wiredep', 'fonts'])
+          .on('exit', function () { // TODO: better gulp task wiring/dependencies
+            // https://github.com/gulpjs/gulp/blob/master/docs/API.md#async-task-support
+            this.spawnCommand('gulp', ['inject']);
+            done();
+          }.bind(this));
         }
       }.bind(this)
     });

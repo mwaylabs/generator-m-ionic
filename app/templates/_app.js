@@ -13,7 +13,7 @@ angular.module('<%= answers.appName %>', [
   $stateProvider
     .state('start', {
       url: '/start',
-      templateUrl: 'views/start.html',
+      templateUrl: 'partials/start.html',
       controller: 'StartCtrl'
     });
 

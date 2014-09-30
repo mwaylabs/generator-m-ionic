@@ -5,6 +5,8 @@ dist
 .sass-cache
 app/bower_components
 platforms/ios/www/**
+platforms/android/assets/www/**
+wwww/**
 **/xcuserdata/
 xcshareddata/
 coverage/
