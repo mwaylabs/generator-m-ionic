@@ -117,7 +117,7 @@ gulp.task('connect', function () {
     });
 });
 
-gulp.task('serve', ['connect', 'inject', <% if (answers.includeSass) { %>, 'styles'<% } %>], function () {
+gulp.task('serve', ['connect', 'inject'<% if (answers.includeSass) { %>, 'styles'<% } %>], function () {
   require('opn')('http://localhost:9000');
 });
 

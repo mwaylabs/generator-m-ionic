@@ -206,31 +206,31 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
     // TODO: remove debugging
     // debugging
     this.log(chalk.inverse(JSON.stringify(this.answers, null, '  ')));
-    this.answers = {
-      'appName': 'asdf',
-      'appId': 'com.company.project',
-      'bowerPackages': [
-        'angular-dynamic-locale#~0.1.17',
-        'angular-localForage#~0.2.10',
-        'angular-touch#~1.2.25',
-        'angular-translate#~2.4.0',
-        'angular-translate-loader-static-files#~2.4.0',
-        'angular-ui-bootstrap-bower#~0.11.0',
-        'fastclick#~1.0.3',
-        'restangular#~1.4.0'
-      ],
-      'ionicSass': true,
-      'stableVersions': true,
-      'platforms': [
-        'ios',
-        'android'
-      ],
-      'plugins': [
-        'org.apache.cordova.device',
-        'org.apache.cordova.dialogs'
-      ],
-      'includeSass': true
-    };
+    // this.answers = {
+    //   'appName': 'asdf',
+    //   'appId': 'com.company.project',
+    //   'bowerPackages': [
+    //     'angular-dynamic-locale#~0.1.17',
+    //     'angular-localForage#~0.2.10',
+    //     'angular-touch#~1.2.25',
+    //     'angular-translate#~2.4.0',
+    //     'angular-translate-loader-static-files#~2.4.0',
+    //     'angular-ui-bootstrap-bower#~0.11.0',
+    //     'fastclick#~1.0.3',
+    //     'restangular#~1.4.0'
+    //   ],
+    //   'ionicSass': true,
+    //   'stableVersions': true,
+    //   'platforms': [
+    //     'ios',
+    //     'android'
+    //   ],
+    //   'plugins': [
+    //     'org.apache.cordova.device',
+    //     'org.apache.cordova.dialogs'
+    //   ],
+    //   'includeSass': true
+    // };
 
     // store config in .yo-rc.json
     this.config.set('answers', this.answers);
