@@ -11,9 +11,15 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
   initializing: function () {
     this.pkg = require('../package.json'); // get package.json content
     // TODO: check if .yo-rc.json exists: options: call subgenerator? update project structure? select subgenerator?
+    // retrieve config for templating
+    this.answers = this.config.getAll().answers;
+    this.update = this.answers ? true : false;
   },
 
   prompting: function () {
+    if (this.update) {
+      return;
+    }
     // say hello
     this.log(yosay(
       'Welcome to the polished GulpIonic generator!'
@@ -233,6 +239,10 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
   writing: {
 
     cordova: function () {
+      if (this.update) {
+        return true;
+      }
+
       var done = this.async(); // wait with subsequent tasks since cordova needs an empty folder
       // cordova project
       cordova.create('.', this.answers.appId, this.answers.appName)
