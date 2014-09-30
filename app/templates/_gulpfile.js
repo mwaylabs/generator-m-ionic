@@ -4,6 +4,23 @@
 'use strict';
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
+var minimist = require('minimist');
+
+// options
+var options = minimist(process.argv.slice(2));
+options.distPath = 'www';
+if (options.cordova) {
+  // build before running cordova?
+  options.cordovaBuild = options.cordova.indexOf('build') >= 0 || options.cordova.indexOf('run') >= 0;
+  // TODO: better platform detection
+  // detect platform
+  options.platform = [
+    'ios',
+    'android'
+  ].filter(function (platform) {
+    return options.cordova.indexOf(platform) >= 0;
+  })[0];
+}
 
 gulp.task('styles', function () {<% if (answers.includeSass) { %>
   return gulp.src('app/styles/main.scss')
@@ -34,11 +51,11 @@ gulp.task('jscs', function () {
 // copy partials
 gulp.task('partials', function () {
   return gulp.src('app/partials/**/*.html')
-    .pipe(gulp.dest('dist/partials'));
+    .pipe(gulp.dest(options.distPath + '/partials'));
 });
 
 // build starting from main html file (index.html)
-gulp.task('app', ['styles', 'partials'], function () {
+gulp.task('app', ['inject', 'styles', 'partials'], function () {
   // only build assets that are actually used
   var assets = $.useref.assets({searchPath: '{.tmp,app}'});
 
@@ -57,7 +74,7 @@ gulp.task('app', ['styles', 'partials'], function () {
     // .pipe($.if('*.css', $.csso())) // minify css
     .pipe(assets.restore())
     .pipe($.useref())
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest(options.distPath));
 });
 
 // copy & minify images to dist/images
@@ -67,7 +84,7 @@ gulp.task('images', function () {
       progressive: true,
       interlaced: true
     })))
-    .pipe(gulp.dest('dist/images'));
+    .pipe(gulp.dest(options.distPath + '/images'));
 });
 
 // copy fonts to do dist/fonts and app/fonts
@@ -75,11 +92,11 @@ gulp.task('fonts', function () {
   return gulp.src(require('main-bower-files')().concat('app/fonts/**/*'))
     .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
     .pipe($.flatten())
-    .pipe(gulp.dest('dist/fonts'))
+    .pipe(gulp.dest(options.distPath + '/fonts'))
     .pipe(gulp.dest('app/fonts')); // TODO: find a better way to inject $ionicons-font-path: "../fonts" !default; into main.scss on build
 });
 
-gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
+gulp.task('clean', require('del').bind(null, ['.tmp', options.distPath]));
 
 gulp.task('connect', function () {
   var serveStatic = require('serve-static');
@@ -110,11 +127,11 @@ gulp.task('connect-build', function () {
   var serveIndex = require('serve-index');
   var app = require('connect')()
     .use(require('connect-livereload')({port: 35729}))
-    .use(serveStatic('dist'))
+    .use(serveStatic(options.distPath))
     // paths to bower_components should be relative to the current file
     // e.g. in app/index.html you should use ../bower_components
     .use('/bower_components', serveStatic('bower_components'))
-    .use(serveIndex('dist'));
+    .use(serveIndex(options.distPath));
 
   require('http').createServer(app)
     .listen(9000)
@@ -141,11 +158,15 @@ gulp.task('wiredep', function () {
     .pipe(gulp.dest('app'));
 });
 
-// inject app/**/.*js files into index.html
+// inject app/**/.*js and cordova.js files into index.html
 gulp.task('inject', function () {
-  var sourceFiles = gulp.src(['./app/scripts/**/*.js']);
+  var jsFiles = gulp.src(['./app/scripts/**/*.js']);
+  var cordovaUrl = options.platform ? './app/bower_components/cordova/cordova.' + options.platform + '.js' : '';
+  var cordovaFile = gulp.src(cordovaUrl, {read: false});
+
   return gulp.src('./app/index.html')
-    .pipe($.inject(sourceFiles.pipe($.angularFilesort()), {relative: true}))
+    .pipe($.inject(cordovaFile, {starttag: '<!-- inject:cordova:{{ext}} -->', relative: true}))
+    .pipe($.inject(jsFiles.pipe($.angularFilesort()), {relative: true}))
     .pipe(gulp.dest('./app'));
 });
 
@@ -171,10 +192,31 @@ gulp.task('watch', ['connect', 'serve'], function () {
   gulp.watch('bower.json', ['wiredep']);
 });
 
-gulp.task('build', ['jshint', 'jscs', 'app', 'images', 'fonts'], function () {
-  return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
+// FIXME: when depending on fonts main tasks will not run
+gulp.task('build', ['jshint', 'jscs', 'app', 'images'], function () {
+  return gulp.src(options.distPath + '/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
-gulp.task('default', ['clean'], function () {
-  gulp.start('build');
+// TODO: find better solution for cordova CLI integration
+gulp.task('default', function () {
+  if (options.cordovaBuild) {
+    return gulp.start('cordova-build');
+  }
+  else {
+    return gulp.start('cordova');
+  }
+});
+
+gulp.task('cordova', function () {
+  return gulp.src('')
+    .pipe($.shell([
+      'cordova ' + options.cordova
+    ]));
+});
+// FIXME: when depending on fonts main tasks will not run
+gulp.task('cordova-build', ['build'], function () {
+  return gulp.src('')
+    .pipe($.shell([
+      'cordova ' + options.cordova
+    ]));
 });

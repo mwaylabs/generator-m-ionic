@@ -318,6 +318,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       this.copy('jshintrc', '.jshintrc');
       this.copy('jshintignore', '.jshintignore');
       this.copy('jshintrc', '.jshintrc');
+      this.copy('README.md', 'README.md');
     },
 
     subgenerators: function () {
@@ -335,8 +336,11 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
           // inject bower dependencies and app js files
           var done = this.async();
           this.spawnCommand('gulp', ['wiredep', 'fonts'])
-          .on('exit', function () { // TODO: better gulp task wiring/dependencies
+          .on('exit', function () {
+            // TODO: better gulp task wiring/dependencies
             // https://github.com/gulpjs/gulp/blob/master/docs/API.md#async-task-support
+            // https://github.com/klei/gulp-inject#injecting-files-from-multiple-source-streams
+            // https://github.com/klei/gulp-inject#injecting-some-files-into-head-and-some-into-body
             this.spawnCommand('gulp', ['inject']);
             done();
           }.bind(this));

@@ -1,12 +1,14 @@
 .DS_Store
 node_modules
-dist
 .tmp
 .sass-cache
 app/bower_components
+# copied assets from cordova
 platforms/ios/www/**
 platforms/android/assets/www/**
-wwww/**
+# dist folder
+dist
+www/**
 **/xcuserdata/
 xcshareddata/
 coverage/

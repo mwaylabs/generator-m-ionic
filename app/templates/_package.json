@@ -6,6 +6,7 @@
   "devDependencies": {
     "connect": "^3.0.1",
     "connect-livereload": "^0.4.0",
+    "cordova": "3.5.0-0.2.7",
     "del": "^0.1.0",
     "gulp": "^3.6.0",
     "gulp-angular-filesort": "^1.0.4",
@@ -24,11 +25,13 @@
     "gulp-ng-annotate": "^0.3.3",<% if (answers.includeSass) { %>
     "gulp-ruby-sass": "^0.5.0",
     "gulp-plumber": "^0.6.3",<% } %>
+    "gulp-shell": "^0.2.9",
     "gulp-size": "^0.4.0",
     "gulp-uglify": "^0.3.0",
     "gulp-useref": "^0.6.0",
     "jshint-stylish": "^0.2.0",
     "main-bower-files": "^1.0.1",
+    "minimist": "^1.1.0",
     "opn": "^0.1.1",
     "serve-index": "^1.1.4",
     "serve-static": "^1.4.0",
