@@ -50,8 +50,11 @@ gulp.task('jscs', function () {
 
 // copy partials
 gulp.task('partials', function () {
-  return gulp.src('app/partials/**/*.html')
-    .pipe(gulp.dest(options.distPath + '/partials'));
+  return gulp.src([
+    'app/partials/**/*.html',
+    'app/partials/**/*.json', // for language files etc...
+  ])
+  .pipe(gulp.dest(options.distPath + '/partials'));
 });
 
 // build starting from main html file (index.html)
@@ -184,6 +187,7 @@ gulp.task('watch', ['connect', 'serve'], function () {
     $.livereload.changed();
     gulp.start('inject'); // TODO: only run when added/deleted files
     // FIXME: when deleting second watch is not started: index.html OK but 404 in livereload
+    // FIXME: not watching new files?!
   });
 
   // watch for changes in css/scss
