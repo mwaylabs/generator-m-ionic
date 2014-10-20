@@ -248,12 +248,12 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       // add platforms
       .then(function () {
         this.log(chalk.green('Created cordova project'));
-        return cordova.platform('add', this.answers.platforms);
+        return this.options['skip-sdk'] ? true : cordova.platform('add', this.answers.platforms);
       }.bind(this))
       // add plugins
       .then(function () {
         this.log(chalk.green('Added platforms: ' + this.answers.platforms.join(', ')));
-        return cordova.plugins('add', this.answers.plugins);
+        return this.options['skip-sdk'] ? true : cordova.plugins('add', this.answers.plugins);
       }.bind(this))
       // all
       .then(function () {
@@ -326,7 +326,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       this.copy('jshintrc', '.jshintrc');
       this.copy('jshintignore', '.jshintignore');
       this.copy('jshintrc', '.jshintrc');
-      this.copy('README.md', 'README.md');
+      this.copy(path.join(__dirname, '../', 'README.md'), 'README.md');
     },
 
     subgenerators: function () {
