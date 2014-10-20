@@ -1,10 +1,10 @@
 {
   "name": "generator-m",
-  "version": "0.2.0",
-  "description": "Yeoman generator",
+  "version": "0.2.1",
+  "description": "generator-m",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "gruppjo/generator-m",
+  "repository": "mwaylabs/generator-m",
   "author": {
     "name": "Jonathan Grupp",
     "email": "j.grupp@mwaysolutions.com",
@@ -21,7 +21,8 @@
     "app",
     "controller",
     "partial",
-    "service"
+    "service",
+    "utils"
   ],
   "keywords": [
     "yeoman-generator"
