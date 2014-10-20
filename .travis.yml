@@ -3,5 +3,5 @@ node_js:
   - '0.10'
 before_install:
   - currentfolder=${PWD##*/}
-  - if [ "$currentfolder" != 'generator-gulp-ionic' ]; then cd .. && eval "mv $currentfolder generator-gulp-ionic" && cd generator-gulp-ionic; fi
+  - if [ "$currentfolder" != 'generator-m' ]; then cd .. && eval "mv $currentfolder generator-m" && cd generator-m; fi
 

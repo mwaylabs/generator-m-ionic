@@ -31,7 +31,7 @@ cordova build/run
 
 ## Generators
 
-  yo gulp-ionic:angular controller <name>
-  yo gulp-ionic:angular partial <name>
-  yo gulp-ionic:angular service <name>
+  yo m:angular controller <name>
+  yo m:angular partial <name>
+  yo m:angular service <name>
 

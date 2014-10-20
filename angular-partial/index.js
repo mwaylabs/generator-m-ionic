@@ -5,7 +5,7 @@ var utils = require('../utils/utils.js');
 var GulpIonicGenerator = yeoman.generators.NamedBase.extend({
 
   initializing: function () {
-    this.log('You called the gulp-ionic:angular-partial subgenerator.');
+    this.log('You called the m:angular-partial subgenerator.');
   },
 
   writing: function () {

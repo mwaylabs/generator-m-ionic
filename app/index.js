@@ -22,7 +22,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
     }
     // say hello
     this.log(yosay(
-      'Welcome to the polished GulpIonic generator!'
+      'Welcome to the polished M generator!'
     ));
 
     // tell yeoman we're doing asynchronous stuff here
@@ -193,7 +193,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
     ];
 
     // prompt and save results in this.answers
-    yeoman.inquirer.prompt(prompts, function (answers) {
+    this.prompt(prompts, function (answers) {
       this.answers = answers;
       answers.includeSass = true; // set to true for now
 
@@ -269,7 +269,6 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
     },
 
     app: function () {
-
       // prepare bower.json
       var bower = this.bower = {
         dependencies: {
@@ -332,9 +331,9 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
     },
 
     subgenerators: function () {
-      this.composeWith('gulp-ionic:angular-service', {arguments: 'start', options: {sample: 'start'}});
-      this.composeWith('gulp-ionic:angular-controller', {arguments: 'start', options: {sample: 'start'}});
-      this.composeWith('gulp-ionic:angular-partial', {arguments: 'start', options: {sample: 'start'}});
+      this.composeWith('m:angular-service', {arguments: 'start', options: {sample: 'start'}});
+      this.composeWith('m:angular-controller', {arguments: 'start', options: {sample: 'start'}});
+      this.composeWith('m:angular-partial', {arguments: 'start', options: {sample: 'start'}});
     }
   },
 

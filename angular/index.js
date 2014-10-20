@@ -16,7 +16,7 @@ var GulpIonicGenerator = yeoman.generators.NamedBase.extend({ // NamedBase requi
     ];
     // TODO better way to retrieve available subgenerators?
     if (availableGenerators.indexOf(this.name) >= 0) {
-      this.composeWith('gulp-ionic:angular-' + this.name, {arguments: [this.descriptor]});
+      this.composeWith('m:angular-' + this.name, {arguments: [this.descriptor]});
     }
     else {
       this.log(chalk.yellow('Invalid option: ' + this.name + '. Available options are: ' + availableGenerators.join(', ')));

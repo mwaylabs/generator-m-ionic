@@ -1,10 +1,10 @@
 {
-  "name": "generator-gulp-ionic",
+  "name": "generator-m",
   "version": "0.0.0",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "gruppjo/generator-gulp-ionic",
+  "repository": "gruppjo/generator-m",
   "author": {
     "name": "Jonathan Grupp",
     "email": "j.grupp@mwaysolutions.com",
