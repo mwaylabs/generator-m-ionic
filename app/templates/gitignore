@@ -3,9 +3,15 @@ node_modules
 .tmp
 .sass-cache
 app/bower_components
+
 # copied assets from cordova
 platforms/ios/www/**
 platforms/android/assets/www/**
+platforms/**/ant-build/
+platforms/**/ant-gen/
+platforms/**/project.xcworkspace/
+
+
 # dist folder
 dist
 www/**
