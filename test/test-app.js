@@ -81,10 +81,7 @@ describe('m:app', function () {
       assert.file([
         'hooks',
         'platforms',
-        'platforms/android',
-        'platforms/ios',
-        'plugins/',
-        'plugins/org.apache.cordova.device',
+        'plugins',
         'www'
       ]);
     });
@@ -182,7 +179,7 @@ describe('m:app', function () {
           path.join(__dirname, '../partial'),
           path.join(__dirname, '../service')
         ])
-        .withOptions({ 'skip-install': true }) // execute with options
+        .withOptions({ 'skip-install': true, 'skip-sdk': true }) // execute with options
         .withPrompt(answers)  // answer prompts
         .on('end', done);
     });
