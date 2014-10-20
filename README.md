@@ -33,7 +33,7 @@ gulp watch
   gulp serve-build
 ```
 
-**gulp --cordova ** - local wrapper for cordova cli (won't use global install to be compatible with generated project)
+**gulp --cordova** - local wrapper for cordova cli (won't use global install to be compatible with generated project)
 ```
   #arbitrary cordova command
   gulp --cordova 'plugin ls'
