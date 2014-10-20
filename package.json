@@ -18,10 +18,9 @@
   },
   "files": [
     "app",
-    "angular",
-    "angular-controller",
-    "angular-partial",
-    "angular-service"
+    "controller",
+    "partial",
+    "service"
   ],
   "keywords": [
     "yeoman-generator"

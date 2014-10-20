@@ -331,9 +331,9 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
     },
 
     subgenerators: function () {
-      this.composeWith('m:angular-service', {arguments: 'start', options: {sample: 'start'}});
-      this.composeWith('m:angular-controller', {arguments: 'start', options: {sample: 'start'}});
-      this.composeWith('m:angular-partial', {arguments: 'start', options: {sample: 'start'}});
+      this.composeWith('m:service', {arguments: 'start', options: {sample: 'start'}});
+      this.composeWith('m:controller', {arguments: 'start', options: {sample: 'start'}});
+      this.composeWith('m:partial', {arguments: 'start', options: {sample: 'start'}});
     }
   },
 

@@ -214,13 +214,13 @@ gulp.task('default', function () {
 gulp.task('cordova', function () {
   return gulp.src('')
     .pipe($.shell([
-      'cordova ' + options.cordova
+      'node_modules/cordova/bin/cordova ' + options.cordova
     ]));
 });
 // FIXME: when depending on fonts main tasks will not run
 gulp.task('cordova-build', ['build'], function () {
   return gulp.src('')
     .pipe($.shell([
-      'cordova ' + options.cordova
+      'node_modules/cordova/bin/cordova ' + options.cordova
     ]));
 });
