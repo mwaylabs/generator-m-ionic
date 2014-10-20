@@ -1,6 +1,6 @@
 {
   "name": "generator-m",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
