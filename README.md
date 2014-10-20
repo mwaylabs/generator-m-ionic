@@ -46,7 +46,7 @@ cordova build/run
   # also injects appropriate cordova.js
 ```
 
-## sub-generator
+## sub-generators
 ```
   yo m:angular controller <name>
   yo m:angular partial <name>
