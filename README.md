@@ -11,9 +11,22 @@
 [coveralls-image]: https://coveralls.io/repos/mwaylabs/generator-m/badge.png?branch=master
 [coveralls-url]: https://coveralls.io/r/mwaylabs/generator-m?branch=master
 
-##Supported Platforms
-- ios
-- android
+
+
+## Dependencies
+- iOS SDK
+- Android SDK
+
+## Install
+```
+npm install -g generator-m
+```
+
+## Usage
+```
+mkdir myApp && cd $_
+yo m
+```
 
 ## Commands
 **gulp watch** - start livereload and watch for changes in files. Automatically injects deps into index.html
@@ -48,9 +61,9 @@ cordova build/run
 
 ## sub-generators
 ```
-  yo m:angular controller <name>
-  yo m:angular partial <name>
-  yo m:angular service <name>
+  yo m:controller <name>
+  yo m:partial <name>
+  yo m:service <name>
 ```
 
 
@@ -66,3 +79,4 @@ will run your tests while you develop
 npm test
 ```
 will run gulp test
+
