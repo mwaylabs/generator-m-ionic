@@ -205,7 +205,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
 
     // TODO: remove debugging
     // debugging
-    this.log(chalk.inverse(JSON.stringify(this.answers, null, '  ')));
+    // this.log(chalk.inverse(JSON.stringify(this.answers, null, '  ')));
     // this.answers = {
     //   'appName': 'asdf',
     //   'appId': 'com.company.project',
