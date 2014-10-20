@@ -5,7 +5,6 @@ var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 var chalk = require('chalk');
 var cordova = require('cordova-lib').cordova.raw; // get the promise version of all methdos
-var wiredep = require('wiredep');
 
 var GulpIonicGenerator = yeoman.generators.Base.extend({
   initializing: function () {

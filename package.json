@@ -14,7 +14,8 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "mocha"
+    "coveralls": "gulp test && cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "test": "gulp test"
   },
   "files": [
     "app",
@@ -33,7 +34,19 @@
     "yosay": "^0.3.0"
   },
   "devDependencies": {
-    "mocha": "~1.21.4"
+    "coveralls": "^2.11.1",
+    "gulp": "^3.8.8",
+    "gulp-bump": "^0.1.11",
+    "gulp-istanbul": "^0.3.0",
+    "gulp-jscs": "^1.1.2",
+    "gulp-jshint": "^1.8.4",
+    "gulp-load-plugins": "^0.6.0",
+    "gulp-mocha": "^1.1.0",
+    "gulp-plumber": "^0.6.5",
+    "gulp-util": "^3.0.1",
+    "jsdom": "^1.0.0-pre.6",
+    "jshint-stylish": "^0.4.0",
+    "should": "^4.0.4"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
