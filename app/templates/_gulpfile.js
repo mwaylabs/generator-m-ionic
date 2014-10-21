@@ -3,6 +3,7 @@
 
 'use strict';
 var gulp = require('gulp');
+require('require-dir')('./gulp');
 var $ = require('gulp-load-plugins')();
 var minimist = require('minimist');
 
@@ -36,7 +37,7 @@ gulp.task('styles', function () {<% if (answers.includeSass) { %>
 
 // check for jshint errors
 gulp.task('jshint', function () {
-  return gulp.src('app/scripts/**/*.js')
+  return gulp.src(['app/scripts/**/*.js'<% if (answers.ngTemplate) { %>, '!app/scripts/templates.js'<%} %>])
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish'))
     .pipe($.jshint.reporter('fail'));
@@ -44,10 +45,10 @@ gulp.task('jshint', function () {
 
 // check for jscs errors
 gulp.task('jscs', function () {
-  return gulp.src('app/scripts/**/*.js')
+  return gulp.src(['app/scripts/**/*.js'<% if (answers.ngTemplate) { %>, '!app/scripts/templates.js'<%} %>])
     .pipe($.jscs());
 });
-
+<% if (!answers.ngTemplate) { %>
 // copy partials
 gulp.task('partials', function () {
   return gulp.src([
@@ -56,7 +57,14 @@ gulp.task('partials', function () {
   ])
   .pipe(gulp.dest(options.distPath + '/partials'));
 });
-
+<% } else { %>
+gulp.task('partials', function () {
+  return gulp.src([
+    'app/partials/**/*.json' // for language files etc...
+  ])
+  .pipe(gulp.dest(options.distPath + '/partials'));
+});
+<% } %>
 // build starting from main html file (index.html)
 gulp.task('app', ['inject', 'styles', 'partials'], function () {
   // only build assets that are actually used
@@ -120,7 +128,7 @@ gulp.task('connect', function () {
     });
 });
 
-gulp.task('serve', ['connect', 'inject'<% if (answers.includeSass) { %>, 'styles'<% } %>], function () {
+gulp.task('serve', ['connect'<% if (answers.ngTemplate) { %>, 'templates'<% } %>, 'inject'<% if (answers.includeSass) { %>, 'styles'<% } %>], function () {
   require('opn')('http://localhost:9000');
 });
 
@@ -179,7 +187,8 @@ gulp.task('watch', ['connect', 'serve'], function () {
   // watch for changes
   gulp.watch([
     'app/*.html',
-    '.tmp/styles/**/*.css',
+    '.tmp/styles/**/*.css',<% if (answers.ngTemplate) { %>
+    '!app/scripts/templates.js',<%} %>
     'app/scripts/**/*.js',
     'app/images/**/*',
     'app/partials/**/*.html'
@@ -189,7 +198,10 @@ gulp.task('watch', ['connect', 'serve'], function () {
     // FIXME: when deleting second watch is not started: index.html OK but 404 in livereload
     // FIXME: not watching new files?!
   });
-
+  //watch for html to refresh template.js
+  <% if (answers.ngTemplate) { %>
+    gulp.watch(['app/**/*.html', '!app/index.html'], [ 'templates' ]);
+  <% } %>
   // watch for changes in css/scss
   gulp.watch('app/styles/**/*.<%= answers.includeSass ? 'scss' : 'css' %>', ['styles']);
   // watch for changes in bower.json
