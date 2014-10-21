@@ -22,3 +22,7 @@ coverage/
 # sublime project files
 *.sublime-project
 *.sublime-workspace
+
+#webstorm
+.idea
+atlassian-ide-plugin.xml

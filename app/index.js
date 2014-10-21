@@ -116,9 +116,15 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
           },
           {
             value: false,
-            name: 'not (faster)',
+            name: 'not (faster)'
           }
         ]
+      },
+      {
+        type: 'confirm',
+        name: 'includeConstant',
+        message: 'Do you want to add the ngConstant?',
+        default: true
       },
       // stableVersions
       {
@@ -133,7 +139,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
           },
           {
             value: false,
-            name: 'latest (experienced)',
+            name: 'latest (experienced)'
           }
         ]
       },
@@ -193,6 +199,9 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
 
     // prompt and save results in this.answers
     this.prompt(prompts, function (answers) {
+      if ( answers.includeConstant === 'Y' || answers.includeConstant === 'y' ) {
+        answers.includeConstant = true;
+      }
       this.answers = answers;
       answers.includeSass = true; // set to true for now
 
@@ -310,7 +319,10 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       this.write('bower.json', JSON.stringify(bower, null, 2));
       this.template('_gulpfile.js', 'gulpfile.js');
       this.write('app/index.html', indexFile);
-
+      if (this.answers.includeConstant) {
+        this.template('_config.json', 'config.json');
+        this.template('./gulp/_constant.js', 'gulp/constant.js');
+      }
       var css = 'main.' + (this.answers.includeSass ? 's' : '') + 'css';
       this.copy(css, 'app/styles/' + css);
     },
