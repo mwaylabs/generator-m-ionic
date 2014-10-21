@@ -1,9 +1,11 @@
 'use strict';
 angular.module('<%= answers.appName %>', [
   'ionic',
+  'ui.router',
+  'ngCordova',
   'ui.router'<% if (answers.ngTemplate) { %>,
   'templates'<% } %>
-// TODO: load other modules selected during generation
+  // TODO: load other modules selected during generation
 ])
 .config(function ($stateProvider, $urlRouterProvider) {
 

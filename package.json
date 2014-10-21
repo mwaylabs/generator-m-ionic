@@ -1,6 +1,6 @@
 {
   "name": "generator-m",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "generator-m",
   "license": "MIT",
   "main": "app/index.js",
@@ -11,7 +11,8 @@
     "url": "https://github.com/gruppjo"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=0.10.0",
+    "npm": ">=1.4.3"
   },
   "scripts": {
     "coveralls": "gulp test && cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
