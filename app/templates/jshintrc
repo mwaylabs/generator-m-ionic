@@ -23,9 +23,6 @@
   "globals": {
     "angular": false,
     "window": false,
-    "document": false,
-    "$cordovaDevice":false,
-    "$cordovaNetwork":false,
-    "$cordovaGeolocation":false
+    "document": false
   }
 }
