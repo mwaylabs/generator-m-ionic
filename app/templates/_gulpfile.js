@@ -4,6 +4,7 @@
 'use strict';
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
+require('require-dir')('./gulp');
 var minimist = require('minimist');
 
 // options
