@@ -6,10 +6,12 @@ angular.module('<%= answers.appName %>', [
    <% } %>
   // TODO: load other modules selected during generation
 ])
-.config(function ($stateProvider, $urlRouterProvider) {
+.config(function ($stateProvider, $urlRouterProvider<% if (answers.includeConstant) {%>, VERSION<% } %>) {
 
   console.log('Allo! Allo from Angular!');
-
+  <% if (answers.includeConstant) {%>
+    console.log('Version',VERSION);
+  <% } %>
   // some basic routing
   $urlRouterProvider.otherwise('/start');
   $stateProvider
