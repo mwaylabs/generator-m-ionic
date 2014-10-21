@@ -3,6 +3,7 @@
 
 'use strict';
 var gulp = require('gulp');
+require('require-dir')('./gulp');
 var $ = require('gulp-load-plugins')();
 var minimist = require('minimist');
 
@@ -197,7 +198,7 @@ gulp.task('watch', ['connect', 'serve'], function () {
 });
 
 // FIXME: when depending on fonts main tasks will not run
-gulp.task('build', ['jshint', 'jscs', 'app', 'images'], function () {
+gulp.task('build', ['jshint', 'jscs', 'app', 'images'<% if (answers.ngDocs) { %>, 'doc'<% } %>], function () {
   return gulp.src(options.distPath + '/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 

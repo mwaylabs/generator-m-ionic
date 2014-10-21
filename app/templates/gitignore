@@ -22,3 +22,6 @@ coverage/
 # sublime project files
 *.sublime-project
 *.sublime-workspace
+
+#ngdocs
+doc/**

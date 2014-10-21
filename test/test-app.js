@@ -32,7 +32,8 @@ describe('m:app', function () {
       'plugins': [
         'org.apache.cordova.device'
       ],
-      'includeSass': true
+      'includeSass': true,
+      'ngDocs': 'Y'
     };
 
     before(function (done) {
@@ -62,7 +63,8 @@ describe('m:app', function () {
         'bower.json',
         'config.xml',
         'gulpfile.js',
-        'package.json'
+        'package.json',
+        'doc'
       ]);
     });
 
@@ -168,7 +170,8 @@ describe('m:app', function () {
       'plugins': [
         'org.apache.cordova.device'
       ],
-      'includeSass': true
+      'includeSass': true,
+      'ngDocs': 'Y'
     };
 
     before(function (done) {
