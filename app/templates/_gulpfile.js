@@ -1,6 +1,5 @@
 // generated on <%= (new Date).toISOString().split('T')[0] %> using <%= pkg.name %> <%= pkg.version %>
 /* jshint -W079 */ // prevent redefinition of $ warning
-
 'use strict';
 var gulp = require('gulp');
 require('require-dir')('./gulp');
