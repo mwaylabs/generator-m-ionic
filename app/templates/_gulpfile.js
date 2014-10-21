@@ -199,9 +199,9 @@ gulp.task('watch', ['connect', 'serve'], function () {
     // FIXME: not watching new files?!
   });
   //watch for html to refresh template.js
-  if (answers.ngTemplate) {
+  <% if (answers.ngTemplate) { %>
     gulp.watch(['app/**/*.html', '!app/index.html'], [ 'templates' ]);
-  }
+  <% } %>
   // watch for changes in css/scss
   gulp.watch('app/styles/**/*.<%= answers.includeSass ? 'scss' : 'css' %>', ['styles']);
   // watch for changes in bower.json
