@@ -22,8 +22,9 @@
     "gulp-jshint": "^1.5.3",
     "gulp-livereload": "^2.0.0",
     "gulp-load-plugins": "^0.5.0",
-    "gulp-ng-annotate": "^0.3.3",<% if (answers.includeSass) { %>
-    "gulp-ruby-sass": "^0.5.0",
+    "gulp-ng-annotate": "^0.3.3",<% if (answers.cssPreprocessor === 'sass') { %>
+    "gulp-ruby-sass": "^0.5.0",<% } %><% if (answers.cssPreprocessor === 'nodeSass') { %>
+    "gulp-sass": "^1.2.0",<% } %><% if (answers.includeSass) { %>
     "gulp-plumber": "^0.6.3",<% } %>
     "gulp-shell": "^0.2.9",
     "gulp-size": "^0.4.0",
