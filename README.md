@@ -42,13 +42,24 @@ Additionally we use:
 
 
 ## Install
+**yeoman** - if you don't have it already - http://yeoman.io/
+
+```
+npm install -g yo
+```
+
+**generator-m**
 ```
 npm install -g generator-m
 ```
 
 ## Usage
+**create new directory** - and cd into it. Note: the generator needs an empty directory when you call it
 ```
 mkdir myApp && cd $_
+```
+**run the generator** - and follow the instructions
+```
 yo m
 ```
 
