@@ -12,8 +12,8 @@
 [coveralls-url]: https://coveralls.io/r/mwaylabs/generator-m?branch=master
 
 ## Why you need it
-Build mobile cordova/phonegap apps quickly with the tools you love:
-yeoman, gulp, bower, angular, ionic & cordova all in one sexy generator
+Build mobile Cordova/PhoneGap apps quickly with the tools you love:
+Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova all in one sexy generator.
 
 ## What's in the box
 Your technology stack:
