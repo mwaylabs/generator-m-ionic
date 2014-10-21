@@ -37,7 +37,7 @@ gulp.task('styles', function () {<% if (answers.includeSass) { %>
 
 // check for jshint errors
 gulp.task('jshint', function () {
-  return gulp.src('app/scripts/**/*.js')
+  return gulp.src('app/scripts/**/*.js'<% if (answers.includeConstant) { %>,'!app/scripts/constant.js'<% } )
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish'))
     .pipe($.jshint.reporter('fail'));
@@ -45,7 +45,7 @@ gulp.task('jshint', function () {
 
 // check for jscs errors
 gulp.task('jscs', function () {
-  return gulp.src('app/scripts/**/*.js')
+  return gulp.src('app/scripts/**/*.js'<% if (answers.includeConstant) { %>,'!app/scripts/constant.js'<% })
     .pipe($.jscs());
 });
 
