@@ -316,9 +316,9 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       this.write('bower.json', JSON.stringify(bower, null, 2));
       this.template('_gulpfile.js', 'gulpfile.js');
       this.write('app/index.html', indexFile);
-      if(this.answers.includeConstant){
-        this.template('_config.json','config.json');
-        this.template('./gulp/_constant.js','gulp/constant.js');
+      if (this.answers.includeConstant) {
+        this.template('_config.json', 'config.json');
+        this.template('./gulp/_constant.js', 'gulp/constant.js');
       }
       var css = 'main.' + (this.answers.includeSass ? 's' : '') + 'css';
       this.copy(css, 'app/styles/' + css);
