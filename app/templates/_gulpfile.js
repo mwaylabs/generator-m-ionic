@@ -59,7 +59,7 @@ gulp.task('partials', function () {
 });
 
 // build starting from main html file (index.html)
-gulp.task('app', [<% if (answers.includeConstant) { %>'config',<% } %>'inject', 'styles', 'partials'], function () {
+gulp.task('app', ['inject', 'styles', 'partials'], function () {
   // only build assets that are actually used
   var assets = $.useref.assets({searchPath: '{.tmp,app}'});
 
@@ -121,7 +121,7 @@ gulp.task('connect', function () {
     });
 });
 
-gulp.task('serve', ['connect', 'inject'<% if (answers.includeSass) { %>, 'styles'<% } %>], function () {
+gulp.task('serve', ['connect',<% if (answers.includeConstant) { %>'config',<% } %> 'inject'<% if (answers.includeSass) { %>, 'styles'<% } %>], function () {
   require('opn')('http://localhost:9000');
 });
 
