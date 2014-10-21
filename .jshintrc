@@ -18,13 +18,9 @@
   "trailing": true,
   "smarttabs": true,
   "white": true,
+
   "jquery": true,
   "globals": {
-    "angular": false,
-    "window": false,
-    "document": false,
-    "$cordovaDevice":false,
-    "$cordovaNetwork":false,
-    "$cordovaGeolocation":false
+    "angular": false
   }
 }
