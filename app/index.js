@@ -199,6 +199,9 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
 
     // prompt and save results in this.answers
     this.prompt(prompts, function (answers) {
+      if ( answers.includeConstant === 'Y' || answers.includeConstant === 'y' ) {
+        answers.includeConstant = true;
+      }
       this.answers = answers;
       answers.includeSass = true; // set to true for now
 
