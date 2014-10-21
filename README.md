@@ -85,7 +85,10 @@ gulp watch
   #arbitrary cordova command
   gulp --cordova 'plugin ls'
 ```
-
+**gulp doc** - create an Api Documentation from your  anotations https://github.com/angular/angular.js/wiki/Writing-AngularJS-Documentation
+```
+  gulp doc
+```
 cordova build/run
 ```
   gulp --cordova 'run|build <platform>' 
