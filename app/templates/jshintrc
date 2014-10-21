@@ -21,6 +21,11 @@
 
   "jquery": true,
   "globals": {
-    "angular": false
+    "angular": false,
+    "window": false,
+    "document": false,
+    "$cordovaDevice":false,
+    "$cordovaNetwork":false,
+    "$cordovaGeolocation":false
   }
 }
