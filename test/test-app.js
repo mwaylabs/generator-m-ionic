@@ -32,7 +32,8 @@ describe('m:app', function () {
       'plugins': [
         'org.apache.cordova.device'
       ],
-      'includeSass': true
+      'includeSass': true,
+      'includeConstant': 'Y'
     };
 
     before(function (done) {
@@ -58,6 +59,7 @@ describe('m:app', function () {
         '.jshintignore',
         '.jshintrc',
         '.yo-rc.json',
+        'config.json',
         'README.md',
         'bower.json',
         'config.xml',
@@ -168,7 +170,8 @@ describe('m:app', function () {
       'plugins': [
         'org.apache.cordova.device'
       ],
-      'includeSass': true
+      'includeSass': true,
+      'includeConstant': 'Y'
     };
 
     before(function (done) {
