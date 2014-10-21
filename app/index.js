@@ -200,7 +200,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
 
     // prompt and save results in this.answers
     this.prompt(prompts, function (answers) {
-      if ( answers.ngTemplate === 'Y' || answers.ngTemplate === 'y' ) {
+      if (answers.ngTemplate === 'Y' || answers.ngTemplate === 'y') {
         answers.ngTemplate = true;
       }
       answers.includeSass = true; // set to true for now
@@ -320,7 +320,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       this.template('_gulpfile.js', 'gulpfile.js');
       this.write('app/index.html', indexFile);
       if (this.answers.ngTemplate) {
-        this.template('_templates.js', 'app/scripts/templates.js');
+        this.template('_templates.js','app/scripts/templates.js');
         this.template('./gulp/_templates.js','gulp/templates.js');
       }
       var css = 'main.' + (this.answers.includeSass ? 's' : '') + 'css';
