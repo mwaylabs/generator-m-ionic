@@ -158,4 +158,7 @@ npm test
 ```
 will run gulp test
 
+### License
+Code licensed under MIT. Docs under Apache 2. PhoneGap is a trademark of Adobe.
+
 
