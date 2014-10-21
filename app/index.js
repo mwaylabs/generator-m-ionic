@@ -120,6 +120,13 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
           }
         ]
       },
+       // ngTemplate
+      {
+        type: 'confirm',
+        name: 'ngTemplate',
+        message: 'Do you want to add ngTemplate in your Application ?',
+        default:true
+      },
       // stableVersions
       {
         type: 'list',
@@ -310,7 +317,9 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       this.write('bower.json', JSON.stringify(bower, null, 2));
       this.template('_gulpfile.js', 'gulpfile.js');
       this.write('app/index.html', indexFile);
-
+      if (this.answers.ngTemplate) {
+        this.template('_template.js', 'app/scripts/template.js');
+      }
       var css = 'main.' + (this.answers.includeSass ? 's' : '') + 'css';
       this.copy(css, 'app/styles/' + css);
     },

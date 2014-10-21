@@ -32,7 +32,8 @@ describe('m:app', function () {
       'plugins': [
         'org.apache.cordova.device'
       ],
-      'includeSass': true
+      'includeSass': true,
+      'ngTemplate':'Y'
     };
 
     before(function (done) {
@@ -168,7 +169,8 @@ describe('m:app', function () {
       'plugins': [
         'org.apache.cordova.device'
       ],
-      'includeSass': true
+      'includeSass': true,
+      'ngTemplate':'Y'
     };
 
     before(function (done) {

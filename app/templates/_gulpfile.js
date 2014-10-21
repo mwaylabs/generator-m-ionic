@@ -47,7 +47,7 @@ gulp.task('jscs', function () {
   return gulp.src('app/scripts/**/*.js')
     .pipe($.jscs());
 });
-
+<% if (!answers.ngTemplate) { %>
 // copy partials
 gulp.task('partials', function () {
   return gulp.src([
@@ -56,7 +56,14 @@ gulp.task('partials', function () {
   ])
   .pipe(gulp.dest(options.distPath + '/partials'));
 });
-
+<% } else { %>
+gulp.task('partials', function () {
+  return gulp.src([
+    'app/partials/**/*.json' // for language files etc...
+  ])
+  .pipe(gulp.dest(options.distPath + '/partials'));
+});
+<% } %>
 // build starting from main html file (index.html)
 gulp.task('app', ['inject', 'styles', 'partials'], function () {
   // only build assets that are actually used
@@ -180,6 +187,7 @@ gulp.task('watch', ['connect', 'serve'], function () {
   gulp.watch([
     'app/*.html',
     '.tmp/styles/**/*.css',
+  <% if (answers.includeSass) { %>'!app/scripts/templates.js',<%} %>
     'app/scripts/**/*.js',
     'app/images/**/*',
     'app/partials/**/*.html'
@@ -189,7 +197,10 @@ gulp.task('watch', ['connect', 'serve'], function () {
     // FIXME: when deleting second watch is not started: index.html OK but 404 in livereload
     // FIXME: not watching new files?!
   });
-
+  //watch for html to refresh template.js
+  if (this.answers.ngTemplate) {
+    gulp.watch(['app/**/*.html' ,'!app/index.html'], [ 'templates' ]);
+  }
   // watch for changes in css/scss
   gulp.watch('app/styles/**/*.<%= answers.includeSass ? 'scss' : 'css' %>', ['styles']);
   // watch for changes in bower.json
