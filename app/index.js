@@ -110,13 +110,13 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
         message: 'Do you want to use the sass version of ionic\'s css?',
         choices: [
           {
+            value: false,
+            name: 'not (faster)'
+          },
+          {
             value: true,
             name: 'yes (more flexible)',
             default: true
-          },
-          {
-            value: false,
-            name: 'not (faster)',
           }
         ]
       },
@@ -133,7 +133,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
           },
           {
             value: false,
-            name: 'latest (experienced)',
+            name: 'latest (experienced)'
           }
         ]
       },
@@ -186,16 +186,15 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
           {
             value: 'org.apache.cordova.vibration',
             name: 'Vibration - org.apache.cordova.vibration'
-          },
+          }
         ]
-      },
+      }
     ];
 
     // prompt and save results in this.answers
     this.prompt(prompts, function (answers) {
       this.answers = answers;
       answers.includeSass = true; // set to true for now
-
       done();
     }.bind(this));
   },
@@ -310,9 +309,8 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       this.write('bower.json', JSON.stringify(bower, null, 2));
       this.template('_gulpfile.js', 'gulpfile.js');
       this.write('app/index.html', indexFile);
+      this.styles(this.answers.includeSass);
 
-      var css = 'main.' + (this.answers.includeSass ? 's' : '') + 'css';
-      this.copy(css, 'app/styles/' + css);
     },
 
     projectfiles: function () {
@@ -359,6 +357,21 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
 
   end: function () {
 
+  },
+  /**
+  * copy the Gulp task style by choice
+  * @param {boolean} includeSass
+  */
+  styles:function(includeSass){
+    var self = this;
+    //style task
+    if (includeSass){
+      self.template('gulp/_styles_scss.js','gulp/styles.js');
+      self.copy('main.scss', 'app/styles/main.scss');
+    }else{
+      self.template('gulp/_styles_css.js','gulp/styles.js');
+      self.copy('main.scss', 'app/styles/main.scss');
+    }
   }
 });
 

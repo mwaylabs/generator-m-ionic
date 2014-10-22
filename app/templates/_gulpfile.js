@@ -3,6 +3,7 @@
 
 'use strict';
 var gulp = require('gulp');
+require('require-dir')('./gulp');
 var $ = require('gulp-load-plugins')();
 var minimist = require('minimist');
 
@@ -22,17 +23,6 @@ if (options.cordova) {
   })[0];
 }
 
-gulp.task('styles', function () {<% if (answers.includeSass) { %>
-  return gulp.src('app/styles/main.scss')
-    .pipe($.plumber())
-    .pipe($.rubySass({
-      style: 'expanded',
-      precision: 10
-    }))<% } else { %>
-  return gulp.src('app/styles/main.css')<% } %>
-    .pipe($.autoprefixer('last 1 version'))
-    .pipe(gulp.dest('.tmp/styles'));
-});
 
 // check for jshint errors
 gulp.task('jshint', function () {
