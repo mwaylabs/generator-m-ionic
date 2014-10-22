@@ -326,7 +326,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       this.write('bower.json', JSON.stringify(bower, null, 2));
       this.template('_gulpfile.js', 'gulpfile.js');
       this.write('app/index.html', indexFile);
-      styleTask.apply(this,[this.answers.includeSass]);
+      styleTask.apply(this, [this.answers.includeSass]);
     },
 
     projectfiles: function () {
