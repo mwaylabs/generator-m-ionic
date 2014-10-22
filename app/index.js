@@ -10,7 +10,7 @@ var cordova = require('cordova-lib').cordova.raw; // get the promise version of 
  * copy the Gulp task style by choice
  * @param {boolean} includeSass
  */
-var styleTask = function(includeSass){
+var styleTask = function (includeSass) {
   var self = this;
   //style task
   if ( includeSass ) {
@@ -18,7 +18,7 @@ var styleTask = function(includeSass){
     self.copy('main.scss', 'app/styles/main.scss');
   } else {
     self.template('gulp/_styles_css.js', 'gulp/styles.js');
-    self.copy('main.scss', 'app/styles/main.scss');
+    self.copy('main.css', 'app/styles/main.css');
   }
   return true;
 };
