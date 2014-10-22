@@ -116,7 +116,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
           },
           {
             value: false,
-            name: 'not (faster)',
+            name: 'not (faster)'
           }
         ]
       },
@@ -133,7 +133,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
           },
           {
             value: false,
-            name: 'latest (experienced)',
+            name: 'latest (experienced)'
           }
         ]
       },// ngDocs
@@ -192,15 +192,15 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
           {
             value: 'org.apache.cordova.vibration',
             name: 'Vibration - org.apache.cordova.vibration'
-          },
+          }
         ]
-      },
+      }
     ];
 
     // prompt and save results in this.answers
     this.prompt(prompts, function (answers) {
-      if ( answers.ngDocs === 'Y' || answers.ngDocs === 'y' ) {
-          answers.ngDocs = true;
+      if (answers.ngDocs === 'Y' || answers.ngDocs === 'y') {
+        answers.ngDocs = true;
       }
       this.answers = answers;
       answers.includeSass = true; // set to true for now
