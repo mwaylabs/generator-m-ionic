@@ -106,17 +106,21 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       // stableVersions
       {
         type: 'list',
-        name: 'ionicSass',
-        message: 'Do you want to use the sass version of ionic\'s css?',
+        name: 'cssPreprocessor',
+        message: 'Do you want to use any css preprocessor?',
         choices: [
           {
-            value: true,
-            name: 'yes (more flexible)',
+            value: 'sass',
+            name: 'sass (needs ruby installed)',
             default: true
           },
           {
-            value: false,
-            name: 'not (faster)',
+            value: 'nodeSass',
+            name: 'node sass'
+          },
+          {
+            value: 'css',
+            name: 'No thanks, just css',
           }
         ]
       },
@@ -194,8 +198,12 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
     // prompt and save results in this.answers
     this.prompt(prompts, function (answers) {
       this.answers = answers;
-      answers.includeSass = true; // set to true for now
 
+      if (this.answers.cssPreprocessor === 'css') {
+        answers.includeSass = false;
+      } else {
+        answers.includeSass = true;
+      }
       done();
     }.bind(this));
   },
