@@ -13,11 +13,11 @@ var cordova = require('cordova-lib').cordova.raw; // get the promise version of 
 var styleTask = function(includeSass){
   var self = this;
   //style task
-  if (includeSass){
-    self.template('gulp/_styles_scss.js','gulp/styles.js');
+  if ( includeSass ) {
+    self.template('gulp/_styles_scss.js', 'gulp/styles.js');
     self.copy('main.scss', 'app/styles/main.scss');
-  }else{
-    self.template('gulp/_styles_css.js','gulp/styles.js');
+  } else {
+    self.template('gulp/_styles_css.js', 'gulp/styles.js');
     self.copy('main.scss', 'app/styles/main.scss');
   }
   return true;
