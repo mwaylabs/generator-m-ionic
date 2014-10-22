@@ -141,12 +141,14 @@ cordova build/run
 
 - process:
   - idea -> issue -> discussion -> implementation -> pull-request
+- changelogs, roadmaps, proper versioning
+  - good example: https://github.com/twbs/ratchet/releases 
 - well defined process: github, issues - discussions, pull-requests
 - team effort, dialog, discussions
 - bring the best techniques together
 - github issue categories - check out others - http://ngcordova.com/
   - topics: generator, cordova, gulp, quality assurance, documentation
-- changelogs, roadmaps, proper versioning
+
 
 
 
