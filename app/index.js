@@ -20,9 +20,11 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       return;
     }
     // say hello
-    this.log(yosay(
-      'Welcome to the polished M generator!'
-    ));
+    if (!this.options['skip-install-message']) {
+      this.log(yosay(
+        'Welcome to the polished M generator!'
+      ));
+    }
 
     // tell yeoman we're doing asynchronous stuff here
     // so it can wait with subsequent tasks
