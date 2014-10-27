@@ -116,9 +116,16 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
           },
           {
             value: false,
-            name: 'not (faster)',
+            name: 'not (faster)'
           }
         ]
+      },
+       // ngTemplate
+      {
+        type: 'confirm',
+        name: 'ngTemplate',
+        message: 'Do you want to add ngTemplate in your Application ?',
+        default:true
       },
       // stableVersions
       {
@@ -193,9 +200,11 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
 
     // prompt and save results in this.answers
     this.prompt(prompts, function (answers) {
-      this.answers = answers;
+      if (answers.ngTemplate === 'Y' || answers.ngTemplate === 'y') {
+        answers.ngTemplate = true;
+      }
       answers.includeSass = true; // set to true for now
-
+      this.answers = answers;
       done();
     }.bind(this));
   },
@@ -310,7 +319,10 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       this.write('bower.json', JSON.stringify(bower, null, 2));
       this.template('_gulpfile.js', 'gulpfile.js');
       this.write('app/index.html', indexFile);
-
+      if (this.answers.ngTemplate) {
+        this.template('_templates.js', 'app/scripts/templates.js');
+        this.template('./gulp/_templates.js', 'gulp/templates.js');
+      }
       var css = 'main.' + (this.answers.includeSass ? 's' : '') + 'css';
       this.copy(css, 'app/styles/' + css);
     },
