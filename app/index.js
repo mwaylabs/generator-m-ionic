@@ -20,7 +20,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       return;
     }
     // say hello
-    if (!this.options['skip-install-message']) {
+    if (!this.options['skip-welcome-message']) {
       this.log(yosay(
         'Welcome to the polished M generator!'
       ));
