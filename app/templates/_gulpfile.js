@@ -3,6 +3,7 @@
 
 'use strict';
 var gulp = require('gulp');
+require('require-dir')('./gulp');
 var $ = require('gulp-load-plugins')();
 var minimist = require('minimist');
 
@@ -143,7 +144,7 @@ gulp.task('connect-build', function () {
     });
 });
 
-gulp.task('serve-build', ['build', 'connect-build'], function () {
+gulp.task('serve-build', ['copy:font', 'build', 'connect-build'], function () {
   require('opn')('http://localhost:9000');
 });
 

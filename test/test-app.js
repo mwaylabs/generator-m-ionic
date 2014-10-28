@@ -61,6 +61,7 @@ describe('m:app', function () {
         'README.md',
         'bower.json',
         'config.xml',
+        'gulp/copy.js',
         'gulpfile.js',
         'package.json'
       ]);
