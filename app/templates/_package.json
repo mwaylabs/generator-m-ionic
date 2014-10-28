@@ -24,7 +24,8 @@
     "gulp-load-plugins": "^0.5.0",
     "gulp-ng-annotate": "^0.3.3",<% if (answers.includeSass) { %>
     "gulp-ruby-sass": "^0.5.0",
-    "gulp-plumber": "^0.6.3",<% } %>
+    <% } %>
+    "gulp-plumber": "^0.6.3",
     "gulp-shell": "^0.2.9",
     "gulp-size": "^0.4.0",
     "gulp-uglify": "^0.3.0",
@@ -35,6 +36,8 @@
     "opn": "^0.1.1",
     "serve-index": "^1.1.4",
     "serve-static": "^1.4.0",
-    "wiredep": "^1.4.3"
+    "wiredep": "^1.4.3",
+    "require-dir": "^0.1.0",
+    "gulp-size": "^0.4.0"
   }
 }
