@@ -55,10 +55,8 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
         name: 'appId',
         message: 'state the id of your project (e.g. com.company.project)',
         validate: function (value) {
-          var splits = value.split('.').filter(function (element) {
-            return element.length;
-          });
-          return splits.length >= 3 ? true : 'Please enter a valid id! E.g. com.company.project';
+          var pattern = /^[a-z][a-z0-9_]*(\.[a-z0-9_]+)+[0-9a-z_]$/i;
+          return pattern.test(value) ? true : 'Please enter a valid id! E.g. com.company.project';
         }
       },
       // bower packages
