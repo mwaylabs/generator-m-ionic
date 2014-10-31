@@ -125,7 +125,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
           },
           {
             value: false,
-            name: 'not (faster)',
+            name: 'not (faster)'
           }
         ]
       },
@@ -142,9 +142,15 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
           },
           {
             value: false,
-            name: 'latest (experienced)',
+            name: 'latest (experienced)'
           }
         ]
+      },// ngDocs
+      {
+        type: 'confirm',
+        name: 'ngDocs',
+        message: 'Do you want to ngDocs to your application ?',
+        default: true
       },
       // select platforms
       {
@@ -195,13 +201,16 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
           {
             value: 'org.apache.cordova.vibration',
             name: 'Vibration - org.apache.cordova.vibration'
-          },
+          }
         ]
-      },
+      }
     ];
 
     // prompt and save results in this.answers
     this.prompt(prompts, function (answers) {
+      if (answers.ngDocs === 'Y' || answers.ngDocs === 'y') {
+        answers.ngDocs = true;
+      }
       this.answers = answers;
       if (this.appName) {
         this.answers.appName = this.appName;
@@ -320,6 +329,12 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       // app  files
       this.copy('_app.js', 'app/scripts/app.js');
       this.write('bower.json', JSON.stringify(bower, null, 2));
+      if ( this.answers.ngDocs ) {
+        this.template('gulp/_doc.js', 'gulp/doc.js');
+        if ( this.mkdir('doc') ) {
+          this.template('gitkeep', 'doc/.gitkeep');
+        }
+      }
       this.template('_gulpfile.js', 'gulpfile.js');
       this.write('app/index.html', indexFile);
 
