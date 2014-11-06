@@ -197,4 +197,49 @@ describe('m:app', function () {
       ]);
     });
   });
+
+  describe('m:app with option --app-name', function () {
+    var answers = {
+      'appId': 'com.mwaysolutions.tradecoreionic',
+      'bowerPackages': [
+        'angular-dynamic-locale#~0.1.17',
+        'angular-localForage#~0.2.10',
+        'angular-touch#~1.2.25',
+        'angular-translate#~2.4.0',
+        'angular-translate-loader-static-files#~2.4.0',
+        'angular-ui-bootstrap-bower#~0.11.0',
+        'fastclick#~1.0.3',
+        'restangular#~1.4.0'
+      ],
+      'ionicSass': true,
+      'stableVersions': false,
+      'platforms': [
+        'ios',
+        'android'
+      ],
+      'plugins': [
+        'org.apache.cordova.device'
+      ],
+      'includeSass': true
+    };
+
+    before(function (done) {
+      helpers.run(path.join(__dirname, '../app'))
+        .inDir(path.join(os.tmpdir(), './temp-test')) // create new dir
+        .withGenerators([ // configure path to  subgenerators
+          path.join(__dirname, '../controller'),
+          path.join(__dirname, '../partial'),
+          path.join(__dirname, '../service')
+        ])
+        .withOptions({ 'skip-install': true, 'skip-sdk': true, 'app-name': 'tradecore' }) // execute with options
+        .withPrompt(answers)  // answer prompts
+        .on('end', done);
+    });
+
+    it('bower json content', function () {
+      assert.fileContent([
+        ['bower.json', /"name": "tradecore"/]
+      ]);
+    });
+  });
 });

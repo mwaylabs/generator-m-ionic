@@ -35,7 +35,7 @@ Additionally we use:
   - http://nodejs.org/download/
 - Ruby/Sass
   - ruby - https://www.ruby-lang.org/en/installation/
-  - sass - http://sass-lang.com/install
+  - sass - http://sass-lang.com/install -> `gem install sass -v 3.4.5 --ri-doc`
 - SDKs depending on selected platforms
   - iOS Cordova 3.5 Platform Guide -http://cordova.apache.org/docs/en/3.5.0/guide_platforms_ios_index.md.html#iOS%20Platform%20Guide
   - Android -http://cordova.apache.org/docs/en/3.5.0/guide_platforms_android_index.md.html#Android%20Platform%20Guide

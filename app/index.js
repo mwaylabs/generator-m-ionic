@@ -20,9 +20,16 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       return;
     }
     // say hello
-    this.log(yosay(
-      'Welcome to the polished M generator!'
-    ));
+    if (!this.options['skip-welcome-message']) {
+      this.log(yosay(
+        'Welcome to the polished M generator!'
+      ));
+    }
+
+    // Set appName when generator was called with `--appName=HelloApp`
+    if (this.options['app-name']) {
+      this.appName = this.options['app-name'];
+    }
 
     // tell yeoman we're doing asynchronous stuff here
     // so it can wait with subsequent tasks
@@ -36,7 +43,11 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
         message: 'state the name of your project (the name that will be displayed below the app icon)',
         validate: function (value) {
           return value ? true : 'Please enter a name ';
-        }
+        },
+        when: function () {
+          // Show this prompt only if appName is not already set
+          return !this.appName;
+        }.bind(this)
       },
       // appId
       {
@@ -44,10 +55,8 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
         name: 'appId',
         message: 'state the id of your project (e.g. com.company.project)',
         validate: function (value) {
-          var splits = value.split('.').filter(function (element) {
-            return element.length;
-          });
-          return splits.length >= 3 ? true : 'Please enter a valid id! E.g. com.company.project';
+          var pattern = /^[a-z][a-z0-9_]*(\.[a-z0-9_]+)+[0-9a-z_]$/i;
+          return pattern.test(value) ? true : 'Please enter a valid id! E.g. com.company.project';
         }
       },
       // bower packages
@@ -194,6 +203,9 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
     // prompt and save results in this.answers
     this.prompt(prompts, function (answers) {
       this.answers = answers;
+      if (this.appName) {
+        this.answers.appName = this.appName;
+      }
       answers.includeSass = true; // set to true for now
 
       done();
