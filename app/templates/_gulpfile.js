@@ -146,7 +146,7 @@ gulp.task('connect-build', function () {
     });
 });
 
-gulp.task('serve-build', ['build', 'connect-build'], function () {
+gulp.task('serve-build', ['connect-build'], function () {
   require('opn')('http://localhost:9000');
 });
 
@@ -196,8 +196,7 @@ gulp.task('watch', ['connect', 'serve'], function () {
   gulp.watch('bower.json', ['wiredep']);
 });
 
-// FIXME: when depending on fonts main tasks will not run
-gulp.task('build', ['clean', 'jshint', 'jscs', 'app', 'images'], function () {
+gulp.task('build', ['clean', 'jshint', 'jscs', 'app', 'images', 'fonts'], function () {
   return gulp.src(options.distPath + '/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
@@ -218,7 +217,7 @@ gulp.task('cordova', function () {
       'node_modules/cordova/bin/cordova ' + options.cordova
     ]));
 });
-// FIXME: when depending on fonts main tasks will not run
+
 gulp.task('cordova-with-build', ['build'], function () {
   return gulp.src('')
     .pipe($.shell([

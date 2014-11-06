@@ -360,7 +360,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
         if (!this.options['skip-install']) {
           // inject bower dependencies and app js files
           var done = this.async();
-          this.spawnCommand('gulp', ['wiredep', 'fonts'])
+          this.spawnCommand('gulp', ['wiredep', 'fonts']) // inject files into index, copy fonts to app/fonts
           .on('exit', function () {
             // TODO: better gulp task wiring/dependencies
             // https://github.com/gulpjs/gulp/blob/master/docs/API.md#async-task-support
