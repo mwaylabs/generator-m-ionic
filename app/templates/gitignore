@@ -10,6 +10,8 @@ platforms/android/assets/www/**
 platforms/**/ant-build/
 platforms/**/ant-gen/
 platforms/**/project.xcworkspace/
+# cordova logs
+platforms/**/console.log
 
 
 # dist folder

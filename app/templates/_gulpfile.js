@@ -13,8 +13,14 @@ var xml2js = require('xml2js');
 var options = minimist(process.argv.slice(2));
 options.distPath = 'www';
 if (options.cordova) {
-  // build before running cordova?
-  options.cordovaBuild = options.cordova.indexOf('build') >= 0 || options.cordova.indexOf('run') >= 0;
+  // gulp build before running cordova?
+  var cmds = ['build', 'run', 'emulate'];
+  for (var i = 0, cmd; (cmd = cmds[i]); i++) {
+    if (options.cordova.indexOf(cmd) >= 0) {
+      options.runBuild = true;
+      break;
+    }
+  }
 }
 
 gulp.task('styles', function () {<% if (answers.includeSass) { %>
@@ -196,8 +202,8 @@ gulp.task('build', ['jshint', 'jscs', 'app', 'images'], function () {
 // CORDOVA
 // TODO: find better solution for cordova CLI integration
 gulp.task('default', function () {
-  if (options.cordovaBuild) {
-    return gulp.start('cordova-build');
+  if (options.runBuild) {
+    return gulp.start('cordova-with-build');
   }
   else {
     return gulp.start('cordova');
@@ -211,7 +217,7 @@ gulp.task('cordova', function () {
     ]));
 });
 // FIXME: when depending on fonts main tasks will not run
-gulp.task('cordova-build', ['build'], function () {
+gulp.task('cordova-with-build', ['build'], function () {
   return gulp.src('')
     .pipe($.shell([
       'node_modules/cordova/bin/cordova ' + options.cordova

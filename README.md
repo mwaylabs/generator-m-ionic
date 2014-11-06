@@ -70,9 +70,9 @@ yo m
 gulp watch
 ```
 
-**gulp build** - build your assets into www and injects proper cordova.js
+**gulp build** - build your assets into www
 ```
-  gulp build --platform <platform>
+  gulp build
 ```
 
 **gulp serve-build** - serve version from www
@@ -86,11 +86,10 @@ gulp watch
   gulp --cordova 'plugin ls'
 ```
 
-cordova build/run
+cordova build/run/emulate
 ```
-  gulp --cordova 'run|build <platform>' 
-  # runs gulp build with requested platform
-  # also injects appropriate cordova.js
+  gulp --cordova 'run|build|emulate <platform>' 
+  # runs gulp build
 ```
 
 **gulp config** - manage project configuration
