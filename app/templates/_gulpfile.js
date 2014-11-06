@@ -4,7 +4,10 @@
 'use strict';
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
+
 var minimist = require('minimist');
+var fs = require('fs');
+var xml2js = require('xml2js');
 
 // options
 var options = minimist(process.argv.slice(2));
@@ -190,6 +193,7 @@ gulp.task('build', ['jshint', 'jscs', 'app', 'images'], function () {
   return gulp.src(options.distPath + '/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
+// CORDOVA
 // TODO: find better solution for cordova CLI integration
 gulp.task('default', function () {
   if (options.cordovaBuild) {
@@ -212,4 +216,35 @@ gulp.task('cordova-build', ['build'], function () {
     .pipe($.shell([
       'node_modules/cordova/bin/cordova ' + options.cordova
     ]));
+});
+
+// CONFIG for project
+gulp.task('config', function () {
+  var parser = new xml2js.Parser();
+  var builder = new xml2js.Builder({
+    renderOp: {
+      pretty: true,
+      indent: ' '
+    },
+    xmldec: {
+      version: '1.0',
+      encoding: 'utf-8'
+    }
+  });
+  var xmlFile = fs.readFileSync(__dirname + '/config.xml');
+  parser.parseString(xmlFile, function (err, result) {
+    // actual processing
+    if (options.setVersion) {
+      result.widget.$.version = options.setVersion;
+    }
+    if (options.setBuild) {
+      result.widget.$.version = result.widget.$.version + '.' + options.setBuild;
+    }
+    if (options.setBundle) {
+      result.widget.$.id = options.setBundle;
+    }
+
+    var xml = builder.buildObject(result);
+    fs.writeFileSync(__dirname + '/config.xml', xml);
+  });
 });

@@ -93,6 +93,11 @@ cordova build/run
   # also injects appropriate cordova.js
 ```
 
+**gulp config** - manage project configuration
+```
+  gulp config --setVersion=1.1.0 --setBuild=12 --setBundle=com.new.bundle
+```
+
 ## sub-generators
 ```
   yo m:controller <name>
