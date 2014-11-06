@@ -12,14 +12,6 @@ options.distPath = 'www';
 if (options.cordova) {
   // build before running cordova?
   options.cordovaBuild = options.cordova.indexOf('build') >= 0 || options.cordova.indexOf('run') >= 0;
-  // TODO: better platform detection
-  // detect platform
-  options.platform = [
-    'ios',
-    'android'
-  ].filter(function (platform) {
-    return options.cordova.indexOf(platform) >= 0;
-  })[0];
 }
 
 gulp.task('styles', function () {<% if (answers.includeSass) { %>
@@ -164,11 +156,8 @@ gulp.task('wiredep', function () {
 // inject app/**/.*js and cordova.js files into index.html
 gulp.task('inject', function () {
   var jsFiles = gulp.src(['./app/scripts/**/*.js']);
-  var cordovaUrl = options.platform ? './app/bower_components/cordova/cordova.' + options.platform + '.js' : '';
-  var cordovaFile = gulp.src(cordovaUrl, {read: false});
 
   return gulp.src('./app/index.html')
-    .pipe($.inject(cordovaFile, {starttag: '<!-- inject:cordova:{{ext}} -->', relative: true}))
     .pipe($.inject(jsFiles.pipe($.angularFilesort()), {relative: true}))
     .pipe(gulp.dest('./app'));
 });
