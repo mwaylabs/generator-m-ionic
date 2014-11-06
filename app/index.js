@@ -335,6 +335,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       this.copy('editorconfig', '.editorconfig');
       this.copy('gitattributes', '.gitattributes');
       this.copy('gitignore', '.gitignore');
+      this.copy('jenkins.sh', 'jenkins.sh');
       this.copy('jscsrc', '.jscsrc');
       this.copy('jshintrc', '.jshintrc');
       this.copy('jshintignore', '.jshintignore');

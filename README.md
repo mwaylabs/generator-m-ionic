@@ -105,6 +105,8 @@ cordova build/run
   yo m:service <name>
 ```
 
+## Continuous Integration
+For now we provide a rudimentary `jenkins.sh` template that can be configured to build your projects with jenkins.
 
 
 ## Contribute
