@@ -4,15 +4,16 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 var chalk = require('chalk');
-var cordova = require('cordova-lib').cordova.raw; // get the promise version of all methdos
+var cordova = require('cordova-lib').cordova.raw; // get the promise version of all methods
+var fs = require('fs');
 
 var GulpIonicGenerator = yeoman.generators.Base.extend({
   initializing: function () {
     this.pkg = require('../package.json'); // get package.json content
-    // TODO: check if .yo-rc.json exists: options: call subgenerator? update project structure? select subgenerator?
-    // retrieve config for templating
+    this.fileCount = fs.readdirSync('.').length;
     this.answers = this.config.getAll().answers;
     this.update = this.answers ? true : false;
+    // console.log(this.fileCount); // TODO: abort when directory is not empty issue #26
   },
 
   prompting: function () {
@@ -342,6 +343,9 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
     },
 
     subgenerators: function () {
+      if (this.update) {
+        return;
+      }
       this.composeWith('m:service', {arguments: 'start', options: {sample: 'start'}});
       this.composeWith('m:controller', {arguments: 'start', options: {sample: 'start'}});
       this.composeWith('m:partial', {arguments: 'start', options: {sample: 'start'}});
