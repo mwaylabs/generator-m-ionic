@@ -62,7 +62,8 @@ describe('m:app', function () {
         'bower.json',
         'config.xml',
         'gulpfile.js',
-        'package.json'
+        'package.json',
+        'gulp/styles.js'
       ]);
     });
 

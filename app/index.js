@@ -7,6 +7,23 @@ var chalk = require('chalk');
 var cordova = require('cordova-lib').cordova.raw; // get the promise version of all methods
 var fs = require('fs');
 
+/**
+ * copy the Gulp task style by choice
+ * @param {boolean} includeSass
+ */
+var styleTask = function (includeSass) {
+  var self = this;
+  //style task
+  if ( includeSass ) {
+    self.template('gulp/_styles_scss.js', 'gulp/styles.js');
+    self.copy('main.scss', 'app/styles/main.scss');
+  } else {
+    self.template('gulp/_styles_css.js', 'gulp/styles.js');
+    self.copy('main.css', 'app/styles/main.css');
+  }
+  return true;
+};
+
 var GulpIonicGenerator = yeoman.generators.Base.extend({
   initializing: function () {
     this.pkg = require('../package.json'); // get package.json content
@@ -126,7 +143,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
           },
           {
             value: false,
-            name: 'not (faster)',
+            name: 'not (faster)'
           }
         ]
       },
@@ -143,7 +160,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
           },
           {
             value: false,
-            name: 'latest (experienced)',
+            name: 'latest (experienced)'
           }
         ]
       },
@@ -196,9 +213,9 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
           {
             value: 'org.apache.cordova.vibration',
             name: 'Vibration - org.apache.cordova.vibration'
-          },
+          }
         ]
-      },
+      }
     ];
 
     // prompt and save results in this.answers
@@ -208,7 +225,6 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
         this.answers.appName = this.appName;
       }
       answers.includeSass = true; // set to true for now
-
       done();
     }.bind(this));
   },
@@ -323,9 +339,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       this.write('bower.json', JSON.stringify(bower, null, 2));
       this.template('_gulpfile.js', 'gulpfile.js');
       this.write('app/index.html', indexFile);
-
-      var css = 'main.' + (this.answers.includeSass ? 's' : '') + 'css';
-      this.copy(css, 'app/styles/' + css);
+      styleTask.apply(this, [this.answers.includeSass]);
     },
 
     projectfiles: function () {
@@ -372,7 +386,6 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       }.bind(this)
     });
   },
-
   end: function () {
 
   }
