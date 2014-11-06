@@ -70,7 +70,7 @@ yo m
 gulp watch
 ```
 
-**gulp build** - build your assets into www
+**gulp build** - build your assets into www, cleans before every build
 ```
   gulp build
 ```

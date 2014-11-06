@@ -100,7 +100,9 @@ gulp.task('fonts', function () {
     .pipe(gulp.dest('app/fonts')); // TODO: find a better way to inject $ionicons-font-path: "../fonts" !default; into main.scss on build
 });
 
-gulp.task('clean', require('del').bind(null, ['.tmp', options.distPath]));
+gulp.task('clean', function () {
+  require('del').sync(['.tmp', options.distPath + '/*']);
+});
 
 gulp.task('connect', function () {
   var serveStatic = require('serve-static');
@@ -195,7 +197,7 @@ gulp.task('watch', ['connect', 'serve'], function () {
 });
 
 // FIXME: when depending on fonts main tasks will not run
-gulp.task('build', ['jshint', 'jscs', 'app', 'images'], function () {
+gulp.task('build', ['clean', 'jshint', 'jscs', 'app', 'images'], function () {
   return gulp.src(options.distPath + '/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
