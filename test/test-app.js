@@ -11,8 +11,8 @@ describe('m:app', function () {
 
   describe('m:app --skip-install', function () {
     var answers = {
-      'appName': 'tradecore',
-      'appId': 'com.mwaysolutions.tradecoreionic',
+      'appName': 'My Project',
+      'appId': 'com.company.project',
       'bowerPackages': [
         'angular-dynamic-locale#~0.1.17',
         'angular-localForage#~0.2.10',
@@ -30,9 +30,11 @@ describe('m:app', function () {
         'android'
       ],
       'plugins': [
-        'org.apache.cordova.device'
+        'org.apache.cordova.device',
+        'org.apache.cordova.dialogs'
       ],
-      'includeSass': true
+      'includeSass': true,
+      'appModule': 'myProject'
     };
 
     before(function (done) {
@@ -101,12 +103,12 @@ describe('m:app', function () {
 
     it('has proper app files content', function () {
       assert.fileContent([
-        // inject appname into title
-        ['app/index.html', new RegExp('<title>' + answers.appName + '</title>')],
-        // inject appname into ng-app
-        ['app/index.html', new RegExp('<body ng-app="' + answers.appName + '">')],
-        // inject appname into app.js module
-        ['app/scripts/app.js', new RegExp('angular\\.module\\(\'' + answers.appName + '\',')]
+        // inject appModule into title
+        ['app/index.html', new RegExp('<title>' + answers.appModule + '</title>')],
+        // inject appModule into ng-app
+        ['app/index.html', new RegExp('<body ng-app="' + answers.appModule + '">')],
+        // inject appModule into app.js module
+        ['app/scripts/app.js', new RegExp('angular\\.module\\(\'' + answers.appModule + '\',')]
       ]);
     });
 
@@ -134,7 +136,7 @@ describe('m:app', function () {
     //     assert.fileContent([
     //       [
     //         'app/scripts/controllers/yeah-ctrl.js',
-    //         new RegExp('angular\\.module\\(\'' + answers.appName + '\')')
+    //         new RegExp('angular\\.module\\(\'' + answers.appModule + '\')')
     //       ],
     //       [
     //         'app/scripts/controllers/yeah-ctrl.js',
@@ -147,8 +149,8 @@ describe('m:app', function () {
 
   describe('m:app (latest versions)', function () {
     var answers = {
-      'appName': 'tradecore',
-      'appId': 'com.mwaysolutions.tradecoreionic',
+      'appName': 'My Project',
+      'appId': 'com.company.project',
       'bowerPackages': [
         'angular-dynamic-locale#~0.1.17',
         'angular-localForage#~0.2.10',
@@ -166,9 +168,11 @@ describe('m:app', function () {
         'android'
       ],
       'plugins': [
-        'org.apache.cordova.device'
+        'org.apache.cordova.device',
+        'org.apache.cordova.dialogs'
       ],
-      'includeSass': true
+      'includeSass': true,
+      'appModule': 'myProject'
     };
 
     before(function (done) {

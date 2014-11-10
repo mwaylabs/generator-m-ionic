@@ -6,6 +6,7 @@ var yosay = require('yosay');
 var chalk = require('chalk');
 var cordova = require('cordova-lib').cordova.raw; // get the promise version of all methods
 var fs = require('fs');
+var utils = require('../utils/utils.js');
 
 var GulpIonicGenerator = yeoman.generators.Base.extend({
   initializing: function () {
@@ -21,7 +22,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       return;
     }
     // say hello
-    if (!this.options['skip-welcome-message']) {
+    if (!this.options['skip-welcome-message']) { // for use with generator-m-server
       this.log(yosay(
         'Welcome to the polished M generator!'
       ));
@@ -32,16 +33,12 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       this.appName = this.options['app-name'];
     }
 
-    // tell yeoman we're doing asynchronous stuff here
-    // so it can wait with subsequent tasks
-    var done = this.async();
-
     var prompts = [
       // appName
       {
         type: 'input',
         name: 'appName',
-        message: 'state the name of your project (the name that will be displayed below the app icon)',
+        message: 'state a name for your project (this name will be displayed below the app icon)',
         validate: function (value) {
           return value ? true : 'Please enter a name ';
         },
@@ -54,10 +51,10 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       {
         type: 'input',
         name: 'appId',
-        message: 'state the id of your project (e.g. com.company.project)',
+        message: 'state a bundle identifier for your project (e.g. com.company.project)',
         validate: function (value) {
           var pattern = /^[a-z][a-z0-9_]*(\.[a-z0-9_]+)+[0-9a-z_]$/i;
-          return pattern.test(value) ? true : 'Please enter a valid id! E.g. com.company.project';
+          return pattern.test(value) ? true : 'Please enter a valid bundle identifier! E.g. com.company.project';
         }
       },
       // bower packages
@@ -202,49 +199,59 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
     ];
 
     // prompt and save results in this.answers
-    this.prompt(prompts, function (answers) {
-      this.answers = answers;
-      if (this.appName) {
-        this.answers.appName = this.appName;
-      }
-      answers.includeSass = true; // set to true for now
+    if (!this.options['skip-prompts']) {
+      // tell yeoman we're doing asynchronous stuff here
+      // so it can wait with subsequent tasks
+      var done = this.async();
 
-      done();
-    }.bind(this));
+      this.prompt(prompts, function (answers) { // prompt
+        this.answers = answers;
+
+        done();
+      }.bind(this));
+    }
   },
 
   configuring: function () {
 
-    // TODO: remove debugging
     // debugging
-    // this.log(chalk.inverse(JSON.stringify(this.answers, null, '  ')));
-    // this.answers = {
-    //   'appName': 'asdf',
-    //   'appId': 'com.company.project',
-    //   'bowerPackages': [
-    //     'angular-dynamic-locale#~0.1.17',
-    //     'angular-localForage#~0.2.10',
-    //     'angular-touch#~1.2.25',
-    //     'angular-translate#~2.4.0',
-    //     'angular-translate-loader-static-files#~2.4.0',
-    //     'angular-ui-bootstrap-bower#~0.11.0',
-    //     'fastclick#~1.0.3',
-    //     'restangular#~1.4.0'
-    //   ],
-    //   'ionicSass': true,
-    //   'stableVersions': true,
-    //   'platforms': [
-    //     'ios',
-    //     'android'
-    //   ],
-    //   'plugins': [
-    //     'org.apache.cordova.device',
-    //     'org.apache.cordova.dialogs'
-    //   ],
-    //   'includeSass': true
-    // };
+    if (this.options['skip-prompts']) {
+      this.answers = {
+        'appName': 'My Project',
+        'appId': 'com.company.project',
+        'bowerPackages': [
+          'angular-dynamic-locale#~0.1.17',
+          'angular-localForage#~0.2.10',
+          'angular-touch#~1.2.25',
+          'angular-translate#~2.4.0',
+          'angular-translate-loader-static-files#~2.4.0',
+          'angular-ui-bootstrap-bower#~0.11.0',
+          'fastclick#~1.0.3',
+          'restangular#~1.4.0'
+        ],
+        'ionicSass': true,
+        'stableVersions': true,
+        'platforms': [
+          'ios',
+          'android'
+        ],
+        'plugins': [
+          'org.apache.cordova.device',
+          'org.apache.cordova.dialogs'
+        ],
+        'includeSass': true
+      };
+      this.log(chalk.inverse(JSON.stringify(this.answers, null, '  ')));
+    }
 
-    // store config in .yo-rc.json
+    // manipulate answers
+    if (this.appName) { // save when name was provided in app-name option
+      this.answers.appName = this.appName;
+    }
+    this.answers.appModule = utils.modularize(this.answers.appName);
+    this.answers.includeSass = true; // TODO: set to true for now
+
+    // store answers in .yo-rc.json
     this.config.set('answers', this.answers);
   },
 

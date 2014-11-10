@@ -1,5 +1,5 @@
 'use strict';
-angular.module('<%= answers.appName %>')
+angular.module('<%= answers.appModule %>')
 .service('<%= name %>', function () {
   console.log('Hello from your <%= name %> service');
 <% if(options.sample === 'start') {%>

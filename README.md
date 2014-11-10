@@ -107,6 +107,15 @@ cordova build/run/emulate
 ## Continuous Integration
 For now we provide a rudimentary `jenkins.sh` template that can be configured to build your projects with jenkins.
 
+## Options
+```
+yo m --skip-sdk # skip adding cordova platforms and plugins (sdk-specific) for travis
+yo m --appName='App Name' # set appName via CLI
+yo m --skip-welcome-message # skips welcome message
+yo m --skip-prompts # for debugging purposes, run with predefined answers
+yo m --skip-install # for debugging purposes, no npm and bower install
+```
+
 
 ## Contribute
 

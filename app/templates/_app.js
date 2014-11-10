@@ -1,5 +1,5 @@
 'use strict';
-angular.module('<%= answers.appName %>', [
+angular.module('<%= answers.appModule %>', [
   'ionic',
   'ngCordova',
   'ui.router'

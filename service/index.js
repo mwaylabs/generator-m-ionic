@@ -1,5 +1,6 @@
 'use strict';
 var yeoman = require('yeoman-generator');
+var _s = require('underscore.string');
 var utils = require('../utils/utils.js');
 
 var GulpIonicGenerator = yeoman.generators.NamedBase.extend({
@@ -11,7 +12,7 @@ var GulpIonicGenerator = yeoman.generators.NamedBase.extend({
     this.answers = this.config.getAll().answers;
 
     // force first character uppercase
-    this.name = utils.firstUpper(this.name);
+    this.name = _s.capitalize(this.name);
   },
 
   writing: function () {
