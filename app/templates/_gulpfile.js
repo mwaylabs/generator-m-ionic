@@ -14,7 +14,7 @@ var options = minimist(process.argv.slice(2));
 options.distPath = 'www';
 if (options.cordova) {
   // gulp build before running cordova?
-  var cmds = ['build', 'run', 'emulate'];
+  var cmds = ['build', 'run', 'emulate', 'prepare'];
   for (var i = 0, cmd; (cmd = cmds[i]); i++) {
     if (options.cordova.indexOf(cmd) >= 0) {
       options.runBuild = true;
