@@ -14,7 +14,12 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
     this.fileCount = fs.readdirSync('.').length;
     this.answers = this.config.getAll().answers;
     this.update = this.answers ? true : false;
-    // console.log(this.fileCount); // TODO: abort when directory is not empty issue #26
+
+    // abort when directory is not empty on first run
+    if (!this.update && this.fileCount > 0) {
+      this.log(chalk.red('Non-empty directory. Cordova needs an empty directory to set up project'));
+      process.exit(1);
+    }
   },
 
   prompting: function () {
@@ -283,7 +288,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       }.bind(this))
       .catch(function (err) {
         this.log(chalk.red('Couldn\'t finish generator: \n' + err));
-        // halts because done will not be called!
+        process.exit(1);
       }.bind(this));
     },
 

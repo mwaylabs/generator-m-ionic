@@ -62,6 +62,7 @@ mkdir myApp && cd $_
 ```
 yo m
 ```
+IMPORTANT: Cordova needs an empty directory to work. Please run any other setup (e.g. `git init`) after running `yo m`.
 
 ## Commands
 **gulp watch** - start livereload and watch for changes in files. Automatically injects deps into index.html and opens your default browsers
