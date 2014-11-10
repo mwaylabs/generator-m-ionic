@@ -169,7 +169,11 @@ gulp.task('inject', function () {
   var jsFiles = gulp.src(['./app/scripts/**/*.js']);
 
   return gulp.src('./app/index.html')
-    .pipe($.inject(jsFiles.pipe($.angularFilesort()), {relative: true}))
+    .pipe($.inject(
+      jsFiles
+        .pipe($.plumber()) // use plumber so watch doesn't crash on js error
+        .pipe($.angularFilesort()),
+      {relative: true}))
     .pipe(gulp.dest('./app'));
 });
 
