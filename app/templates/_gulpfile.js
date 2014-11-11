@@ -92,8 +92,8 @@ gulp.task('images', function () {
 
 // copy fonts to do dist/fonts and app/fonts
 gulp.task('fonts', function () {
-  return gulp.src(require('main-bower-files')().concat('app/fonts/**/*'))
-    .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
+  return gulp.src(require('main-bower-files')({filter: /\.(eot|svg|ttf|woff)/i})
+    .concat('app/fonts/**/*'))
     .pipe($.flatten())
     .pipe(gulp.dest(options.distPath + '/fonts'))
     .pipe(gulp.dest('app/fonts')); // TODO: find a better way to inject $ionicons-font-path: "../fonts" !default; into main.scss on build
@@ -206,15 +206,12 @@ gulp.task('build', ['clean', 'jshint', 'jscs', 'app', 'images', 'fonts'], functi
 // CORDOVA
 // TODO: find better solution for cordova CLI integration
 gulp.task('default', function () {
-  return gulp.start('cordova');
-
-  // FIXME: disabled for issue #68
-  // if (options.runBuild) {
-  //   return gulp.start('cordova-with-build');
-  // }
-  // else {
-  //   return gulp.start('cordova');
-  // }
+  if (options.runBuild) {
+    return gulp.start('cordova-with-build');
+  }
+  else {
+    return gulp.start('cordova');
+  }
 });
 
 gulp.task('cordova', function () {
