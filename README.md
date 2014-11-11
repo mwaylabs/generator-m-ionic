@@ -87,6 +87,12 @@ gulp watch
   gulp --cordova 'plugin ls'
 ```
 
+cordova build/run/emulate/prepare
+```
+  gulp --cordova 'run|build|emulate|prepare <platform>' 
+  # runs gulp build
+```
+
 **gulp config** - manage project configuration
 ```
   gulp config --setVersion=1.1.0 --setBuild=12 --setBundle=com.new.bundle
