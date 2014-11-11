@@ -52,8 +52,7 @@ gulp.task('jscs', function () {
 // copy partials
 gulp.task('partials', function () {
   return gulp.src([
-    'app/partials/**/*.html',
-    'app/partials/**/*.json', // for language files etc...
+    'app/partials/**/*', // html, language, locales, assets
   ])
   .pipe(gulp.dest(options.distPath + '/partials'));
 });
@@ -207,12 +206,15 @@ gulp.task('build', ['clean', 'jshint', 'jscs', 'app', 'images', 'fonts'], functi
 // CORDOVA
 // TODO: find better solution for cordova CLI integration
 gulp.task('default', function () {
-  if (options.runBuild) {
-    return gulp.start('cordova-with-build');
-  }
-  else {
-    return gulp.start('cordova');
-  }
+  return gulp.start('cordova');
+
+  // FIXME: disabled for issue #68
+  // if (options.runBuild) {
+  //   return gulp.start('cordova-with-build');
+  // }
+  // else {
+  //   return gulp.start('cordova');
+  // }
 });
 
 gulp.task('cordova', function () {
