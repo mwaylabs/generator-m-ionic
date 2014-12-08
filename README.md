@@ -154,6 +154,17 @@ yo m --skip-install # for debugging purposes, no npm and bower install
 
 - process:
   - idea -> issue -> discussion -> implementation -> pull-request
+  - pull requests 
+    - for non-trivial changes talk to us before you invest time, we're happy to point you in the right directions and discuss implementation details with you. This will help you to get your pull-request into the master quickly
+    - please provide information on what you want to do
+    - as few commits as possible
+    - only necessary changes
+    - test!
+    - adhere to our coding guidelines and styleguides (jshint, jscs)
+    - will work with you until they can be merged
+  - inspiration
+    - https://github.com/mozilla/localForage/blob/master/CONTRIBUTING.md
+    - https://github.com/yeoman/yeoman/blob/master/contributing.md
 - changelogs, roadmaps, proper versioning
   - good example: https://github.com/twbs/ratchet/releases 
 - well defined process: github, issues - discussions, pull-requests
