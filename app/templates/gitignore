@@ -1,26 +1,35 @@
+# temp files
 .DS_Store
-node_modules
 .tmp
 .sass-cache
-app/bower_components
 
-# copied assets from cordova
-platforms/ios/www/**
-platforms/android/assets/www/**
-platforms/**/ant-build/
-platforms/**/ant-gen/
-platforms/**/project.xcworkspace/
-# cordova logs
-platforms/**/console.log
+# npm & bower
+/node_modules/
+/app/bower_components/
 
+# cordova
+/platforms/**/console.log
 
-# dist folder
-dist
-www/**
+# ios/xcode
+/platforms/ios/www/**
 **/xcuserdata/
 xcshareddata/
-coverage/
+/platforms/**/project.xcworkspace/
 
-# sublime project files
+# android
+/platforms/android/assets/www/**         # www build
+/platforms/**/ant-build/                 # ant build artifacts
+/platforms/**/ant-gen/                   # ant build artifacts
+/platforms/android/**/local.properties   # local properties
+
+# gradle
+.gradle
+/platforms/android/build/
+
+
+# build folder
+/www/
+
+# IDE
 *.sublime-project
 *.sublime-workspace
