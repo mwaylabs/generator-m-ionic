@@ -4,38 +4,15 @@
 var path = require('path');
 var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
-var os = require('os');
 
-describe('m:app', function () {
+// local modules
+var sampleAnswers = require('../app/sources/sample-answers.js');
+
+describe('m', function () {
   this.timeout(60000); // allow 1 minute to execute
 
-  describe('m:app --skip-install', function () {
-    var answers = {
-      'appName': 'My Project',
-      'appId': 'com.company.project',
-      'bowerPackages': [
-        'angular-dynamic-locale#~0.1.17',
-        'angular-localForage#~0.2.10',
-        'angular-touch#~1.2.25',
-        'angular-translate#~2.4.0',
-        'angular-translate-loader-static-files#~2.4.0',
-        'angular-ui-bootstrap-bower#~0.11.0',
-        'fastclick#~1.0.3',
-        'restangular#~1.4.0'
-      ],
-      'ionicSass': true,
-      'stableVersions': true,
-      'platforms': [
-        'ios',
-        'android'
-      ],
-      'plugins': [
-        'org.apache.cordova.device',
-        'org.apache.cordova.dialogs'
-      ],
-      'includeSass': true,
-      'appModule': 'myProject'
-    };
+  describe('m --skip-install', function () {
+    var answers = sampleAnswers.getStandard();
 
     before(function (done) {
       helpers.run(path.join(__dirname, '../app'))
@@ -89,32 +66,32 @@ describe('m:app', function () {
 
     it('has proper bower.json content', function () {
       assert.fileContent([
-        ['bower.json', /"angular-dynamic-locale": "~0.1.17"/],
-        ['bower.json', /"angular-localForage": "~0.2.10"/],
-        ['bower.json', /"angular-touch": "~1.2.25"/],
-        ['bower.json', /"angular-translate": "~2.4.0"/],
-        ['bower.json', /"angular-translate-loader-static-files": "~2.4.0"/],
-        ['bower.json', /"angular-ui-bootstrap-bower": "~0.11.0"/],
-        ['bower.json', /"fastclick": "~1.0.3"/],
-        ['bower.json', /"restangular": "~1.4.0"/]
+        ['bower.json', 'angular-dynamic-locale": "~0.1.17"'],
+        ['bower.json', 'angular-localForage": "~0.2.10"'],
+        ['bower.json', 'angular-touch": "~1.2.25"'],
+        ['bower.json', 'angular-translate": "~2.4.0"'],
+        ['bower.json', 'angular-translate-loader-static-files": "~2.4.0"'],
+        ['bower.json', 'angular-ui-bootstrap-bower": "~0.11.0"'],
+        ['bower.json', 'fastclick": "~1.0.3"'],
+        ['bower.json', 'restangular": "~1.4.0"']
       ]);
     });
 
     it('has proper app files content', function () {
       assert.fileContent([
         // inject appModule into title
-        ['app/index.html', new RegExp('<title>' + answers.appModule + '</title>')],
+        ['app/index.html', '<title>' + answers.appModule + '</title>'],
         // inject appModule into ng-app
-        ['app/index.html', new RegExp('<body ng-app="' + answers.appModule + '">')],
+        ['app/index.html', '<body ng-app="' + answers.appModule + '">'],
         // inject appModule into app.js module
-        ['app/scripts/app.js', new RegExp('angular\\.module\\(\'' + answers.appModule + '\',')]
+        ['app/scripts/app.js', 'angular.module(\'' + answers.appModule + '\',']
       ]);
     });
 
     it('has proper cordova files content', function () {
       assert.fileContent([
-        ['config.xml', new RegExp('<widget id="' + answers.appId + '"')],
-        ['config.xml', new RegExp('<name>' + answers.appName + '</name>')]
+        ['config.xml', '<widget id="' + answers.appId + '"'],
+        ['config.xml', '<name>' + answers.appName + '</name>']
       ]);
     });
 
@@ -134,44 +111,19 @@ describe('m:app', function () {
     //     assert.fileContent([
     //       [
     //         'app/scripts/controllers/yeah-ctrl.js',
-    //         new RegExp('angular\\.module\\(\'' + answers.appModule + '\')')
+    //         'angular.module(\'' + answers.appModule + '\')'
     //       ],
     //       [
     //         'app/scripts/controllers/yeah-ctrl.js',
-    //         new RegExp('\\.controller\\(\'YeahCtrl\'\\, function')
+    //         '.controller(\'YeahCtrl\', function')
     //       ]
     //     ]);
     //   });
     // });
   });
 
-  describe('m:app (latest versions)', function () {
-    var answers = {
-      'appName': 'My Project',
-      'appId': 'com.company.project',
-      'bowerPackages': [
-        'angular-dynamic-locale#~0.1.17',
-        'angular-localForage#~0.2.10',
-        'angular-touch#~1.2.25',
-        'angular-translate#~2.4.0',
-        'angular-translate-loader-static-files#~2.4.0',
-        'angular-ui-bootstrap-bower#~0.11.0',
-        'fastclick#~1.0.3',
-        'restangular#~1.4.0'
-      ],
-      'ionicSass': true,
-      'stableVersions': false,
-      'platforms': [
-        'ios',
-        'android'
-      ],
-      'plugins': [
-        'org.apache.cordova.device',
-        'org.apache.cordova.dialogs'
-      ],
-      'includeSass': true,
-      'appModule': 'myProject'
-    };
+  describe('m (latest versions)', function () {
+    var answers = sampleAnswers.getLatestVersions();
 
     before(function (done) {
       helpers.run(path.join(__dirname, '../app'))
@@ -198,30 +150,8 @@ describe('m:app', function () {
       ]);
     });
   });
-  describe('m:app with option --app-name', function () {
-    var answers = {
-      'appId': 'com.mwaysolutions.tradecoreionic',
-      'bowerPackages': [
-        'angular-dynamic-locale#~0.1.17',
-        'angular-localForage#~0.2.10',
-        'angular-touch#~1.2.25',
-        'angular-translate#~2.4.0',
-        'angular-translate-loader-static-files#~2.4.0',
-        'angular-ui-bootstrap-bower#~0.11.0',
-        'fastclick#~1.0.3',
-        'restangular#~1.4.0'
-      ],
-      'ionicSass': true,
-      'stableVersions': false,
-      'platforms': [
-        'ios',
-        'android'
-      ],
-      'plugins': [
-        'org.apache.cordova.device'
-      ],
-      'includeSass': true
-    };
+  describe('m with option --app-name', function () {
+    var answers = sampleAnswers.getAppNameOption();
 
     before(function (done) {
       helpers.run(path.join(__dirname, '../app'))
@@ -242,7 +172,7 @@ describe('m:app', function () {
     });
   });
 
-  // describe('m:app --skip-prompts', function () {
+  // describe('m --skip-prompts', function () {
   //   before(function (done) {
   //     helpers.run(path.join(__dirname, '../app'))
   //       .withGenerators([ // configure path to  subgenerators

@@ -2,18 +2,26 @@
 
 var path = require('path');
 var yeoman = require('yeoman-generator');
-var inquirer = require('inquirer');
 var yosay = require('yosay');
 var chalk = require('chalk');
 var cordova = require('cordova-lib').cordova.raw; // get the promise version of all methods
 var fs = require('fs');
+
+// local modules
 var utils = require('../utils/utils.js');
+var bowerConfig = require('./sources/bower-config.js');
+var cordovaConfig = require('./sources/cordova-config.js');
+var sampleAnswers = require('./sources/sample-answers.js');
 
 var GulpIonicGenerator = yeoman.generators.Base.extend({
   initializing: function () {
-    this.pkg = require('../package.json'); // get package.json content
+    // get package.json content
+    this.pkg = require('../package.json');
+    // non-empty dir?
     this.fileCount = fs.readdirSync('.').length;
+    // read .yo-rc
     this.answers = this.config.getAll().answers;
+    // is update?
     this.update = this.answers ? true : false;
 
     // abort when directory is not empty on first run
@@ -68,53 +76,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
         type: 'checkbox',
         name: 'bowerPackages',
         message: 'Choose all bower packages in addition to angular, ionic, angular-ui-router, cordova and ngCordova:',
-        choices: [
-          {
-            value: 'angular-dynamic-locale#~0.1.17',
-            name: 'angular-dynamic-locale#~0.1.17',
-            checked: true
-          },
-          {
-            value: 'angular-localForage#~0.2.10',
-            name: 'angular-localForage#~0.2.10',
-            checked: true
-          },
-          {
-            value: 'angular-touch#~1.2.25',
-            name: 'angular-touch#~1.2.25',
-            checked: true
-          },
-          {
-            value: 'angular-translate#~2.4.0',
-            name: 'angular-translate#~2.4.0',
-            checked: true
-          },
-          {
-            value: 'angular-translate-loader-static-files#~2.4.0',
-            name: 'angular-translate-loader-static-files#~2.4.0',
-            checked: true
-          },
-          {
-            value: 'angular-ui-bootstrap-bower#~0.11.0',
-            name: 'angular-ui-bootstrap-bower#~0.11.0',
-            checked: true
-          },
-          {
-            value: 'fastclick#~1.0.3',
-            name: 'fastclick#~1.0.3',
-            checked: true
-          },
-          {
-            value: 'ratchet#~2.0.2',
-            name: 'ratchet#~2.0.2',
-            checked: false
-          },
-          {
-            value: 'restangular#~1.4.0',
-            name: 'restangular#~1.4.0',
-            checked: true
-          }
-        ]
+        choices: bowerConfig.optional
       },
       // stableVersions
       {
@@ -155,52 +117,14 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
         type: 'checkbox',
         name: 'platforms',
         message: 'Select all platforms you want to support:',
-        choices: [
-          {
-            value: 'ios',
-            name: 'iOS',
-            checked: true
-          },
-          {
-            value: 'android',
-            name: 'Android',
-            checked: true
-          }
-        ]
+        choices: cordovaConfig.platforms
       },
       // select plugins
       {
         type: 'checkbox',
         name: 'plugins',
         message: 'Select all cordova plugins you want to install',
-        choices: [
-          new inquirer.Separator(),
-          {
-            value: 'org.apache.cordova.device',
-            name: 'Device - org.apache.cordova.device',
-            checked: true
-          },
-          {
-            value: 'org.apache.cordova.dialogs',
-            name: 'Dialogs - org.apache.cordova.dialogs'
-          },
-          {
-            value: 'org.apache.cordova.network-information',
-            name: 'Network - org.apache.cordova.network-information'
-          },
-          {
-            value: 'org.apache.cordova.splashscreen',
-            name: 'Splashscreen - org.apache.cordova.splashscreen'
-          },
-          {
-            value: 'https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git',
-            name: 'Toast - https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git'
-          },
-          {
-            value: 'org.apache.cordova.vibration',
-            name: 'Vibration - org.apache.cordova.vibration'
-          },
-        ]
+        choices: cordovaConfig.plugins
       },
     ];
 
@@ -222,31 +146,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
 
     // debugging
     if (this.options['skip-prompts']) {
-      this.answers = {
-        'appName': 'My Project',
-        'appId': 'com.company.project',
-        'bowerPackages': [
-          'angular-dynamic-locale#~0.1.17',
-          'angular-localForage#~0.2.10',
-          'angular-touch#~1.2.25',
-          'angular-translate#~2.4.0',
-          'angular-translate-loader-static-files#~2.4.0',
-          'angular-ui-bootstrap-bower#~0.11.0',
-          'fastclick#~1.0.3',
-          'restangular#~1.4.0'
-        ],
-        'ionicSass': true,
-        'stableVersions': true,
-        'platforms': [
-          'ios',
-          'android'
-        ],
-        'plugins': [
-          'org.apache.cordova.device',
-          'org.apache.cordova.dialogs'
-        ],
-        'includeSass': true
-      };
+      this.answers = sampleAnswers.getStandard();
       this.log(chalk.inverse(JSON.stringify(this.answers, null, '  ')));
     }
 
@@ -254,6 +154,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
     if (this.appName) { // save when name was provided in app-name option
       this.answers.appName = this.appName;
     }
+    // save appModule in answers
     this.answers.appModule = utils.modularize(this.answers.appName);
     this.answers.includeSass = true; // TODO: set to true for now
 
@@ -295,36 +196,23 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
 
     app: function () {
       // prepare bower.json
-      var bower = this.bower = {
-        dependencies: {
-          'ionic': 'v1.0.0-beta.12',
-          'angular': '~1.3.0-rc.2',
-          'angular-ui-router': '~0.2.10',
-          'ngCordova': '~0.1.4-alpha'
-        },
-        devDependencies: {
-
-        },
-        resolutions: {
-          'angular': '~1.3.0-rc.2'
-        }
-      };
+      var bowerJSON = bowerConfig.bowerJSON;
       // include selected packages
       for (var i = 0, bowerPackage; (bowerPackage = this.answers.bowerPackages[i]); i++) {
         bowerPackage = bowerPackage.split('#');
-        this.bower.dependencies[bowerPackage[0]] = bowerPackage[1];
+        bowerJSON.dependencies[bowerPackage[0]] = bowerPackage[1];
       }
       // set all deps to latest?
       if (!this.answers.stableVersions) {
-        for (var topKey in bower) {
-          for (var key in bower[topKey]) {
-            bower[topKey][key] = 'latest';
+        for (var topKey in bowerJSON) {
+          for (var key in bowerJSON[topKey]) {
+            bowerJSON[topKey][key] = 'latest';
           }
         }
       }
       // add other properties
-      bower.name = this.answers.appName;
-      bower.private = true;
+      bowerJSON.name = this.answers.appName;
+      bowerJSON.private = true;
 
       // prepare index
       var indexFile = this.readFileAsString(path.join(this.sourceRoot(), '_index.html'));
@@ -332,7 +220,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
 
       // app  files
       this.copy('_app.js', 'app/scripts/app.js');
-      this.write('bower.json', JSON.stringify(bower, null, 2));
+      this.write('bower.json', JSON.stringify(bowerJSON, null, 2));
       this.template('_gulpfile.js', 'gulpfile.js');
       this.write('app/index.html', indexFile);
 
