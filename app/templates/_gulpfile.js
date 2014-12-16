@@ -31,7 +31,7 @@ gulp.task('styles', function () {<% if (answers.includeSass) { %>
       precision: 10
     }))<% } else { %>
   return gulp.src('app/styles/main.css')<% } %>
-    .pipe($.autoprefixer('last 1 version'))
+    .pipe($.autoprefixer({ browsers: ['last 2 version'], remove: false}))
     .pipe(gulp.dest('.tmp/styles'));
 });
 
@@ -83,10 +83,11 @@ gulp.task('app', ['inject', 'styles', 'partials'], function () {
 // copy & minify images to dist/images
 gulp.task('images', function () {
   return gulp.src('app/images/**/*')
-    .pipe($.cache($.imagemin({
-      progressive: true,
-      interlaced: true
-    })))
+    // disabled: imagemin not working correctly - https://github.com/mwaylabs/generator-m/issues/90
+    // .pipe($.cache($.imagemin({
+    //   progressive: true,
+    //   interlaced: true
+    // })))
     .pipe(gulp.dest(options.distPath + '/images'));
 });
 
