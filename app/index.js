@@ -299,8 +299,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
           'ionic': 'v1.0.0-beta.12',
           'angular': '~1.3.0-rc.2',
           'angular-ui-router': '~0.2.10',
-          'ngCordova': '~0.1.4-alpha',
-          'cordova': '~3.4.0'
+          'ngCordova': '~0.1.4-alpha'
         },
         devDependencies: {
 
@@ -351,7 +350,6 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       this.copy('jscsrc', '.jscsrc');
       this.copy('jshintrc', '.jshintrc');
       this.copy('jshintignore', '.jshintignore');
-      this.copy('jshintrc', '.jshintrc');
       this.copy(path.join(__dirname, '../', 'README.md'), 'README.md');
     },
 

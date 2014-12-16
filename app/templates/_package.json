@@ -6,7 +6,7 @@
   "devDependencies": {
     "connect": "^3.0.1",
     "connect-livereload": "^0.4.0",
-    "cordova": "3.5.0-0.2.7",
+    "cordova": "4.1.2",
     "del": "^0.1.0",
     "gulp": "^3.6.0",
     "gulp-angular-filesort": "^1.0.4",
