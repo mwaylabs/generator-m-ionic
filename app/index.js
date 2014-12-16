@@ -2,6 +2,7 @@
 
 var path = require('path');
 var yeoman = require('yeoman-generator');
+var inquirer = require('inquirer');
 var yosay = require('yosay');
 var chalk = require('chalk');
 var cordova = require('cordova-lib').cordova.raw; // get the promise version of all methods
@@ -173,7 +174,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
         name: 'plugins',
         message: 'Select all cordova plugins you want to install',
         choices: [
-          new yeoman.inquirer.Separator(),
+          new inquirer.Separator(),
           {
             value: 'org.apache.cordova.device',
             name: 'Device - org.apache.cordova.device',

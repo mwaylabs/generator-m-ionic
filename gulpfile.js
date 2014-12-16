@@ -1,6 +1,8 @@
 /* jshint -W079 */ // prevent redefinition of $ warning
 'use strict';
 
+// tasks based on : https://github.com/youngmountain/generator-node-gulp/blob/master/gulpfile.js
+
 var gulp   = require('gulp');
 var $ = require('gulp-load-plugins')();
 
@@ -13,21 +15,20 @@ var paths = {
 paths.watch = paths.watch.concat(paths.lint);
 paths.source = paths.source.concat(paths.lint);
 
-var onError = function (err) {
-  $.util.beep();
+var plumberConf = {};
 
-  if (process.env.CI) {
-    throw new Error(err);
-  }
-};
+// when running in CI environment (Travis), abort and throw error on error
+if (process.env.CI) {
+  plumberConf.errorHandler = function (err) {
+    throw err;
+  };
+}
 
 // will run coding style checks
 gulp.task('lint', function () {
   return gulp.src(paths.lint)
     .pipe($.jshint('.jshintrc'))
-    .pipe($.plumber({
-      errorHandler: onError
-    }))
+    .pipe($.plumber(plumberConf))
     .pipe($.jscs())
     .pipe($.jshint.reporter('jshint-stylish'));
 });
@@ -36,13 +37,12 @@ gulp.task('lint', function () {
 gulp.task('istanbul', function (cb) {
   gulp.src(paths.source)
     .pipe($.istanbul()) // Covering files
+    .pipe($.istanbul.hookRequire())
     .on('finish', function () {
       gulp.src(paths.tests, {cwd: __dirname})
-        .pipe($.plumber({
-          errorHandler: onError
-        }))
+        .pipe($.plumber(plumberConf))
         .pipe($.mocha())
-        .pipe($.istanbul.writeReports()) // Creating the reports after tests runned
+        .pipe($.istanbul.writeReports()) // Creating the reports after tests ran
         .on('finish', function () {
           process.chdir(__dirname);
           cb();

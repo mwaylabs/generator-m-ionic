@@ -39,7 +39,6 @@ describe('m:app', function () {
 
     before(function (done) {
       helpers.run(path.join(__dirname, '../app'))
-        .inDir(path.join(os.tmpdir(), './tmp')) // create new dir
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../controller'),
           path.join(__dirname, '../partial'),
@@ -124,7 +123,6 @@ describe('m:app', function () {
     //   var controllerName = 'yeah';
     //   before(function (done) {
     //     helpers.run(path.join(__dirname, '../controller'))
-    //       .inDir(path.join(os.tmpdir(), './tmp')) // create new dir
     //       .withArguments([controllerName])
     //       .on('end', done);
     //   });
@@ -177,7 +175,6 @@ describe('m:app', function () {
 
     before(function (done) {
       helpers.run(path.join(__dirname, '../app'))
-        .inDir(path.join(os.tmpdir(), './temp-test')) // create new dir
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../controller'),
           path.join(__dirname, '../partial'),
@@ -201,7 +198,6 @@ describe('m:app', function () {
       ]);
     });
   });
-
   describe('m:app with option --app-name', function () {
     var answers = {
       'appId': 'com.mwaysolutions.tradecoreionic',
@@ -229,7 +225,6 @@ describe('m:app', function () {
 
     before(function (done) {
       helpers.run(path.join(__dirname, '../app'))
-        .inDir(path.join(os.tmpdir(), './temp-test')) // create new dir
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../controller'),
           path.join(__dirname, '../partial'),
@@ -246,4 +241,17 @@ describe('m:app', function () {
       ]);
     });
   });
+
+  // describe('m:app --skip-prompts', function () {
+  //   before(function (done) {
+  //     helpers.run(path.join(__dirname, '../app'))
+  //       .withGenerators([ // configure path to  subgenerators
+  //         path.join(__dirname, '../controller'),
+  //         path.join(__dirname, '../partial'),
+  //         path.join(__dirname, '../service')
+  //       ])
+  //       .withOptions({ 'skip-prompts': true}) // execute with options
+  //       .on('end', done);
+  //   });
+  // });
 });
