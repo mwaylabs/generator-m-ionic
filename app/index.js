@@ -122,7 +122,6 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
     }
     // save appModule in answers
     this.answers.appModule = utils.modularize(this.answers.appName);
-    this.answers.includeSass = true; // TODO: set to true for now
 
     // store answers in .yo-rc.json
     this.config.set('answers', this.answers);
@@ -183,8 +182,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       this.template('_gulpfile.js', 'gulpfile.js');
       this.write('app/index.html', indexFile);
 
-      var css = 'main.' + (this.answers.includeSass ? 's' : '') + 'css';
-      this.copy(css, 'app/styles/' + css);
+      this.copy('main.scss', 'app/styles/main.scss');
     },
 
     projectfiles: function () {

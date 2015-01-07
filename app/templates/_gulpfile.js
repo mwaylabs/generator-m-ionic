@@ -122,7 +122,7 @@ gulp.task('connect', function () {
     });
 });
 
-gulp.task('serve', ['connect', 'inject'<% if (answers.includeSass) { %>, 'styles'<% } %>], function () {
+gulp.task('serve', ['connect', 'inject', 'styles'], function () {
   require('opn')('http://localhost:9000');
 });
 
@@ -153,11 +153,9 @@ gulp.task('serve-build', ['connect-build'], function () {
 gulp.task('wiredep', function () {
   var wiredep = require('wiredep').stream;
 // TODO:
-//<% if (answers.includeSass) { %>
 //   gulp.src('app/styles/*.scss') // into main.scss
 //     .pipe(wiredep())
 //     .pipe(gulp.dest('app/styles'));
-//<% } %>
   return gulp.src('app/*.html') // into index.html
     .pipe(wiredep({exclude: ['bower_components/ionic/release/css']}))
        // exclude ionic scss since we're using ionic sass
@@ -194,8 +192,8 @@ gulp.task('watch', ['connect', 'serve'], function () {
     // FIXME: not watching new files?!
   });
 
-  // watch for changes in css/scss
-  gulp.watch('app/styles/**/*.<%= answers.includeSass ? 'scss' : 'css' %>', ['styles']);
+  // watch for changes in scss
+  gulp.watch('app/styles/**/*.scss', ['styles']);
   // watch for changes in bower.json
   gulp.watch('bower.json', ['wiredep']);
 });

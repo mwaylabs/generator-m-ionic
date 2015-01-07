@@ -24,8 +24,7 @@ module.exports = {
     plugins: [
       'org.apache.cordova.device',
       'org.apache.cordova.dialogs'
-    ],
-    includeSass: true
+    ]
   },
 
   /**
