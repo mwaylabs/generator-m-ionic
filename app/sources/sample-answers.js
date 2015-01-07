@@ -17,8 +17,6 @@ module.exports = {
       }
       return packages;
     })(),
-    ionicSass: true,
-    stableVersions: true,
     platforms: [
       'ios',
       'android'
@@ -36,12 +34,6 @@ module.exports = {
    */
   getStandard: function () {
     return JSON.parse(JSON.stringify(this.standard));
-  },
-
-  getLatestVersions: function () {
-    var standard = this.getStandard();
-    standard.stableVersions = false;
-    return standard;
   },
 
   getAppNameOption: function () {

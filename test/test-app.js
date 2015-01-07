@@ -122,34 +122,6 @@ describe('m', function () {
     // });
   });
 
-  describe('m (latest versions)', function () {
-    var answers = sampleAnswers.getLatestVersions();
-
-    before(function (done) {
-      helpers.run(path.join(__dirname, '../app'))
-        .withGenerators([ // configure path to  subgenerators
-          path.join(__dirname, '../controller'),
-          path.join(__dirname, '../partial'),
-          path.join(__dirname, '../service')
-        ])
-        .withOptions({ 'skip-install': true, 'skip-sdk': true }) // execute with options
-        .withPrompt(answers)  // answer prompts
-        .on('end', done);
-    });
-
-    it('bower json content', function () {
-      assert.fileContent([
-        ['bower.json', /"angular-dynamic-locale": "latest"/],
-        ['bower.json', /"angular-localForage": "latest"/],
-        ['bower.json', /"angular-touch": "latest"/],
-        ['bower.json', /"angular-translate": "latest"/],
-        ['bower.json', /"angular-translate-loader-static-files": "latest"/],
-        ['bower.json', /"angular-ui-bootstrap-bower": "latest"/],
-        ['bower.json', /"fastclick": "latest"/],
-        ['bower.json', /"restangular": "latest"/]
-      ]);
-    });
-  });
   describe('m with option --app-name', function () {
     var answers = sampleAnswers.getAppNameOption();
 

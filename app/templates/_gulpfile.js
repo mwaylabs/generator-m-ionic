@@ -23,14 +23,13 @@ if (options.cordova) {
   }
 }
 
-gulp.task('styles', function () {<% if (answers.includeSass) { %>
+gulp.task('styles', function () {
   return gulp.src('app/styles/main.scss')
     .pipe($.plumber())
     .pipe($.rubySass({
       style: 'expanded',
       precision: 10
-    }))<% } else { %>
-  return gulp.src('app/styles/main.css')<% } %>
+    }))
     .pipe($.autoprefixer({ browsers: ['last 2 version'], remove: false}))
     .pipe(gulp.dest('.tmp/styles'));
 });
@@ -160,7 +159,8 @@ gulp.task('wiredep', function () {
 //     .pipe(gulp.dest('app/styles'));
 //<% } %>
   return gulp.src('app/*.html') // into index.html
-    .pipe(wiredep(<% if(answers.ionicSass) { %>{exclude: ['bower_components/ionic/release/css']}<% } %>))
+    .pipe(wiredep({exclude: ['bower_components/ionic/release/css']}))
+       // exclude ionic scss since we're using ionic sass
     .pipe(gulp.dest('app'));
 });
 

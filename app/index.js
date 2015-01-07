@@ -78,40 +78,6 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
         message: 'Choose all bower packages in addition to angular, ionic, angular-ui-router, cordova and ngCordova:',
         choices: bowerConfig.optional
       },
-      // stableVersions
-      {
-        type: 'list',
-        name: 'ionicSass',
-        message: 'Do you want to use the sass version of ionic\'s css?',
-        choices: [
-          {
-            value: true,
-            name: 'yes (more flexible)',
-            default: true
-          },
-          {
-            value: false,
-            name: 'not (faster)',
-          }
-        ]
-      },
-      // stableVersions
-      {
-        type: 'list',
-        name: 'stableVersions',
-        message: 'Do you want to use components (bower & npm) we deem stable or the latest ones?',
-        choices: [
-          {
-            value: true,
-            name: 'stable (recommended)',
-            default: true
-          },
-          {
-            value: false,
-            name: 'latest (experienced)',
-          }
-        ]
-      },
       // select platforms
       {
         type: 'checkbox',
@@ -202,14 +168,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
         bowerPackage = bowerPackage.split('#');
         bowerJSON.dependencies[bowerPackage[0]] = bowerPackage[1];
       }
-      // set all deps to latest?
-      if (!this.answers.stableVersions) {
-        for (var topKey in bowerJSON) {
-          for (var key in bowerJSON[topKey]) {
-            bowerJSON[topKey][key] = 'latest';
-          }
-        }
-      }
+
       // add other properties
       bowerJSON.name = this.answers.appName;
       bowerJSON.private = true;
