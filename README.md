@@ -118,76 +118,12 @@ yo m --skip-install # for debugging purposes, no npm and bower install
 ```
 
 
-## Contribute
+## Want to contribute?
+Start by reading our:
 
-### Manifest
-- purpose-agnostic, not technology-agnostic 
-  - fit nicely in node, npm, bower, yeoman, cordova, ... ecosystem
-  - develop knowledge to contribute to cordova, ionic, etc...
-- enforce standards/best practices/ collect knowledge, experience from our projects -> manifest in code
-- improve: efficiency, quality, standardization, structure, project hand-overs, scalability -> excellence
-  - solve problems once and not on a per project basis
-  - leverage know-how across the team 
-- use for: projects, workshops, prototyping
-  - quick prototyping
-    - separate generator / specific prototyping functionality 
-    - standard ionic layout
-    - offline data / sample data 
-- why
-  - more flexibility, control
-    - select components: don’t use ionic bundle, own gulp file, ngannotate, ...
-    - project specific cordova version
-  - don't reinvent the wheel, repackage, redistribute
-    - enable and educate users about standard tools out there: cordova, gulp, angular, ionic, ...
-    - cordova cli - http://cordova.apache.org/docs/en/3.5.0/guide_cli_index.md.html
-      - platform guides etc... - http://cordova.apache.org/docs/en/3.3.0/guide_platforms_ios_index.md.html#iOS%20Platform%20Guide
-- other popular projects:
-  - ionic cli
-  - appgyver - http://www.appgyver.com/
-  - cordova cli
-  - generator-angular - https://github.com/yeoman/generator-angular
-  - generator-gulp-webapp - https://github.com/yeoman/generator-gulp-webapp
-  - generator-ionic - https://github.com/diegonetto/generator-ionic
-  - generator-gulp-angular - https://github.com/Swiip/generator-gulp-angular 
+1. [Mission Statement](https://github.com/mwaylabs/generator-m/wiki/Mission-Statement)
+1. [Contribution Guide](https://github.com/mwaylabs/generator-m/wiki/Contribution-Guide)
 
-### Development process & Guidelines
-
-- process:
-  - idea -> issue -> discussion -> implementation -> pull-request
-  - pull requests 
-    - for non-trivial changes talk to us before you invest time, we're happy to point you in the right directions and discuss implementation details with you. This will help you to get your pull-request into the master quickly
-    - please provide information on what you want to do
-    - as few commits as possible
-    - only necessary changes
-    - test!
-    - adhere to our coding guidelines and styleguides (jshint, jscs)
-    - will work with you until they can be merged
-  - inspiration
-    - https://github.com/mozilla/localForage/blob/master/CONTRIBUTING.md
-    - https://github.com/yeoman/yeoman/blob/master/contributing.md
-- changelogs, roadmaps, proper versioning
-  - good example: https://github.com/twbs/ratchet/releases 
-- well defined process: github, issues - discussions, pull-requests
-- team effort, dialog, discussions
-- bring the best techniques together
-- github issue categories - check out others - http://ngcordova.com/
-  - topics: generator, cordova, gulp, quality assurance, documentation
-
-
-
-
-### Workflow
-```
-gulp watch
-```
-will run your tests while you develop
-
-```
-npm test
-```
-will run gulp test
 
 ### License
 Code licensed under MIT. Docs under Apache 2. PhoneGap is a trademark of Adobe.
-
-
