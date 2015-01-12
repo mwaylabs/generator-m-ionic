@@ -205,11 +205,17 @@ gulp.task('build', ['clean', 'jshint', 'jscs', 'app', 'images', 'fonts'], functi
 // CORDOVA
 // TODO: find better solution for cordova CLI integration
 gulp.task('default', function () {
+  // cordova with build
   if (options.runBuild) {
     return gulp.start('cordova-with-build');
   }
-  else {
+  // cordova without build
+  else if (options.cordova) {
     return gulp.start('cordova');
+  }
+  // just watch when no cordova option
+  else {
+    return gulp.start('watch');
   }
 });
 
