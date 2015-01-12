@@ -35,10 +35,9 @@ Additionally we use:
   - http://nodejs.org/download/
 - Ruby/Sass
   - ruby - https://www.ruby-lang.org/en/installation/
-  - sass - http://sass-lang.com/install -> `gem install sass -v 3.4.5 --ri-doc`
+  - sass - http://sass-lang.com/install
 - SDKs depending on selected platforms
-  - iOS Cordova 3.5 Platform Guide -http://cordova.apache.org/docs/en/3.5.0/guide_platforms_ios_index.md.html#iOS%20Platform%20Guide
-  - Android -http://cordova.apache.org/docs/en/3.5.0/guide_platforms_android_index.md.html#Android%20Platform%20Guide
+  - Cordova 4.0 Platform Guides - http://cordova.apache.org/docs/en/4.0.0/guide_platforms_index.md.html#Platform%20Guides
 
 
 ## Install
@@ -104,6 +103,9 @@ cordova build/run/emulate/prepare
   yo m:partial <name>
   yo m:service <name>
 ```
+
+## Troubleshooting
+If you're experiencing difficulties using the generator please refer to the [Troubleshooting](https://github.com/mwaylabs/generator-m/wiki/Troubleshooting) section in our wiki!
 
 ## Continuous Integration
 For now we provide a rudimentary `jenkins.sh` template that can be configured to build your projects with jenkins.
