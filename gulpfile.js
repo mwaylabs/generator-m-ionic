@@ -60,8 +60,8 @@ gulp.task('bump', ['test'], function () {
 });
 
 // will run istanbul while you develop
-gulp.task('watch', ['istanbul'], function () {
-  gulp.watch(paths.watch, ['istanbul']);
+gulp.task('watch', ['lint', 'istanbul'], function () {
+  gulp.watch(paths.watch, ['lint', 'istanbul']);
 });
 
 gulp.task('test', ['lint', 'istanbul']);
