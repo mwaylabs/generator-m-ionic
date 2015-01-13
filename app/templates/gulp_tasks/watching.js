@@ -1,10 +1,16 @@
 /* jshint -W079 */ // prevent redefinition of $ warning
 
 'use strict';
+// gulp
 var gulp = require('gulp');
-// load plugins
-var $ = require('gulp-load-plugins')();
 var paths = gulp.paths;
+// plugins
+var $ = require('gulp-load-plugins')();
+// modules
+var opn = require('opn');
+var serveStatic = require('serve-static');
+var serveIndex = require('serve-index');
+var connectLiveReload = require('connect-livereload');
 
 gulp.task('watch', ['connect', 'serve'], function () {
   $.livereload.listen();
@@ -30,13 +36,11 @@ gulp.task('watch', ['connect', 'serve'], function () {
 });
 
 gulp.task('serve', ['connect', 'inject', 'styles'], function () {
-  require('opn')('http://localhost:9000');
+  opn('http://localhost:9000');
 });
 gulp.task('connect', function () {
-  var serveStatic = require('serve-static');
-  var serveIndex = require('serve-index');
   var app = require('connect')()
-    .use(require('connect-livereload')({port: 35729}))
+    .use(connectLiveReload({port: 35729}))
     .use(serveStatic('app'))
     .use(serveStatic('.tmp'))
     // paths to bower_components should be relative to the current file
@@ -51,10 +55,8 @@ gulp.task('connect', function () {
     });
 });
 gulp.task('connect-build', function () {
-  var serveStatic = require('serve-static');
-  var serveIndex = require('serve-index');
   var app = require('connect')()
-    .use(require('connect-livereload')({port: 35729}))
+    .use(connectLiveReload({port: 35729}))
     .use(serveStatic(paths.dist))
     .use('/bower_components', serveStatic('bower_components'))
     .use(serveIndex(paths.dist));

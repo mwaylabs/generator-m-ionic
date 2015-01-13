@@ -1,8 +1,9 @@
 /* jshint -W079 */ // prevent redefinition of $ warning
 
 'use strict';
+// gulp
 var gulp = require('gulp');
-// load plugins
+// plugins
 var $ = require('gulp-load-plugins')();
 
 // check for jshint errors

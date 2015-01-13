@@ -7,12 +7,9 @@ var gulp = require('gulp');
 gulp.paths = {
   dist: 'www',
 };
-// load tasks
-var requireDir = require('require-dir');
-requireDir('./gulp_tasks');
 // retrieve options
 var minimist = require('minimist');
-var options = minimist(process.argv.slice(2));
+var options = gulp.options = minimist(process.argv.slice(2));
 if (options.cordova) {
   // gulp build before running cordova?
   var cmds = ['build', 'run', 'emulate', 'prepare'];
@@ -23,6 +20,10 @@ if (options.cordova) {
     }
   }
 }
+
+// load tasks
+var requireDir = require('require-dir');
+requireDir('./gulp_tasks');
 
 // MAIN TASKS
 gulp.task('default', function () {

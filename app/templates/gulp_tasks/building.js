@@ -6,13 +6,15 @@ var gulp = require('gulp');
 var paths = gulp.paths;
 // plugins
 var $ = require('gulp-load-plugins')();
+// modules
+var del = require('del');
 
 gulp.task('build', ['clean', 'jshint', 'jscs', 'build-app', 'partials', 'images', 'fonts'], function () {
   return gulp.src(paths.dist + '/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
 gulp.task('clean', function () {
-  require('del').sync(['.tmp', paths.dist + '/*']);
+  del.sync(['.tmp', paths.dist + '/*']);
 });
 // build starting from main html file (index.html)
 gulp.task('build-app', ['inject', 'styles'], function () {
