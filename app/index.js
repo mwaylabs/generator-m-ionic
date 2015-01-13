@@ -172,22 +172,18 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       bowerJSON.name = this.answers.appName;
       bowerJSON.private = true;
 
-      // prepare index
-      var indexFile = this.readFileAsString(path.join(this.sourceRoot(), '_index.html'));
-      indexFile = this.engine(indexFile, this); // create template with data from 'this'
+      // dependencies
+      this.write('bower.json', JSON.stringify(bowerJSON, null, 2));
+      this.template('_package.json', 'package.json');
 
       // app  files
+      this.template('_index.html', 'app/index.html');
       this.copy('_app.js', 'app/scripts/app.js');
-      this.write('bower.json', JSON.stringify(bowerJSON, null, 2));
-      this.template('_gulpfile.js', 'gulpfile.js');
-      this.write('app/index.html', indexFile);
-
       this.copy('main.scss', 'app/styles/main.scss');
-    },
+      this.template('_gulpfile.js', 'gulpfile.js');
+      this.directory('gulp_tasks', 'gulp_tasks');
 
-    projectfiles: function () {
-
-      this.template('_package.json', 'package.json');
+      // config files
       this.copy('bowerrc', '.bowerrc');
       this.copy('editorconfig', '.editorconfig');
       this.copy('gitattributes', '.gitattributes');

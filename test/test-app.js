@@ -40,7 +40,14 @@ describe('m', function () {
         'bower.json',
         'config.xml',
         'gulpfile.js',
-        'package.json'
+        'package.json',
+        'gulp_tasks/building.js',
+        'gulp_tasks/configuring.js',
+        'gulp_tasks/cordova.js',
+        'gulp_tasks/injecting.js',
+        'gulp_tasks/linting.js',
+        'gulp_tasks/styling.js',
+        'gulp_tasks/watching.js'
       ]);
     });
 
