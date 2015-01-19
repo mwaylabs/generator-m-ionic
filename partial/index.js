@@ -2,7 +2,7 @@
 var yeoman = require('yeoman-generator');
 var utils = require('../utils/utils.js');
 
-var GulpIonicGenerator = yeoman.generators.NamedBase.extend({
+var MGenerator = yeoman.generators.NamedBase.extend({
 
   initializing: function () {
     this.log('You called the m:partial subgenerator.');
@@ -14,4 +14,4 @@ var GulpIonicGenerator = yeoman.generators.NamedBase.extend({
   }
 });
 
-module.exports = GulpIonicGenerator;
+module.exports = MGenerator;

@@ -9,7 +9,7 @@ var $ = require('gulp-load-plugins')();
 var paths = {
   lint: ['./gulpfile.js', './app/index.js', './controller/index.js', './service/index.js', './partial/index.js'],
   tests: ['./test/**/*.js', '!./test/temp/**/*.js'],
-  watch: ['./gulpfile.js', './app/**', './test/**/*.js'],
+  watch: ['./gulpfile.js', './app/**', './test/**/*.js', './utils/**', './module/**', './controller/**', './service/**', './partial/**'],
   source: []
 };
 paths.watch = paths.watch.concat(paths.lint);

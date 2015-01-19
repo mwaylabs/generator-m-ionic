@@ -9,10 +9,19 @@ describe('utils', function () {
   it('decapitalize', function () {
     assert.textEqual(utils.decapitalize('Asdf'), 'asdf');
     assert.textEqual(utils.decapitalize('asdf'), 'asdf');
+    assert.textEqual(utils.decapitalize('MyNewApp'), 'myNewApp');
   });
 
-  it('modularize', function () {
-    assert.textEqual(utils.modularize('My new app'), 'myNewApp');
+  it('textToCamel', function () {
+    assert.textEqual(utils.textToCamel('myNewApp'), 'myNewApp');
+    assert.textEqual(utils.textToCamel('My new app'), 'myNewApp');
+    assert.textEqual(utils.textToCamel('My New app'), 'myNewApp');
+    assert.textEqual(utils.textToCamel('My NEW aPP'), 'myNewApp');
+    assert.textEqual(utils.textToCamel('My-NEW aPP'), 'myNewApp');
+    assert.textEqual(utils.textToCamel('My NEW-aPP'), 'myNewApp');
+    assert.textEqual(utils.textToCamel('My-NEW-aPP'), 'myNewApp');
+    assert.textEqual(utils.textToCamel('M1y-N2EW-a3PP'), 'm1yN2ewA3pp');
+    assert.textEqual(utils.textToCamel('M1y-N2EW-3PP'), 'm1yN2ew3pp');
   });
 
   it('camelToSnake', function () {

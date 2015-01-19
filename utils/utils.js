@@ -9,13 +9,18 @@ module.exports = {
     return string[0].toLowerCase() + string.substr(1, string.length);
   },
 
-  modularize: function (string) {
+  textToCamel: function (string) {
+    string = string.replace('-', ' ');
+    if (string.indexOf(' ') === -1) {
+      return string;
+    }
     return this.decapitalize(_s.classify(_s.slugify(string)));
   },
 
   camelToSnake: function (string) {
     string = _s.capitalize(string); // force first character to be upperCase
-    var words = string.match(/[A-Z][a-z,0-9]*/g).map(function (item) {
+    var words = string.match(/[A-Z][a-z,0-9]*/g)
+    .map(function (item) {
       return item.toLowerCase();
     });
     return words.join('-');

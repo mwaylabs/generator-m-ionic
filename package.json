@@ -23,7 +23,8 @@
     "controller",
     "partial",
     "service",
-    "utils"
+    "utils",
+    "module"
   ],
   "keywords": [
     "yeoman-generator"

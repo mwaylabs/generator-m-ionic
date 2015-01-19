@@ -13,7 +13,7 @@ var bowerConfig = require('./sources/bower-config.js');
 var cordovaConfig = require('./sources/cordova-config.js');
 var sampleAnswers = require('./sources/sample-answers.js');
 
-var GulpIonicGenerator = yeoman.generators.Base.extend({
+var MGenerator = yeoman.generators.Base.extend({
   initializing: function () {
     // get package.json content
     this.pkg = require('../package.json');
@@ -121,7 +121,7 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       this.answers.appName = this.appName;
     }
     // save appModule in answers
-    this.answers.appModule = utils.modularize(this.answers.appName);
+    this.answers.appModule = utils.textToCamel(this.answers.appName);
 
     // store answers in .yo-rc.json
     this.config.set('answers', this.answers);
@@ -176,14 +176,14 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
       this.write('bower.json', JSON.stringify(bowerJSON, null, 2));
       this.template('_package.json', 'package.json');
 
-      // app  files
+      // app files
       this.template('_index.html', 'app/index.html');
       this.copy('_app.js', 'app/scripts/app.js');
       this.copy('main.scss', 'app/styles/main.scss');
+
+      // other files
       this.template('_gulpfile.js', 'gulpfile.js');
       this.directory('gulp_tasks', 'gulp_tasks');
-
-      // config files
       this.copy('bowerrc', '.bowerrc');
       this.copy('editorconfig', '.editorconfig');
       this.copy('gitattributes', '.gitattributes');
@@ -231,4 +231,4 @@ var GulpIonicGenerator = yeoman.generators.Base.extend({
   }
 });
 
-module.exports = GulpIonicGenerator;
+module.exports = MGenerator;
