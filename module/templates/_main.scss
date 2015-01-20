@@ -1,3 +1,4 @@
+<% if (options.sample === 'start') {%>
 // bower:scss
 // endbower
 
@@ -23,4 +24,5 @@ $ionicons-font-path: "../fonts" !default;
 
 // Include all of Ionic
 @import "../bower_components/ionic/scss/ionic";
+<% }%>
 

@@ -9,6 +9,7 @@ var fs = require('fs');
 
 // local modules
 var utils = require('../utils/utils.js');
+var config = require('../utils/config.js');
 var bowerConfig = require('./sources/bower-config.js');
 var cordovaConfig = require('./sources/cordova-config.js');
 var sampleAnswers = require('./sources/sample-answers.js');
@@ -178,8 +179,7 @@ var MGenerator = yeoman.generators.Base.extend({
 
       // app files
       this.template('_index.html', 'app/index.html');
-      this.copy('_app.js', 'app/scripts/app.js');
-      this.copy('main.scss', 'app/styles/main.scss');
+      this.copy('_app.js', 'app/app.js');
 
       // other files
       this.template('_gulpfile.js', 'gulpfile.js');
@@ -199,9 +199,10 @@ var MGenerator = yeoman.generators.Base.extend({
       if (this.update) {
         return;
       }
-      this.composeWith('m:service', {arguments: 'start', options: {sample: 'start'}});
-      this.composeWith('m:controller', {arguments: 'start', options: {sample: 'start'}});
-      this.composeWith('m:partial', {arguments: 'start', options: {sample: 'start'}});
+      this.composeWith('m:module', {
+        arguments: config.DEFAULT_MODULE,
+        options: {sample: 'start'}
+      });
     }
   },
 

@@ -17,10 +17,18 @@ var MGenerator = yeoman.generators.NamedBase.extend({
     this.mkdir(moduleFolder + 'assets/');
     this.mkdir(moduleFolder + 'controllers/');
     this.mkdir(moduleFolder + 'directives/');
-    this.mkdir(moduleFolder + 'templates/');
     this.mkdir(moduleFolder + 'services/');
     this.mkdir(moduleFolder + 'styles/');
-    this.mkdir(moduleFolder + 'assets/');
+    this.template('_main.scss', moduleFolder + 'styles/main.scss');
+    this.mkdir(moduleFolder + 'templates/');
+
+    var subOptions = {};
+    if (this.options && this.options.sample) {
+      subOptions.sample = this.options.sample;
+    }
+    this.composeWith('m:service', {arguments: 'start', options: subOptions});
+    this.composeWith('m:controller', {arguments: 'start', options: subOptions});
+    this.composeWith('m:partial', {arguments: 'start', options: subOptions});
   }
 });
 

@@ -10,6 +10,11 @@ describe('m:module', function () {
   describe('m:module myModule', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../module'))
+        .withGenerators([ // configure path to subgenerators
+          path.join(__dirname, '../controller'),
+          path.join(__dirname, '../partial'),
+          path.join(__dirname, '../service')
+        ])
         .withArguments('myModule')
         .on('end', done);
     });
@@ -31,6 +36,11 @@ describe('m:module', function () {
   describe('m:module my-module', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../module'))
+        .withGenerators([ // configure path to subgenerators
+          path.join(__dirname, '../controller'),
+          path.join(__dirname, '../partial'),
+          path.join(__dirname, '../service')
+        ])
         .withArguments('my-module')
         .on('end', done);
     });
@@ -52,6 +62,11 @@ describe('m:module', function () {
   describe('m:module my-module --sample=start', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../module'))
+        .withGenerators([ // configure path to  subgenerators
+          path.join(__dirname, '../controller'),
+          path.join(__dirname, '../partial'),
+          path.join(__dirname, '../service')
+        ])
         .withArguments('my-module')
         .withOptions({ 'sample': 'start'}) // execute with options
         .on('end', done);

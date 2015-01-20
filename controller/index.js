@@ -6,23 +6,25 @@ var utils = require('../utils/utils.js');
 var MGenerator = yeoman.generators.NamedBase.extend({
 
   initializing: function () {
-    this.log('You called the m:controller subgenerator.');
+    this.argument('module', { type: String, required: false });
+    this.module =  utils.checkModule(this.module);
+    this.moduleFolder = utils.camelToSnake(this.module);
 
-    // retrieve config for templating
-    this.answers = this.config.getAll().answers;
+    this.log('You called the m:controller subgenerator.');
 
     // force first character uppercase
     this.name = _s.capitalize(this.name);
-
     // enforce Ctrl name ending
     if (this.name.substr(-4) !== 'Ctrl') {
       this.name = this.name + 'Ctrl';
     }
+    this.fileName = utils.camelToSnake(this.name);
   },
 
   writing: function () {
     // create controller with snake-case file name
-    this.template('_controller.js', 'app/scripts/controllers/' + utils.camelToSnake(this.name) + '.js');
+    var folder = 'app/' + this.moduleFolder + '/controllers/';
+    this.template('_controller.js', folder + this.fileName + '.js');
   }
 });
 

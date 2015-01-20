@@ -17,6 +17,7 @@ describe('m', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../app'))
         .withGenerators([ // configure path to  subgenerators
+          path.join(__dirname, '../module'),
           path.join(__dirname, '../controller'),
           path.join(__dirname, '../partial'),
           path.join(__dirname, '../service')
@@ -54,11 +55,7 @@ describe('m', function () {
     it('creates /app files', function () {
       assert.file([
         'app/index.html',
-        'app/partials/start.html',
-        'app/scripts/app.js',
-        'app/scripts/controllers/start-ctrl.js',
-        'app/scripts/services/start.js',
-        'app/styles/main.scss'
+        'app/app.js',
       ]);
     });
 
@@ -91,7 +88,7 @@ describe('m', function () {
         // inject appModule into ng-app
         ['app/index.html', '<body ng-app="' + answers.appModule + '">'],
         // inject appModule into app.js module
-        ['app/scripts/app.js', 'angular.module(\'' + answers.appModule + '\',']
+        ['app/app.js', 'angular.module(\'' + answers.appModule + '\',']
       ]);
     });
 
@@ -135,6 +132,7 @@ describe('m', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../app'))
         .withGenerators([ // configure path to  subgenerators
+          path.join(__dirname, '../module'),
           path.join(__dirname, '../controller'),
           path.join(__dirname, '../partial'),
           path.join(__dirname, '../service')

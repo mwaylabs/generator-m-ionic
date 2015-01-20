@@ -3,6 +3,7 @@
 
 var assert = require('yeoman-generator').assert;
 var utils = require('../utils/utils.js');
+var config = require('../utils/config.js');
 
 describe('utils', function () {
 
@@ -27,5 +28,11 @@ describe('utils', function () {
   it('camelToSnake', function () {
     assert.textEqual(utils.camelToSnake('oneTwoThree'), 'one-two-three');
     assert.textEqual(utils.camelToSnake('OneTwoThree'), 'one-two-three');
+  });
+
+  it('checkModule', function () {
+    assert.textEqual(utils.checkModule(''), config.DEFAULT_MODULE);
+    assert.textEqual(utils.checkModule(undefined), config.DEFAULT_MODULE);
+    assert.textEqual(utils.checkModule('myModule'), 'myModule');
   });
 });

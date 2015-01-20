@@ -1,6 +1,7 @@
 'use strict';
 
 var _s = require('underscore.string');
+var config = require('./config.js');
 
 module.exports = {
   // replace with underscore.string's decapitalize as soon as possible
@@ -24,5 +25,14 @@ module.exports = {
       return item.toLowerCase();
     });
     return words.join('-');
+  },
+
+  /**
+   * checks if the module exists
+   * @param  {String} module moduleName
+   * @return {String}        moduleName or config.DEFAULT_MODULE
+   */
+  checkModule: function (module) {
+    return module ? module : config.DEFAULT_MODULE;
   }
 };

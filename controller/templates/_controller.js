@@ -1,5 +1,5 @@
 'use strict';
-angular.module('<%= answers.appModule %>')
+angular.module('<%= module %>')
 .controller('<%= name %>', function ($scope<% if(options.sample === 'start') { %>, Start<% } %>) {
   console.log('Hello from your <%= name %> controller. This is your scope:', $scope);
 <% if(options.sample === 'start') {%>
