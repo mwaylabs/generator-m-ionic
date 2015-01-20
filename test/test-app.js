@@ -19,7 +19,7 @@ describe('m', function () {
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../module'),
           path.join(__dirname, '../controller'),
-          path.join(__dirname, '../partial'),
+          path.join(__dirname, '../template'),
           path.join(__dirname, '../service')
         ])
         .withOptions({ 'skip-install': true, 'skip-sdk': true }) // execute with options
@@ -134,7 +134,7 @@ describe('m', function () {
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../module'),
           path.join(__dirname, '../controller'),
-          path.join(__dirname, '../partial'),
+          path.join(__dirname, '../template'),
           path.join(__dirname, '../service')
         ])
         .withOptions({ 'skip-install': true, 'skip-sdk': true, 'app-name': 'tradecore' }) // execute with options
@@ -154,7 +154,7 @@ describe('m', function () {
   //     helpers.run(path.join(__dirname, '../app'))
   //       .withGenerators([ // configure path to  subgenerators
   //         path.join(__dirname, '../controller'),
-  //         path.join(__dirname, '../partial'),
+  //         path.join(__dirname, '../template'),
   //         path.join(__dirname, '../service')
   //       ])
   //       .withOptions({ 'skip-prompts': true}) // execute with options

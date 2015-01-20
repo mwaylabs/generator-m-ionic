@@ -21,10 +21,10 @@
   "files": [
     "app",
     "controller",
-    "partial",
+    "module",
     "service",
-    "utils",
-    "module"
+    "template",
+    "utils"
   ],
   "keywords": [
     "yeoman-generator"

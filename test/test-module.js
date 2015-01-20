@@ -12,7 +12,7 @@ describe('m:module', function () {
       helpers.run(path.join(__dirname, '../module'))
         .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../controller'),
-          path.join(__dirname, '../partial'),
+          path.join(__dirname, '../template'),
           path.join(__dirname, '../service')
         ])
         .withArguments('myModule')
@@ -38,7 +38,7 @@ describe('m:module', function () {
       helpers.run(path.join(__dirname, '../module'))
         .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../controller'),
-          path.join(__dirname, '../partial'),
+          path.join(__dirname, '../template'),
           path.join(__dirname, '../service')
         ])
         .withArguments('my-module')
@@ -64,7 +64,7 @@ describe('m:module', function () {
       helpers.run(path.join(__dirname, '../module'))
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../controller'),
-          path.join(__dirname, '../partial'),
+          path.join(__dirname, '../template'),
           path.join(__dirname, '../service')
         ])
         .withArguments('my-module')

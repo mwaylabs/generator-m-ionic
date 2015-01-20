@@ -9,15 +9,15 @@ var MGenerator = yeoman.generators.NamedBase.extend({
     this.module =  utils.checkModule(this.module);
     this.moduleFolder = utils.camelToSnake(this.module);
 
-    this.log('You called the m:partial subgenerator.');
+    this.log('You called the m:template subgenerator.');
 
     this.fileName = utils.camelToSnake(this.name);
   },
 
   writing: function () {
-    // create partial with snake-case file name
+    // create template with snake-case file name
     var folder = 'app/' + this.moduleFolder + '/templates/';
-    this.template('_partial.html', folder + this.fileName + '.html');
+    this.template('_template.html', folder + this.fileName + '.html');
   }
 });
 

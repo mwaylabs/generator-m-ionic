@@ -9,7 +9,7 @@ var $ = require('gulp-load-plugins')();
 // modules
 var del = require('del');
 
-gulp.task('build', ['clean', 'jshint', 'jscs', 'build-app', 'partials', 'images', 'fonts'], function () {
+gulp.task('build', ['clean', 'jshint', 'jscs', 'build-app', 'templates', 'images', 'fonts'], function () {
   return gulp.src(paths.dist + '/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
@@ -38,12 +38,12 @@ gulp.task('build-app', ['inject', 'styles'], function () {
     .pipe($.useref())
     .pipe(gulp.dest(paths.dist));
 });
-// copy partials
-gulp.task('partials', function () {
+// copy templates
+gulp.task('templates', function () {
   return gulp.src([
-    'app/partials/**/*', // html, language, locales, assets
+    'app/templates/**/*', // html, language, locales, assets
   ])
-  .pipe(gulp.dest(paths.dist + '/partials'));
+  .pipe(gulp.dest(paths.dist + '/templates'));
 });
 // copy & minify images to dist/images
 gulp.task('images', function () {

@@ -103,9 +103,9 @@ cordova build/run/emulate/prepare
 
 ## sub-generators
 ```
-  yo m:controller <name>
-  yo m:partial <name>
-  yo m:service <name>
+  yo m:controller <name> <module>(optional - defaults to main)
+  yo m:template <name> <module>(optional - defaults to main)
+  yo m:service <name> <module>(optional - defaults to main)
 ```
 
 ## Troubleshooting

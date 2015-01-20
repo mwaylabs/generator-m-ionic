@@ -11,7 +11,7 @@ angular.module('<%= module %>', [
   $stateProvider
     .state('start', {
       url: '/start',
-      templateUrl: 'partials/start.html',
+      templateUrl: '<%= fileName %>/templates/start.html',
       controller: 'StartCtrl'
     });
   <%} else { %>
@@ -19,7 +19,7 @@ angular.module('<%= module %>', [
   $stateProvider
     .state('<%= fileName %>', {
       url: '/<%= fileName %>',
-      templateUrl: 'partials/<%= fileName %>.html',
+      templateUrl: '<%= fileName %>/templates/start.html',
       controller: 'StartCtrl'
     });
   <%} %>
