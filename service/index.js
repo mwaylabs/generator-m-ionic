@@ -18,7 +18,7 @@ var MGenerator = yeoman.generators.NamedBase.extend({
   writing: function () {
     // create service with snake-case file name
     var folder = 'app/' + this.moduleFolder + '/services/';
-    this.template('_service.js', folder + this.fileName + '.js');
+    this.template('_service.js', folder + this.fileName + '-service.js');
   }
 });
 

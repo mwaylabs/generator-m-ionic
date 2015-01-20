@@ -1,7 +1,7 @@
 'use strict';
 var yeoman = require('yeoman-generator');
-var _s = require('underscore.string');
 var utils = require('../utils/utils.js');
+var _s = require('underscore.string');
 
 var MGenerator = yeoman.generators.NamedBase.extend({
 
@@ -24,7 +24,7 @@ var MGenerator = yeoman.generators.NamedBase.extend({
   writing: function () {
     // create controller with snake-case file name
     var folder = 'app/' + this.moduleFolder + '/controllers/';
-    this.template('_controller.js', folder + this.fileName + '.js');
+    this.template('_controller.js', folder + this.fileName + '-ctrl.js');
   }
 });
 
