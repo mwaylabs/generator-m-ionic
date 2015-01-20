@@ -1,6 +1,7 @@
 'use strict';
 var yeoman = require('yeoman-generator');
 var utils = require('../utils/utils.js');
+var _s = require('underscore.string');
 
 var MGenerator = yeoman.generators.NamedBase.extend({
 
@@ -12,6 +13,7 @@ var MGenerator = yeoman.generators.NamedBase.extend({
     this.log('You called the m:service subgenerator.');
 
     // force first character uppercase
+    this.name = _s.capitalize(this.name);
     this.fileName = utils.camelToSnake(this.name);
   },
 

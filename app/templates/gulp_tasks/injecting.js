@@ -12,7 +12,7 @@ var mainBowerFiles = require('main-bower-files');
 
 // inject app/**/.*js and cordova.js files into index.html
 gulp.task('inject', function () {
-  var jsFiles = gulp.src(['./app/scripts/**/*.js']);
+  var jsFiles = gulp.src(paths.jsFiles);
 
   return gulp.src('./app/index.html')
     .pipe($.inject(
@@ -38,8 +38,8 @@ gulp.task('wiredep', function () {
 // copy fonts to do dist/fonts and app/fonts
 gulp.task('fonts', function () {
   return gulp.src(mainBowerFiles({filter: /\.(eot|svg|ttf|woff)/i})
-    .concat('app/fonts/**/*'))
+    .concat('app/main/assets/fonts/**/*'))
     .pipe($.flatten())
     .pipe(gulp.dest(paths.dist + '/fonts'))
-    .pipe(gulp.dest('app/fonts')); // TODO: find a better way to inject $ionicons-font-path: "../fonts" !default; into main.scss on build
+    .pipe(gulp.dest('app/main/assets/fonts')); // TODO: find a better way to inject $ionicons-font-path: "../fonts" !default; into main.scss on build
 });

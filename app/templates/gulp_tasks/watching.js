@@ -18,11 +18,11 @@ gulp.task('watch', ['connect', 'serve'], function () {
   // watch for changes
   gulp.watch([
     'app/*.html',
-    '.tmp/styles/**/*.css',
-    'app/scripts/**/*.js',
-    'app/images/**/*',
-    'app/templates/**/*'
-  ]).on('change', function () {
+    '.tmp/styles/*.css',
+    'app/*/assets/**/*',
+    'app/*/templates/**/*'
+  ].concat(paths.jsFiles))
+  .on('change', function () {
     $.livereload.changed();
     gulp.start('inject'); // TODO: only run when added/deleted files
     // FIXME: when deleting second watch is not started: index.html OK but 404 in livereload
@@ -30,7 +30,7 @@ gulp.task('watch', ['connect', 'serve'], function () {
   });
 
   // watch for changes in scss
-  gulp.watch('app/styles/**/*.scss', ['styles']);
+  gulp.watch('app/*/styles/**/*.scss', ['styles']);
   // watch for changes in bower.json
   gulp.watch('bower.json', ['wiredep']);
 });

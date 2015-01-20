@@ -20,9 +20,12 @@ $royal:                           #8a6de9 !default;
 $dark:                            #444 !default;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
-$ionicons-font-path: "../fonts" !default;
+$ionicons-font-path: "../assets/fonts" !default;
 
 // Include all of Ionic
-@import "../bower_components/ionic/scss/ionic";
+@import "../../bower_components/ionic/scss/ionic";
+
+// TODO: import scss files from other modules
+// @import "../../<module>/styles"
 <% }%>
 
