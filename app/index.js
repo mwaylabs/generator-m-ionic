@@ -179,7 +179,7 @@ var MGenerator = yeoman.generators.Base.extend({
 
       // app files
       this.template('_index.html', 'app/index.html');
-      this.copy('_app.js', 'app/app.js');
+      this.template('_app.js', 'app/app.js');
 
       // other files
       this.template('_gulpfile.js', 'gulpfile.js');

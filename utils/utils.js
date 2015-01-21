@@ -20,7 +20,7 @@ module.exports = {
 
   camelToSnake: function (string) {
     string = _s.capitalize(string); // force first character to be upperCase
-    var words = string.match(/[A-Z][a-z,0-9]*/g)
+    var words = string.match(/[A-Z][a-z,0-9]*[^A-Z]*/g)
     .map(function (item) {
       return item.toLowerCase();
     });

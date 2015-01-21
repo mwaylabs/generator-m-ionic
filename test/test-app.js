@@ -56,6 +56,8 @@ describe('m', function () {
       assert.file([
         'app/index.html',
         'app/app.js',
+        'app/main',
+        'app/main/main.js',
       ]);
     });
 
@@ -85,10 +87,12 @@ describe('m', function () {
       assert.fileContent([
         // inject appModule into title
         ['app/index.html', '<title>' + answers.appModule + '</title>'],
-        // inject appModule into ng-app
+        // proper css path
         ['app/index.html', '<body ng-app="' + answers.appModule + '">'],
         // inject appModule into app.js module
-        ['app/app.js', 'angular.module(\'' + answers.appModule + '\',']
+        ['app/app.js', 'angular.module(\'' + answers.appModule + '\','],
+        // inject appModule.main into app.js module
+        ['app/app.js', '\'main\''],
       ]);
     });
 
