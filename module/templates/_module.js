@@ -5,7 +5,7 @@ angular.module('<%= module %>', [
 .config(function ($stateProvider, $urlRouterProvider) {
 
   console.log('Allo! Allo from your module: ' + '<%= module %>');
-  <% if (options.sample === 'start') {%>
+<% if (options.sample === 'start') {%>
   // some basic routing
   $urlRouterProvider.otherwise('/start');
   $stateProvider
@@ -14,7 +14,7 @@ angular.module('<%= module %>', [
       templateUrl: '<%= fileName %>/templates/start.html',
       controller: 'StartCtrl'
     });
-  <%} else { %>
+<%} else { %>
   // some basic routing
   $stateProvider
     .state('<%= fileName %>', {
@@ -22,7 +22,6 @@ angular.module('<%= module %>', [
       templateUrl: '<%= fileName %>/templates/start.html',
       controller: 'StartCtrl'
     });
-  <%} %>
-
+<%} %>
   // TODO: do your thing
 });

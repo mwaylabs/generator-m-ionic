@@ -31,8 +31,10 @@ Additionally we use:
 - **bower** to manage your client packages - http://bower.io/
 
 ## Prerequisites
-- `node >= 0.10.0` & `npm >= 1.4.3`
-  - http://nodejs.org/download/
+- node `>= 0.10.0` & npm ` >= 1.4.3` - http://nodejs.org/download/
+  - yo: `npm install -g yo` - http://yeoman.io/
+  - gulp: `npm install -g gulp` - http://gulpjs.com/
+  - bower: `npm install -g bower` - http://bower.io/
 - Ruby/Sass
   - ruby - https://www.ruby-lang.org/en/installation/
   - sass - http://sass-lang.com/install

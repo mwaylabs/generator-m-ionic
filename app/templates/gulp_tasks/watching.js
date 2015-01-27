@@ -38,6 +38,9 @@ gulp.task('watch', ['connect', 'serve'], function () {
 gulp.task('serve', ['connect', 'inject', 'styles'], function () {
   opn('http://localhost:9000');
 });
+gulp.task('serve-build', ['connect-build', 'inject', 'styles'], function () {
+  opn('http://localhost:9000');
+});
 gulp.task('connect', function () {
   var app = require('connect')()
     .use(connectLiveReload({port: 35729}))
