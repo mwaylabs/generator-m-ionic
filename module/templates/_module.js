@@ -1,6 +1,9 @@
 'use strict';
 angular.module('<%= module %>', [
-  'ui.router'
+  'ionic',
+  'ngCordova',
+  'ui.router',
+  // TODO: load other modules selected during generation
 ])
 .config(function ($stateProvider, $urlRouterProvider) {
 

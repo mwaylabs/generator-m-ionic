@@ -196,9 +196,6 @@ var MGenerator = yeoman.generators.Base.extend({
     },
 
     subgenerators: function () {
-      if (this.update) {
-        return;
-      }
       this.composeWith('m:module', {
         arguments: config.DEFAULT_MODULE,
         options: {sample: 'start'}
