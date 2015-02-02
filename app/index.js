@@ -208,15 +208,9 @@ var MGenerator = yeoman.generators.Base.extend({
       skipInstall: this.options['skip-install'],
       callback: function () {
         if (!this.options['skip-install']) {
-          // inject bower dependencies and app js files
           var done = this.async();
-          this.spawnCommand('gulp', ['wiredep', 'fonts']) // inject files into index, copy fonts to app/fonts
+          this.spawnCommand('gulp', ['bower-fonts']) // copy ionic fonts
           .on('exit', function () {
-            // TODO: better gulp task wiring/dependencies
-            // https://github.com/gulpjs/gulp/blob/master/docs/API.md#async-task-support
-            // https://github.com/klei/gulp-inject#injecting-files-from-multiple-source-streams
-            // https://github.com/klei/gulp-inject#injecting-some-files-into-head-and-some-into-body
-            this.spawnCommand('gulp', ['inject']);
             done();
           }.bind(this));
         }

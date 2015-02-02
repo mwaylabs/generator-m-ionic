@@ -10,17 +10,22 @@ var $ = require('gulp-load-plugins')();
 var wiredep = require('wiredep');
 var mainBowerFiles = require('main-bower-files');
 
-// inject app/**/.*js and cordova.js files into index.html
-gulp.task('inject', function () {
+// inject app/**/*.js and bower components into index.html
+gulp.task('inject', ['wiredep'], function () {
+  return gulp.start('inject-only');
+});
+
+// inject app/**/*.js files into index.html
+gulp.task('inject-only', function () {
   var jsFiles = gulp.src(paths.jsFiles);
 
-  return gulp.src('./app/index.html')
+  return gulp.src('app/index.html')
     .pipe($.inject(
       jsFiles
         .pipe($.plumber()) // use plumber so watch doesn't crash on js error
         .pipe($.angularFilesort()),
       {relative: true}))
-    .pipe(gulp.dest('./app'));
+    .pipe(gulp.dest('app'));
 });
 
 // inject bower components
@@ -29,17 +34,17 @@ gulp.task('wiredep', function () {
 //   gulp.src('app/styles/*.scss') // into main.scss
 //     .pipe(wiredep())
 //     .pipe(gulp.dest('app/styles'));
-  return gulp.src('app/*.html') // into index.html
+  return gulp.src('app/index.html') // into index.html
     .pipe(wiredep.stream({exclude: ['bower_components/ionic/release/css']}))
        // exclude ionic scss since we're using ionic sass
     .pipe(gulp.dest('app'));
 });
 
-// copy fonts to do dist/fonts and app/fonts
-gulp.task('fonts', function () {
-  return gulp.src(mainBowerFiles({filter: /\.(eot|svg|ttf|woff)/i})
-    .concat('app/main/assets/fonts/**/*'))
+// copy bower-fonts to do app/main/assets/fonts
+gulp.task('bower-fonts', function () {
+  var fontFiles = mainBowerFiles({filter: /\.(eot|svg|ttf|woff)/i})
+    .concat('app/main/assets/fonts/**/*');
+  return gulp.src(fontFiles)
     .pipe($.flatten())
-    .pipe(gulp.dest(paths.dist + '/fonts'))
     .pipe(gulp.dest('app/main/assets/fonts')); // TODO: find a better way to inject $ionicons-font-path: "../fonts" !default; into main.scss on build
 });

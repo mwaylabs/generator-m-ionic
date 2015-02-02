@@ -9,14 +9,16 @@ var $ = require('gulp-load-plugins')();
 // modules
 var del = require('del');
 
-gulp.task('build', ['clean', 'jshint', 'jscs', 'build-app', 'templates', 'images', 'fonts'], function () {
-  return gulp.src(paths.dist + '/**/*').pipe($.size({title: 'build', gzip: true}));
+gulp.task('build', ['clean', 'jshint', 'jscs', 'build-app', 'build-templates', 'build-assets'], function () {
+  return gulp.src(paths.dist + '/**/*')
+    .pipe($.size({title: 'build', gzip: true}));
 });
 
 gulp.task('clean', function () {
   del.sync(['.tmp', paths.dist + '/*']);
 });
-// build starting from main html file (index.html)
+// concatenate files in build:blocks inside index.html
+// and copy to build folder destinations
 gulp.task('build-app', ['inject', 'styles'], function () {
   // useref - parses build block in html, concatenate & replace files
   // only builds files that are actually used
@@ -39,19 +41,19 @@ gulp.task('build-app', ['inject', 'styles'], function () {
     .pipe(gulp.dest(paths.dist));
 });
 // copy templates
-gulp.task('templates', function () {
+gulp.task('build-templates', function () {
   return gulp.src([
-    'app/templates/**/*', // html, language, locales, assets
+    'app/**/templates/**/*',
   ])
-  .pipe(gulp.dest(paths.dist + '/templates'));
+  .pipe(gulp.dest(paths.dist));
 });
-// copy & minify images to dist/images
-gulp.task('images', function () {
-  return gulp.src('app/images/**/*')
+// copy assets
+gulp.task('build-assets', function () {
+  return gulp.src('app/**/assets/**/*')
     // disabled: imagemin not working correctly - https://github.com/mwaylabs/generator-m/issues/90
     // .pipe($.cache($.imagemin({
     //   progressive: true,
     //   interlaced: true
     // })))
-    .pipe(gulp.dest(paths.dist + '/images'));
+    .pipe(gulp.dest(paths.dist));
 });

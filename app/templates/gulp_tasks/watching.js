@@ -18,13 +18,13 @@ gulp.task('watch', ['connect', 'serve'], function () {
   // watch for changes
   gulp.watch([
     'app/*.html',
-    '.tmp/styles/*.css',
+    '.tmp/main/styles/*.css',
     'app/*/assets/**/*',
     'app/*/templates/**/*'
   ].concat(paths.jsFiles))
   .on('change', function () {
-    $.livereload.changed();
-    gulp.start('inject'); // TODO: only run when added/deleted files
+    $.livereload.reload();
+    gulp.start('inject-only'); // TODO: only run when added/deleted files
     // FIXME: when deleting second watch is not started: index.html OK but 404 in livereload
     // FIXME: not watching new files?!
   });
@@ -36,9 +36,6 @@ gulp.task('watch', ['connect', 'serve'], function () {
 });
 
 gulp.task('serve', ['connect', 'inject', 'styles'], function () {
-  opn('http://localhost:9000');
-});
-gulp.task('serve-build', ['connect-build', 'inject', 'styles'], function () {
   opn('http://localhost:9000');
 });
 gulp.task('connect', function () {
@@ -57,11 +54,13 @@ gulp.task('connect', function () {
       console.log('Started connect web server on http://localhost:9000');
     });
 });
+
+gulp.task('serve-build', ['connect-build', 'build'], function () {
+  opn('http://localhost:9000');
+});
 gulp.task('connect-build', function () {
   var app = require('connect')()
-    .use(connectLiveReload({port: 35729}))
     .use(serveStatic(paths.dist))
-    .use('/bower_components', serveStatic('bower_components'))
     .use(serveIndex(paths.dist));
 
   require('http').createServer(app)
