@@ -8,6 +8,7 @@ var MGenerator = yeoman.generators.NamedBase.extend({
     this.argument('module', { type: String, required: false });
     this.module =  utils.checkModule(this.module);
     this.moduleFolder = utils.camelToSnake(this.module);
+    this.barColor = utils.barColor();
 
     this.log('You called the m:template subgenerator.');
 

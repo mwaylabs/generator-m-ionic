@@ -6,6 +6,7 @@ var $ = require('gulp-load-plugins')();
 
 // build styles to tmp
 gulp.task('styles', function () {
+  // compile css starting from each module's main.scss
   return gulp.src('app/**/styles/main.scss')
     .pipe($.plumber())
     .pipe($.rubySass({

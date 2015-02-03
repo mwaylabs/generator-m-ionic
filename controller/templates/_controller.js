@@ -1,7 +1,7 @@
 'use strict';
 angular.module('<%= module %>')
 .controller('<%= name %>', function ($scope<% if(options.sample === 'start') { %>, Start<% } %>) {
-  console.log('Hello from your <%= name %> controller. This is your scope:', $scope);
+  console.log('Hello from your Controller: <%= name %> in module <%= module%>:. This is your scope:', $scope);
 <% if(options.sample === 'start') {%>
   // bind data from service
   $scope.someData = Start.someData;

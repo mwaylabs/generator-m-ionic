@@ -100,6 +100,24 @@ cordova build/run/emulate/prepare
 ```
 
 ## sub-generators
+### yo m:module - creates a new module
+1. `yo m:module <name>` - create a new module
+2. add your module to the `app/app.js`:
+  
+  ```
+  'use strict';
+  angular.module('myProject', [
+    // your modules
+    'main',
+    '<newModuleName>'
+  ]);
+  ```
+3. restart `gulp watch`
+3. navigate to `http://127.0.0.1:9000/#/<module-name-in-snake-case>` in your browser.
+4. **Done!** - see your new module in action!
+
+
+### yo m:others
 ```
   yo m:controller <name> <module>(optional - defaults to main)
   yo m:template <name> <module>(optional - defaults to main)

@@ -15,16 +15,27 @@ gulp.task('inject', ['wiredep'], function () {
   return gulp.start('inject-only');
 });
 
-// inject app/**/*.js files into index.html
+// inject js and compiled css files into index.html
 gulp.task('inject-only', function () {
-  var jsFiles = gulp.src(paths.jsFiles);
 
   return gulp.src('app/index.html')
-    .pipe($.inject(
-      jsFiles
+    .pipe($.inject( // app/**/*.js files
+      gulp.src(paths.jsFiles)
         .pipe($.plumber()) // use plumber so watch doesn't crash on js error
         .pipe($.angularFilesort()),
       {relative: true}))
+    .pipe($.inject( // inject compiled css
+      gulp.src('app/*/styles/main.scss', {read: false}),
+      {
+        ignorePath: 'app',
+        relative: true,
+        transform: function (filePath) {
+          console.log(filePath);
+          return '<link rel="stylesheet" href="' +
+            filePath.replace(/scss$/, 'css') + // replace file extension
+            '">';
+        }
+      }))
     .pipe(gulp.dest('app'));
 });
 

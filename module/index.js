@@ -23,13 +23,15 @@ var MGenerator = yeoman.generators.NamedBase.extend({
     this.template('_main.scss', moduleFolder + 'styles/main.scss');
     this.mkdir(moduleFolder + 'templates/');
 
-    var subOptions = {};
-    if (this.options && this.options.sample) {
-      subOptions.sample = this.options.sample;
-    }
-    this.composeWith('m:template', {arguments: 'start', options: subOptions});
-    this.composeWith('m:service', {arguments: 'start', options: subOptions});
-    this.composeWith('m:controller', {arguments: 'start', options: subOptions});
+    var options = {
+      arguments: 'start ' + this.module,
+      options: {
+        sample: 'start'
+      }
+    };
+    this.composeWith('m:template', options);
+    this.composeWith('m:service', options);
+    this.composeWith('m:controller', options);
   }
 });
 

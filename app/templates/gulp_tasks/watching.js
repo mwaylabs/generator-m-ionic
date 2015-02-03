@@ -33,7 +33,7 @@ gulp.task('watch', ['serve'], function () {
   // watch for changes
   gulp.watch([
     'app/index.html',
-    '.tmp/main/styles/*.css',
+    '.tmp/*/styles/main.css', // each module's main.css
     'app/*/assets/**/*',
     'app/*/templates/**/*'
   ].concat(paths.jsFiles),

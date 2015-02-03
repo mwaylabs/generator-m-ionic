@@ -34,5 +34,13 @@ module.exports = {
    */
   checkModule: function (module) {
     return module ? module : config.DEFAULT_MODULE;
+  },
+
+  /**
+   * returns a random ionic bar color
+   * @return {String} ionic color
+   */
+  barColor: function () {
+    return config.IONIC_COLORS[Math.floor(Math.random() * config.IONIC_COLORS.length)];
   }
 };
