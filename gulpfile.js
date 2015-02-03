@@ -10,6 +10,7 @@ var paths = {
   lint: [
     './gulpfile.js',
     './app/index.js',
+    './app/templates/gulp_tasks/*.js',
     './controller/index.js',
     './service/index.js',
     './template/index.js'

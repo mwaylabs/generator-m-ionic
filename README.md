@@ -66,24 +66,20 @@ yo m
 IMPORTANT: Cordova needs an empty directory to work. Please run any other setup (e.g. `git init`) after running `yo m`.
 
 ## Commands
-**gulp watch** or **gulp** - start livereload and watch for changes in files. Automatically injects deps into index.html and opens your default browsers
+**gulp watch** or **gulp** - prepares everything for development. Get ready to start coding!
 
 ```
 gulp watch
 ```
-OR
-```
-gulp
-```
 
-**gulp build** - build your assets into www, cleans before every build
+**gulp build** - builds into www, cleans before every build
 ```
   gulp build
 ```
 
-**gulp serve-build** - serve version from www
+**gulp watch-build** - builds into www and watches version in www (good for debugging your build!)
 ```
-  gulp serve-build
+  gulp watch-build
 ```
 
 **gulp --cordova** - local wrapper for cordova cli (won't use global install to be compatible with generated project)
@@ -94,8 +90,8 @@ gulp
 
 cordova build/run/emulate/prepare
 ```
+  # runs gulp build before running the actual command
   gulp --cordova 'run|build|emulate|prepare <platform>' 
-  # runs gulp build
 ```
 
 **gulp config** - manage project configuration
