@@ -30,7 +30,6 @@ var createConnectServer = function (paths) {
 gulp.task('watch', ['serve'], function () {
   $.livereload.listen();
 
-  // watch for changes
   gulp.watch([
     'app/index.html',
     '.tmp/*/styles/main.css', // each module's main.css

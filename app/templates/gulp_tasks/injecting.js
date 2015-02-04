@@ -45,10 +45,6 @@ gulp.task('styles', function () {
 
 // inject bower components
 gulp.task('wiredep', function () {
-// TODO:
-//   gulp.src('app/styles/*.scss') // into main.scss
-//     .pipe(wiredep())
-//     .pipe(gulp.dest('app/styles'));
   return gulp.src('app/index.html') // into index.html
     .pipe(wiredep.stream({exclude: ['bower_components/ionic/release/css']}))
        // exclude ionic scss since we're using ionic sass
@@ -60,6 +56,5 @@ gulp.task('bower-fonts', function () {
   var fontFiles = mainBowerFiles({filter: /\.(eot|svg|ttf|woff)/i})
     .concat('app/main/assets/fonts/**/*');
   return gulp.src(fontFiles)
-    .pipe($.flatten())
     .pipe(gulp.dest('app/main/assets/fonts')); // TODO: find a better way to inject $ionicons-font-path: "../fonts" !default; into main.scss on build
 });
