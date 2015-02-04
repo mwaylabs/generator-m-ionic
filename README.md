@@ -64,7 +64,7 @@ IMPORTANT: Cordova needs an empty directory to work. Please run any other setup 
 ```
 gulp watch
 ```
-Restart this task when you're adding modules and bower components! This is because gulp will only notify the creation of the new folders, not the individual files inside.
+Livereloads your application when changing/adding/deleting files to immediately reflect the changes you made. Restart this task when you're adding modules and bower components! This is because gulp will only notify the creation of the new folders, not the individual files inside.
 
 
 **gulp watch-build** - builds into www and watches version in www (good for debugging your build!)

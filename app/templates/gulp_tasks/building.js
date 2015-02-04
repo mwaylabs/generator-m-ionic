@@ -8,18 +8,20 @@ var paths = gulp.paths;
 var $ = require('gulp-load-plugins')();
 // modules
 var del = require('del');
+var vinylPaths = require('vinyl-paths');
 
-gulp.task('build', ['clean', 'jshint', 'jscs', 'build-app', 'build-templates', 'build-assets'], function () {
+gulp.task('build', ['jshint', 'jscs', 'build-app', 'build-templates', 'build-assets'], function () {
   return gulp.src(paths.dist + '/**/*')
     .pipe($.size({title: 'build', gzip: true}));
 });
 
 gulp.task('clean', function () {
-  del.sync(['.tmp', paths.dist + '/*']);
+  return gulp.src(['.tmp', paths.dist + '/*'])
+    .pipe(vinylPaths(del));
 });
 // concatenate files in build:blocks inside index.html
 // and copy to build folder destinations
-gulp.task('build-app', ['inject-all'], function () {
+gulp.task('build-app', ['clean', 'inject-all'], function () {
   // useref - parses build block in html, concatenate & replace files
   // only builds files that are actually used
   var assets = $.useref.assets({searchPath: '{.tmp,app}'});
@@ -41,14 +43,14 @@ gulp.task('build-app', ['inject-all'], function () {
     .pipe(gulp.dest(paths.dist));
 });
 // copy templates
-gulp.task('build-templates', function () {
+gulp.task('build-templates', ['clean'], function () {
   return gulp.src([
     'app/**/templates/**/*',
   ])
   .pipe(gulp.dest(paths.dist));
 });
 // copy assets, wait for fonts
-gulp.task('build-assets', ['bower-fonts'], function () {
+gulp.task('build-assets', ['clean', 'bower-fonts'], function () {
   return gulp.src('app/**/assets/**/*')
     // disabled: imagemin not working correctly - https://github.com/mwaylabs/generator-m/issues/90
     // .pipe($.cache($.imagemin({

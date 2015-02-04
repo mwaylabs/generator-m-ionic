@@ -32,6 +32,7 @@
     "require-dir": "^0.1.0",
     "serve-index": "^1.6.0",
     "serve-static": "^1.8.0",
+    "vinyl-paths": "^1.0.0",
     "wiredep": "^2.2.2",
     "xml2js": "^0.4.4"
   }
