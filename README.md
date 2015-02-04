@@ -19,22 +19,22 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
 ### What's in the box
 
 <p align="center">
-  <a href="http://yeoman.io/">
+  <a href="http://yeoman.io/" target="_blank">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/6041228/c1f91cac-ac7a-11e4-9c85-1a5298e29067.png">
   </a>
-  <a href="http://gulpjs.com/">
+  <a href="http://gulpjs.com/" target="_blank">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/6041282/34b4a914-ac7b-11e4-8f24-86795ccf49df.png">
   </a>
-  <a href="http://bower.io/">
+  <a href="http://bower.io/" target="_blank">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/6041250/ef9a78b8-ac7a-11e4-9586-7e7e894e201e.png">
   </a>
-  <a href="https://angularjs.org/">
+  <a href="https://angularjs.org/" target="_blank">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/6041199/5978cb96-ac7a-11e4-9568-829e2ea4312f.png">
   </a>
-  <a href="http://ionicframework.com/">
+  <a href="http://ionicframework.com/" target="_blank">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/6041296/59c5717a-ac7b-11e4-9d5d-9c5232aace64.png">
   </a>
-  <a href="http://cordova.apache.org/">
+  <a href="http://cordova.apache.org/" target="_blank">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/6041269/20ed1196-ac7b-11e4-8707-68fa331f1aeb.png">
   </a>
 </p>
