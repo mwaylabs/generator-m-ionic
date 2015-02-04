@@ -68,7 +68,7 @@ npm install -g generator-m
 - SDKs depending the platforms you want to use
   - Cordova 4.0 Platform Guides - http://cordova.apache.org/docs/en/4.0.0/guide_platforms_index.md.html#Platform%20Guides
 
-## Usage
+## Generate App
 **create new directory** - and cd into it. Note: the generator needs an empty directory when you call it
 ```
 mkdir myApp && cd $_
@@ -79,7 +79,7 @@ yo m
 ```
 IMPORTANT: Cordova needs an empty directory to work. Please run any other setup (e.g. `git init`) after running `yo m`.
 
-### Gulp tasks
+## Gulp tasks
 #### gulp watch
 prepares everything for development. Get ready to start coding!
 ```
@@ -113,7 +113,7 @@ manage project configuration
   gulp config --setVersion=1.1.0 --setBuild=12 --setBundle=com.new.bundle
 ```
 
-### sub-generators
+## sub-generators
 #### yo m:module - creates a new module
 1. `yo m:module <name>` - create a new module
 2. add your module to the `app/app.js`:
@@ -138,13 +138,7 @@ manage project configuration
   yo m:service <name> <module>(optional - defaults to main)
 ```
 
-### Troubleshooting
-If you're experiencing difficulties using the generator please refer to the [Troubleshooting](https://github.com/mwaylabs/generator-m/wiki/Troubleshooting) section in our wiki!
-
-### Continuous Integration
-For now we provide a rudimentary `jenkins.sh` template that can be configured to build your projects with jenkins.
-
-### Options
+## Options
 ```
 yo m --skip-sdk # skip adding cordova platforms and plugins (sdk-specific) for travis
 yo m --appName='App Name' # set appName via CLI
@@ -153,6 +147,12 @@ yo m --skip-prompts # for debugging purposes, run with predefined answers
 yo m --skip-install # for debugging purposes, no npm and bower install
 ```
 
+
+## Troubleshooting
+If you're experiencing difficulties using the generator please refer to the [Troubleshooting](https://github.com/mwaylabs/generator-m/wiki/Troubleshooting) section in our wiki!
+
+## Continuous Integration
+For now we provide a rudimentary `jenkins.sh` template that can be configured to build your projects with jenkins.
 
 ## Want to contribute?
 Start by reading our:
