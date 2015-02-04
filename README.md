@@ -14,7 +14,7 @@
 
 ## Why you need it
 Build mobile Cordova/PhoneGap apps quickly with the tools you love:
-Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova all in one sexy generator.
+Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy generator.
 
 ### What's in the box
 
