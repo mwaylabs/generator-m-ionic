@@ -47,7 +47,6 @@ describe('m', function () {
         'gulp_tasks/cordova.js',
         'gulp_tasks/injecting.js',
         'gulp_tasks/linting.js',
-        'gulp_tasks/styling.js',
         'gulp_tasks/watching.js'
       ]);
     });
