@@ -9,7 +9,7 @@
 [daviddm-image]: https://david-dm.org/mwaylabs/generator-m.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/mwaylabs/generator-m
 [coveralls-image]: https://coveralls.io/repos/mwaylabs/generator-m/badge.png?branch=master
-[coveralls-url]: https://coveralls.io/r/mwaylabs/generator-m?branch=master
+[coveralls-url]: https://coveralls.io/r/mwaylabs/generwator-m?branch=master
 
 ## Why you need it
 Build mobile Cordova/PhoneGap apps quickly with the tools you love:
@@ -43,13 +43,6 @@ Additionally we use:
 
 
 ## Install
-**yeoman** - if you don't have it already - http://yeoman.io/
-
-```
-npm install -g yo
-```
-
-**generator-m**
 ```
 npm install -g generator-m
 ```
@@ -71,27 +64,24 @@ IMPORTANT: Cordova needs an empty directory to work. Please run any other setup 
 ```
 gulp watch
 ```
+Restart this task when you're adding modules and bower components! This is because gulp will only notify the creation of the new folders, not the individual files inside.
 
-**gulp build** - builds into www, cleans before every build
-```
-  gulp build
-```
 
 **gulp watch-build** - builds into www and watches version in www (good for debugging your build!)
 ```
   gulp watch-build
 ```
 
+**gulp --cordova 'build|run|emulate|prepare platform'** - runs the supplied cordova command, builds your app before
+```
+  # runs gulp build before running the actual command
+  gulp --cordova 'run|build|emulate|prepare <platform>' 
+```
+
 **gulp --cordova** - local wrapper for cordova cli (won't use global install to be compatible with generated project)
 ```
   #arbitrary cordova command
   gulp --cordova 'plugin ls'
-```
-
-cordova build/run/emulate/prepare
-```
-  # runs gulp build before running the actual command
-  gulp --cordova 'run|build|emulate|prepare <platform>' 
 ```
 
 **gulp config** - manage project configuration
