@@ -43,4 +43,26 @@ describe('utils', function () {
     assert.textEqual(utils.checkModule(undefined), config.DEFAULT_MODULE);
     assert.textEqual(utils.checkModule('myModule'), 'myModule');
   });
+
+  it('barColor', function () {
+    var TEST_COUNT = 10000;
+    var MAX_DEVIATION_FACTOR = 0.5;
+    var results = {};
+    // generate 10000 results
+    for (var i = 0; i < TEST_COUNT; i++) {
+      var randomColor = utils.barColor();
+      if (!results[randomColor]) {
+        results[randomColor] = 1;
+      }
+      else {
+        results[randomColor]++;
+      }
+    }
+    // check that the rolls are not less than half of what we expect
+    var minimalCount = TEST_COUNT / config.IONIC_COLORS.length * MAX_DEVIATION_FACTOR;
+    for (var j = 0, color; (color = config.IONIC_COLORS[j]); j++) {
+      console.log(results[color], minimalCount);
+      assert(results[color] > minimalCount);
+    }
+  });
 });
