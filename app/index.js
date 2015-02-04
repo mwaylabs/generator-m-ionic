@@ -205,22 +205,9 @@ var MGenerator = yeoman.generators.Base.extend({
 
   install: function () {
     this.installDependencies({
-      skipInstall: this.options['skip-install'],
-      callback: function () {
-        if (!this.options['skip-install']) {
-          var done = this.async();
-          this.spawnCommand('gulp', ['bower-fonts']) // copy ionic fonts
-          .on('exit', function () {
-            done();
-          }.bind(this));
-        }
-      }.bind(this)
+      skipInstall: this.options['skip-install']
     });
   },
-
-  end: function () {
-
-  }
 });
 
 module.exports = MGenerator;

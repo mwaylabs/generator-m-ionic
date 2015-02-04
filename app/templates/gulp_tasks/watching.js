@@ -35,7 +35,7 @@ gulp.task('watch', ['serve'], function () {
     'app/index.html',
     '.tmp/*/styles/main.css', // each module's main.css
     'app/*/assets/**/*',
-    'app/*/templates/**/*'
+    'app/*/templates/**/*',
   ].concat(paths.jsFiles),
   function (event) {
     console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
@@ -43,16 +43,14 @@ gulp.task('watch', ['serve'], function () {
       $.livereload.reload();
     }
     else { // added or deleted
-      gulp.start('inject-only'); // inject in index (implicitly reloads)
+      gulp.start('inject-all'); // inject in index (implicitly reloads)
     }
   });
 
   // watch for changes in scss
   gulp.watch('app/*/styles/**/*.scss', ['styles']);
-  // watch for changes in bower.json
-  gulp.watch('bower.json', ['wiredep']);
 });
-gulp.task('serve', ['connect', 'inject', 'styles'], function () {
+gulp.task('serve', ['connect', 'inject-all'], function () {
   opn('http://localhost:9000');
 });
 gulp.task('connect', function () {

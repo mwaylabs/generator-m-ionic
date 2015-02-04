@@ -19,7 +19,7 @@ gulp.task('clean', function () {
 });
 // concatenate files in build:blocks inside index.html
 // and copy to build folder destinations
-gulp.task('build-app', ['inject', 'styles'], function () {
+gulp.task('build-app', ['inject-all'], function () {
   // useref - parses build block in html, concatenate & replace files
   // only builds files that are actually used
   var assets = $.useref.assets({searchPath: '{.tmp,app}'});
@@ -47,8 +47,8 @@ gulp.task('build-templates', function () {
   ])
   .pipe(gulp.dest(paths.dist));
 });
-// copy assets
-gulp.task('build-assets', function () {
+// copy assets, wait for fonts
+gulp.task('build-assets', ['bower-fonts'], function () {
   return gulp.src('app/**/assets/**/*')
     // disabled: imagemin not working correctly - https://github.com/mwaylabs/generator-m/issues/90
     // .pipe($.cache($.imagemin({
