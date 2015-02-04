@@ -36,7 +36,7 @@ gulp.task('default', function () {
   else if (options.cordova) {
     return gulp.start('cordova');
   }
-  // just watch when no cordova option
+  // just watch when cordova option not present
   else {
     return gulp.start('watch');
   }
