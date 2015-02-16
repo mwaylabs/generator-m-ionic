@@ -35,7 +35,7 @@ for (var i = 0, folder; (folder = packageJSON.files[i]); i++) {
   paths.lint.push('./' + folder + '/templates/**/*.js');
   paths.lint.push('!./' + folder + '/templates/**/_*.js');
   // watch: add all files in folders
-  paths.watch.push('./' + folder + '/**');
+  paths.watch.push('./' + folder + '/**/*');
 }
 // add extra files
 paths.coverage = paths.coverage.concat(paths.extra);
