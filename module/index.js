@@ -7,14 +7,14 @@ var MGenerator = yeoman.generators.NamedBase.extend({
   initializing: function () {
     this.log('You called the m:module subgenerator with the argument ' + this.name + '.');
 
-    this.module = utils.textToCamel(this.name);
-    this.fileName = utils.camelToSnake(this.module);
+    this.moduleName = utils.moduleName(this.name);
+    this.moduleFolder = utils.moduleFolder(this.moduleName);
   },
 
   writing: function () {
-    var moduleFolder = 'app/' + this.fileName + '/';
+    var moduleFolder = 'app/' + this.moduleFolder + '/';
     this.mkdir(moduleFolder);
-    this.template('_module.js', moduleFolder + this.fileName + '.js');
+    this.template('_module.js', moduleFolder + this.moduleFolder + '.js');
     this.copy('yo.png', moduleFolder + 'assets/images/yo@2x.png');
     this.mkdir(moduleFolder + 'controllers/');
     this.mkdir(moduleFolder + 'directives/');
@@ -24,7 +24,7 @@ var MGenerator = yeoman.generators.NamedBase.extend({
     this.mkdir(moduleFolder + 'templates/');
 
     var options = {
-      arguments: 'start ' + this.module,
+      arguments: 'start ' + this.moduleName,
       options: {
         sample: 'start'
       }

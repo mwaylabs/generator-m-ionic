@@ -1,7 +1,7 @@
 'use strict';
-angular.module('<%= module %>')
-.service('<%= name %>', function () {
-  console.log('Hello from your Service: <%= name %> in module <%= module %>');
+angular.module('<%= moduleName %>')
+.service('<%= serviceName %>', function () {
+  console.log('Hello from your Service: <%= name %> in module <%= moduleName %>');
 <% if(options.sample === 'start') {%>
   // some initial data
   this.someData = {

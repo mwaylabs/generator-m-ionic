@@ -1,5 +1,5 @@
 'use strict';
-angular.module('<%= module %>', [
+angular.module('<%= moduleName %>', [
   'ionic',
   'ngCordova',
   'ui.router',
@@ -7,22 +7,22 @@ angular.module('<%= module %>', [
 ])
 .config(function ($stateProvider<% if (options.sample === 'start') {%>, $urlRouterProvider<%} %>) {
 
-  console.log('Allo! Allo from your module: ' + '<%= module %>');
+  console.log('Allo! Allo from your module: ' + '<%= moduleName %>');
 <% if (options.sample === 'start') {%>
   // some basic routing
   $urlRouterProvider.otherwise('/start');
   $stateProvider
     .state('start', {
       url: '/start',
-      templateUrl: '<%= fileName %>/templates/start.html',
+      templateUrl: '<%= moduleFolder %>/templates/start.html',
       controller: 'StartCtrl'
     });
 <%} else { %>
   // some basic routing
   $stateProvider
-    .state('<%= fileName %>', {
-      url: '/<%= fileName %>',
-      templateUrl: '<%= fileName %>/templates/start.html',
+    .state('<%= moduleFolder %>', {
+      url: '/<%= moduleFolder %>',
+      templateUrl: '<%= moduleFolder %>/templates/start.html',
       controller: 'StartCtrl'
     });
 <%} %>

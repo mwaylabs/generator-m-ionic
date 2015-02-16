@@ -122,7 +122,7 @@ var MGenerator = yeoman.generators.Base.extend({
       this.answers.appName = this.appName;
     }
     // save appModule in answers
-    this.answers.appModule = utils.textToCamel(this.answers.appName);
+    this.answers.appModule = utils.moduleName(this.answers.appName);
 
     // store answers in .yo-rc.json
     this.config.set('answers', this.answers);

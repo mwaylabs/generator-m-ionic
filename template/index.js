@@ -6,13 +6,14 @@ var MGenerator = yeoman.generators.NamedBase.extend({
 
   initializing: function () {
     this.argument('module', { type: String, required: false });
-    this.module =  utils.checkModule(this.module);
-    this.moduleFolder = utils.camelToSnake(this.module);
+    this.moduleName =  utils.checkModule(this.module);
+    this.moduleFolder = utils.moduleName(this.moduleName);
     this.barColor = utils.barColor();
 
     this.log('You called the m:template subgenerator.');
 
-    this.fileName = utils.camelToSnake(this.name);
+    this.templateName = this.name;
+    this.fileName = utils.fileName(this.templateName);
   },
 
   writing: function () {

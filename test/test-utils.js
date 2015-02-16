@@ -7,44 +7,48 @@ var config = require('../utils/config.js');
 
 describe('utils', function () {
 
-  it('decapitalize', function () {
-    assert.textEqual(utils.decapitalize('Asdf'), 'asdf');
-    assert.textEqual(utils.decapitalize('asdf'), 'asdf');
-    assert.textEqual(utils.decapitalize('MyNewApp'), 'myNewApp');
-  });
-
-  it('textToCamel', function () {
-    // leave camel case
-    assert.textEqual(utils.textToCamel('myNewApp'), 'myNewApp');
-    // spaces and capitalization
-    assert.textEqual(utils.textToCamel('My new app'), 'myNewApp');
-    assert.textEqual(utils.textToCamel('My New app'), 'myNewApp');
-    assert.textEqual(utils.textToCamel('My NEW aPP'), 'myNewApp');
-    // dashes and spaces
-    assert.textEqual(utils.textToCamel('My-NEW aPP'), 'myNewApp');
-    assert.textEqual(utils.textToCamel('My NEW-aPP'), 'myNewApp');
-    assert.textEqual(utils.textToCamel('My-NEW-aPP'), 'myNewApp');
-    // dashes, spaces and numbers
-    assert.textEqual(utils.textToCamel('M1y N2EW-a3PP'), 'm1yN2ewA3pp');
-    assert.textEqual(utils.textToCamel('M1y-N2EW 3PP'), 'm1yN2ew3pp');
-  });
-
-  it('camelToSnake', function () {
-    assert.textEqual(utils.camelToSnake('oneTwoThree'), 'one-two-three');
-    assert.textEqual(utils.camelToSnake('OneTwoThree'), 'one-two-three');
-    // with dot
-    assert.textEqual(utils.camelToSnake('OneTwoThree.main'), 'one-two-three.main');
-    assert.textEqual(utils.camelToSnake('OneTwoThree.mainStuff'), 'one-two-three.main-stuff');
-
-  });
-
-  it('checkModule', function () {
+  it('#checkModule()', function () {
     assert.textEqual(utils.checkModule(''), config.DEFAULT_MODULE);
     assert.textEqual(utils.checkModule(undefined), config.DEFAULT_MODULE);
     assert.textEqual(utils.checkModule('myModule'), 'myModule');
   });
 
-  it('barColor', function () {
+  it('#moduleName()', function () {
+    assert.textEqual(utils.moduleName(' a f dd'), 'aFDd');
+    assert.textEqual(utils.moduleName('This is my New App P24'), 'thisIsMyNewAppP24');
+    assert.textEqual(utils.moduleName('Yea -24 !BC$f'), 'yea24Bcf');
+  });
+
+  it('#moduleFolder()', function () {
+    assert.textEqual(utils.moduleFolder('thisIsMyApp'), 'this-is-my-app');
+    assert.textEqual(utils.moduleFolder('another2App24'), 'another2-app24');
+  });
+
+  it('#controllerName()', function () {
+    assert.textEqual(utils.controllerName('lower'), 'LowerCtrl');
+    assert.textEqual(utils.controllerName('Upper'), 'UpperCtrl');
+    assert.textEqual(utils.controllerName('lowerCamel'), 'LowerCamelCtrl');
+    assert.textEqual(utils.controllerName('UpperCamel'), 'UpperCamelCtrl');
+    assert.textEqual(utils.controllerName('lowerCamelCtrl'), 'LowerCamelCtrl');
+    assert.textEqual(utils.controllerName('UpperCamelCtrl'), 'UpperCamelCtrl');
+    assert.textEqual(utils.controllerName('lowerCamelController'), 'LowerCamelCtrl');
+    assert.textEqual(utils.controllerName('UpperCamelController'), 'UpperCamelCtrl');
+  });
+
+  it('#serviceName()', function () {
+    assert.textEqual(utils.serviceName('my'), 'My');
+    assert.textEqual(utils.serviceName('myService'), 'MyService');
+    assert.textEqual(utils.serviceName('MyService'), 'MyService');
+  });
+
+  it('#fileName()', function () {
+    assert.textEqual(utils.fileName('lower'), 'lower');
+    assert.textEqual(utils.fileName('Upper'), 'upper');
+    assert.textEqual(utils.fileName('thisMyFilename'), 'this-my-filename');
+    assert.textEqual(utils.fileName('someAp3pName234'), 'some-ap3p-name234');
+  });
+
+  it('#barColor()', function () {
     var TEST_COUNT = 10000;
     var MAX_DEVIATION_FACTOR = 0.5;
     var results = {};
