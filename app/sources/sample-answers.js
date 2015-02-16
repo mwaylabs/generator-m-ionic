@@ -35,7 +35,7 @@ module.exports = {
     return JSON.parse(JSON.stringify(this.standard));
   },
 
-  getAppNameOption: function () {
+  getForAppNameOption: function () {
     var standard = this.getStandard();
     delete standard.appName;
     delete standard.appModule;

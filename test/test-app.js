@@ -101,36 +101,10 @@ describe('m', function () {
         ['config.xml', '<name>' + answers.appName + '</name>']
       ]);
     });
-
-    // FIXME: cannot test because .yo-rc.json is not available. why?
-    // describe('m:controller <lowercasename>', function () {
-    //   var controllerName = 'yeah';
-    //   before(function (done) {
-    //     helpers.run(path.join(__dirname, '../controller'))
-    //       .withArguments([controllerName])
-    //       .on('end', done);
-    //   });
-
-    //   it('generates a new controller with proper content', function () {
-    //     assert.file([
-    //       'app/scripts/controllers/yeah-ctrl.js'
-    //     ]);
-    //     assert.fileContent([
-    //       [
-    //         'app/scripts/controllers/yeah-ctrl.js',
-    //         'angular.module(\'' + answers.appModule + '\')'
-    //       ],
-    //       [
-    //         'app/scripts/controllers/yeah-ctrl.js',
-    //         '.controller(\'YeahCtrl\', function')
-    //       ]
-    //     ]);
-    //   });
-    // });
   });
 
   describe('m with option --app-name', function () {
-    var answers = sampleAnswers.getAppNameOption();
+    var answers = sampleAnswers.getForAppNameOption();
 
     before(function (done) {
       helpers.run(path.join(__dirname, '../app'))
@@ -151,17 +125,4 @@ describe('m', function () {
       ]);
     });
   });
-
-  // describe('m --skip-prompts', function () {
-  //   before(function (done) {
-  //     helpers.run(path.join(__dirname, '../app'))
-  //       .withGenerators([ // configure path to  subgenerators
-  //         path.join(__dirname, '../controller'),
-  //         path.join(__dirname, '../template'),
-  //         path.join(__dirname, '../service')
-  //       ])
-  //       .withOptions({ 'skip-prompts': true}) // execute with options
-  //       .on('end', done);
-  //   });
-  // });
 });

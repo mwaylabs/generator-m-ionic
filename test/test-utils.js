@@ -7,24 +7,24 @@ var config = require('../utils/config.js');
 
 describe('utils', function () {
 
-  it('#checkModule()', function () {
+  it('.checkModule()', function () {
     assert.textEqual(utils.checkModule(''), config.DEFAULT_MODULE);
     assert.textEqual(utils.checkModule(undefined), config.DEFAULT_MODULE);
     assert.textEqual(utils.checkModule('myModule'), 'myModule');
   });
 
-  it('#moduleName()', function () {
+  it('.moduleName()', function () {
     assert.textEqual(utils.moduleName(' a f dd'), 'aFDd');
     assert.textEqual(utils.moduleName('This is my New App P24'), 'thisIsMyNewAppP24');
     assert.textEqual(utils.moduleName('Yea -24 !BC$f'), 'yea24Bcf');
   });
 
-  it('#moduleFolder()', function () {
+  it('.moduleFolder()', function () {
     assert.textEqual(utils.moduleFolder('thisIsMyApp'), 'this-is-my-app');
     assert.textEqual(utils.moduleFolder('another2App24'), 'another2-app24');
   });
 
-  it('#controllerName()', function () {
+  it('.controllerName()', function () {
     assert.textEqual(utils.controllerName('lower'), 'LowerCtrl');
     assert.textEqual(utils.controllerName('Upper'), 'UpperCtrl');
     assert.textEqual(utils.controllerName('lowerCamel'), 'LowerCamelCtrl');
@@ -35,20 +35,20 @@ describe('utils', function () {
     assert.textEqual(utils.controllerName('UpperCamelController'), 'UpperCamelCtrl');
   });
 
-  it('#serviceName()', function () {
+  it('.serviceName()', function () {
     assert.textEqual(utils.serviceName('my'), 'My');
     assert.textEqual(utils.serviceName('myService'), 'MyService');
     assert.textEqual(utils.serviceName('MyService'), 'MyService');
   });
 
-  it('#fileName()', function () {
+  it('.fileName()', function () {
     assert.textEqual(utils.fileName('lower'), 'lower');
     assert.textEqual(utils.fileName('Upper'), 'upper');
     assert.textEqual(utils.fileName('thisMyFilename'), 'this-my-filename');
     assert.textEqual(utils.fileName('someAp3pName234'), 'some-ap3p-name234');
   });
 
-  it('#barColor()', function () {
+  it('.barColor()', function () {
     var TEST_COUNT = 10000;
     var MAX_DEVIATION_FACTOR = 0.5;
     var results = {};

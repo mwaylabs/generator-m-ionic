@@ -6,13 +6,13 @@ var strings = require('../utils/strings.js');
 
 describe('strings', function () {
 
-  it('#decapitalize()', function () {
+  it('.decapitalize()', function () {
     assert.textEqual(strings.decapitalize('Asdf'), 'asdf');
     assert.textEqual(strings.decapitalize('asdf'), 'asdf');
     assert.textEqual(strings.decapitalize('MyNewApp'), 'myNewApp');
   });
 
-  it('#textToCamel()', function () {
+  it('.textToCamel()', function () {
     // leave camel case
     assert.textEqual(strings.textToCamel('myNewApp'), 'myNewApp');
     // spaces and capitalization
@@ -28,7 +28,7 @@ describe('strings', function () {
     assert.textEqual(strings.textToCamel('M1y-N2EW 3PP'), 'm1yN2ew3pp');
   });
 
-  it('#camelToSnake()', function () {
+  it('.camelToSnake()', function () {
     assert.textEqual(strings.camelToSnake('oneTwoThree'), 'one-two-three');
     assert.textEqual(strings.camelToSnake('OneTwoThree'), 'one-two-three');
     // with dot
