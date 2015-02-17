@@ -69,7 +69,7 @@ npm install -g generator-m
   - Cordova 4.0 Platform Guides - http://cordova.apache.org/docs/en/4.0.0/guide_platforms_index.md.html#Platform%20Guides
 
 ## Generate App
-**create new directory** - and cd into it. Note: the generator needs an empty directory when you call it
+**create new directory** - and cd into it. 
 ```
 mkdir myApp && cd $_
 ```
@@ -77,7 +77,7 @@ mkdir myApp && cd $_
 ```
 yo m
 ```
-IMPORTANT: Cordova needs an empty directory to work. Please run any other setup (e.g. `git init`) after running `yo m`.
+**IMPORTANT:** Cordova needs an empty directory to work. Please run any other setup (e.g. `git init`) after running `yo m`.
 
 ## Gulp tasks
 #### gulp watch
@@ -136,6 +136,7 @@ The `<moduleName>` is optional and defaults to the main module when left blank
 ```
   yo m:controller <controllerName> <moduleName>
   yo m:directive <directiveName> <moduleName>
+  yo m:filter <filterName> <moduleName>
   yo m:template <templateName> <moduleName>
   yo m:service <serviceName> <moduleName>
 ```

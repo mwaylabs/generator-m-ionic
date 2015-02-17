@@ -25,7 +25,8 @@
     "service",
     "template",
     "utils",
-    "directive"
+    "directive",
+    "filter"
   ],
   "keywords": [
     "yeoman-generator"
