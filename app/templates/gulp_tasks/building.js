@@ -10,7 +10,7 @@ var $ = require('gulp-load-plugins')();
 var del = require('del');
 var vinylPaths = require('vinyl-paths');
 
-gulp.task('build', ['jshint', 'jscs', 'build-app', 'build-templates', 'build-assets'], function () {
+gulp.task('build', ['jshint', 'jscs', 'jsonlint', 'build-app', 'build-templates', 'build-assets'], function () {
   return gulp.src(paths.dist + '/**/*')
     .pipe($.size({title: 'build', gzip: true}));
 });

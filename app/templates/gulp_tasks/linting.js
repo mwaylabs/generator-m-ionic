@@ -20,3 +20,11 @@ gulp.task('jscs', function () {
   return gulp.src(paths.jsFiles)
     .pipe($.jscs());
 });
+
+gulp.task('jsonlint', function () {
+  return gulp.src(paths.jsonFiles)
+    .pipe($.jsonlint())
+    .pipe($.jsonlint.reporter(function (file) {
+      throw new Error(file.path + '\n' + file.jsonlint.message);
+    }));
+});

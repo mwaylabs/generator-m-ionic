@@ -6,7 +6,8 @@ var gulp = require('gulp');
 // config
 gulp.paths = {
   dist: 'www',
-  jsFiles: ['app/**/*.js', '!app/bower_components/**/*.js']
+  jsFiles: ['app/**/*.js', '!app/bower_components/**/*.js'],
+  jsonFiles: ['app/**/*.json', '!app/bower_components/**/*.json']
 };
 // retrieve options
 var minimist = require('minimist');
