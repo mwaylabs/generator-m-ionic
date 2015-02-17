@@ -115,7 +115,7 @@ manage project configuration
 
 ## sub-generators
 #### yo m:module - creates a new module
-1. `yo m:module <name>` - create a new module
+1. `yo m:module <moduleName>` - create a new module
 2. add your module to the `app/app.js`:
   
   ```
@@ -133,9 +133,9 @@ manage project configuration
 
 #### yo m:others
 ```
-  yo m:controller <name> <module>(optional - defaults to main)
-  yo m:template <name> <module>(optional - defaults to main)
-  yo m:service <name> <module>(optional - defaults to main)
+  yo m:controller <name> <moduleName>(optional - defaults to main)
+  yo m:template <name> <moduleName>(optional - defaults to main)
+  yo m:service <name> <moduleName>(optional - defaults to main)
 ```
 
 ## Options

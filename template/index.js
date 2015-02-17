@@ -7,7 +7,7 @@ var MGenerator = yeoman.generators.NamedBase.extend({
   initializing: function () {
     this.argument('module', { type: String, required: false });
     this.moduleName =  utils.checkModule(this.module);
-    this.moduleFolder = utils.moduleName(this.moduleName);
+    this.moduleFolder = utils.moduleFolder(this.moduleName);
     this.barColor = utils.barColor();
 
     this.log('You called the m:template subgenerator.');
