@@ -60,15 +60,6 @@ describe('m', function () {
       ]);
     });
 
-    it('creates cordova files', function () {
-      assert.file([
-        'hooks',
-        'platforms',
-        'plugins',
-        'www'
-      ]);
-    });
-
     it('has proper bower.json content', function () {
       assert.fileContent([
         ['bower.json', 'angular-dynamic-locale": "~0.1.24"'],
@@ -103,7 +94,7 @@ describe('m', function () {
     });
   });
 
-  describe('m with option --app-name', function () {
+  describe('m --app-name=tradecore', function () {
     var answers = sampleAnswers.getForAppNameOption();
 
     before(function (done) {
@@ -123,6 +114,39 @@ describe('m', function () {
       assert.fileContent([
         ['bower.json', /"name": "tradecore"/]
       ]);
+    });
+  });
+
+  describe('m --skip-prompts', function () {
+    var answers = sampleAnswers.getStandard();
+
+    before(function (done) {
+      helpers.run(path.join(__dirname, '../app'))
+        .withOptions({ 'skip-install': true, 'skip-sdk': true, 'skip-prompts': true}) // execute with options
+        .withGenerators([ // configure path to  subgenerators
+          path.join(__dirname, '../module'),
+          path.join(__dirname, '../controller'),
+          path.join(__dirname, '../template'),
+          path.join(__dirname, '../service')
+        ])
+        .withPrompt(answers)  // answer prompts
+        .on('end', done);
+    });
+
+    it('.yo-rc.json has proper content', function () {
+      for (var key in answers) {
+        if (answers.hasOwnProperty(key)) {
+          var value = answers[key];
+          if (typeof value === 'string') {
+            assert.fileContent('.yo-rc.json', '"' + key + '": "' + value + '"');
+          }
+          else if (Object.prototype.toString.call(value) === '[object Array]') {
+            for (var i = 0, newValue; (newValue = value[i]); i++) {
+              assert.fileContent('.yo-rc.json', '"' + newValue + '"');
+            }
+          }
+        }
+      }
     });
   });
 });

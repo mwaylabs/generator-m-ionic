@@ -7,6 +7,18 @@ var config = require('../utils/config.js');
 
 describe('utils', function () {
 
+  it('.validateAppName()', function () {
+    assert.textEqual(utils.validateAppName(''), 'Please enter a name');
+    assert(utils.validateAppName('asf'));
+  });
+
+  it('.validateAppId()', function () {
+    assert(typeof utils.validateAppId('') === 'string');
+    assert(typeof utils.validateAppId('asdfaasdf') === 'string');
+    assert(utils.validateAppId('asdfaasdf.dfdf'));
+    assert(utils.validateAppId('asdfaasdf.dfdf.aaf'));
+  });
+
   it('.checkModule()', function () {
     assert.textEqual(utils.checkModule(''), config.DEFAULT_MODULE);
     assert.textEqual(utils.checkModule(undefined), config.DEFAULT_MODULE);

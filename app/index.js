@@ -54,9 +54,7 @@ var MGenerator = yeoman.generators.Base.extend({
         type: 'input',
         name: 'appName',
         message: 'state a name for your project (this name will be displayed below the app icon)',
-        validate: function (value) {
-          return value ? true : 'Please enter a name ';
-        },
+        validate: utils.validateAppName,
         when: function () {
           // Show this prompt only if appName is not already set
           return !this.appName;
@@ -67,10 +65,7 @@ var MGenerator = yeoman.generators.Base.extend({
         type: 'input',
         name: 'appId',
         message: 'state a bundle identifier for your project (e.g. com.company.project)',
-        validate: function (value) {
-          var pattern = /^[a-z][a-z0-9_]*(\.[a-z0-9_]+)+[0-9a-z_]$/i;
-          return pattern.test(value) ? true : 'Please enter a valid bundle identifier! E.g. com.company.project';
-        }
+        validate: utils.validateAppId
       },
       // bower packages
       {
