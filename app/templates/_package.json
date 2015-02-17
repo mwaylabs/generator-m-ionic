@@ -16,6 +16,7 @@
     "gulp-jshint": "^1.9.0",
     "gulp-livereload": "^3.2.0",
     "gulp-load-plugins": "^0.8.0",
+    "gulp-natural-sort": "^0.1.0",
     "gulp-plumber": "^0.6.6",
     "gulp-ruby-sass": "^0.7.1",
     "gulp-shell": "^0.2.11",
