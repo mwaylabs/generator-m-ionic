@@ -14,8 +14,10 @@ describe('m:module', function () {
       assert.file([
         modulePath + '/' + moduleFolder + '.js',
         modulePath + '/assets/images/yo@2x.png',
+        modulePath + '/constants',
         modulePath + '/controllers',
         modulePath + '/directives',
+        modulePath + '/filters',
         modulePath + '/services',
         modulePath + '/styles/main.scss',
         modulePath + '/templates'

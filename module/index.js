@@ -16,8 +16,10 @@ var MGenerator = yeoman.generators.NamedBase.extend({
     this.mkdir(moduleFolder);
     this.template('_module.js', moduleFolder + this.moduleFolder + '.js');
     this.copy('yo.png', moduleFolder + 'assets/images/yo@2x.png');
+    this.mkdir(moduleFolder + 'constants/');
     this.mkdir(moduleFolder + 'controllers/');
     this.mkdir(moduleFolder + 'directives/');
+    this.mkdir(moduleFolder + 'filters/');
     this.mkdir(moduleFolder + 'services/');
     this.mkdir(moduleFolder + 'styles/');
     this.template('_main.scss', moduleFolder + 'styles/main.scss');
