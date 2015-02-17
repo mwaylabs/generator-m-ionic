@@ -24,7 +24,8 @@
     "module",
     "service",
     "template",
-    "utils"
+    "utils",
+    "directive"
   ],
   "keywords": [
     "yeoman-generator"

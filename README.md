@@ -132,10 +132,12 @@ manage project configuration
 
 
 #### yo m:others
+The `<moduleName>` is optional and defaults to the main module when left blank
 ```
-  yo m:controller <name> <moduleName>(optional - defaults to main)
-  yo m:template <name> <moduleName>(optional - defaults to main)
-  yo m:service <name> <moduleName>(optional - defaults to main)
+  yo m:controller <controllerName> <moduleName>
+  yo m:directive <directiveName> <moduleName>
+  yo m:template <templateName> <moduleName>
+  yo m:service <serviceName> <moduleName>
 ```
 
 ## Options
