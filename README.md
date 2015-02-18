@@ -91,22 +91,29 @@ Livereloads your application when changing/adding/deleting files to immediately 
 #### gulp watch-build
 builds into www and watches version in www. Good for debugging your build!
 ```
-  gulp watch-build
+gulp watch-build
 ```
 
 
 #### gulp --cordova '<some> <command>'
 local wrapper for cordova cli (won't use global install to be compatible with generated project). For instance instead of running `cordova plugins ls` you'd write the following to list all the installed plugins:
 ```
-  gulp --cordova 'plugin ls'
+gulp --cordova 'plugin ls'
 ```
 Head over to the [cordova documentation](http://cordova.apache.org/docs/en/4.0.0/guide_cli_index.md.html) to learn how to use the cordova cli. Remember when using generator-m you don't need to install cordova globally!
 If you run one of the following cordova commands: `build <platform>`, `run <platform>`, `emulate <platform>`, `prepare <platform>`, then `gulp build` will build your app into the www folder before cordova will take it from there. Sometimes this is not what you want. Simply add the `--no-build` option and `gulp build` will be skipped.
 
+#### gulp build
+builds your angular app and moves it to the www folder. Usually you don't run this command directly, but it will be implicitly run by `gulp watch-build` and any build-related cordova tasks (as explained above).
+```
+gulp build
+```
+Note that the build will not complete if you have any jscs, jshint or jsonlint errors in your code! Sometimes it's necessary to let the build run anyway. Simply use the `--force-build` option. This will also work for all the build-related cordova tasks!
+
 #### gulp config
 manage project configuration
 ```
-  gulp config --setVersion=1.1.0 --setBuild=12 --setBundle=com.new.bundle
+gulp config --setVersion=1.1.0 --setBuild=12 --setBundle=com.new.bundle
 ```
 
 ## sub-generators
@@ -130,12 +137,12 @@ manage project configuration
 #### yo m:others
 The `<moduleName>` is optional and defaults to the main module when left blank
 ```
-  yo m:constant <constantName> <moduleName>
-  yo m:controller <controllerName> <moduleName>
-  yo m:directive <directiveName> <moduleName>
-  yo m:filter <filterName> <moduleName>
-  yo m:template <templateName> <moduleName>
-  yo m:service <serviceName> <moduleName>
+yo m:constant <constantName> <moduleName>
+yo m:controller <controllerName> <moduleName>
+yo m:directive <directiveName> <moduleName>
+yo m:filter <filterName> <moduleName>
+yo m:template <templateName> <moduleName>
+yo m:service <serviceName> <moduleName>
 ```
 
 ## Options

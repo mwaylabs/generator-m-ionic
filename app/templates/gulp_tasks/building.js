@@ -3,6 +3,7 @@
 'use strict';
 // gulp
 var gulp = require('gulp');
+var options = gulp.options;
 var paths = gulp.paths;
 // plugins
 var $ = require('gulp-load-plugins')();
@@ -10,7 +11,14 @@ var $ = require('gulp-load-plugins')();
 var del = require('del');
 var vinylPaths = require('vinyl-paths');
 
-gulp.task('build', ['linting-throw', 'build-app', 'build-templates', 'build-assets'], function () {
+var buildDependencies = [
+  options['force-build'] ? 'linting' : 'linting-throw',
+  'build-app',
+  'build-templates',
+  'build-assets'
+];
+
+gulp.task('build', buildDependencies, function () {
   return gulp.src(paths.dist + '/**/*')
     .pipe($.size({title: 'build', gzip: true}));
 });
