@@ -100,8 +100,9 @@ local wrapper for cordova cli (won't use global install to be compatible with ge
 ```
 gulp --cordova 'plugin ls'
 ```
-Head over to the [cordova documentation](http://cordova.apache.org/docs/en/4.0.0/guide_cli_index.md.html) to learn how to use the cordova cli. Remember when using generator-m you don't need to install cordova globally!
-If you run one of the following cordova commands: `build <platform>`, `run <platform>`, `emulate <platform>`, `prepare <platform>`, then `gulp build` will build your app into the www folder before cordova will take it from there. Sometimes this is not what you want. Simply add the `--no-build` option and `gulp build` will be skipped.
+Head over to the [cordova documentation](http://cordova.apache.org/docs/en/4.0.0/guide_cli_index.md.html) to learn how to use the cordova cli. Remember that when using generator-m you don't need to install cordova globally!
+
+Additionally: If you run one of the following cordova commands: `build <platform>`, `run <platform>`, `emulate <platform>`, `prepare <platform>`, then `gulp build` will build your app into the www folder before cordova will take it from there. Sometimes this is not what you want. Simply add the `--no-build` option and `gulp build` will be skipped.
 
 #### gulp build
 builds your angular app and moves it to the www folder. Usually you don't run this command directly, but it will be implicitly run by `gulp watch-build` and any build-related cordova tasks (as explained above).
