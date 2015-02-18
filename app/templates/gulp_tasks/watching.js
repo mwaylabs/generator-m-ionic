@@ -27,7 +27,7 @@ var createConnectServer = function (paths) {
 };
 
 // WATCH
-gulp.task('watch', ['serve'], function () {
+gulp.task('watch', ['serve', 'linting'], function () {
   $.livereload.listen();
 
   gulp.watch([
