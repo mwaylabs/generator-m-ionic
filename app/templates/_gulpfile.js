@@ -12,8 +12,8 @@ gulp.paths = {
 // retrieve options
 var minimist = require('minimist');
 var options = gulp.options = minimist(process.argv.slice(2));
-if (options.cordova) {
-  // gulp build before running cordova?
+// gulp build before running cordova?
+if (options.cordova && options.build !== false) { // --no-build
   var cmds = ['build', 'run', 'emulate', 'prepare'];
   for (var i = 0, cmd; (cmd = cmds[i]); i++) {
     if (options.cordova.indexOf(cmd) >= 0) {

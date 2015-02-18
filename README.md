@@ -94,18 +94,14 @@ builds into www and watches version in www. Good for debugging your build!
   gulp watch-build
 ```
 
-#### gulp --cordova 'build|run|emulate|prepare platform'
-runs the supplied cordova command, builds your app into www before
-```
-  gulp --cordova 'run|build|emulate|prepare <platform>' 
-```
 
-#### gulp --cordova
-local wrapper for cordova cli (won't use global install to be compatible with generated project)
+#### gulp --cordova '<some> <command>'
+local wrapper for cordova cli (won't use global install to be compatible with generated project). For instance instead of running `cordova plugins ls` you'd write the following to list all the installed plugins:
 ```
-  #arbitrary cordova command
   gulp --cordova 'plugin ls'
 ```
+Head over to the [cordova documentation](http://cordova.apache.org/docs/en/4.0.0/guide_cli_index.md.html) to learn how to use the cordova cli. Remember when using generator-m you don't need to install cordova globally!
+If you run one of the following cordova commands: `build <platform>`, `run <platform>`, `emulate <platform>`, `prepare <platform>`, then `gulp build` will build your app into the www folder before cordova will take it from there. Sometimes this is not what you want. Simply add the `--no-build` option and `gulp build` will be skipped.
 
 #### gulp config
 manage project configuration
@@ -118,7 +114,7 @@ manage project configuration
 1. `yo m:module <moduleName>` - create a new module
 2. add your module to the `app/app.js`:
   
-  ```
+  ```js
   'use strict';
   angular.module('myProject', [
     // your modules
