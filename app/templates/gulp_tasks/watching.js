@@ -40,7 +40,7 @@ gulp.task('watch', ['serve'], function () {
     console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     if (event.type === 'changed') {
       $.livereload.reload();
-      gulp.start('jshint', 'jscs', 'jsonlint');
+      gulp.start('linting');
     }
     else { // added or deleted
       gulp.start('inject-all'); // inject in index (implicitly reloads)

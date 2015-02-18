@@ -7,6 +7,9 @@ var paths = gulp.paths;
 // plugins
 var $ = require('gulp-load-plugins')();
 
+// all linting tasks
+gulp.task('linting', ['jshint', 'jscs', 'jsonlint']);
+
 // check for jshint errors
 gulp.task('jshint', function () {
   return gulp.src(paths.jsFiles)

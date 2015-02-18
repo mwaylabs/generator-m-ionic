@@ -17,7 +17,7 @@ gulp.task('inject-all', ['styles', 'wiredep', 'bower-fonts'], function () {
     .pipe(
       $.inject( // app/**/*.js files
         gulp.src(paths.jsFiles)
-          .pipe($.plumber()) // use plumber so watch doesn't crash on js error
+          .pipe($.plumber()) // use plumber so watch can start despite js errors
           .pipe($.naturalSort())
           .pipe($.angularFilesort()),
         {relative: true}))
