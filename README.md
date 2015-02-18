@@ -95,7 +95,7 @@ gulp watch-build
 ```
 
 
-#### gulp --cordova '<some> <command>'
+#### gulp --cordova 'run any command'
 local wrapper for cordova cli (won't use global install to be compatible with generated project). For instance instead of running `cordova plugins ls` you'd write the following to list all the installed plugins:
 ```
 gulp --cordova 'plugin ls'
