@@ -34,6 +34,16 @@ var MGenerator = yeoman.generators.NamedBase.extend({
     this.composeWith('m:template', options);
     this.composeWith('m:service', options);
     this.composeWith('m:controller', options);
+    // create config constant
+    this.composeWith('m:constant', {
+      arguments: 'Config ' + this.moduleName,
+      options: options.options
+    });
+
+    if (this.options && this.options.sample === 'start') {
+      this.copy('env-dev.json', moduleFolder + 'constants/env-dev.json');
+      this.copy('env-prod.json', moduleFolder + 'constants/env-prod.json');
+    }
   }
 });
 

@@ -41,13 +41,27 @@ describe('m:module', function () {
     });
   };
 
+  var moduleFilesTests = function (moduleFolder) {
+    it('start files', function () {
+      var modulePath = 'app/' + moduleFolder;
+
+      assert.file([
+        modulePath + '/controllers/start-ctrl.js',
+        modulePath + '/services/start-serv.js',
+        modulePath + '/templates/start.html',
+        modulePath + '/constants/config-const.js'
+      ]);
+    });
+  };
+
   describe('m:module myModule', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../module'))
         .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../controller'),
           path.join(__dirname, '../template'),
-          path.join(__dirname, '../service')
+          path.join(__dirname, '../service'),
+          path.join(__dirname, '../constant')
         ])
         .withArguments('myModule')
         .on('end', done);
@@ -55,6 +69,7 @@ describe('m:module', function () {
 
     fileCreationTests('my-module');
     moduleJsContentTests('my-module');
+    moduleFilesTests('my-module');
   });
 
   describe('m:module my-module', function () {
@@ -63,7 +78,8 @@ describe('m:module', function () {
         .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../controller'),
           path.join(__dirname, '../template'),
-          path.join(__dirname, '../service')
+          path.join(__dirname, '../service'),
+          path.join(__dirname, '../constant')
         ])
         .withArguments('my-module')
         .on('end', done);
@@ -71,44 +87,44 @@ describe('m:module', function () {
 
     fileCreationTests('my-module');
     moduleJsContentTests('my-module');
+    moduleFilesTests('my-module');
   });
 
-  describe('m:module my-module --sample=start', function () {
+  describe('m:module main --sample=start', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../module'))
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../controller'),
           path.join(__dirname, '../template'),
-          path.join(__dirname, '../service')
+          path.join(__dirname, '../service'),
+          path.join(__dirname, '../constant')
         ])
-        .withArguments('my-module')
+        .withArguments('main')
         .withOptions({ sample: 'start'}) // execute with options
         .on('end', done);
     });
 
-    fileCreationTests('my-module');
+    fileCreationTests('main');
+    moduleFilesTests('main');
 
-    it('controller template service files', function () {
-      var modulePath = 'app/my-module';
-
+    it('env files', function () {
       assert.file([
-        modulePath + '/controllers/start-ctrl.js',
-        modulePath + '/services/start-serv.js',
-        modulePath + '/templates/start.html'
+        'app/main/constants/env-dev.json',
+        'app/main/constants/env-prod.json'
       ]);
     });
 
     it('module.js has proper content', function () {
       assert.fileContent([
-        ['app/my-module/my-module.js', 'angular.module(\'myModule\','],
-        ['app/my-module/my-module.js', '$urlRouterProvider.otherwise(\'/start\');'],
-        ['app/my-module/my-module.js', '.state(\'start\','],
-        ['app/my-module/my-module.js', 'url: \'/start\',']
+        ['app/main/main.js', 'angular.module(\'main\','],
+        ['app/main/main.js', '$urlRouterProvider.otherwise(\'/start\');'],
+        ['app/main/main.js', '.state(\'start\','],
+        ['app/main/main.js', 'url: \'/start\',']
       ]);
     });
 
     it('main.scss has ionic includes', function () {
-      assert.fileContent('app/my-module/styles/main.scss', '$light');
+      assert.fileContent('app/main/styles/main.scss', '$light');
     });
   });
 });

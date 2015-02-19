@@ -22,6 +22,8 @@ if (options.cordova && options.build !== false) { // --no-build
     }
   }
 }
+// environment
+options.env = options.env || 'dev';
 
 // load tasks
 var requireDir = require('require-dir');

@@ -4,14 +4,16 @@
 // gulp
 var gulp = require('gulp');
 var paths = gulp.paths;
+var options = gulp.options;
 // plugins
 var $ = require('gulp-load-plugins')();
 // modules
 var wiredep = require('wiredep');
 var mainBowerFiles = require('main-bower-files');
 
-// inject app/**/*.js, bower components and css into index.html
-gulp.task('inject-all', ['styles', 'wiredep', 'bower-fonts'], function () {
+// inject app/**/*.js, bower components, css into index.html
+// inject environment variables into config.js constant
+gulp.task('inject-all', ['styles', 'wiredep', 'bower-fonts', 'environment'], function () {
 
   return gulp.src('app/index.html')
     .pipe(
@@ -57,5 +59,28 @@ gulp.task('bower-fonts', function () {
   var fontFiles = mainBowerFiles({filter: /\.(eot|svg|ttf|woff)/i})
     .concat('app/main/assets/fonts/**/*');
   return gulp.src(fontFiles)
-    .pipe(gulp.dest('app/main/assets/fonts')); // TODO: find a better way to inject $ionicons-font-path: "../fonts" !default; into main.scss on build
+    .pipe(gulp.dest('app/main/assets/fonts'));
+});
+
+gulp.task('environment', function () {
+  return gulp.src('app/*/constants/config-const.js')
+    .pipe(
+      $.inject(
+        gulp.src('app/main/constants/env-' + options.env + '.json'),
+        {
+          starttag: '/*inject-env*/',
+          endtag: '/*endinject*/',
+          transform: function (filePath, file) {
+            var json = JSON.parse(file.contents.toString('utf8'));
+            json = JSON.stringify(json, null, 2);
+            // replace all doublequotes with singlequotes
+            json = json.replace(/\"/g, '\'');
+            // remove first and last line curly braces
+            json = json.replace(/^\{\n/, '').replace(/\n\}$/, '');
+            // remove indentation
+            json = json.replace(/  /g, '');
+            return json;
+          }
+        }))
+    .pipe(gulp.dest('app/'));
 });

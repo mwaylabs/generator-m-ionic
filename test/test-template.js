@@ -19,7 +19,7 @@ describe('m:template', function () {
       var filePath = 'app/' + config.DEFAULT_MODULE + '/templates/some-template.html';
       assert.fileContent([
         [filePath, '<h1 class="title">' + config.DEFAULT_MODULE + '</h1>'],
-        [filePath, 'this is your some-template']
+        [filePath, 'This is your some-template template!']
       ]);
     });
   });
@@ -35,7 +35,23 @@ describe('m:template', function () {
       var filePath = 'app/my-module/templates/some-template.html';
       assert.fileContent([
         [filePath, '<h1 class="title">myModule</h1>'],
-        [filePath, 'this is your someTemplate']
+        [filePath, 'This is your someTemplate template!']
+      ]);
+    });
+  });
+
+  describe('m:template someTemplate --sample=start', function () {
+    before(function (done) {
+      helpers.run(path.join(__dirname, '../template'))
+        .withArguments('someTemplate')
+        .withOptions({ sample: 'start' })
+        .on('end', done);
+    });
+
+    it('template file contents', function () {
+      var filePath = 'app/main/templates/some-template.html';
+      assert.fileContent([
+        [filePath, '<li class="item">{{someData.binding}}']
       ]);
     });
   });

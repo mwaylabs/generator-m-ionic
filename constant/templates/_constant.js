@@ -1,5 +1,12 @@
 'use strict';
 angular.module('<%= moduleName %>')
 .constant('<%= constantName %>', {
-  CONSTANT_1: 'meaningful value'
+<% if (options.sample === 'start') {%>
+  ENV: {
+    /*inject-env*/
+    /*endinject*/
+  },
+<% } else { %>
+  CONSTANT_1: 'meaningful value',
+<% } %>
 });

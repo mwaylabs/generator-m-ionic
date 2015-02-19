@@ -49,6 +49,8 @@ gulp.task('watch', ['serve', 'linting'], function () {
 
   // watch for changes in scss
   gulp.watch('app/*/styles/**/*.scss', ['styles']);
+  // watch for changes in environment files
+  gulp.watch('app/main/constants/env-*.json', ['environment']);
 });
 gulp.task('serve', ['connect', 'inject-all'], function () {
   opn('http://localhost:9000');

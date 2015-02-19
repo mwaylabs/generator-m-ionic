@@ -39,4 +39,21 @@ describe('m:controller', function () {
       ]);
     });
   });
+
+  describe('m:controller someCtrl', function () {
+    before(function (done) {
+      helpers.run(path.join(__dirname, '../controller'))
+        .withArguments('someCtrl')
+        .withOptions({ sample: 'start' })
+        .on('end', done);
+    });
+
+    it('controller file contents', function () {
+      var filePath = 'app/main/controllers/some-ctrl.js';
+      assert.fileContent([
+        [filePath, ', Start, Config'],
+        [filePath, '$scope.someData']
+      ]);
+    });
+  });
 });

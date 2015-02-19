@@ -39,4 +39,20 @@ describe('m:service', function () {
       ]);
     });
   });
+
+  describe('m:service some', function () {
+    before(function (done) {
+      helpers.run(path.join(__dirname, '../service'))
+        .withArguments('some')
+        .withOptions({ sample: 'start' })
+        .on('end', done);
+    });
+
+    it('service file contents', function () {
+      var filePath = 'app/main/services/some-serv.js';
+      assert.fileContent([
+        [filePath, 'this.someData = {']
+      ]);
+    });
+  });
 });

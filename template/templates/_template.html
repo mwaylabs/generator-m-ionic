@@ -3,11 +3,17 @@
     <h1 class="title"><%= moduleName %></h1>
   </ion-header-bar>
   <ion-content>
-    this is your <%= templateName %> template<br>
     <ul>
-      <li>icons working?: <span class="ion-checkmark-circled"></span></li>
-<% if(options.sample === 'start') {%> <li>{{someData.binding}} </li><% } %>
-      <li>images working?<br><img width="100" src="<%= moduleFolder%>/assets/images/yo@2x.png"></li>
+      <li class="item item-divider">This is your <%= templateName %> template!</li>
+      <li class="item">icons working?: <span class="ion-checkmark-circled"></span></li>
+      <li class="item">images working?<br><img width="100" src="<%= moduleFolder%>/assets/images/yo@2x.png"></li>
+<% if(options.sample === 'start') {%>
+      <li class="item">{{someData.binding}} </li>
+      <li class="item">Environment variables:</li>
+      <li class="item">
+        <pre>{{env | json}}</pre>
+      </li>
+<% } %>
     </ul>
   </ion-content>
 </ion-pane>
