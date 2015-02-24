@@ -8,24 +8,9 @@
 /app/bower_components/
 
 # cordova
-/platforms/**/console.log
-
-# ios/xcode
-/platforms/ios/www/**
-**/xcuserdata/
-xcshareddata/
-/platforms/**/project.xcworkspace/
-
-# android
-/platforms/android/assets/www/**         # www build
-/platforms/**/ant-build/                 # ant build artifacts
-/platforms/**/ant-gen/                   # ant build artifacts
-/platforms/android/**/local.properties   # local properties
-
-# gradle
-.gradle
-/platforms/android/build/
-
+/platforms/
+/plugins/*
+!/plugins/*.json
 
 # build folder
 /www/
