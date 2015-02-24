@@ -8,13 +8,15 @@ var options = gulp.options;
 var $ = require('gulp-load-plugins')();
 // packages
 var fs = require('fs');
+var path = require('join');
 var rimraf = require('rimraf');
 
 var runCordova = function (command) {
   command = typeof command === 'string' ? command : options.cordova;
   return gulp.src('')
     .pipe($.shell([
-      'node_modules/cordova/bin/cordova ' + command
+      // needs explicit cross-platform path
+      path.join('node_modules/cordova/bin/cordova ') + command
     ]));
 };
 

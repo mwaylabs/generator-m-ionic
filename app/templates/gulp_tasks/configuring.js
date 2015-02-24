@@ -20,7 +20,7 @@ gulp.task('config', function () {
     }
   });
   // read & parse file
-  var xmlFile = fs.readFileSync(__dirname + '/config.xml');
+  var xmlFile = fs.readFileSync('config.xml');
   parser.parseString(xmlFile, function (err, result) {
     // update values
     if (options.setVersion) {
@@ -34,6 +34,6 @@ gulp.task('config', function () {
     }
     // write file
     var xml = builder.buildObject(result);
-    fs.writeFileSync(__dirname + '/config.xml', xml);
+    fs.writeFileSync('config.xml', xml);
   });
 });

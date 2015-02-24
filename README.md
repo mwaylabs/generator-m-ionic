@@ -154,6 +154,15 @@ Manages project configuration. Modifies cordova's `config.xml`
 gulp config --setVersion=1.1.0 --setBuild=12 --setBundle=com.new.bundle
 ```
 
+## running on windows
+The generator should work just like on unix/mac except there's one difference, when running `gulp --cordova` tasks. They need doublequotes. So write this:
+```sh
+gulp --cordova "run ios" # will work on windows
+```
+instead of this:
+```sh
+gulp --cordova 'run ios' # won't work on windows
+
 ## sub-generators
 #### yo m:module - creates a new module
 1. `yo m:module <moduleName>` - create a new module
