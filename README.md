@@ -162,6 +162,7 @@ gulp --cordova "run ios" # will work on windows
 instead of this:
 ```sh
 gulp --cordova 'run ios' # won't work on windows
+```
 
 ## sub-generators
 #### yo m:module - creates a new module
