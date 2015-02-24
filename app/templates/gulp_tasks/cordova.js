@@ -8,7 +8,7 @@ var options = gulp.options;
 var $ = require('gulp-load-plugins')();
 // packages
 var fs = require('fs');
-var path = require('join');
+var path = require('path');
 var rimraf = require('rimraf');
 
 var runCordova = function (command) {
