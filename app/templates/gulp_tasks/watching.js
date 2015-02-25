@@ -4,6 +4,7 @@
 // gulp
 var gulp = require('gulp');
 var paths = gulp.paths;
+var options = gulp.options;
 // plugins
 var $ = require('gulp-load-plugins')();
 // modules
@@ -14,16 +15,24 @@ var serveStatic = require('serve-static');
 var connectLiveReload = require('connect-livereload');
 
 var createConnectServer = function (paths) {
-  var app = connect()
+  return function () {
+    var app = connect()
     .use(connectLiveReload({port: 35729}));
-  for (var key in paths) {
-    app.use(serveStatic(paths[key]));
+    for (var key in paths) {
+      app.use(serveStatic(paths[key]));
+    }
+    http.createServer(app)
+      .listen(9000)
+      .on('listening', function () {
+        console.log('Started connect web server on http://localhost:9000');
+      });
+  };
+};
+
+var open =  function () {
+  if (options.open !== false) {
+    opn('http://localhost:9000');
   }
-  http.createServer(app)
-    .listen(9000)
-    .on('listening', function () {
-      console.log('Started connect web server on http://localhost:9000');
-    });
 };
 
 // WATCH
@@ -52,12 +61,8 @@ gulp.task('watch', ['serve', 'linting'], function () {
   // watch for changes in environment files
   gulp.watch('app/main/constants/env-*.json', ['environment']);
 });
-gulp.task('serve', ['connect', 'inject-all'], function () {
-  opn('http://localhost:9000');
-});
-gulp.task('connect', function () {
-  createConnectServer(['app', '.tmp']);
-});
+gulp.task('serve', ['connect', 'inject-all'], open);
+gulp.task('connect', createConnectServer(['app', '.tmp']));
 
 // WATCH-BUILD
 gulp.task('watch-build', ['serve-build'], function () {
@@ -67,9 +72,5 @@ gulp.task('watch-build', ['serve-build'], function () {
     $.livereload.reload();
   });
 });
-gulp.task('serve-build', ['connect-build', 'build'], function () {
-  opn('http://localhost:9000');
-});
-gulp.task('connect-build', function () {
-  createConnectServer(paths.dist);
-});
+gulp.task('serve-build', ['connect-build', 'build'], open);
+gulp.task('connect-build', createConnectServer(paths.dist));

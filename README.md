@@ -82,11 +82,11 @@ yo m
 
 ## Gulp tasks
 #### gulp watch
-Prepares everything for development. Get ready to start coding!
+Prepares everything for development and opens your default browser. Get ready to start coding!
 ```sh
 gulp watch
 ```
-Livereloads your application when changing/adding/deleting files to immediately reflect the changes you made. Restart this task when you're adding modules and bower components! This is because gulp will only notify the creation of the new folders, not the individual files inside.
+Livereloads your application when changing/adding/deleting files to immediately reflect the changes you make. If you don't want this task to open your browser just add the `--no-open` option and navigate to `http://localhost:9000` yourself.
 
 
 #### gulp watch-build
@@ -181,7 +181,6 @@ gulp --cordova 'run ios' # won't work on windows
     '<newModuleName>'
   ]);
   ```
-3. restart `gulp watch`
 3. navigate to `http://127.0.0.1:9000/#/<module-name-in-snake-case>` in your browser.
 4. **Done!** - see your new module in action!
 
