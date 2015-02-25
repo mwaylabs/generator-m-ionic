@@ -65,8 +65,9 @@ npm install -g generator-m
 - Ruby/Sass
   - ruby - https://www.ruby-lang.org/en/installation/
   - sass - http://sass-lang.com/install
-- SDKs depending the platforms you want to use
-  - Cordova 4.0 Platform Guides - http://cordova.apache.org/docs/en/4.0.0/guide_platforms_index.md.html#Platform%20Guides
+- SDKs depending on the platforms you want to use
+  - cordova documentation: [Platfrom Guides](http://cordova.apache.org/docs/en/4.0.0/guide_platforms_index.md.html#Platform%20Guides)
+  - cordova cli readme: [Requirements](https://github.com/apache/cordova-cli/)
 
 ## Generate App
 **create new directory** - and cd into it. 
@@ -100,7 +101,7 @@ A local wrapper for cordova cli (won't use global install to be compatible with 
 ```
 gulp --cordova 'plugin ls'
 ```
-Head over to the [cordova documentation](http://cordova.apache.org/docs/en/4.0.0/guide_cli_index.md.html) to learn how to use the cordova cli. Remember that when using generator-m you don't need to install cordova globally!
+Head over to the [cordova cli documentation](http://cordova.apache.org/docs/en/4.0.0/guide_cli_index.md.html) or their [github page](https://github.com/apache/cordova-cli/) to learn how to use the cordova cli. Remember that when using generator-m you don't need to install cordova globally!
 
 Additionally: If you run one of the following cordova commands: `build <platform>`, `run <platform>`, `emulate <platform>`, `prepare <platform>`, then `gulp build` will build your app into the www folder before cordova will take it from there. Sometimes this is not what you want. Simply add the `--no-build` option and `gulp build` will be skipped.
 
@@ -146,15 +147,13 @@ gulp environment --env=env5
 In case your project grows large and you have several modules in your project you will probably find yourself wanting to share environments across all modules. No problem. Every module you create has it's own `Config` constant located in `app/module/constants/config-const.js`. But only your `main` module contains the actual environments. The gulp tasks will automatically copy the environments to all of your modules' `Config.ENV` constants.
 
 
-
-
 #### gulp config
 Manages project configuration. Modifies cordova's `config.xml`
 ```
 gulp config --setVersion=1.1.0 --setBuild=12 --setBundle=com.new.bundle
 ```
 
-## running on windows
+## Running on Windows
 The generator should work just like on unix/mac except there's one difference, when running `gulp --cordova` tasks. They need doublequotes. So write this:
 ```sh
 gulp --cordova "run ios" # will work on windows
@@ -164,7 +163,7 @@ instead of this:
 gulp --cordova 'run ios' # won't work on windows
 ```
 
-## sub-generators
+## Sub-generators
 #### yo m:module - creates a new module
 1. `yo m:module <moduleName>` - create a new module
 2. add your module to the `app/app.js`:
@@ -193,7 +192,41 @@ yo m:template <templateName> <moduleName>
 yo m:service <serviceName> <moduleName>
 ```
 
-## Setup & Developer Options
+## Git integration
+The generator provides a default set of configuration for git:
+- `.gitignore` and `.gitattributes` - http://git-scm.com/docs/gitignore
+
+Leaving them as they are generated, you will allow git to exclude all of the 3rd party code from your project. Specifically this means:
+- no bower components
+- no node modules
+- no cordova platforms and plugins
+
+### After git clone
+Since all these files are excluded from git you need to install all of them when you start with a fresh clone of your project. In order to do so, run the following commands in that order:
+```sh
+npm install # installs all node modules including cordova, gulp and all that
+bower install # install all bower components including angular, ionic, ng-cordova, ...
+gulp cordova-install # install all cordova platforms and plugins
+```
+
+### gulp cordova-install
+Both npm and bower keep track of the installed packages and their versions using the `package.json` and `bower.json` respectively. Unfortunately cordova does not provide a ~~`cordova install`~~ command and no ~~`cordova.json`~~ file to keep track of the installed platforms, plugins and their versions. We think it should, that's why we created an [issue for that](https://issues.apache.org/jira/browse/CB-8539) in the cordova project. We'll keep you updated!
+
+For now you can run our custom `gulp cordova-install` which will install all platforms and plugins. Unfortunately, for now, with no guarantee of version. This means, that cordova will always install the latest versions. Sometimes, especially with plugins, this can lead to code incompatibilities.
+
+## Other configuration files
+In addition to the files for the git integration, we also generate the following files for your convenience with sensible defaults:
+- `.editorconfig` - http://editorconfig.org/
+- `.jscsrc` - http://jscs.info/
+- `.jshintrc` and `.jshintignore` - http://jshint.com/
+
+## Continuous Integration
+For now we provide a rudimentary `jenkins.sh` template that can be configured to build your projects with jenkins.
+
+## Troubleshooting
+If you're experiencing difficulties using the generator please refer to the [Troubleshooting](https://github.com/mwaylabs/generator-m/wiki/Troubleshooting) section in our wiki or [create an issue](https://github.com/mwaylabs/generator-m/issues/new)!
+
+## Options for setup and development
 ```
 yo m --skip-sdk # skip adding cordova platforms and plugins (sdk-specific) for travis
 yo m --appName='App Name' # set appName via CLI
@@ -201,13 +234,6 @@ yo m --skip-welcome-message # skips welcome message
 yo m --skip-prompts # for debugging purposes, run with predefined answers
 yo m --skip-install # for debugging purposes, no npm and bower install
 ```
-
-
-## Troubleshooting
-If you're experiencing difficulties using the generator please refer to the [Troubleshooting](https://github.com/mwaylabs/generator-m/wiki/Troubleshooting) section in our wiki!
-
-## Continuous Integration
-For now we provide a rudimentary `jenkins.sh` template that can be configured to build your projects with jenkins.
 
 ## Want to contribute?
 Start by reading our:
