@@ -204,6 +204,13 @@ var MGenerator = yeoman.generators.Base.extend({
       skipInstall: this.options['skip-install']
     });
   },
+
+  end: function () {
+    this.log(yosay(
+      'All done! See your app in all it\'s glory by running:\n' +
+      chalk.green('gulp watch ')
+    ));
+  }
 });
 
 module.exports = MGenerator;
