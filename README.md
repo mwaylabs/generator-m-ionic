@@ -94,7 +94,7 @@ Builds into www, watches version in www and opens your browser. Good for debuggi
 ```sh
 gulp watch-build
 ```
-The `--no-open` options is available here as well, if you don't want your browser to open automatically and would rather navigate to `http://localhost:9000` yourself.
+The `--no-open` options is available here as well, if you don't want your browser to open automatically and would rather navigate to `http://localhost:9000` yourself. Add the --no-build option and a new build will not be triggered and `gulp build` will be skipped.
 
 
 #### gulp --cordova 'run any command'
