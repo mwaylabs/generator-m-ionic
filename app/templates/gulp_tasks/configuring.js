@@ -32,6 +32,24 @@ gulp.task('config', function () {
     if (options.setBundle) {
       result.widget.$.id = options.setBundle;
     }
+    if (options.setName) {
+      result.widget.name = options.setName;
+    }
+    if (options.setDescription) {
+      result.widget.description = options.setDescription;
+    }
+    if (options.setAuthor) {
+      var splits = options.setAuthor.split('---');
+      if (splits[0]) {
+        result.widget.author[0]._ = splits[0];
+      }
+      if (splits[1]) {
+        result.widget.author[0].$.email = splits[1];
+      }
+      if (splits[2]) {
+        result.widget.author[0].$.href = splits[2];
+      }
+    }
     // write file
     var xml = builder.buildObject(result);
     fs.writeFileSync('config.xml', xml);

@@ -54,7 +54,7 @@ Working nicely with the following technology stack:
 - **Cordova** - http://cordova.apache.org/
 
 ## Install
-```
+```sh
 npm install -g generator-m
 ```
 ### Prerequisites
@@ -66,16 +66,16 @@ npm install -g generator-m
   - ruby - https://www.ruby-lang.org/en/installation/
   - sass - http://sass-lang.com/install
 - SDKs depending on the platforms you want to use
-  - cordova documentation: [Platfrom Guides](http://cordova.apache.org/docs/en/4.0.0/guide_platforms_index.md.html#Platform%20Guides)
+  - cordova documentation: [Platform Guides](http://cordova.apache.org/docs/en/4.0.0/guide_platforms_index.md.html#Platform%20Guides)
   - cordova cli readme: [Requirements](https://github.com/apache/cordova-cli/)
 
 ## Generate App
 **create new directory** - and cd into it. 
-```
+```sh
 mkdir myApp && cd $_
 ```
 **run the generator** - and follow the instructions
-```
+```sh
 yo m
 ```
 **IMPORTANT:** Cordova needs an empty directory to work. Please run any other setup (e.g. `git init`) after running `yo m`.
@@ -83,7 +83,7 @@ yo m
 ## Gulp tasks
 #### gulp watch
 Prepares everything for development. Get ready to start coding!
-```
+```sh
 gulp watch
 ```
 Livereloads your application when changing/adding/deleting files to immediately reflect the changes you made. Restart this task when you're adding modules and bower components! This is because gulp will only notify the creation of the new folders, not the individual files inside.
@@ -91,14 +91,14 @@ Livereloads your application when changing/adding/deleting files to immediately 
 
 #### gulp watch-build
 Builds into www and watches version in www. Good for debugging your build!
-```
+```sh
 gulp watch-build
 ```
 
 
 #### gulp --cordova 'run any command'
 A local wrapper for cordova cli (won't use global install to be compatible with generated project). For instance instead of running `cordova plugins ls` you'd write the following to list all the installed plugins:
-```
+```sh
 gulp --cordova 'plugin ls'
 ```
 Head over to the [cordova cli documentation](http://cordova.apache.org/docs/en/4.0.0/guide_cli_index.md.html) or their [github page](https://github.com/apache/cordova-cli/) to learn how to use the cordova cli. Remember that when using generator-m you don't need to install cordova globally!
@@ -107,7 +107,7 @@ Additionally: If you run one of the following cordova commands: `build <platform
 
 #### gulp build
 Builds your angular app and moves it to the www folder. Usually you don't run this command directly, but it will be implicitly run by `gulp watch-build` and any build-related cordova tasks (as explained above).
-```
+```sh
 gulp build
 ```
 Note that the build will not complete if you have any jscs, jshint or jsonlint errors in your code! Sometimes it's necessary to let the build run anyway. Simply use the `--force-build` option. This will also work for all the build-related cordova tasks!
@@ -149,8 +149,13 @@ In case your project grows large and you have several modules in your project yo
 
 #### gulp config
 Manages project configuration. Modifies cordova's `config.xml`
-```
-gulp config --setVersion=1.1.0 --setBuild=12 --setBundle=com.new.bundle
+```sh
+gulp config --setVersion=1.1.0
+gulp config --setBuild=12 
+gulp config --setBundle=com.new.bundle
+gulp config --setName='hello world'
+gulp config --setDescription='a small app to make the world a happy place'
+gulp config --setAuthor='Your Name---your@mail.com---http://yourwebsite.com'
 ```
 
 ## Running on Windows
@@ -183,7 +188,7 @@ gulp --cordova 'run ios' # won't work on windows
 
 #### yo m:others
 The `<moduleName>` is optional and defaults to the main module when left blank
-```
+```sh
 yo m:constant <constantName> <moduleName>
 yo m:controller <controllerName> <moduleName>
 yo m:directive <directiveName> <moduleName>
@@ -227,7 +232,7 @@ For now we provide a rudimentary `jenkins.sh` template that can be configured to
 If you're experiencing difficulties using the generator please refer to the [Troubleshooting](https://github.com/mwaylabs/generator-m/wiki/Troubleshooting) section in our wiki or [create an issue](https://github.com/mwaylabs/generator-m/issues/new)!
 
 ## Options for setup and development
-```
+```sh
 yo m --skip-sdk # skip adding cordova platforms and plugins (sdk-specific) for travis
 yo m --appName='App Name' # set appName via CLI
 yo m --skip-welcome-message # skips welcome message
