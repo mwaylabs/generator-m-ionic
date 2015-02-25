@@ -117,9 +117,9 @@ describe('m:module', function () {
     it('module.js has proper content', function () {
       assert.fileContent([
         ['app/main/main.js', 'angular.module(\'main\','],
-        ['app/main/main.js', '$urlRouterProvider.otherwise(\'/start\');'],
-        ['app/main/main.js', '.state(\'start\','],
-        ['app/main/main.js', 'url: \'/start\',']
+        ['app/main/main.js', '$urlRouterProvider.otherwise(\'/main\');'],
+        ['app/main/main.js', '.state(\'main\','],
+        ['app/main/main.js', 'url: \'/main\',']
       ]);
     });
 

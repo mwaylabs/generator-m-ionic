@@ -9,15 +9,8 @@ angular.module('<%= moduleName %>', [
 
   console.log('Allo! Allo from your module: ' + '<%= moduleName %>');
 <% if (options.sample === 'start') {%>
-  // some basic routing
-  $urlRouterProvider.otherwise('/start');
-  $stateProvider
-    .state('start', {
-      url: '/start',
-      templateUrl: '<%= moduleFolder %>/templates/start.html',
-      controller: 'StartCtrl'
-    });
-<%} else { %>
+  $urlRouterProvider.otherwise('/main');
+<%}%>
   // some basic routing
   $stateProvider
     .state('<%= moduleFolder %>', {
@@ -25,6 +18,5 @@ angular.module('<%= moduleName %>', [
       templateUrl: '<%= moduleFolder %>/templates/start.html',
       controller: 'StartCtrl'
     });
-<%} %>
   // TODO: do your thing
 });
