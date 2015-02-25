@@ -21,7 +21,7 @@ var buildDependencies = [
 gulp.task('build', buildDependencies, function () {
   return gulp.src(paths.dist + '/**/*')
     .pipe($.size({showFiles: true}));
-});-
+});
 
 gulp.task('clean', function () {
   return gulp.src(['.tmp', paths.dist + '/*'])
