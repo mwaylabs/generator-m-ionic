@@ -108,7 +108,11 @@ var MGenerator = yeoman.generators.Base.extend({
 
     // debugging
     if (this.options['skip-prompts']) {
-      this.answers = sampleAnswers.getStandard();
+      this.answers = sampleAnswers.getStandard({
+        'ios-only': this.options['ios-only'],
+        'android-only': this.options['android-only'],
+        'cordova': this.options.cordova
+      });
       this.log(chalk.inverse(JSON.stringify(this.answers, null, '  ')));
     }
 
@@ -136,17 +140,27 @@ var MGenerator = yeoman.generators.Base.extend({
       // add platforms
       .then(function () {
         this.log(chalk.green('Created cordova project'));
-        return this.options['skip-sdk'] ? true : cordova.platform('add', this.answers.platforms);
+        if (this.options['skip-sdk'] || !this.answers.platforms.length) {
+          return true;
+        }
+        else {
+          return cordova.platform('add', this.answers.platforms);
+        }
       }.bind(this))
       // add plugins
       .then(function () {
         this.log(chalk.green('Added platforms: ' + this.answers.platforms.join(', ')));
-        return this.options['skip-sdk'] ? true : cordova.plugins('add', this.answers.plugins);
+        if (this.options['skip-sdk'] || !this.answers.plugins.length) {
+          return true;
+        }
+        else {
+          return cordova.plugins('add', this.answers.plugins);
+        }
       }.bind(this))
       // all
       .then(function () {
         this.log(chalk.green('Added plugins: ' + this.answers.plugins.join(', ')));
-        this.log(chalk.green('Cordova project was set up successfully! Project Name: '), chalk.bgGreen(this.answers.appId));
+        this.log(chalk.green('Cordova project was set up successfully! Project Name: '), chalk.bgGreen(this.answers.appName));
         done();
       }.bind(this))
       .catch(function (err) {

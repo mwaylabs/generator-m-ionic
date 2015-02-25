@@ -232,13 +232,16 @@ For now we provide a rudimentary `.travis.yml` and `jenkins.sh` template that ca
 ## Troubleshooting
 If you're experiencing difficulties using the generator please refer to the [Troubleshooting](https://github.com/mwaylabs/generator-m/wiki/Troubleshooting) section in our wiki or [create an issue](https://github.com/mwaylabs/generator-m/issues/new)!
 
-## Options for setup and development
+## Options for debugging and development
 ```sh
-yo m --skip-sdk # skip adding cordova platforms and plugins (sdk-specific) for travis
 yo m --appName='App Name' # set appName via CLI
 yo m --skip-welcome-message # skips welcome message
-yo m --skip-prompts # for debugging purposes, run with predefined answers
+yo m --skip-sdk # skip adding cordova platforms and plugins (sdk-specific) for travis
 yo m --skip-install # for debugging purposes, no npm and bower install
+yo m --skip-prompts # for debugging purposes, run with predefined answers
+yo m --ios-only # in conjunction with --skip-prompts
+yo m --android-only # in conjunction with --skip-prompts
+yo m --no-cordova # in conjunction with --skip-prompts, no platforms/plugins
 ```
 
 ## Want to contribute?

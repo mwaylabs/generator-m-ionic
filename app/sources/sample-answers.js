@@ -31,8 +31,19 @@ module.exports = {
    * return a copy of the standard answers
    * @return {object}
    */
-  getStandard: function () {
-    return JSON.parse(JSON.stringify(this.standard));
+  getStandard: function (options) {
+    var answerCopy = JSON.parse(JSON.stringify(this.standard));
+    if (options['ios-only']) {
+      answerCopy.platforms = ['ios'];
+    }
+    if (options['android-only']) {
+      answerCopy.platforms = ['android'];
+    }
+    if (options.cordova === false) {
+      answerCopy.platforms = [];
+      answerCopy.plugins = [];
+    }
+    return answerCopy;
   },
 
   getForAppNameOption: function () {
