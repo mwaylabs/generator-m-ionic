@@ -5,6 +5,7 @@
 # install dependencies
 npm install
 bower install
+gulp cordova-install
 
 # gulp build
 gulp build

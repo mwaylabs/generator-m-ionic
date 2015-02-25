@@ -226,7 +226,7 @@ In addition to the files for the git integration, we also generate the following
 - `.jshintrc` and `.jshintignore` - http://jshint.com/
 
 ## Continuous Integration
-For now we provide a rudimentary `jenkins.sh` template that can be configured to build your projects with jenkins.
+For now we provide a rudimentary `.travis.yml` and `jenkins.sh` template that can be modified to build your projects with travis or jenkins.
 
 ## Troubleshooting
 If you're experiencing difficulties using the generator please refer to the [Troubleshooting](https://github.com/mwaylabs/generator-m/wiki/Troubleshooting) section in our wiki or [create an issue](https://github.com/mwaylabs/generator-m/issues/new)!

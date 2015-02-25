@@ -184,6 +184,7 @@ var MGenerator = yeoman.generators.Base.extend({
       this.copy('gitattributes', '.gitattributes');
       this.copy('gitignore', '.gitignore');
       this.copy('jenkins.sh', 'jenkins.sh');
+      this.copy('.travis.yml', '.travis.yml');
       this.copy('jscsrc', '.jscsrc');
       this.copy('jshintrc', '.jshintrc');
       this.copy('jshintignore', '.jshintignore');
