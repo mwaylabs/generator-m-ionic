@@ -153,10 +153,11 @@ Manages project configuration. Modifies cordova's `config.xml`
 gulp config --setVersion=1.1.0
 gulp config --setBuild=12 
 gulp config --setBundle=com.new.bundle
-gulp config --setName='hello world'
+gulp config --setName='hello world' # USE WITH CARE! (see below)
 gulp config --setDescription='a small app to make the world a happy place'
 gulp config --setAuthor='Your Name---your@mail.com---http://yourwebsite.com'
 ```
+**Important**: When **changing the name** of your project, it may lead to problems with the platform projects. This can be avoided by re-adding your platforms and plugins: `gulp cordova-install`. Check out the full description of this command further down under the section **Git integration**. 
 
 ## Running on Windows
 The generator should work just like on unix/mac except there's one difference, when running `gulp --cordova` tasks. They need doublequotes. So write this:
