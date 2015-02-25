@@ -90,10 +90,11 @@ Livereloads your application when changing/adding/deleting files to immediately 
 
 
 #### gulp watch-build
-Builds into www and watches version in www. Good for debugging your build!
+Builds into www, watches version in www and opens your browser. Good for debugging your build!
 ```sh
 gulp watch-build
 ```
+The `--no-open` options is available here as well, if you don't want your browser to open automatically and would rather navigate to `http://localhost:9000` yourself.
 
 
 #### gulp --cordova 'run any command'
