@@ -111,7 +111,7 @@ Builds your angular app and moves it to the www folder. Usually you don't run th
 ```sh
 gulp build
 ```
-Note that the build will not complete if you have any jscs, jshint or jsonlint errors in your code! Sometimes it's necessary to let the build run anyway. Simply use the `--force-build` option. This will also work for all the build-related cordova tasks!
+Note that the build will not complete if you have any jscs, jshint or jsonlint errors in your code! Sometimes it's necessary to let the build run anyway. Simply use the `--force-build` option. The `--minify` option will minify javascript, css, html and images. These options will also work for all the build-related cordova tasks!
 
 #### gulp environment
 Handles your environments (dev, prod, and any other you'd like). 

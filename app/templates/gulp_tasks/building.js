@@ -20,8 +20,8 @@ var buildDependencies = [
 
 gulp.task('build', buildDependencies, function () {
   return gulp.src(paths.dist + '/**/*')
-    .pipe($.size({title: 'build', gzip: true}));
-});
+    .pipe($.size({showFiles: true}));
+});-
 
 gulp.task('clean', function () {
   return gulp.src(['.tmp', paths.dist + '/*'])
@@ -32,12 +32,32 @@ gulp.task('clean', function () {
 // and copy to build folder destinations
 gulp.task('build-app', ['clean', 'inject-all'], function () {
   var assets = $.useref.assets({searchPath: '{.tmp,app}'});
+  var jsFilter = $.filter('**/*.js');
+  var cssFilter = $.filter('**/*.css');
 
-  return gulp.src('app/index.html') // main html file
-    .pipe(assets)
-    .pipe(assets.restore())
+  var stream = gulp.src('app/index.html') // main html file
+    .pipe(assets); // all assets (without index.html)
+
+  if (options.minify) {
+    stream
+      .pipe(jsFilter)
+      .pipe($.ngAnnotate({
+        add: true,
+        sourcemap: true
+      }))
+      .pipe($.uglify())
+      .pipe(jsFilter.restore())
+      .pipe(cssFilter)
+      .pipe($.csso())
+      .pipe(cssFilter.restore());
+  }
+
+  stream
+    .pipe(assets.restore()) // switch back to index
     .pipe($.useref())
     .pipe(gulp.dest(paths.dist));
+
+  return stream;
 });
 
 // copy templates
@@ -45,11 +65,13 @@ gulp.task('build-templates', ['clean'], function () {
   return gulp.src([
     'app/**/templates/**/*',
   ])
+  .pipe($.if(options.minify, $.minifyHtml()))
   .pipe(gulp.dest(paths.dist));
 });
 
 // copy assets, wait for fonts
 gulp.task('build-assets', ['clean', 'bower-fonts'], function () {
   return gulp.src('app/**/assets/**/*')
+    .pipe($.if(options.minify, $.imagemin()))
     .pipe(gulp.dest(paths.dist));
 });
