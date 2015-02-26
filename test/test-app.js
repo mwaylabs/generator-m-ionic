@@ -121,6 +121,24 @@ describe('m', function () {
     });
   });
 
+  var yoRcHasAnswers = function (answers) {
+    it('.yo-rc.json has proper answers', function () {
+      for (var key in answers) {
+        if (answers.hasOwnProperty(key)) {
+          var value = answers[key];
+          if (typeof value === 'string') {
+            assert.fileContent('.yo-rc.json', '"' + key + '": "' + value + '"');
+          }
+          else if (Object.prototype.toString.call(value) === '[object Array]') {
+            for (var i = 0, newValue; (newValue = value[i]); i++) {
+              assert.fileContent('.yo-rc.json', '"' + newValue + '"');
+            }
+          }
+        }
+      }
+    });
+  };
+
   describe('m --skip-prompts', function () {
     var answers = sampleAnswers.getStandard();
 
@@ -138,20 +156,46 @@ describe('m', function () {
         .on('end', done);
     });
 
-    it('.yo-rc.json has proper content', function () {
-      for (var key in answers) {
-        if (answers.hasOwnProperty(key)) {
-          var value = answers[key];
-          if (typeof value === 'string') {
-            assert.fileContent('.yo-rc.json', '"' + key + '": "' + value + '"');
-          }
-          else if (Object.prototype.toString.call(value) === '[object Array]') {
-            for (var i = 0, newValue; (newValue = value[i]); i++) {
-              assert.fileContent('.yo-rc.json', '"' + newValue + '"');
-            }
-          }
-        }
-      }
+    yoRcHasAnswers(answers);
+  });
+
+  describe('m --skip-prompts --ios-only', function () {
+    var answers = sampleAnswers.getStandard({'ios-only': true});
+
+    before(function (done) {
+      helpers.run(path.join(__dirname, '../app'))
+        .withOptions({ 'skip-install': true, 'skip-sdk': true, 'skip-prompts': true, 'ios-only': true}) // execute with options
+        .withGenerators([ // configure path to  subgenerators
+          path.join(__dirname, '../module'),
+          path.join(__dirname, '../constant'),
+          path.join(__dirname, '../controller'),
+          path.join(__dirname, '../template'),
+          path.join(__dirname, '../service')
+        ])
+        .withPrompt(answers)  // answer prompts
+        .on('end', done);
     });
+
+    yoRcHasAnswers(answers);
+  });
+
+  describe('m --skip-prompts --no-cordova', function () {
+    var answers = sampleAnswers.getStandard({'cordova': false});
+
+    before(function (done) {
+      helpers.run(path.join(__dirname, '../app'))
+        .withOptions({ 'skip-install': true, 'skip-sdk': true, 'skip-prompts': true, 'cordova': false}) // execute with options
+        .withGenerators([ // configure path to  subgenerators
+          path.join(__dirname, '../module'),
+          path.join(__dirname, '../constant'),
+          path.join(__dirname, '../controller'),
+          path.join(__dirname, '../template'),
+          path.join(__dirname, '../service')
+        ])
+        .withPrompt(answers)  // answer prompts
+        .on('end', done);
+    });
+
+    yoRcHasAnswers(answers);
   });
 });
