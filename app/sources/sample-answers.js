@@ -33,13 +33,13 @@ module.exports = {
    */
   getStandard: function (options) {
     var answerCopy = JSON.parse(JSON.stringify(this.standard));
-    if (options['ios-only']) {
+    if (options && options['ios-only']) {
       answerCopy.platforms = ['ios'];
     }
-    if (options['android-only']) {
+    if (options && options['android-only']) {
       answerCopy.platforms = ['android'];
     }
-    if (options.cordova === false) {
+    if (options && options.cordova === false) {
       answerCopy.platforms = [];
       answerCopy.plugins = [];
     }
