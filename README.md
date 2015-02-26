@@ -4,6 +4,7 @@
 [![Coverage Status](http://img.shields.io/coveralls/mwaylabs/generator-m.svg?style=flat-square)][coveralls-url] 
 [![Build Status](https://img.shields.io/travis/mwaylabs/generator-m.svg?style=flat-square)][travis-url] 
 [![Dependency Status](http://img.shields.io/david/mwaylabs/generator-m.svg?style=flat-square)][daviddm-url]
+[![Dependency Status](http://img.shields.io/david/dev/mwaylabs/generator-m.svg?style=flat-square)][daviddm-url]
 [![Download Month](http://img.shields.io/npm/dm/generator-m.svg?style=flat-square)][npm-url]
 
 [npm-url]: https://npmjs.org/package/generator-m
