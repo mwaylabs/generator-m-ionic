@@ -220,6 +220,45 @@ Both npm and bower keep track of the installed packages and their versions using
 
 For now you can run our custom `gulp cordova-install` which will install all platforms and plugins. Unfortunately, for now, with no guarantee of version. This means, that cordova will always install the latest versions. Sometimes, especially with plugins, this can lead to code incompatibilities.
 
+### cordova versions in `.yo-rc.json`
+If you care a lot about the stability of your code (like we do), keep reading! 
+
+In order to be able to manage your cordova platform and plugin versions at all, we built in a little workaround. It's not great but it does it's duty until there's a better solution. For every platform and plugin you install with `gulp --cordova` you can add a version to the `.yo-rc.json` file. For instance, you'd install the splashscreen plugin and the android platform via:
+```sh
+gulp --cordova 'plugin add org.apache.cordova.splashscreen'
+gulp --cordova 'platform add android'
+```
+Then you check their versions by running:
+```sh
+gulp --cordova 'plugin ls' # let's say splashscreen version is 1.0.0
+gulp --cordova 'platform ls' # let's say android version is 3.6.4
+```
+Modify the `.yo-rc.json` to look something like this:
+```js
+{
+  "generator-m": {
+    "answers": {
+      // ...
+      ],
+      "platforms": [
+        "ios", // will install newest version
+        "android@3.6.4" // will install 3.6.4
+      ],
+      "plugins": [
+        "org.apache.cordova.device", // will install newest version
+        "org.apache.cordova.dialogs", // will install newest version
+        "org.apache.cordova.splashscreen@1.0.0", // will install 1.0.0
+      ]
+    }
+  }
+}
+
+```
+Now running `gulp cordova-install` will install all the appropriate versions.
+
+
+It's **important** to note that the versions you supply in `.yo-rc.json` do not take effect until you have manually installed the platforms and plugins with the respective `gulp --cordova` command.
+
 ## Other configuration files
 In addition to the files for the git integration, we also generate the following files for your convenience with sensible defaults:
 - `.editorconfig` - http://editorconfig.org/
