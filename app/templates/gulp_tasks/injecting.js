@@ -74,14 +74,23 @@ gulp.task('environment', function () {
           starttag: '/*inject-env*/',
           endtag: '/*endinject*/',
           transform: function (filePath, file) {
-            var json = JSON.parse(file.contents.toString('utf8'));
-            json = JSON.stringify(json, null, 2);
-            // replace all doublequotes with singlequotes
-            json = json.replace(/\"/g, '\'');
-            // remove first and last line curly braces
-            json = json.replace(/^\{\n/, '').replace(/\n\}$/, '');
-            // remove indentation
-            json = json.replace(/  /g, '');
+            var json;
+            try {
+              json = JSON.parse(file.contents.toString('utf8'));
+            }
+            catch (e) {
+              console.log(e);
+            }
+
+            if (json) {
+              json = JSON.stringify(json, null, 2);
+              // replace all doublequotes with singlequotes
+              json = json.replace(/\"/g, '\'');
+              // remove first and last line curly braces
+              json = json.replace(/^\{\n/, '').replace(/\n\}$/, '');
+              // remove indentation
+              json = json.replace(/  /g, '');
+            }
             return json;
           }
         }))
