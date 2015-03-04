@@ -54,20 +54,27 @@ Working nicely with the following technology stack:
 - **Cordova** - http://cordova.apache.org/
 
 ## Install
-```sh
-npm install -g generator-m
-```
+
 ### Prerequisites
-- node `>= 0.10.0` & npm ` >= 1.4.3` - http://nodejs.org/download/
+- Installation and **fair knowledge** of:
+- node & npm - http://nodejs.org/download/
   - yo: `npm install -g yo` - http://yeoman.io/
   - gulp: `npm install -g gulp` - http://gulpjs.com/
   - bower: `npm install -g bower` - http://bower.io/
-- Ruby/Sass
+- Sass
   - ruby - https://www.ruby-lang.org/en/installation/
   - sass - http://sass-lang.com/install
-- SDKs depending on the platforms you want to use
-  - cordova documentation: [Platform Guides](http://cordova.apache.org/docs/en/4.0.0/guide_platforms_index.md.html#Platform%20Guides)
-  - cordova cli readme: [Requirements](https://github.com/apache/cordova-cli/)
+- Want to test your app on a device ? - Then you'll need:
+  - Platform SDKs for cordova
+    - cordova documentation: [Platform Guides](http://cordova.apache.org/docs/en/4.0.0/guide_platforms_index.md.html#Platform%20Guides)
+    - cordova cli readme: [Requirements](https://github.com/apache/cordova-cli/)
+
+### Generator
+
+```sh
+npm install -g generator-m
+```
+
 
 ## Generate App
 **create new directory** - and cd into it. 
@@ -80,38 +87,88 @@ yo m
 ```
 **IMPORTANT:** Cordova needs an empty directory to work. Please run any other setup (e.g. `git init`) after running `yo m`.
 
-## Gulp tasks
+## Get started
 #### gulp watch
 Prepares everything for development and opens your default browser. Get ready to start coding!
 ```sh
 gulp watch
 ```
-Livereloads your application when changing/adding/deleting files to immediately reflect the changes you make. If you don't want this task to open your browser just add the `--no-open` option and navigate to `http://localhost:9000` yourself.
+Livereloads your application when changing/adding/deleting files to immediately reflect the changes you make. If you don't want this task to open your browser, just add the `--no-open` option and navigate to `http://localhost:9000` yourself. For your convenience any occurring **jscs, jshint or jsonlint errors** will be presented to you on every livereload.
 
+#### File structure
+<pre>
+└──  app/           - your application folder
+│   └──  bower_components/    - local installation of bower packages
+│   └──  main/                - ---main module---
+│   │   ├──  assets/          - assets: fonts, images, translation, etc... goes here
+│   │   ├──  constants/       - angular constants
+│   │   ├──  controllers/     - angular controllers
+│   │   ├──  directives/      - angular directives
+│   │   ├──  filters/         - angular filters
+│   │   ├──  services/        - angular services
+│   │   ├──  styles/          - scss styles
+│   │   ├──  templates/       - angular templates
+│   │   └──  main.js          - angular module definition, routing etc...
+│   └──  anotherModule/       - ---another  module---
+│   │   ├──  ...
+│   ├──  app.js               - application module, includes main module, ionic, ui-router etc ...
+│   └──  index.html           - angular entry point, injects: app files, bower files, fonts,  ...
+├──  gulp_tasks/    - gulp tasks
+├──  hooks/         - cordova hooks
+├──  nodes_modules/ - local installation of node modules
+├──  platforms/     - cordova platforms
+├──  plugins/       - corodova plugins
+├──  www/           - your gulp build goes here, cordova starts building from here
+├──  .bowerrc       - bower configuration
+├──  .editorconfig  - editor configuration
+├──  .gitattributes - git's attribute configuration
+├──  .gitignore     - git's ignore configuration
+├──  .jscsrc        - jscs configuration
+├──  .jshintignore  - jshint ignore
+├──  .jshintrc      - jshint configuration
+├──  .travis.yml    - travis continuous integration configuration
+├──  .yo-rc.json    - yeoman's .yo-rc.json
+├──  bower.json     - bower dependencies
+├──  config.xml     - cordova's config.xml
+├──  gulpfile.js    - entry point to all gulp tasks
+├──  jenkins.sh     - shell script for jenkins continuous integration 
+├──  package.json   - node dependencies configuration
+├──  README.md      - the generator's README.md
+</pre>
 
-#### gulp watch-build
-Builds into www, watches version in www and opens your browser. Good for debugging your build!
-```sh
-gulp watch-build
-```
-The `--no-open` options is available here as well, if you don't want your browser to open automatically and would rather navigate to `http://localhost:9000` yourself. Add the `--no-build` option and a new build will not be triggered and `gulp build` will be skipped.
-
+## More gulp tasks
 
 #### gulp --cordova 'run any command'
-A local wrapper for cordova cli (won't use global install to be compatible with generated project). For instance instead of running `cordova plugins ls` you'd write the following to list all the installed plugins:
+A local wrapper for cordova cli (allows to use different cordova CLI versions in different projects). For instance instead of running `cordova plugins ls` you'd write the following to list all the installed plugins:
 ```sh
 gulp --cordova 'plugin ls'
 ```
 Head over to the [cordova cli documentation](http://cordova.apache.org/docs/en/4.0.0/guide_cli_index.md.html) or their [github page](https://github.com/apache/cordova-cli/) to learn how to use the cordova cli. Remember that when using generator-m you don't need to install cordova globally!
 
-Additionally: If you run one of the following cordova commands: `build <platform>`, `run <platform>`, `emulate <platform>`, `prepare <platform>`, then `gulp build` will build your app into the www folder before cordova will take it from there. Sometimes this is not what you want. Simply add the `--no-build` option and `gulp build` will be skipped.
+#### gulp --cordova 'build-related task'
+
+If you run one of the following cordova commands: `build <platform>`, `run <platform>`, `emulate <platform>` or `prepare <platform>`, `gulp build` will build your app into the www folder, before cordova will take it from there. For instance if you want to test your app on your connected ios device, run:
+```sh
+gulp --cordova 'run ios' # runs gulp build, then cordova run ios
+```
+Sometimes you don't want `gulp build` to run every time before the cordova command is run. In that case simply add the `--no-build` option and `gulp build` will be skipped.
+
+
+#### gulp watch-build
+Builds into www, watches version in www and opens your browser. Good for debugging and testing your build!
+```sh
+gulp watch-build
+```
+Add the `--no-build` option and `gulp build` will be skipped.
+The `--no-open` options is available here as well, in case you don't want your browser to open automatically and would rather navigate to `http://localhost:9000` yourself. 
+
 
 #### gulp build
 Builds your angular app and moves it to the www folder. Usually you don't run this command directly, but it will be implicitly run by `gulp watch-build` and any build-related cordova tasks (as explained above).
 ```sh
 gulp build
 ```
-Note that the build will not complete if you have any jscs, jshint or jsonlint errors in your code! Sometimes it's necessary to let the build run anyway. Simply use the `--force-build` option. The `--minify` option will minify javascript, css, html and images. These options will also work for all the build-related cordova tasks!
+Note that the build will not complete if you have any **jscs, jshint or jsonlint errors** in your code! Sometimes it's necessary to let the build run anyway. Use the `--force-build` option to do so. The `--minify` option will minify javascript, css, html and images. These options will also work for all the build-related cordova tasks!
 
 #### gulp environment
 Handles your environments (dev, prod, and any other you'd like). 
@@ -122,13 +179,15 @@ Your `main` module contains the two files `env-dev.json` and `env-prod.json` loc
 ##### Choosing an environment
 When you run `gulp watch` or `gulp build` it will default to the dev environment:
 ```shell
-gulp watch #defaults to --env=dev
-gulp build #so does this
+gulp watch                # defaults to --env=dev
+gulp build                # so does this
+gulp --cordova 'run ios'  # and any other command that uses gulp build
 ```
 Alternatively you can run the following to switch to the prod environment
 ```shell
 gulp watch --env=prod
 gulp build --env=prod
+gulp --cordova 'run ios' --env=prod
 ```
 While you're running `gulp watch` you can even switch the environment you're currently working on without having to restart your watch task. Simply type:
 ```shell
@@ -197,6 +256,7 @@ yo m:filter <filterName> <moduleName>
 yo m:template <templateName> <moduleName>
 yo m:service <serviceName> <moduleName>
 ```
+If you have `gulp watch` running, gulp will automatically inject your new files into your application and they will be available right away.
 
 ## Git integration
 The generator provides a default set of configuration for git:
@@ -259,14 +319,6 @@ Now running `gulp cordova-install` will install all the appropriate versions.
 
 It's **important** to note that the versions you supply in `.yo-rc.json` do not take effect until you have manually installed the platforms and plugins with the respective `gulp --cordova` command.
 
-## Other configuration files
-In addition to the files for the git integration, we also generate the following files for your convenience with sensible defaults:
-- `.editorconfig` - http://editorconfig.org/
-- `.jscsrc` - http://jscs.info/
-- `.jshintrc` and `.jshintignore` - http://jshint.com/
-
-## Continuous Integration
-For now we provide a rudimentary `.travis.yml` and `jenkins.sh` template that can be modified to build your projects with travis or jenkins.
 
 ## Troubleshooting
 If you're experiencing difficulties using the generator please refer to the [Troubleshooting](https://github.com/mwaylabs/generator-m/wiki/Troubleshooting) section in our wiki or [create an issue](https://github.com/mwaylabs/generator-m/issues/new)!
