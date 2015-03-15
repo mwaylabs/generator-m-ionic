@@ -1,4 +1,10 @@
 'use strict';
+/**
+ * @ngdoc directive
+ * @restrict E
+ * @requires
+ * @name <%= moduleName %>:<%= directiveName %>
+ */
 angular.module('<%= moduleName %>')
 .directive('<%= directiveName %>', function () {
   return {

@@ -1,19 +1,24 @@
-<ion-pane>
-  <ion-header-bar class="bar-<%= barColor %> test">
-    <h1 class="title"><%= moduleName %> module</h1>
-  </ion-header-bar>
+<ion-view view-title="<%= moduleName %> module">
   <ion-content>
-    <ul>
-      <li class="item item-divider">This is your <%= templateName %> template!</li>
-      <li class="item">icons working?: <span class="ion-checkmark-circled"></span></li>
-      <li class="item">images working?<br><img width="100" src="<%= moduleFolder%>/assets/images/yo@2x.png"></li>
-<% if(options.sample === 'start') {%>
-      <li class="item">{{someData.binding}} </li>
-      <li class="item">Environment variables:</li>
-      <li class="item">
-        <pre>{{env | json}}</pre>
-      </li>
-<% } %>
-    </ul>
+    <ion-list>
+      <ion-item class="item-divider">
+        This is your <%= templateName %> template!
+      </ion-item>
+      <ion-item class="item-icon-right">
+        <i class="icon ion-checkmark-circled"></i>
+        icons working?
+      </ion-item>
+      <ion-item class="item-avatar">
+        <img src="<%= moduleFolder%>/assets/images/yo@2x.png" />
+        images working?
+      </ion-item>
+      <% if(options.sample === 'start') {%>
+        <ion-item>{{someData.binding}} </ion-item>
+        <ion-item class="item-divider">Environment variables:</ion-item>
+        <ion-item class="item-text-wrap">
+          <pre>{{env | json}}</pre>
+        </ion-item>
+      <% } %>
+    </ion-list>
   </ion-content>
-</ion-pane>
+</ion-view>
