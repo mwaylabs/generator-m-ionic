@@ -18,7 +18,7 @@ describe('m:template', function () {
     it('template file contents', function () {
       var filePath = 'app/' + config.DEFAULT_MODULE + '/templates/some-template.html';
       assert.fileContent([
-        [filePath, '<h1 class="title">' + config.DEFAULT_MODULE + ' module</h1>'],
+        [filePath, '<ion-view view-title="\'' + config.DEFAULT_MODULE + ' module\'">'],
         [filePath, 'This is your some-template template!']
       ]);
     });
@@ -34,7 +34,7 @@ describe('m:template', function () {
     it('template file contents', function () {
       var filePath = 'app/my-module/templates/some-template.html';
       assert.fileContent([
-        [filePath, '<h1 class="title">myModule module</h1>'],
+        [filePath, '<ion-view view-title="\'' + config.DEFAULT_MODULE + ' module\'">'],
         [filePath, 'This is your someTemplate template!']
       ]);
     });
@@ -51,7 +51,7 @@ describe('m:template', function () {
     it('template file contents', function () {
       var filePath = 'app/main/templates/some-template.html';
       assert.fileContent([
-        [filePath, '<li class="item">{{someData.binding}}']
+        [filePath, '<ion-item>{{someData.binding}}']
       ]);
     });
   });
