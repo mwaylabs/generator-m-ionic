@@ -34,7 +34,7 @@ describe('m:template', function () {
     it('template file contents', function () {
       var filePath = 'app/my-module/templates/some-template.html';
       assert.fileContent([
-        [filePath, '<ion-view view-title="\'' + config.DEFAULT_MODULE + ' module\'">'],
+        [filePath, '<ion-view view-title="\'myModule module\'">'],
         [filePath, 'This is your someTemplate template!']
       ]);
     });
