@@ -41,6 +41,7 @@
   "disallowSpaceAfterObjectKeys": true,
   "requireLineFeedAtFileEnd": true,
   "requireSpacesInFunctionExpression": {
+    "beforeOpeningRoundBrace": true,
     "beforeOpeningCurlyBrace": true
   },
   "validateJSDoc": {

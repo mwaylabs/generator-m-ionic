@@ -29,7 +29,7 @@ var createConnectServer = function (paths) {
   };
 };
 
-var open =  function () {
+var open = function () {
   if (options.open !== false) {
     opn('http://localhost:9000');
   }
