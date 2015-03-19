@@ -317,8 +317,10 @@ Modify the `.yo-rc.json` to look something like this:
 Now running `gulp cordova-install` will install all the appropriate versions.
 
 
-It's **important** to note that the versions you supply in `.yo-rc.json` do not take effect until you have manually installed the platforms and plugins with the respective `gulp --cordova` command.
-
+It's **important** to note that:
+- The versions you supply in `.yo-rc.json` do not take effect until you have manually installed the platforms and plugins with the respective `gulp --cordova` command.
+- If you want to version control plugins that were installed via their git repository, (e.g. `https://github.com/EddyVerbruggen/cordova-plugin-actionsheet.git`) you need to do so using their cordova plugin registry id (e.g. `l.x-services.plugins.actionsheet`), which can be found in the `plugins/fetch.json` file
+- Plugins that aren't published in the cordova registry and thus don't have a cordova plugin registry id cannot bet version controlled.
 
 ## Troubleshooting
 If you're experiencing difficulties using the generator please refer to the [Troubleshooting](https://github.com/mwaylabs/generator-m/wiki/Troubleshooting) section in our wiki or [create an issue](https://github.com/mwaylabs/generator-m/issues/new)!

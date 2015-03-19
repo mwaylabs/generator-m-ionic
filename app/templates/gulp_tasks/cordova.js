@@ -11,9 +11,12 @@ var fs = require('fs');
 var path = require('path');
 var rimraf = require('rimraf');
 
-var runCordova = function (command) {
+var runCordova = function (command, stream) {
+  // allow to overwrite command from option.cordova with parameter
   command = typeof command === 'string' ? command : options.cordova;
-  return gulp.src('')
+  // create new stream if not provided
+  stream = stream || gulp.src('');
+  return stream
     .pipe($.shell([
       // needs explicit cross-platform path
       path.join('node_modules/cordova/bin/cordova ') + command
@@ -23,74 +26,81 @@ var runCordova = function (command) {
 gulp.task('cordova', runCordova);
 gulp.task('cordova-with-build', ['build'], runCordova);
 
-// removes platform and all plugin folders and then
+// removes platform and all plugin dirs and then
 // adds platforms and plugins based on <platform>.jsons
 gulp.task('cordova-install', function () {
-  var yoRcAnswers = JSON.parse(fs.readFileSync('.yo-rc.json', 'utf8'))['generator-m'].answers;
-  var pluginFolder = 'plugins/';
-  var folders = ['platforms'];
-  var installed = {
+
+  var pluginsDir = 'plugins/';
+  var dirs = ['platforms'];
+  var install = {
     platforms: [],
     plugins: []
   };
 
-  var platforms = fs.readdirSync(pluginFolder) // all plugin files
-  // only filter json files, and populate folders array
+  // read files
+  var yoRcAnswers = JSON.parse(fs.readFileSync('.yo-rc.json', 'utf8'))['generator-m'].answers;
+  var plugins = JSON.parse(fs.readFileSync(pluginsDir + 'fetch.json', 'utf8'));
+
+  var platforms = fs.readdirSync(pluginsDir) // all plugin files
+  // only filter json files, and populate dirs array
   .filter(function (fileName) {
-    if (fileName.indexOf('.json') !== -1) {
+    if (fileName.indexOf('.json') !== -1 && fileName.indexOf('fetch') === -1) {
+      // all platforms but ignore fetch.json
       return true;
     }
     else {
-      var stat = fs.statSync(pluginFolder + fileName);
+      // push directories to dirs array
+      var stat = fs.statSync(pluginsDir + fileName);
       if (stat.isDirectory()) {
-        folders.push(pluginFolder + fileName);
+        dirs.push(pluginsDir + fileName);
       }
       return false;
     }
   })
-  // extract platform, read file, transform to json
+  // extract platform
   .map(function (fileName) {
-    var content = JSON.parse(fs.readFileSync(pluginFolder + fileName, 'utf8'));
-    return {
-      path: pluginFolder + fileName,
-      content: content,
-      platform: /(.*)\.json$/ig.exec(fileName)[1]
-    };
+    return /(.*)\.json$/ig.exec(fileName)[1];
   });
 
-  // remove all folders (platforms and plugins)
-  folders.forEach(function (folder) {
-    rimraf.sync(folder);
+  // remove all dirs (platforms and plugins)
+  dirs.forEach(function (dir) {
+    rimraf.sync(dir);
   });
 
-  // add platforms and plugins
-  platforms.forEach(function (platform, index) {
-    // delete .json file
-    fs.unlinkSync(platform.path);
+  var stream = gulp.src('');
+  // add platforms
+  platforms.forEach(function (platform) {
+    // delete .json file, so plugins get added after platforms (errors otherwise!)
+    fs.unlinkSync(pluginsDir + platform + '.json');
     // add platform
     for (var i = 0, yoPlatform; (yoPlatform = yoRcAnswers.platforms[i]); i++) {
       // replace with platform from yorcjson (which may contain version)
-      if (yoPlatform.indexOf(platform.platform) === 0) {
-        platform.platform = yoPlatform;
+      if (yoPlatform.indexOf(platform) === 0) {
+        platform = yoPlatform;
       }
     }
-    runCordova('platform add ' + platform.platform);
-    installed.platforms.push(platform.platform);
-    // add plugins
-    if (index === 0) {
-      var prop = 'installed_plugins';
-      var plugins = platform.content[prop];
-      for (var plugin in plugins) {
-        for (var j = 0, yoPlugin; (yoPlugin = yoRcAnswers.plugins[j]); j++) {
-          // replace with plugin from yorcjson (which may contain version)
-          if (yoPlugin.indexOf(plugin) === 0) {
-            plugins[j] = plugin = yoPlugin;
-          }
-        }
-        runCordova('plugin add ' + plugin);
-        installed.plugins.push(plugin);
-      }
-    }
+    // wait with execution until previous command has finished
+    stream = runCordova('platform add ' + platform, stream);
+    install.platforms.push(platform);
   });
-  console.log(JSON.stringify(installed, null, 2));
+
+  // add plugins
+  for (var plugin in plugins) {
+    for (var j = 0, yoPlugin; (yoPlugin = yoRcAnswers.plugins[j]); j++) {
+      // replace with plugin from .yo-rc.json (which may contain version)
+      if (yoPlugin.indexOf(plugin) === 0) {
+        plugin = yoPlugin;
+      }
+    }
+    // if no version control in .yo-rc.json install via url if possible
+    if (plugin.indexOf('@') === -1) {
+      if (plugins[plugin].source.type === 'git') {
+        plugin = plugins[plugin].source.url;
+      }
+    }
+    // wait with execution until previous command has finished
+    stream = runCordova('plugin add ' + plugin, stream);
+    install.plugins.push(plugin);
+  }
+  console.log(JSON.stringify(install, null, 2));
 });
