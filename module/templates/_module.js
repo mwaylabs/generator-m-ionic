@@ -16,7 +16,7 @@ angular.module('<%= moduleName %>', [
     .state('<%= moduleFolder %>', {
       url: '/<%= moduleFolder %>',
       templateUrl: '<%= moduleFolder %>/templates/start.html',
-      controller: 'StartCtrl'
+      controller: 'StartCtrl as start'
     });
   // TODO: do your thing
 });

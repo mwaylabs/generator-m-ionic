@@ -1,11 +1,11 @@
 'use strict';
 angular.module('<%= moduleName %>')
-.controller('<%= controllerName %>', function ($scope<% if(options.sample === 'start') { %>, Start, Config<% } %>) {
-  console.log('Hello from your Controller: <%= controllerName %> in module <%= moduleName%>:. This is your scope:', $scope);
+.controller('<%= controllerName %>', function (<% if(options.sample === 'start') { %>Start, Config<% } %>) {
 <% if (options.sample === 'start') {%>
   // bind data from service
-  $scope.someData = Start.someData;
-  $scope.env = Config.ENV;
+  this.someData = Start.someData;
+  this.env = Config.ENV;
 <% } %>
+  console.log('Hello from your Controller: <%= controllerName %> in module <%= moduleName%>:. This is your scope:', this);
   // TODO: do your controller thing
 });

@@ -51,8 +51,8 @@ describe('m:controller', function () {
     it('controller file contents', function () {
       var filePath = 'app/main/controllers/some-ctrl.js';
       assert.fileContent([
-        [filePath, ', Start, Config'],
-        [filePath, '$scope.someData']
+        [filePath, 'Start, Config'],
+        [filePath, 'this.someData']
       ]);
     });
   });

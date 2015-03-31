@@ -13,10 +13,10 @@
         images working?
       </ion-item>
 <% if(options.sample === 'start') {%>
-      <ion-item>{{someData.binding}}</ion-item>
+      <ion-item>{{start.someData.binding}}</ion-item>
       <ion-item class="item-divider">Environment variables:</ion-item>
       <ion-item class="item-text-wrap">
-        <pre>{{env | json}}</pre>
+        <pre>{{start.env | json}}</pre>
       </ion-item>
 <% } %>
     </ion-list>
