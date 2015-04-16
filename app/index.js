@@ -24,8 +24,6 @@ var MGenerator = yeoman.generators.Base.extend({
     this.answers = this.config.getAll().answers;
     // is update?
     this.update = this.answers ? true : false;
-    // add random color to navbar
-    this.barColor = utils.barColor();
 
     // abort when directory is not empty on first run
     if (!this.update && this.fileCount > 0) {
@@ -189,6 +187,8 @@ var MGenerator = yeoman.generators.Base.extend({
       this.template('_package.json', 'package.json');
 
       // app files
+      // add random color to navbar
+      this.barColor = utils.barColor();
       this.template('_index.html', 'app/index.html');
       this.template('_app.js', 'app/app.js');
 
