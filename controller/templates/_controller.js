@@ -5,7 +5,8 @@ angular.module('<%= moduleName %>')
 <% if (options.sample === 'start') {%>
   // bind data from service
   $scope.someData = Start.someData;
-  $scope.env = Config.ENV;
+  $scope.ENV = Config.ENV;
+  $scope.BUILD = Config.BUILD;
 <% } %>
   // TODO: do your controller thing
 });

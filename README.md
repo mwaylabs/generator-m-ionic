@@ -1,8 +1,8 @@
 # generator-m
 
-[![NPM version](http://img.shields.io/npm/v/generator-m.svg?style=flat-square)][npm-url] 
-[![Coverage Status](http://img.shields.io/coveralls/mwaylabs/generator-m.svg?style=flat-square)][coveralls-url] 
-[![Build Status](https://img.shields.io/travis/mwaylabs/generator-m.svg?style=flat-square)][travis-url] 
+[![NPM version](http://img.shields.io/npm/v/generator-m.svg?style=flat-square)][npm-url]
+[![Coverage Status](http://img.shields.io/coveralls/mwaylabs/generator-m.svg?style=flat-square)][coveralls-url]
+[![Build Status](https://img.shields.io/travis/mwaylabs/generator-m.svg?style=flat-square)][travis-url]
 [![Dependency Status](http://img.shields.io/david/mwaylabs/generator-m.svg?style=flat-square)][daviddm-url]
 [![Download Month](http://img.shields.io/npm/dm/generator-m.svg?style=flat-square)][npm-url]
 
@@ -77,7 +77,7 @@ npm install -g generator-m
 
 
 ## Generate App
-**create new directory** - and cd into it. 
+**create new directory** - and cd into it.
 ```sh
 mkdir myApp && cd $_
 ```
@@ -131,7 +131,7 @@ Livereloads your application when changing/adding/deleting files to immediately 
 ├──  bower.json     - bower dependencies
 ├──  config.xml     - cordova's config.xml
 ├──  gulpfile.js    - entry point to all gulp tasks
-├──  jenkins.sh     - shell script for jenkins continuous integration 
+├──  jenkins.sh     - shell script for jenkins continuous integration
 ├──  package.json   - node dependencies configuration
 ├──  README.md      - the generator's README.md
 </pre>
@@ -160,7 +160,7 @@ Builds into www, watches version in www and opens your browser. Good for debuggi
 gulp watch-build
 ```
 Add the `--no-build` option and `gulp build` will be skipped.
-The `--no-open` options is available here as well, in case you don't want your browser to open automatically and would rather navigate to `http://localhost:9000` yourself. 
+The `--no-open` options is available here as well, in case you don't want your browser to open automatically and would rather navigate to `http://localhost:9000` yourself.
 
 
 #### gulp build
@@ -171,19 +171,19 @@ gulp build
 Note that the build will not complete if you have any **jscs, jshint or jsonlint errors** in your code! Sometimes it's necessary to let the build run anyway. Use the `--force-build` option to do so. The `--minify` option will minify javascript, css, html and images. These options will also work for all the build-related cordova tasks!
 
 #### gulp environment
-Handles your environments (dev, prod, and any other you'd like). 
+Injects environment (dev, prod and any other you'd like) variables into your `Config` constants.
 
 ##### How does it work?
-Your `main` module contains the two files `env-dev.json` and `env-prod.json` located under `app/main/constants/`. Any key value pair you define in those files will be copied into the `Config.ENV` constant located in `app/main/constants/config-const.js`. So when you're working on dev, all key value pairs from the `main` module's `env-dev.json` will be copied to your `config-const.js`. Simply inject the `Config` constant in any service or controller where you need to use it.
+Your `main` module per default contains the two files `env-dev.json` and `env-prod.json` located under `app/main/constants/`. Any key value pair you define in those files will be copied into the `Config.ENV` constant located in `app/main/constants/config-const.js`, depending on which environment you chosse. So when you're working on dev, all key value pairs from the `main` module's `env-dev.json` will be copied to your `config-const.js`. Same goes for the prod environment respectively. Then simply inject the `Config` constant in any service or controller where you need to use it.
 
 ##### Choosing an environment
-When you run `gulp watch` or `gulp build` it will default to the dev environment:
+When you run `gulp watch` or any other task that runs `gulp build` without specifying an environment it will default to the dev environment:
 ```shell
 gulp watch                # defaults to --env=dev
 gulp build                # so does this
 gulp --cordova 'run ios'  # and any other command that uses gulp build
 ```
-Alternatively you can run the following to switch to the prod environment
+In order to choose an environment explicitly add the `--env` flag, like this:
 ```shell
 gulp watch --env=prod
 gulp build --env=prod
@@ -207,17 +207,46 @@ gulp environment --env=env5
 In case your project grows large and you have several modules in your project you will probably find yourself wanting to share environments across all modules. No problem. Every module you create has it's own `Config` constant located in `app/module/constants/config-const.js`. But only your `main` module contains the actual environments. The gulp tasks will automatically copy the environments to all of your modules' `Config.ENV` constants.
 
 
+#### gulp build-vars
+Inject variables into your angular app -your `Config` constants which are defined in `app/*/constants/config-const.js` to be exact- during a build.
+
+Adding the `--buildVars` flag to `gulp build` or any gulp task that runs `gulp build` implicitly, for instance:
+```sh
+gulp watch --buildVars="key:value,keys2:value2"
+```
+will result in `Config` constants that look like this:
+```js
+'use strict';
+angular.module('main')
+.constant('Config', {
+
+  ENV: {
+    /*inject-env*/
+    // ..
+    /*endinject*/
+  },
+
+  BUILD: {
+    /*inject-build*/
+    'key': 'value',
+    'keys2': 'value2'
+    /*endinject*/
+  }
+
+});
+```
+
 #### gulp config
 Manages project configuration. Modifies cordova's `config.xml`
 ```sh
 gulp config --setVersion=1.1.0
-gulp config --setBuild=12 
+gulp config --setBuild=12
 gulp config --setBundle=com.new.bundle
 gulp config --setName='hello world' # USE WITH CARE! (see below)
 gulp config --setDescription='a small app to make the world a happy place'
 gulp config --setAuthor='Your Name---your@mail.com---http://yourwebsite.com'
 ```
-**Important**: When **changing the name** of your project, it may lead to problems with the platform projects. This can be avoided by re-adding your platforms and plugins: `gulp cordova-install`. Check out the full description of this command further down under the section **Git integration**. 
+**Important**: When **changing the name** of your project, it may lead to problems with the platform projects. This can be avoided by re-adding your platforms and plugins: `gulp cordova-install`. Check out the full description of this command further down under the section **Git integration**.
 
 ## Running on Windows
 The generator should work just like on unix/mac except there's one difference, when running `gulp --cordova` tasks. They need doublequotes. So write this:
@@ -233,7 +262,7 @@ gulp --cordova 'run ios' # won't work on windows
 #### yo m:module - creates a new module
 1. `yo m:module <moduleName>` - create a new module
 2. add your module to the `app/app.js`:
-  
+
   ```js
   'use strict';
   angular.module('myProject', [
@@ -281,7 +310,7 @@ Both npm and bower keep track of the installed packages and their versions using
 For now you can run our custom `gulp cordova-install` which will install all platforms and plugins. Unfortunately, for now, with no guarantee of version. This means, that cordova will always install the latest versions. Sometimes, especially with plugins, this can lead to code incompatibilities.
 
 ### cordova versions in `.yo-rc.json`
-If you care a lot about the stability of your code (like we do), keep reading! 
+If you care a lot about the stability of your code (like we do), keep reading!
 
 In order to be able to manage your cordova platform and plugin versions at all, we built in a little workaround. It's not great but it does it's duty until there's a better solution. For every platform and plugin you install with `gulp --cordova` you can add a version to the `.yo-rc.json` file. For instance, you'd install the splashscreen plugin and the android platform via:
 ```sh

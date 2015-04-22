@@ -16,7 +16,11 @@
       <ion-item>{{someData.binding}}</ion-item>
       <ion-item class="item-divider">Environment variables:</ion-item>
       <ion-item class="item-text-wrap">
-        <pre>{{env | json}}</pre>
+        <pre>{{ENV | json}}</pre>
+      </ion-item>
+      <ion-item class="item-divider">Build variables:</ion-item>
+      <ion-item class="item-text-wrap">
+        <pre>{{BUILD | json}}</pre>
       </ion-item>
 <% } %>
     </ion-list>
