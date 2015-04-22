@@ -88,8 +88,8 @@ gulp.task('environment', function () {
               json = json.replace(/\"/g, '\'');
               // remove first and last line curly braces
               json = json.replace(/^\{\n/, '').replace(/\n\}$/, '');
-              // remove indentation
-              json = json.replace(/  /g, '');
+              // remove first level of indentation
+              json = json.replace(/^  /g, '');
             }
             return json;
           }
