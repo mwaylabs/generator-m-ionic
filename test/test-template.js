@@ -51,7 +51,7 @@ describe('m:template', function () {
     it('template file contents', function () {
       var filePath = 'app/main/templates/some-template.html';
       assert.fileContent([
-        [filePath, '<ion-item>{{start.someData.binding}}']
+        [filePath, '<ion-item class="item">{{start.someData.binding}}']
       ]);
     });
   });

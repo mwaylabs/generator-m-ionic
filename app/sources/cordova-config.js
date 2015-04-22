@@ -27,6 +27,10 @@ module.exports = {
       name: 'Dialogs - org.apache.cordova.dialogs'
     },
     {
+      value: 'org.apache.cordova.inappbrowser',
+      name: 'In App Browser - org.apache.cordova.inappbrowser'
+    },
+    {
       value: 'org.apache.cordova.network-information',
       name: 'Network - org.apache.cordova.network-information'
     },
@@ -35,12 +39,8 @@ module.exports = {
       name: 'Splashscreen - org.apache.cordova.splashscreen'
     },
     {
-      value: 'https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git',
-      name: 'Toast - https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git'
-    },
-    {
-      value: 'org.apache.cordova.vibration',
-      name: 'Vibration - org.apache.cordova.vibration'
+      value: 'org.apache.cordova.statusbar',
+      name: 'Statusbar - org.apache.cordova.statusbar'
     },
   ]
 };

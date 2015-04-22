@@ -66,18 +66,14 @@ describe('m', function () {
     it('has proper bower.json content', function () {
       assert.fileContent([
         // dependencies, test only one as example
-        ['bower.json', 'ionic": "v1.0.0-rc.1"'],
+        ['bower.json', 'ionic": "v1.0.0-rc.4"'],
         // resolutions, test only one as example
         ['bower.json', 'angular": "~1.3.14"'],
         // optional, test all for correctness
         ['bower.json', 'angular-dynamic-locale": "~0.1.27"'],
-        ['bower.json', 'angular-translate": "~2.6.0"'],
-        ['bower.json', 'angular-translate-loader-static-files": "~2.6.0"'],
-        ['bower.json', 'angular-localForage": "~1.2.2"'],
-        ['bower.json', 'angular-touch": "~1.3.14"'],
-        ['bower.json', 'fastclick": "~1.0.6"'],
-        ['bower.json', 'angular-ui-bootstrap-bower": "~0.12.1"'],
-        ['bower.json', 'restangular": "~1.4.0"']
+        ['bower.json', 'angular-translate": "~2.6.1"'],
+        ['bower.json', 'angular-translate-loader-static-files": "~2.6.1"'],
+        ['bower.json', 'angular-localForage": "~1.2.2"']
       ]);
     });
 
