@@ -119,7 +119,8 @@ describe('m:module', function () {
         ['app/main/main.js', 'angular.module(\'main\','],
         ['app/main/main.js', '$urlRouterProvider.otherwise(\'/main\');'],
         ['app/main/main.js', '.state(\'main\','],
-        ['app/main/main.js', 'url: \'/main\',']
+        ['app/main/main.js', 'url: \'/main\','],
+        ['app/main/main.js', 'controller: \'StartCtrl as start\'']
       ]);
     });
 

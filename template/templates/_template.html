@@ -13,14 +13,14 @@
         <img width="75" src="main/assets/images/yo@2x.png">
       </ion-item>
 <% if(options.sample === 'start') {%>
-      <ion-item class="item">{{someData.binding}}</ion-item>
+      <ion-item class="item">{{start.someData.binding}}</ion-item>
       <ion-item class="item item-divider">Environment variables:</ion-item>
       <ion-item class="item item-text-wrap">
-        <pre>{{ENV | json}}</pre>
+        <pre>{{start.ENV | json}}</pre>
       </ion-item>
       <ion-item class="item item-divider">Build variables:</ion-item>
       <ion-item class="item item-text-wrap">
-        <pre>{{BUILD | json}}</pre>
+        <pre>{{start.BUILD | json}}</pre>
       </ion-item>
 <% } %>
     </ion-list>
