@@ -6,10 +6,9 @@ after_script:
   - npm run coveralls
 notifications:
   slack: generator-m:lZYXd9k3mcYBlsGUnd1xRb3R
-  # found here - https://gist.github.com/tyrcho/b574cb0625dfa066fb96
   webhooks:
         urls:
-          - https://gitter.im/mwaylabs/generator-m#
+          - https://webhooks.gitter.im/e/87130ded51c12384d4e7
         on_success: always  # options: [always|never|change] default: always
         on_failure: always  # options: [always|never|change] default: always
         on_start: false     # default: false
