@@ -45,7 +45,7 @@ We use:
 - **bower** to manage your client packages - http://bower.io/
 
 
-Working nicely with the following technology stack:
+The following technology stack:
 
 - **angular** - https://angularjs.org/
   - **angular-ui-router** - https://github.com/angular-ui/ui-router
@@ -53,7 +53,14 @@ Working nicely with the following technology stack:
   - **ngCordova** - http://ngcordova.com/
 - **Cordova** - http://cordova.apache.org/
 
-### Talk to us
+Many many tools and tweaks:
+- powerful collection of [gulp tasks](https://github.com/mwaylabs/generator-m#more-gulp-tasks)
+- broad selection of [sub-generators](https://github.com/mwaylabs/generator-m#sub-generators)
+- fine tuned integration with **git**
+- sensible defaults for:
+  -
+
+## Talk to us
 [![Join the chat at https://gitter.im/mwaylabs/generator-m](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mwaylabs/generator-m?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Install
@@ -244,21 +251,21 @@ Manages project configuration. Modifies cordova's `config.xml`
 ```sh
 gulp config --setVersion=1.1.0
 gulp config --setBuild=12
-gulp config --setBundle=com.new.bundle
+gulp config --setBundle=com.new.bundle # USE WITH CARE! (see below)
 gulp config --setName='hello world' # USE WITH CARE! (see below)
 gulp config --setDescription='a small app to make the world a happy place'
 gulp config --setAuthor='Your Name---your@mail.com---http://yourwebsite.com'
 ```
-**Important**: When **changing the name** of your project, it may lead to problems with the platform projects. This can be avoided by re-adding your platforms and plugins: `gulp cordova-install`. Check out the full description of this command further down under the section **Git integration**.
+**Important**: When **changing the name** or **bundle identifier** of your project, it may lead to problems with the platform projects. This can be avoided by re-adding your platforms and plugins: `gulp cordova-install`. Check out the full description of this command further down in the section **Git integration**.
 
 ## Running on Windows
 The generator should work just like on unix/mac except there's one difference, when running `gulp --cordova` tasks. They need doublequotes. So write this:
 ```sh
-gulp --cordova "run ios" # will work on windows
+gulp --cordova "run android" # will work on windows
 ```
 instead of this:
 ```sh
-gulp --cordova 'run ios' # won't work on windows
+gulp --cordova 'run android' # won't work on windows
 ```
 
 ## Sub-generators
@@ -274,7 +281,7 @@ gulp --cordova 'run ios' # won't work on windows
     '<newModuleName>'
   ]);
   ```
-3. navigate to `http://127.0.0.1:9000/#/<module-name-in-snake-case>` in your browser.
+3. navigate to `http://localhost:9000/#/<module-name-in-snake-case>` in your browser.
 4. **Done!** - see your new module in action!
 
 
