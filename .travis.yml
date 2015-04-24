@@ -4,3 +4,5 @@ node_js:
   - '0.10'
 after_script:
   - npm run coveralls
+notifications:
+  slack: generator-m:lZYXd9k3mcYBlsGUnd1xRb3R
