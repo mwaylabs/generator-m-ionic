@@ -12,11 +12,11 @@
 
 # cordova
 /platforms/
-/plugins/*
+/plugins/**
 !/plugins/*.json
 
 # build folder
-/www/
+/www/**
 
 # IDE
 *.sublime-project
