@@ -53,12 +53,15 @@ The following technology stack:
   - **ngCordova** - http://ngcordova.com/
 - **Cordova** - http://cordova.apache.org/
 
-Many many tools and tweaks:
+Many many tools and tweaks for your convenience:
 - powerful collection of [gulp tasks](https://github.com/mwaylabs/generator-m#more-gulp-tasks)
 - broad selection of [sub-generators](https://github.com/mwaylabs/generator-m#sub-generators)
-- fine tuned integration with **git**
+- fine tuned [integration with git](https://github.com/mwaylabs/generator-m#git-integration)
 - sensible defaults for:
-  -
+  - code style checks with [JSCS](http://jscs.info/) and [JSHint](http://jshint.com/)
+  - configuration files like [.editorconfig](http://editorconfig.org/), [.gitignore](http://git-scm.com/docs/gitignore), [.gitattriubtes](http://git-scm.com/docs/gitattributes) and others
+  - continuous integration with [Travis CI](https://travis-ci.org/) and [Jenkins CI](https://jenkins-ci.org/)
+
 
 ## Talk to us
 [![Join the chat at https://gitter.im/mwaylabs/generator-m](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mwaylabs/generator-m?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
