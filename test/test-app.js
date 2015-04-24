@@ -80,7 +80,7 @@ describe('m', function () {
     it('has proper app files content', function () {
       assert.fileContent([
         // inject appModule into title
-        ['app/index.html', '<title>' + answers.appModule + '</title>'],
+        ['app/index.html', '<title>' + answers.appName + '</title>'],
         // proper css path
         ['app/index.html', '<body ng-app="' + answers.appModule + '">'],
         // inject appModule into app.js module
