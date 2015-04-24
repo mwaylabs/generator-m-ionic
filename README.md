@@ -53,6 +53,9 @@ Working nicely with the following technology stack:
   - **ngCordova** - http://ngcordova.com/
 - **Cordova** - http://cordova.apache.org/
 
+### Talk to us
+[![Join the chat at https://gitter.im/mwaylabs/generator-m](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mwaylabs/generator-m?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ## Install
 
 ### Prerequisites
