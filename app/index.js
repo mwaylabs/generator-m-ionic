@@ -39,7 +39,7 @@ var MGenerator = yeoman.generators.Base.extend({
     // say hello
     if (!this.options['skip-welcome-message']) { // for use with generator-m-server
       this.log(yosay(
-        'Welcome to the polished M generator!'
+        'Welcome to the polished Generator-M! v.' + this.pkg.version
       ));
     }
 
@@ -224,7 +224,8 @@ var MGenerator = yeoman.generators.Base.extend({
   end: function () {
     this.log(yosay(
       'All done! See your app in all it\'s glory by running:\n' +
-      chalk.green('gulp watch ')
+      chalk.green('gulp watch \n') +
+      'More info: http://bit.ly/1DXy7MJ'
     ));
   }
 });
