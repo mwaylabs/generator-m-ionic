@@ -36,7 +36,7 @@ gulp.task('inject-all', ['styles', 'wiredep', 'bower-fonts', 'environment', 'bui
 // build styles to tmp
 gulp.task('styles', function () {
   // compile css starting from each module's main.scss
-  return gulp.src('app/**/styles/main.scss')
+  return gulp.src('app/*/styles/main.scss')
     .pipe($.plumber())
     .pipe($.rubySass({
       style: 'expanded',
