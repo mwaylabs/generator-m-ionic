@@ -72,5 +72,10 @@ gulp.task('watch-build', ['serve-build'], function () {
     $.livereload.reload();
   });
 });
-gulp.task('serve-build', ['connect-build', 'build'], open);
+
+var serveBuildDependencies = ['connect-build'];
+if (options.build !== false) {
+  serveBuildDependencies.push('build');
+}
+gulp.task('serve-build', serveBuildDependencies, open);
 gulp.task('connect-build', createConnectServer(paths.dist));
