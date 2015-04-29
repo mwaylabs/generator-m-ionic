@@ -202,11 +202,11 @@ gulp watch --env=prod
 gulp build --env=prod
 gulp --cordova 'run ios' --env=prod
 ```
-While you're running `gulp watch` you can even switch the environment you're currently working on without having to restart your watch task. Simply type:
+While you're running `gulp watch` you can even **temporarily** switch the environment you're currently working on without having to restart your watch task. Simply type:
 ```shell
 gulp environment --env=<env>
 ```
-Gulp will livereload with your new environment!
+Gulp will livereload with your new environment! It's **important** to note that as soon as you are making more changes and a livereload is triggered, your environment switches back to the one that was supplied when `gulp watch` was started. If you want to **permanently** switch your environment you should do so by restarting your `gulp watch` tasks with the desired environment.
 
 ##### Creating a new environment
 If you find yourself faced needing more than a dev and a prod environment simply create a new file: `app/main/constants/dev-env5.json`, fill it with the desired values and then run one the following:
