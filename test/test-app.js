@@ -4,6 +4,7 @@
 var path = require('path');
 var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
+var pkg = require('../package.json');
 
 // local modules
 var sampleAnswers = require('../app/sources/sample-answers.js');
@@ -61,6 +62,10 @@ describe('m', function () {
         'app/main',
         'app/main/main.js',
       ]);
+    });
+
+    it('version injected in README.md', function () {
+      assert.fileContent('README.md', '# Generator-M v' + pkg.version);
     });
 
     it('has proper bower.json content', function () {

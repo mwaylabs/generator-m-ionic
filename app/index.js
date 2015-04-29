@@ -204,7 +204,9 @@ var MGenerator = yeoman.generators.Base.extend({
       this.copy('jscsrc', '.jscsrc');
       this.copy('jshintrc', '.jshintrc');
       this.copy('jshintignore', '.jshintignore');
-      this.copy(path.join(__dirname, '../', 'README.md'), 'README.md');
+      var readme = this.read(path.join(__dirname, '../', 'README.md'));
+      readme = readme.replace(/^# Generator-M/, '# Generator-M v' + this.pkg.version);
+      this.write(this.destinationRoot() + '/README.md', readme);
     },
 
     subgenerators: function () {
