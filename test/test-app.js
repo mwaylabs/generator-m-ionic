@@ -66,7 +66,7 @@ describe('m', function () {
     it('has proper bower.json content', function () {
       assert.fileContent([
         // dependencies, test only one as example
-        ['bower.json', 'ionic": "v1.0.0-rc.4"'],
+        ['bower.json', 'ionic": "v1.0.0-rc.3"'],
         // resolutions, test only one as example
         ['bower.json', 'angular": "~1.3.14"'],
         // optional, test all for correctness
