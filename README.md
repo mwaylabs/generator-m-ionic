@@ -71,15 +71,15 @@ Many many tools and tweaks for your convenience:
 ### Prerequisites
 - Installation and **fair knowledge** of:
 - node & npm - http://nodejs.org/download/
-  - yo: `npm install -g yo` - http://yeoman.io/
-  - gulp: `npm install -g gulp` - http://gulpjs.com/
-  - bower: `npm install -g bower` - http://bower.io/
+  - yo: `npm i -g yo` - http://yeoman.io/
+  - gulp: `npm i -g gulp` - http://gulpjs.com/
+  - bower: `npm i -g bower` - http://bower.io/
 - Sass
   - ruby - https://www.ruby-lang.org/en/installation/
   - sass - http://sass-lang.com/install
 - Want to test your app on a device ? - Then you'll need:
   - Platform SDKs for cordova
-    - cordova documentation: [Platform Guides](http://cordova.apache.org/docs/en/4.0.0/guide_platforms_index.md.html#Platform%20Guides)
+    - cordova documentation: [http://cordova.apache.org/docs/en/edge/guide_platforms_index.md.html#Platform%20Guides)
     - cordova cli readme: [Requirements](https://github.com/apache/cordova-cli/)
 
 ### Generator
@@ -156,7 +156,7 @@ A local wrapper for cordova cli (allows to use different cordova CLI versions in
 ```sh
 gulp --cordova 'plugin ls'
 ```
-Head over to the [cordova cli documentation](http://cordova.apache.org/docs/en/4.0.0/guide_cli_index.md.html) or their [github page](https://github.com/apache/cordova-cli/) to learn how to use the cordova cli. Remember that when using generator-m you don't need to install cordova globally!
+Head over to the [cordova cli documentation](http://cordova.apache.org/docs/en/edge/guide_cli_index.md.html#The%20Command-Line%20Interface) or their [github page](https://github.com/apache/cordova-cli/) to learn how to use the cordova cli. Remember that when using generator-m you don't need to install cordova globally!
 
 #### gulp --cordova 'build-related task'
 
@@ -259,7 +259,7 @@ gulp config --setName='hello world' # USE WITH CARE! (see below)
 gulp config --setDescription='a small app to make the world a happy place'
 gulp config --setAuthor='Your Name---your@mail.com---http://yourwebsite.com'
 ```
-**Important**: When **changing the name** or **bundle identifier** of your project, it may lead to problems with the platform projects. This can be avoided by re-adding your platforms and plugins: `gulp cordova-install`. Check out the full description of this command further down in the section **Git integration**.
+**Important**: When **changing the name** or **bundle identifier** of your project, it may lead to problems with the platform projects. If you have your plugins and platforms managed in the `config.xml` you can avoid this by deleting your `plugins/` and `platforms/` folders and installing them again using `gulp --cordova 'prepare'`. For more information see the **Git integration** section in this document.
 
 ## Running on Windows
 The generator should work just like on unix/mac except there's one difference, when running `gulp --cordova` tasks. They need doublequotes. So write this:
@@ -284,7 +284,7 @@ gulp --cordova 'run android' # won't work on windows
     '<newModuleName>'
   ]);
   ```
-3. navigate to `http://localhost:9000/#/<module-name-in-snake-case>` in your browser.
+3. navigate to `http://localhost:9000/#/<module-name-in-kebap-case>` in your browser.
 4. **Done!** - see your new module in action!
 
 
@@ -310,59 +310,35 @@ Leaving them as they are generated, you will allow git to exclude all of the 3rd
 - no cordova platforms and plugins
 
 ### After git clone
-Since all these files are excluded from git you need to install all of them when you start with a fresh clone of your project. In order to do so, run the following commands in that order:
+Since all these files are excluded from git, you need to install all of them when you start with a fresh clone of your project. In order to do so, run the following commands in that order:
 ```sh
 npm install # installs all node modules including cordova, gulp and all that
 bower install # install all bower components including angular, ionic, ng-cordova, ...
-gulp cordova-install # install all cordova platforms and plugins
+gulp --cordova 'prepare' # install all cordova platforms and plugins from the config.xml
 ```
 
-### gulp cordova-install
-Both npm and bower keep track of the installed packages and their versions using the `package.json` and `bower.json` respectively. Unfortunately cordova does not provide a ~~`cordova install`~~ command and no ~~`cordova.json`~~ file to keep track of the installed platforms, plugins and their versions. We think it should, that's why we created an [issue for that](https://issues.apache.org/jira/browse/CB-8539) in the cordova project. We'll keep you updated!
+### Platforms and plugins in config.xml
+Since `cordova 5.0` all platforms and plugins you install can be added to the `config.xml`.
 
-For now you can run our custom `gulp cordova-install` which will install all platforms and plugins. Unfortunately, for now, with no guarantee of version. This means, that cordova will always install the latest versions. Sometimes, especially with plugins, this can lead to code incompatibilities.
+Release notes:
+https://cordova.apache.org/news/2015/04/21/tools-release.html
 
-### cordova versions in `.yo-rc.json`
-If you care a lot about the stability of your code (like we do), keep reading!
+> Added the ability to manage your plugin and platform dependencies in your project’s `config.xml`. When adding plugins or platforms, use the `--save` flag to add them to `config.xml`. Ex: `cordova platform add android --save`. Existing projects can use `cordova plugin save` and `cordova platform save` commands to save all previously installed plugins and platforms into your project’s `config.xml`. Platforms and plugins will be autorestored when `cordova prepare` is run. This allows developers to easily manage and share their dependenceis among different development enviroments and with their coworkers.
+>
 
-In order to be able to manage your cordova platform and plugin versions at all, we built in a little workaround. It's not great but it does it's duty until there's a better solution. For every platform and plugin you install with `gulp --cordova` you can add a version to the `.yo-rc.json` file. For instance, you'd install the splashscreen plugin and the android platform via:
+Since your projects `.gitignore` will completely ignore the `platforms/` and `plugins/` folders, it's important to make sure your `config.xml` contains all the plugins and platforms required by your project. As explained above this can either be achieved by always using the `--save` options when adding/removing platforms:
+
 ```sh
-gulp --cordova 'plugin add org.apache.cordova.splashscreen'
-gulp --cordova 'platform add android'
+gulp --cordova 'platform add ios --save'
+gulp --cordova 'plugin remove cordova-plugin-camera --save'
 ```
-Then you check their versions by running:
+
+or by typing the following commands every time before you commit:
+
 ```sh
-gulp --cordova 'plugin ls' # let's say splashscreen version is 1.0.0
-gulp --cordova 'platform ls' # let's say android version is 3.6.4
+gulp --cordova 'platform save'
+gulp --cordova 'plugin save'
 ```
-Modify the `.yo-rc.json` to look something like this:
-```js
-{
-  "generator-m": {
-    "answers": {
-      // ...
-      ],
-      "platforms": [
-        "ios", // will install newest version
-        "android@3.6.4" // will install 3.6.4
-      ],
-      "plugins": [
-        "org.apache.cordova.device", // will install newest version
-        "org.apache.cordova.dialogs", // will install newest version
-        "org.apache.cordova.splashscreen@1.0.0", // will install 1.0.0
-      ]
-    }
-  }
-}
-
-```
-Now running `gulp cordova-install` will install all the appropriate versions.
-
-
-It's **important** to note that:
-- The versions you supply in `.yo-rc.json` do not take effect until you have manually installed the platforms and plugins with the respective `gulp --cordova` command.
-- If you want to version control plugins that were installed via their git repository, (e.g. `https://github.com/EddyVerbruggen/cordova-plugin-actionsheet.git`) you need to do so using their cordova plugin registry id (e.g. `l.x-services.plugins.actionsheet`), which can be found in the `plugins/fetch.json` file
-- Plugins that aren't published in the cordova registry and thus don't have a cordova plugin registry id cannot bet version controlled.
 
 ## Troubleshooting
 If you're experiencing difficulties using the generator please refer to the [Troubleshooting](https://github.com/mwaylabs/generator-m/wiki/Troubleshooting) section in our wiki or [create an issue](https://github.com/mwaylabs/generator-m/issues/new)!

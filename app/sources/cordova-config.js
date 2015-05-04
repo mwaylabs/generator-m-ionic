@@ -18,29 +18,29 @@ module.exports = {
   plugins: [
     new inquirer.Separator('-------'),
     {
-      value: 'org.apache.cordova.device',
-      name: 'Device - org.apache.cordova.device',
+      value: 'cordova-plugin-device',
+      name: 'Device - cordova-plugin-device',
       checked: true
     },
     {
-      value: 'org.apache.cordova.dialogs',
-      name: 'Dialogs - org.apache.cordova.dialogs'
+      value: 'cordova-plugin-dialogs',
+      name: 'Dialogs - cordova-plugin-dialogs'
     },
     {
-      value: 'org.apache.cordova.inappbrowser',
-      name: 'In App Browser - org.apache.cordova.inappbrowser'
+      value: 'cordova-plugin-inappbrowser',
+      name: 'In App Browser - cordova-plugin-inappbrowser'
     },
     {
-      value: 'org.apache.cordova.network-information',
-      name: 'Network - org.apache.cordova.network-information'
+      value: 'cordova-plugin-network-information',
+      name: 'Network - cordova-plugin-network-information'
     },
     {
-      value: 'org.apache.cordova.splashscreen',
-      name: 'Splashscreen - org.apache.cordova.splashscreen'
+      value: 'cordova-plugin-splashscreen',
+      name: 'Splashscreen - cordova-plugin-splashscreen'
     },
     {
-      value: 'org.apache.cordova.statusbar',
-      name: 'Statusbar - org.apache.cordova.statusbar'
+      value: 'cordova-plugin-statusbar',
+      name: 'Statusbar - cordova-plugin-statusbar'
     },
   ]
 };

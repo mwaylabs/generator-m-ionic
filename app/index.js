@@ -137,24 +137,24 @@ var MGenerator = yeoman.generators.Base.extend({
       var done = this.async(); // wait with subsequent tasks since cordova needs an empty folder
       // cordova project
       cordova.create('.', this.answers.appId, this.answers.appName)
-      // add platforms
+      // add platforms and save to config.xml
       .then(function () {
         this.log(chalk.green('Created cordova project'));
         if (this.options['skip-sdk'] || !this.answers.platforms.length) {
           return true;
         }
         else {
-          return cordova.platform('add', this.answers.platforms);
+          return cordova.platform('add', this.answers.platforms, { save: true });
         }
       }.bind(this))
-      // add plugins
+      // add plugins and save to config.xml
       .then(function () {
         this.log(chalk.green('Added platforms: ' + this.answers.platforms.join(', ')));
         if (this.options['skip-sdk'] || !this.answers.plugins.length) {
           return true;
         }
         else {
-          return cordova.plugin('add', this.answers.plugins);
+          return cordova.plugin('add', this.answers.plugins, { save: true });
         }
       }.bind(this))
       // all
@@ -225,19 +225,7 @@ var MGenerator = yeoman.generators.Base.extend({
     this.installDependencies({
       npm: true,
       bower: true,
-      skipInstall: this.options['skip-install'],
-      callback: this.options['skip-sdk'] ? undefined : function () {
-
-        // save platforms and plugins to config.xml
-        var done = this.async();
-        return cordova.platform('save')
-        .then(function () {
-          return cordova.plugin('save');
-        })
-        .then(function () {
-          done();
-        });
-      }.bind(this)
+      skipInstall: this.options['skip-install']
     });
   },
 

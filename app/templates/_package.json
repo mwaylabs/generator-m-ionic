@@ -35,7 +35,6 @@
     "minimist": "^1.1.0",
     "opn": "^1.0.1",
     "require-dir": "^0.1.0",
-    "rimraf": "^2.2.8",
     "serve-static": "^1.9.1",
     "vinyl-paths": "^1.0.0",
     "wiredep": "^2.2.2",

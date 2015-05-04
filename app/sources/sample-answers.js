@@ -22,8 +22,8 @@ module.exports = {
       'android'
     ],
     plugins: [
-      'org.apache.cordova.device',
-      'org.apache.cordova.dialogs'
+      'cordova-plugin-device',
+      'cordova-plugin-dialogs'
     ]
   },
 
