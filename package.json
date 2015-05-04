@@ -37,7 +37,7 @@
     "cordova-lib": "4.3.0",
     "inquirer": "^0.8.0",
     "underscore.string": "^3.0.3",
-    "yeoman-generator": "^0.18.10",
+    "yeoman-generator": "^0.19.2",
     "yosay": "^1.0.1"
   },
   "devDependencies": {

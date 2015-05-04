@@ -17,7 +17,7 @@ describe('m', function () {
 
     before(function (done) {
       helpers.run(path.join(__dirname, '../app'))
-        .withGenerators([ // configure path to  subgenerators
+        .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../module'),
           path.join(__dirname, '../constant'),
           path.join(__dirname, '../controller'),
@@ -25,7 +25,7 @@ describe('m', function () {
           path.join(__dirname, '../service')
         ])
         .withOptions({ 'skip-install': true, 'skip-sdk': true }) // execute with options
-        .withPrompt(answers)  // answer prompts
+        .withPrompts(answers)  // answer prompts
         .on('end', done);
     });
 
@@ -116,7 +116,7 @@ describe('m', function () {
           path.join(__dirname, '../service')
         ])
         .withOptions({ 'skip-install': true, 'skip-sdk': true, 'app-name': 'tradecore' }) // execute with options
-        .withPrompt(answers)  // answer prompts
+        .withPrompts(answers)  // answer prompts
         .on('end', done);
     });
 
@@ -158,7 +158,7 @@ describe('m', function () {
           path.join(__dirname, '../template'),
           path.join(__dirname, '../service')
         ])
-        .withPrompt(answers)  // answer prompts
+        .withPrompts(answers)  // answer prompts
         .on('end', done);
     });
 
@@ -178,7 +178,7 @@ describe('m', function () {
           path.join(__dirname, '../template'),
           path.join(__dirname, '../service')
         ])
-        .withPrompt(answers)  // answer prompts
+        .withPrompts(answers)  // answer prompts
         .on('end', done);
     });
 
@@ -198,7 +198,7 @@ describe('m', function () {
           path.join(__dirname, '../template'),
           path.join(__dirname, '../service')
         ])
-        .withPrompt(answers)  // answer prompts
+        .withPrompts(answers)  // answer prompts
         .on('end', done);
     });
 
