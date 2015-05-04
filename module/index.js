@@ -1,6 +1,7 @@
 'use strict';
 var yeoman = require('yeoman-generator');
 var utils = require('../utils/utils.js');
+var mkdirp = require('mkdirp');
 
 var MGenerator = yeoman.generators.NamedBase.extend({
 
@@ -13,17 +14,17 @@ var MGenerator = yeoman.generators.NamedBase.extend({
 
   writing: function () {
     var moduleFolder = 'app/' + this.moduleFolder + '/';
-    this.mkdir(moduleFolder);
+    mkdirp.sync(moduleFolder);
     this.template('_module.js', moduleFolder + this.moduleFolder + '.js');
     this.copy('yo.png', moduleFolder + 'assets/images/yo@2x.png');
-    this.mkdir(moduleFolder + 'constants/');
-    this.mkdir(moduleFolder + 'controllers/');
-    this.mkdir(moduleFolder + 'directives/');
-    this.mkdir(moduleFolder + 'filters/');
-    this.mkdir(moduleFolder + 'services/');
-    this.mkdir(moduleFolder + 'styles/');
+    mkdirp.sync(moduleFolder + 'constants/');
+    mkdirp.sync(moduleFolder + 'controllers/');
+    mkdirp.sync(moduleFolder + 'directives/');
+    mkdirp.sync(moduleFolder + 'filters/');
+    mkdirp.sync(moduleFolder + 'services/');
+    mkdirp.sync(moduleFolder + 'styles/');
     this.template('_main.scss', moduleFolder + 'styles/main.scss');
-    this.mkdir(moduleFolder + 'templates/');
+    mkdirp.sync(moduleFolder + 'templates/');
 
     var options = {
       arguments: 'start ' + this.moduleName,
