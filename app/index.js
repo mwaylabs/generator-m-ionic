@@ -154,7 +154,7 @@ var MGenerator = yeoman.generators.Base.extend({
           return true;
         }
         else {
-          return cordova.plugins('add', this.answers.plugins);
+          return cordova.plugin('add', this.answers.plugins);
         }
       }.bind(this))
       // all
@@ -204,12 +204,15 @@ var MGenerator = yeoman.generators.Base.extend({
       this.copy('jscsrc', '.jscsrc');
       this.copy('jshintrc', '.jshintrc');
       this.copy('jshintignore', '.jshintignore');
+
+      // inject version into readme
       var readme = this.read(path.join(__dirname, '../', 'README.md'));
       readme = readme.replace(/^# Generator-M/, '# Generator-M v' + this.pkg.version);
       this.write(this.destinationRoot() + '/README.md', readme);
     },
 
     subgenerators: function () {
+      // create main module
       this.composeWith('m:module', {
         arguments: config.DEFAULT_MODULE,
         options: {sample: 'start'}
@@ -218,8 +221,23 @@ var MGenerator = yeoman.generators.Base.extend({
   },
 
   install: function () {
+    // insall npm, bower and save plugins/platforms
     this.installDependencies({
-      skipInstall: this.options['skip-install']
+      npm: true,
+      bower: true,
+      skipInstall: this.options['skip-install'],
+      callback: this.options['skip-sdk'] ? undefined : function () {
+
+        // save platforms and plugins to config.xml
+        var done = this.async();
+        return cordova.platform('save')
+        .then(function () {
+          return cordova.plugin('save');
+        })
+        .then(function () {
+          done();
+        });
+      }.bind(this)
     });
   },
 
