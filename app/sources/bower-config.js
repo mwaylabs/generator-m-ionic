@@ -5,7 +5,7 @@ var inquirer = require('inquirer');
 module.exports = {
   bowerJSON: {
     dependencies: {
-      'ionic': 'v1.0.0-rc.4',
+      'ionic': '~1.0.0',
       'angular': '~1.3.14',
       'angular-animate': '~1.3.14',
       'angular-sanitize': '~1.3.14',
