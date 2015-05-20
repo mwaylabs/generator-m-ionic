@@ -41,28 +41,32 @@ gulp.task('styles', function () {
     .pipe($.rubySass({
       style: 'expanded',
       precision: 10,
-      'sourcemap=none': true // disable sourcemap to avoid unkown word error
-      // issue (should be fixed when 1.0.0 is stable: https://github.com/sindresorhus/gulp-autoprefixer/issues/20
+      'sourcemap=none': true // disable sourcemap to avoid unknown word error
+      // TODO: issue (should be fixed when 1.0.0 is stable: https://github.com/sindresorhus/gulp-autoprefixer/issues/20
       // solution: http://stackoverflow.com/questions/26979433/gulp-with-gulp-ruby-sass-error-style-css-map31-unknown-word
     }))
     .pipe($.autoprefixer({ browsers: ['last 2 version'], remove: false}))
     .pipe(gulp.dest('.tmp/'));
 });
 
-// inject bower components
+// inject bower components into index.html
 gulp.task('wiredep', function () {
-  return gulp.src('app/index.html') // into index.html
+
+  return gulp.src('app/index.html')
+     // exclude ionic scss since we're using ionic sass
     .pipe(wiredep.stream({exclude: ['bower_components/ionic/release/css']}))
-       // exclude ionic scss since we're using ionic sass
-    .pipe(gulp.dest('app'));
+    .pipe(gulp.dest('app/'));
 });
 
 // copy bower-fonts to do app/main/assets/fonts
 gulp.task('bower-fonts', function () {
+  var DEST = 'app/main/assets/fonts';
   var fontFiles = mainBowerFiles({filter: /\.(eot|svg|ttf|woff)/i})
     .concat('app/main/assets/fonts/**/*');
+
   return gulp.src(fontFiles)
-    .pipe(gulp.dest('app/main/assets/fonts'));
+    .pipe($.changed(DEST))
+    .pipe(gulp.dest(DEST));
 });
 
 /**

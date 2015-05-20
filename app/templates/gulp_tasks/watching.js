@@ -52,7 +52,8 @@ gulp.task('watch', ['serve', 'linting'], function () {
       gulp.start('linting');
     }
     else { // added or deleted
-      gulp.start('inject-all'); // inject in index (implicitly reloads)
+      // inject in index (implicitly reloads)
+      gulp.start('inject-all');
     }
   });
 
