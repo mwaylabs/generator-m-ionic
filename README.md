@@ -71,9 +71,9 @@ Many many tools and tweaks for your convenience:
 ### Prerequisites
 - Installation and **fair knowledge** of:
 - node & npm - http://nodejs.org/download/
-  - yo: `npm install -global yo` - http://yeoman.io/
-  - gulp: `npm install -global gulp` - http://gulpjs.com/
-  - bower: `npm install -global bower` - http://bower.io/
+  - yo: `npm install --global yo` - http://yeoman.io/
+  - gulp: `npm install --global gulp` - http://gulpjs.com/
+  - bower: `npm install --global bower` - http://bower.io/
 - Sass
   - ruby - https://www.ruby-lang.org/en/installation/
   - sass - http://sass-lang.com/install
@@ -85,7 +85,7 @@ Many many tools and tweaks for your convenience:
 ### Generator
 
 ```sh
-npm install -global generator-m
+npm install --global generator-m
 ```
 
 
