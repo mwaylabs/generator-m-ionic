@@ -6,19 +6,20 @@ module.exports = {
   bowerJSON: {
     dependencies: {
       'ionic': '~1.0.0',
-      'angular': '~1.3.14',
-      'angular-animate': '~1.3.14',
-      'angular-sanitize': '~1.3.14',
-      'angular-ui-router': '~0.2.13',
-      'ngCordova': '~0.1.14-alpha'
+      'angular': '~1.3.15',
+      'angular-animate': '~1.3.15',
+      'angular-sanitize': '~1.3.15',
+      'angular-ui-router': '~0.2.15',
+      'ngCordova': '~0.1.15-alpha'
     },
     devDependencies: {
     },
     resolutions: {
       // force newest angular versions (not those from ionic)
-      'angular': '~1.3.14',
-      'angular-animate': '~1.3.14',
-      'angular-sanitize': '~1.3.14'
+      'angular': '~1.3.15',
+      'angular-animate': '~1.3.15',
+      'angular-sanitize': '~1.3.15',
+      'angular-ui-router': '~0.2.15'
     }
   },
   optional: [
@@ -29,12 +30,12 @@ module.exports = {
       checked: true
     },
     {
-      value: 'angular-translate#~2.6.1',
+      value: 'angular-translate#~2.7.0',
       name: 'angular-translate',
       checked: true
     },
     {
-      value: 'angular-translate-loader-static-files#~2.6.1',
+      value: 'angular-translate-loader-static-files#~2.7.0',
       name: 'angular-translate-loader-static-files',
       checked: true
     },
