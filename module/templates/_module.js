@@ -8,9 +8,11 @@ angular.module('<%= moduleName %>', [
 .config(function ($stateProvider<% if (options.sample === 'start') {%>, $urlRouterProvider<%} %>) {
 
   console.log('Allo! Allo from your module: ' + '<%= moduleName %>');
-<% if (options.sample === 'start') {%>
+<% if (options.sample === 'start') { -%>
+
   $urlRouterProvider.otherwise('/main');
-<%}%>
+<%} -%>
+
   // some basic routing
   $stateProvider
     .state('<%= moduleFolder %>', {

@@ -1,7 +1,8 @@
 'use strict';
 angular.module('<%= moduleName %>')
 .constant('<%= constantName %>', {
-<% if (options.sample === 'start') {%>
+
+<% if (options.sample === 'start') { -%>
   // gulp environment: injects environment vars
   // https://github.com/mwaylabs/generator-m#gulp-environment
   ENV: {
@@ -15,7 +16,8 @@ angular.module('<%= moduleName %>')
     /*inject-build*/
     /*endinject*/
   }
-<% } else { %>
+<% } else { -%>
   CONSTANT_1: 'meaningful value',
-<% } %>
+<% } -%>
+
 });

@@ -1,6 +1,7 @@
 <ion-view view-title="<%= moduleName %> module">
   <ion-content>
     <ion-list>
+
       <ion-item class="item item-divider">
         This is your <%= templateName %> template!
       </ion-item>
@@ -12,7 +13,7 @@
         images working?<br>
         <img width="75" src="main/assets/images/yo@2x.png">
       </ion-item>
-<% if(options.sample === 'start') {%>
+<% if(options.sample === 'start') { -%>
       <ion-item class="item">{{start.someData.binding}}</ion-item>
       <ion-item class="item item-divider">Environment variables:</ion-item>
       <ion-item class="item item-text-wrap">
@@ -22,7 +23,8 @@
       <ion-item class="item item-text-wrap">
         <pre>{{start.BUILD | json}}</pre>
       </ion-item>
-<% } %>
+<% } -%>
+
     </ion-list>
   </ion-content>
 </ion-view>
