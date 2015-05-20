@@ -2,9 +2,6 @@
 angular.module('<%= moduleName %>')
 .controller('<%= controllerName %>', function (<% if(options.sample === 'start') { %>Start, Config<% } %>) {
 
-  console.log('Hello from your Controller: <%= controllerName %> in module <%= moduleName%>:. This is your controller:', this);
-  // TODO: do your controller thing
-
 <% if (options.sample === 'start') {-%>
   // bind data from service
   this.someData = Start.someData;
@@ -12,4 +9,7 @@ angular.module('<%= moduleName %>')
   this.BUILD = Config.BUILD;
 
 <% } -%>
+  console.log('Hello from your Controller: <%= controllerName %> in module <%= moduleName%>:. This is your controller:', this);
+  // TODO: do your controller thing
+
 });
