@@ -61,7 +61,7 @@ gulp.task('wiredep', function () {
 // copy bower-fonts to do app/main/assets/fonts
 gulp.task('bower-fonts', function () {
   var DEST = 'app/main/assets/fonts';
-  var fontFiles = mainBowerFiles({filter: /\.(eot|svg|ttf|woff)/i})
+  var fontFiles = mainBowerFiles({filter: /\.(eot|svg|ttf|woff)$/i})
     .concat('app/main/assets/fonts/**/*');
 
   return gulp.src(fontFiles)
