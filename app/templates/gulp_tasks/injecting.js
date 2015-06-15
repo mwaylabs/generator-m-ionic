@@ -39,7 +39,7 @@ gulp.task('styles', ['clean'], function () {
   return gulp.src('app/*/styles/module.scss')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
-    .pipe($.sass().on('error', $.sass.logError))
+    .pipe($.sass.sync().on('error', $.sass.logError))
     .pipe($.autoprefixer({ browsers: ['last 2 versions'], remove: false}))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('.tmp/'));
