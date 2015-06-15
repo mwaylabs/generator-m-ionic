@@ -41,7 +41,7 @@ gulp.task('watch', ['serve', 'linting'], function () {
 
   gulp.watch([
     'app/index.html',
-    '.tmp/*/styles/main.css', // each module's main.css
+    '.tmp/*/styles/module.css', // each module's module.css
     'app/*/assets/**/*',
     'app/*/templates/**/*',
   ].concat(paths.jsFiles),

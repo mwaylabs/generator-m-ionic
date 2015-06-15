@@ -23,7 +23,7 @@ var MGenerator = yeoman.generators.NamedBase.extend({
     mkdirp.sync(moduleFolder + 'filters/');
     mkdirp.sync(moduleFolder + 'services/');
     mkdirp.sync(moduleFolder + 'styles/');
-    this.template('_main.scss', moduleFolder + 'styles/main.scss');
+    this.template('_module.scss', moduleFolder + 'styles/module.scss');
     mkdirp.sync(moduleFolder + 'templates/');
 
     var options = {

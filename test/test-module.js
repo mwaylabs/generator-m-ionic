@@ -19,7 +19,7 @@ describe('m:module', function () {
         modulePath + '/directives',
         modulePath + '/filters',
         modulePath + '/services',
-        modulePath + '/styles/main.scss',
+        modulePath + '/styles/module.scss',
         modulePath + '/templates'
       ]);
     });
@@ -36,8 +36,8 @@ describe('m:module', function () {
       ]);
     });
 
-    it('main.scss is empty', function () {
-      assert.noFileContent(modulePath + '/styles/main.scss', '$light');
+    it('module.scss is empty', function () {
+      assert.noFileContent(modulePath + '/styles/module.scss', '$light');
     });
   };
 
@@ -124,8 +124,8 @@ describe('m:module', function () {
       ]);
     });
 
-    it('main.scss has ionic includes', function () {
-      assert.fileContent('app/main/styles/main.scss', '$light');
+    it('module.scss has ionic includes', function () {
+      assert.fileContent('app/main/styles/module.scss', '$light');
     });
   });
 });
