@@ -34,7 +34,7 @@ gulp.task('inject-all', ['styles', 'wiredep', 'bower-fonts', 'environment', 'bui
 });
 
 // build styles to tmp
-gulp.task('styles', function () {
+gulp.task('styles', ['clean'], function () {
   // compile css starting from each module's module.scss
   return gulp.src('app/*/styles/module.scss')
     .pipe($.plumber())
