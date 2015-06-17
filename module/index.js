@@ -1,6 +1,7 @@
 'use strict';
 var yeoman = require('yeoman-generator');
 var utils = require('../utils/utils.js');
+var config = require('../utils/config.js');
 var mkdirp = require('mkdirp');
 
 var MGenerator = yeoman.generators.NamedBase.extend({
@@ -39,7 +40,7 @@ var MGenerator = yeoman.generators.NamedBase.extend({
     this.composeWith('m:controller', options);
     // create config constant
     this.composeWith('m:constant', {
-      arguments: 'Config ' + this.moduleName,
+      arguments: utils.configName(this.moduleName) + ' ' + this.moduleName,
       options: options.options
     });
 

@@ -37,6 +37,11 @@ describe('utils', function () {
     assert.textEqual(utils.moduleFolder('another2App24'), 'another2-app24');
   });
 
+  it('.configName()', function () {
+    assert.textEqual(utils.configName('myModule'), 'MyModuleConfig');
+    assert.textEqual(utils.configName(config.DEFAULT_MODULE), 'Config');
+  });
+
   it('.controllerName()', function () {
     assert.textEqual(utils.controllerName('lower'), 'LowerCtrl');
     assert.textEqual(utils.controllerName('Upper'), 'UpperCtrl');

@@ -7,6 +7,8 @@ var MGenerator = yeoman.generators.NamedBase.extend({
   initializing: function () {
     this.argument('module', { type: String, required: false });
     this.moduleName = utils.checkModule(this.module);
+    this.serviceName = utils.serviceName(this.moduleName);
+    this.configName = utils.configName(this.moduleName);
     this.moduleFolder = utils.moduleFolder(this.moduleName);
 
     this.log('You called the m:controller subgenerator.');

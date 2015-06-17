@@ -55,14 +55,14 @@ describe('m:module', function () {
       assert.noFileContent(modulePath + '/styles/module.scss', '$light');
     });
 
-    it('start files', function () {
+    it('module files', function () {
       var modulePath = 'app/my-module';
 
       assert.file([
         modulePath + '/controllers/my-module-ctrl.js',
         modulePath + '/services/my-module-serv.js',
         modulePath + '/templates/my-module.html',
-        modulePath + '/constants/config-const.js'
+        modulePath + '/constants/my-module-config-const.js'
       ]);
     });
   });

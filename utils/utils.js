@@ -55,6 +55,23 @@ module.exports = {
   },
 
   /**
+   * yields a configName based on the name of the module
+   * @param  {String} moduleName the name of the module to create the config iin
+   * @return {String}            the name of the config
+   */
+  configName: function (moduleName) {
+    var configName;
+    if (moduleName === this.moduleName(config.DEFAULT_MODULE)) {
+      configName = config.CONFIG_SUFFIX;
+    }
+    else {
+      configName = moduleName + config.CONFIG_SUFFIX;
+    }
+
+    return _s.capitalize(configName);
+  },
+
+  /**
    * transforms userInput into a controller name for angular
    * @param  {String} userInput arbitrary user input
    * @return {String}           angular-friendly controller name
@@ -66,12 +83,12 @@ module.exports = {
     if (controllerName.substr(-10) === 'Controller') {
       controllerName = controllerName.substr(0, controllerName.length - 10);
     }
-    else if (controllerName.substr(-4) === 'Ctrl') {
+    else if (controllerName.substr(-4) === config.CONTROLLER_SUFFIX) {
       controllerName = controllerName.substr(0, controllerName.length - 4);
     }
     else {
     }
-    controllerName += 'Ctrl';
+    controllerName += config.CONTROLLER_SUFFIX;
 
     return controllerName;
   },
@@ -79,7 +96,7 @@ module.exports = {
   /**
    * transforms userInput into a service name for angular
    * @param  {String} userInput arbitrary user input
-   * @return {[type]}           angular-friendly service name
+   * @return {String}           angular-friendly service name
    */
   serviceName: function (userInput) {
     return _s.capitalize(userInput);

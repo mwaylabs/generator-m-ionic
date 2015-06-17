@@ -51,8 +51,29 @@ describe('m:controller', function () {
     it('controller file contents', function () {
       var filePath = 'app/main/controllers/some-ctrl.js';
       assert.fileContent([
-        [filePath, 'Start, Config'],
-        [filePath, 'this.someData']
+        [filePath, 'Main, Config'],
+        [filePath, 'this.someData = Main.'],
+        [filePath, 'this.ENV = Config.ENV'],
+        [filePath, 'this.BUILD = Config.BUILD']
+      ]);
+    });
+  });
+
+  describe('m:controller someCtrl myModule', function () {
+    before(function (done) {
+      helpers.run(path.join(__dirname, '../controller'))
+        .withArguments('someCtrl myModule')
+        .withOptions({ sample: 'start' })
+        .on('end', done);
+    });
+
+    it('controller file contents', function () {
+      var filePath = 'app/my-module/controllers/some-ctrl.js';
+      assert.fileContent([
+        [filePath, 'MyModule, MyModuleConfig'],
+        [filePath, 'this.someData = MyModule.'],
+        [filePath, 'this.ENV = MyModuleConfig.ENV'],
+        [filePath, 'this.BUILD = MyModuleConfig.BUILD']
       ]);
     });
   });
