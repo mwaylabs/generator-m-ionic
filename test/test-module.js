@@ -25,35 +25,6 @@ describe('m:module', function () {
     });
   };
 
-  var moduleJsContentTests = function (moduleFolder) {
-    var modulePath = 'app/' + moduleFolder;
-    var moduleJsPath = modulePath + '/' + moduleFolder + '.js';
-    it('module.js has proper content', function () {
-      assert.fileContent([
-        [moduleJsPath, 'angular.module(\'myModule\','],
-        [moduleJsPath, '.state(\'' + moduleFolder + '\','],
-        [moduleJsPath, 'url: \'/my-module\',']
-      ]);
-    });
-
-    it('module.scss is empty', function () {
-      assert.noFileContent(modulePath + '/styles/module.scss', '$light');
-    });
-  };
-
-  var moduleFilesTests = function (moduleFolder) {
-    it('start files', function () {
-      var modulePath = 'app/' + moduleFolder;
-
-      assert.file([
-        modulePath + '/controllers/start-ctrl.js',
-        modulePath + '/services/start-serv.js',
-        modulePath + '/templates/start.html',
-        modulePath + '/constants/config-const.js'
-      ]);
-    });
-  };
-
   describe('m:module myModule', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../module'))
@@ -68,26 +39,32 @@ describe('m:module', function () {
     });
 
     fileCreationTests('my-module');
-    moduleJsContentTests('my-module');
-    moduleFilesTests('my-module');
-  });
 
-  describe('m:module my-module', function () {
-    before(function (done) {
-      helpers.run(path.join(__dirname, '../module'))
-        .withGenerators([ // configure path to subgenerators
-          path.join(__dirname, '../controller'),
-          path.join(__dirname, '../template'),
-          path.join(__dirname, '../service'),
-          path.join(__dirname, '../constant')
-        ])
-        .withArguments('my-module')
-        .on('end', done);
+    var modulePath = 'app/my-module';
+    var moduleJsPath = modulePath + '/' + 'my-module' + '.js';
+    it('module.js has proper content', function () {
+      assert.fileContent([
+        [moduleJsPath, 'angular.module(\'myModule\','],
+        [moduleJsPath, '.state(\'' + 'my-module' + '\','],
+        [moduleJsPath, 'url: \'/my-module\','],
+        [moduleJsPath, 'controller: \'MyModuleCtrl as ctrl\'']
+      ]);
     });
 
-    fileCreationTests('my-module');
-    moduleJsContentTests('my-module');
-    moduleFilesTests('my-module');
+    it('module.scss is empty', function () {
+      assert.noFileContent(modulePath + '/styles/module.scss', '$light');
+    });
+
+    it('start files', function () {
+      var modulePath = 'app/my-module';
+
+      assert.file([
+        modulePath + '/controllers/my-module-ctrl.js',
+        modulePath + '/services/my-module-serv.js',
+        modulePath + '/templates/my-module.html',
+        modulePath + '/constants/config-const.js'
+      ]);
+    });
   });
 
   describe('m:module main --sample=start', function () {
@@ -105,7 +82,17 @@ describe('m:module', function () {
     });
 
     fileCreationTests('main');
-    moduleFilesTests('main');
+
+    it('start files', function () {
+      var modulePath = 'app/main';
+
+      assert.file([
+        modulePath + '/controllers/main-ctrl.js',
+        modulePath + '/services/main-serv.js',
+        modulePath + '/templates/main.html',
+        modulePath + '/constants/config-const.js'
+      ]);
+    });
 
     it('env files', function () {
       assert.file([
@@ -120,7 +107,7 @@ describe('m:module', function () {
         ['app/main/main.js', '$urlRouterProvider.otherwise(\'/main\');'],
         ['app/main/main.js', '.state(\'main\','],
         ['app/main/main.js', 'url: \'/main\','],
-        ['app/main/main.js', 'controller: \'StartCtrl as start\'']
+        ['app/main/main.js', 'controller: \'MainCtrl as ctrl\'']
       ]);
     });
 

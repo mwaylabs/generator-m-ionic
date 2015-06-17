@@ -10,15 +10,15 @@ angular.module('<%= moduleName %>', [
   console.log('Allo! Allo from your module: ' + '<%= moduleName %>');
 <% if (options.sample === 'start') { -%>
 
-  $urlRouterProvider.otherwise('/main');
+  $urlRouterProvider.otherwise('/<%= moduleFolder %>');
 <%} -%>
 
   // some basic routing
   $stateProvider
     .state('<%= moduleFolder %>', {
       url: '/<%= moduleFolder %>',
-      templateUrl: '<%= moduleFolder %>/templates/start.html',
-      controller: 'StartCtrl as start'
+      templateUrl: '<%= moduleFolder %>/templates/<%= fileName %>.html',
+      controller: '<%= controllerName %> as ctrl'
     });
   // TODO: do your thing
 });

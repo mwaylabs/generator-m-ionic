@@ -26,6 +26,7 @@ describe('utils', function () {
   });
 
   it('.moduleName()', function () {
+    assert.textEqual(utils.moduleName('myModule'), 'myModule');
     assert.textEqual(utils.moduleName(' a f dd'), 'aFDd');
     assert.textEqual(utils.moduleName('This is my New App P24'), 'thisIsMyNewAppP24');
     assert.textEqual(utils.moduleName('Yea -24 !bC$f'), 'yea24BcF');

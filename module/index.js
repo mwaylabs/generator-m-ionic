@@ -9,6 +9,8 @@ var MGenerator = yeoman.generators.NamedBase.extend({
     this.log('You called the m:module subgenerator with the argument ' + this.name + '.');
 
     this.moduleName = utils.moduleName(this.name);
+    this.controllerName = utils.controllerName(this.name);
+    this.fileName = utils.fileName(this.name);
     this.moduleFolder = utils.moduleFolder(this.moduleName);
   },
 
@@ -27,7 +29,7 @@ var MGenerator = yeoman.generators.NamedBase.extend({
     mkdirp.sync(moduleFolder + 'templates/');
 
     var options = {
-      arguments: 'start ' + this.moduleName,
+      arguments: this.name + ' ' + this.moduleName,
       options: {
         sample: 'start'
       }
