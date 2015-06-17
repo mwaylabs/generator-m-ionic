@@ -74,13 +74,11 @@ Many many tools and tweaks for your convenience:
   - yo: `npm install --global yo` - http://yeoman.io/
   - gulp: `npm install --global gulp` - http://gulpjs.com/
   - bower: `npm install --global bower` - http://bower.io/
-- Sass
-  - ruby - https://www.ruby-lang.org/en/installation/
-  - sass - http://sass-lang.com/install
-- Want to test your app on a device ? - Then you'll need:
-  - Platform SDKs for cordova
-    - cordova documentation: [http://cordova.apache.org/docs/en/edge/guide_platforms_index.md.html#Platform%20Guides)
-    - cordova cli readme: [Requirements](https://github.com/apache/cordova-cli/)
+- Sass http://sass-lang.com/
+  - no need to install in `> v1.1.0` since we're using [gulp-sass](https://github.com/dlmanning/gulp-sass) from now on
+  - for older versions check the old [v1.1.0 README.md](https://github.com/mwaylabs/generator-m/tree/1.1.0)
+- Want to test or run your app on a device ? Then you'll need:
+  - Platform SDKs for cordova. Head over to cordova documentation: [Platform Guides](http://cordova.apache.org/docs/en/edge/guide_platforms_index.md.html#Platform%20Guides) or cordova cli: [Requirements](https://github.com/apache/cordova-cli/)
 
 ### Generator
 
@@ -225,7 +223,7 @@ Inject variables into your angular app -your `Config` constants which are define
 
 Adding the `--buildVars` flag to `gulp build` or any gulp task that runs `gulp build` implicitly, for instance:
 ```sh
-gulp watch --buildVars="key:value,keys2:value2"
+gulp watch --buildVars='key:value,keys2:value2'
 ```
 will result in `Config` constants that look like this:
 ```js
@@ -272,7 +270,22 @@ gulp --cordova 'run android' # won't work on windows
 ```
 
 ## Sub-generators
+
+#### yo m:...
+A handy and fast way to create different angular components, handling all the boilerplate for you.
+The `<moduleName>` is optional and defaults to the main module when left blank
+```sh
+yo m:constant <constantName> <moduleName>
+yo m:controller <controllerName> <moduleName>
+yo m:directive <directiveName> <moduleName>
+yo m:filter <filterName> <moduleName>
+yo m:template <templateName> <moduleName>
+yo m:service <serviceName> <moduleName>
+```
+If you have `gulp watch` running, gulp will automatically inject your new files into your application and they will be available right away.
+
 #### yo m:module - creates a new module
+**Important**: While we are particularly proud of this feature, please note that using modules is only useful in large projects and we recommend that you only use them, if you know why you want to use them in your project.
 1. `yo m:module <moduleName>` - create a new module
 2. add your module to the `app/app.js`:
 
@@ -287,18 +300,6 @@ gulp --cordova 'run android' # won't work on windows
 3. navigate to `http://localhost:9000/#/<module-name-in-kebap-case>` in your browser.
 4. **Done!** - see your new module in action!
 
-
-#### yo m:others
-The `<moduleName>` is optional and defaults to the main module when left blank
-```sh
-yo m:constant <constantName> <moduleName>
-yo m:controller <controllerName> <moduleName>
-yo m:directive <directiveName> <moduleName>
-yo m:filter <filterName> <moduleName>
-yo m:template <templateName> <moduleName>
-yo m:service <serviceName> <moduleName>
-```
-If you have `gulp watch` running, gulp will automatically inject your new files into your application and they will be available right away.
 
 ## Git integration
 The generator provides a default set of configuration for git:
