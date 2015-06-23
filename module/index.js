@@ -43,7 +43,7 @@ var MGenerator = yeoman.generators.NamedBase.extend({
       options: options.options
     });
 
-    if (this.options && this.options.sample === 'start') {
+    if (this.options && this.options.mainModule) {
       this.copy('env-dev.json', moduleFolder + 'constants/env-dev.json');
       this.copy('env-prod.json', moduleFolder + 'constants/env-prod.json');
     }

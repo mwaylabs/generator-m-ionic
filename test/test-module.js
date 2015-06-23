@@ -67,7 +67,7 @@ describe('m:module', function () {
     });
   });
 
-  describe('m:module main --sample=start', function () {
+  describe('m:module main --mainModule', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../module'))
         .withGenerators([ // configure path to  subgenerators
@@ -77,7 +77,7 @@ describe('m:module', function () {
           path.join(__dirname, '../constant')
         ])
         .withArguments('main')
-        .withOptions({ sample: 'start'}) // execute with options
+        .withOptions({ mainModule: true}) // execute with options
         .on('end', done);
     });
 
@@ -95,6 +95,7 @@ describe('m:module', function () {
     });
 
     it('env files', function () {
+      // make sure its of type 'main', not just any module
       assert.file([
         'app/main/constants/env-dev.json',
         'app/main/constants/env-prod.json'

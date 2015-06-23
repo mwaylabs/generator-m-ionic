@@ -5,10 +5,10 @@ angular.module('<%= moduleName %>', [
   'ui.router',
   // TODO: load other modules selected during generation
 ])
-.config(function ($stateProvider<% if (options.sample === 'start') {%>, $urlRouterProvider<%} %>) {
+.config(function ($stateProvider<% if (options.mainModule) {%>, $urlRouterProvider<%} %>) {
 
   console.log('Allo! Allo from your module: ' + '<%= moduleName %>');
-<% if (options.sample === 'start') { -%>
+<% if (options.mainModule) { -%>
 
   $urlRouterProvider.otherwise('/<%= moduleFolder %>');
 <%} -%>

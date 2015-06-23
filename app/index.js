@@ -215,7 +215,10 @@ var MGenerator = yeoman.generators.Base.extend({
       // create main module
       this.composeWith('m:module', {
         arguments: config.DEFAULT_MODULE,
-        options: {sample: 'start'}
+        options: {
+          mainModule: true,
+          'skip-prompts': this.options['skip-prompts']
+        }
       });
     }
   },

@@ -58,10 +58,24 @@ describe('m', function () {
     it('creates /app files', function () {
       assert.file([
         'app/index.html',
-        'app/app.js',
+        'app/app.js'
+      ]);
+    });
+
+    it('creates module named main', function () {
+      assert.file([
         'app/main',
         'app/main/main.js',
+        'app/main/constants/env-dev.json',
       ]);
+    });
+
+    it('creates module of type main', function () {
+      // not just any module
+      assert.file([
+        'app/main/constants/env-dev.json',
+      ]);
+      assert.fileContent('app/main/styles/module.scss', '$light');
     });
 
     it('version injected in README.md', function () {
