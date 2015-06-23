@@ -1,7 +1,6 @@
 'use strict';
 var yeoman = require('yeoman-generator');
 var utils = require('../utils/utils.js');
-var config = require('../utils/config.js');
 var mkdirp = require('mkdirp');
 
 var MGenerator = yeoman.generators.NamedBase.extend({

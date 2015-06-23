@@ -32,6 +32,7 @@ for (var i = 0, folder; (folder = packageJSON.files[i]); i++) {
   // coverage: add every generator's index.js
   paths.coverage.push('./' + folder + '/index.js');
   // lint: index.js & add untemplated files
+  paths.lint.push('./' + folder + '/index.js');
   paths.lint.push('./' + folder + '/templates/**/*.js');
   paths.lint.push('!./' + folder + '/templates/**/_*.js');
   // watch: add all files in folders
