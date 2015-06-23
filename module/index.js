@@ -3,6 +3,8 @@ var yeoman = require('yeoman-generator');
 var utils = require('../utils/utils.js');
 var mkdirp = require('mkdirp');
 
+var sampleAnswers = require('../app/sources/sample-answers.js');
+
 var MGenerator = yeoman.generators.NamedBase.extend({
 
   initializing: function () {
@@ -14,7 +16,42 @@ var MGenerator = yeoman.generators.NamedBase.extend({
     this.moduleFolder = utils.moduleFolder(this.moduleName);
   },
 
+  prompting: function () {
+    // prompt and save results in this.answers
+
+    if (!this.options['skip-prompts']) {
+      // tell yeoman we're doing asynchronous stuff here
+      // so it can wait with subsequent tasks
+      var done = this.async();
+
+      this.prompt(
+      {
+        type: 'list',
+        name: 'template',
+        message: 'Choose a starter template',
+        choices: [
+          {
+            value: 'tabs',
+            name: 'tabs',
+          },
+          {
+            value: 'sidemenu',
+            name: 'sidemenu'
+          }
+        ]
+      }, function (answers) { // prompt
+        this.answers = answers;
+
+        done();
+      }.bind(this));
+    }
+    else {
+      this.answers = sampleAnswers.getStandard();
+    }
+  },
+
   writing: function () {
+
     var moduleFolder = 'app/' + this.moduleFolder + '/';
     mkdirp.sync(moduleFolder);
     this.template('_module.js', moduleFolder + this.moduleFolder + '.js');
@@ -47,6 +84,7 @@ var MGenerator = yeoman.generators.NamedBase.extend({
       this.copy('env-dev.json', moduleFolder + 'constants/env-dev.json');
       this.copy('env-prod.json', moduleFolder + 'constants/env-prod.json');
     }
+
   }
 });
 

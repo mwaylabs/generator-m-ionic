@@ -5,6 +5,9 @@ var path = require('path');
 var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 
+var sampleAnswers = require('../app/sources/sample-answers.js');
+var answers = sampleAnswers.getStandard();
+
 describe('m:module', function () {
 
   var fileCreationTests = function (moduleFolder) {
@@ -34,6 +37,7 @@ describe('m:module', function () {
           path.join(__dirname, '../service'),
           path.join(__dirname, '../constant')
         ])
+        .withPrompts(answers)
         .withArguments('myModule')
         .on('end', done);
     });
@@ -77,6 +81,7 @@ describe('m:module', function () {
           path.join(__dirname, '../constant')
         ])
         .withArguments('main')
+        .withPrompts(answers)
         .withOptions({ mainModule: true}) // execute with options
         .on('end', done);
     });

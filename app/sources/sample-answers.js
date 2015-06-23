@@ -24,7 +24,8 @@ module.exports = {
     plugins: [
       'cordova-plugin-device',
       'cordova-plugin-dialogs'
-    ]
+    ],
+    template: 'tabs'
   },
 
   /**
