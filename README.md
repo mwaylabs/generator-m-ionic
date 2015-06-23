@@ -285,7 +285,8 @@ yo m:service <serviceName> <moduleName>
 If you have `gulp watch` running, gulp will automatically inject your new files into your application and they will be available right away.
 
 #### yo m:module - creates a new module
-**Important**: While we are particularly proud of this feature, please note that using modules is only useful in large projects and we recommend that you only use them, if you know why you want to use them in your project.
+**Important**: While we are particularly proud of this feature, please note that using modules is only useful in large projects. We recommend that you only use them, if you know why you want to use them in your project. In our experience for most projects using one module is just fine.
+
 1. `yo m:module <moduleName>` - create a new module
 2. add your module to the `app/app.js`:
 
@@ -334,7 +335,7 @@ gulp --cordova 'platform add ios --save'
 gulp --cordova 'plugin remove cordova-plugin-camera --save'
 ```
 
-or by typing the following commands every time before you commit:
+or by typing the following commands before you commit:
 
 ```sh
 gulp --cordova 'platform save'
