@@ -87,7 +87,7 @@ describe('m', function () {
         // dependencies, test only one as example
         ['bower.json', 'ionic": "~1.0.0"'],
         // resolutions, test only one as example
-        ['bower.json', 'angular": "~1.3.15"'],
+        ['bower.json', 'angular": "~1.4.1"'],
         // optional, test all for correctness
         ['bower.json', 'angular-dynamic-locale": "~0.1.27"'],
         ['bower.json', 'angular-translate": "~2.7.0"'],

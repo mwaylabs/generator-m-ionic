@@ -6,19 +6,19 @@ module.exports = {
   bowerJSON: {
     dependencies: {
       'ionic': '~1.0.0',
-      'angular': '~1.3.15',
-      'angular-animate': '~1.3.15',
-      'angular-sanitize': '~1.3.15',
+      'angular': '~1.4.1',
+      'angular-animate': '~1.4.1',
+      'angular-sanitize': '~1.4.1',
       'angular-ui-router': '~0.2.15',
-      'ngCordova': '~0.1.15-alpha'
+      'ngCordova': '~0.1.17-alpha'
     },
     devDependencies: {
     },
     resolutions: {
       // force newest angular versions (not those from ionic)
-      'angular': '~1.3.15',
-      'angular-animate': '~1.3.15',
-      'angular-sanitize': '~1.3.15',
+      'angular': '~1.4.1',
+      'angular-animate': '~1.4.1',
+      'angular-sanitize': '~1.4.1',
       'angular-ui-router': '~0.2.15'
     }
   },
