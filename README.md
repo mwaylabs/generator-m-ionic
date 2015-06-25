@@ -288,6 +288,7 @@ If you have `gulp watch` running, gulp will automatically inject your new files 
 **Important**: While we are particularly proud of this feature, please note that using modules is only useful in large projects. We recommend that you only use them, if you know why you want to use them in your project. In our experience for most projects using one module is just fine.
 
 1. `yo m:module <moduleName>` - create a new module
+2. choose your template: `sidemenu`, `tabs` or `blank`
 2. add your module to the `app/app.js`:
 
   ```js
@@ -299,7 +300,9 @@ If you have `gulp watch` running, gulp will automatically inject your new files 
   ]);
   ```
 3. restart your `gulp watch` task
-3. navigate to `http://localhost:9000/#/<module-name-in-kebap-case>` in your browser.
+3. in your browser, depending on the template you chose, navigate to `http://localhost:9000/#`
+  - `/<module-name-in-kebap-case>` for `blank` templates
+  - `/<module-name-in-kebap-case>/list` for `sidemenu` and `tabs` templates
 4. **Done!** - see your new module in action!
 
 

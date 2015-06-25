@@ -72,18 +72,119 @@ describe('m:module', function () {
     });
   };
 
-  // var tabsTests = function (moduleName, options) {
-  //   var moduleFolder = utils.moduleFolder(moduleName);
-  //   var modulePath = 'app/' + moduleFolder;
-  //   console.log(options);
+  var tabsTests = function (moduleName, options) {
+    var moduleFolder = utils.moduleFolder(moduleName);
+    var modulePath = 'app/' + moduleFolder;
+    console.log(options);
 
-  //   it('tabs tests', function () {
-  //     assert.file([
-  //       modulePath + '/assets/images/yo@2x.png',
+    it('tabs tests', function () {
+      assert.file([
+        modulePath + '/assets/images/yo@2x.png',
+      ]);
 
-  //     ]);
-  //   });
-  // };
+      var moduleFile = modulePath + '/' + moduleFolder + '.js';
+      var serviceFile = modulePath + '/services/' + moduleFolder + '-serv.js';
+      var serviceName = utils.serviceName(moduleName);
+      var debugCtrlFile, debugCtrlName;
+      var configName;
+
+      // mainModule tests
+      if (options && options.mainModule) {
+        debugCtrlFile = modulePath + '/controllers/debug-ctrl.js';
+        debugCtrlName = utils.controllerName('Debug');
+        configName = utils.configName();
+
+        // module.js
+        assert.fileContent(moduleFile, 'otherwise(\'/' + moduleFolder + '/list');
+      }
+      // no mainModule test
+      else {
+        debugCtrlFile = modulePath + '/controllers/' + moduleFolder + '-debug-ctrl.js';
+        debugCtrlName = utils.controllerName(moduleName + 'Debug');
+        configName = utils.configName(moduleName);
+
+        // module.js
+        assert.noFileContent(moduleFile, 'otherwise(\'/');
+      }
+
+      // in any case
+      assert.fileContent([
+        // module.js
+        [moduleFile, 'abstract: true'],
+        [moduleFile, 'templateUrl: \'' + moduleFolder + '/templates/tabs.html'],
+        [moduleFile, '.state(\'' + moduleName + '.list'],
+        [moduleFile, 'templateUrl: \'' + moduleFolder + '/templates/list.html'],
+        [moduleFile, '.state(\'' + moduleName + '.listDetail'],
+        [moduleFile, 'templateUrl: \'' + moduleFolder + '/templates/list-detail.html'],
+        [moduleFile, '.state(\'' + moduleName + '.debug'],
+        [moduleFile, 'templateUrl: \'' + moduleFolder + '/templates/debug.html'],
+        [moduleFile, 'controller: \'' + debugCtrlName + ' as ctrl'],
+
+        // template files
+        [debugCtrlFile, 'controller(\'' + debugCtrlName],
+        [debugCtrlFile, serviceName + ', ' + configName],
+        [debugCtrlFile, 'this.someData = ' + serviceName],
+        [debugCtrlFile, 'this.ENV = ' + configName],
+        [debugCtrlFile, 'this.BUILD = ' + configName],
+        [serviceFile, 'service(\'' + serviceName],
+      ]);
+
+      // templates
+      assert.fileContent([
+        [modulePath + '/templates/debug.html', 'ctrl.someData.binding'],
+        [modulePath + '/templates/list-detail.html', 'I scaffold apps'],
+        [modulePath + '/templates/list.html', 'Learn more...'],
+        [modulePath + '/templates/list.html', moduleName + '.listDetail'],
+        [modulePath + '/templates/tabs.html', '<ion-tabs'],
+        [modulePath + '/templates/tabs.html', moduleName + '.list'],
+        [modulePath + '/templates/tabs.html', moduleName + '.debug'],
+      ]);
+    });
+  };
+
+  describe('main (main, tabs)', function () {
+    var options = {
+      mainModule: true
+    };
+
+    before(function (done) {
+      helpers.run(path.join(__dirname, '../module'))
+        .withGenerators([ // configure path to  subgenerators
+          path.join(__dirname, '../controller'),
+          path.join(__dirname, '../template'),
+          path.join(__dirname, '../service'),
+          path.join(__dirname, '../constant')
+        ])
+        .withArguments('main')
+        .withPrompts({ template: 'tabs' })
+        .withOptions(options)
+        .on('end', done);
+    });
+
+    basicFilesTests('main', options);
+    mainModuleTests('main');
+    tabsTests('main', options);
+  });
+
+  describe('myModule (no main, tabs)', function () {
+
+    before(function (done) {
+      helpers.run(path.join(__dirname, '../module'))
+        .withGenerators([ // configure path to  subgenerators
+          path.join(__dirname, '../controller'),
+          path.join(__dirname, '../template'),
+          path.join(__dirname, '../service'),
+          path.join(__dirname, '../constant')
+        ])
+        .withArguments('myModule')
+        .withPrompts({ template: 'tabs' })
+        .on('end', done);
+    });
+
+    basicFilesTests('myModule');
+    noMainModuleTests('myModule');
+    tabsTests('myModule');
+  });
 
   var sideMenuTests = function (moduleName, options) {
     var moduleFolder = utils.moduleFolder(moduleName);

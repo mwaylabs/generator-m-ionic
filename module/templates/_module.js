@@ -25,7 +25,8 @@ angular.module('<%= moduleName %>', [
       template: '<ion-view view-title="<%= moduleName %>"></ion-view>',
       // templateUrl: '<%= moduleFolder %>/templates/<someTemplate>.html',
       // controller: 'SomeCtrl as ctrl'
-<%} else if (answers.template === 'sidemenu') -%>
+    });
+<%} else if (answers.template === 'sidemenu') { -%>
       abstract: true,
       templateUrl: '<%= moduleFolder %>/templates/menu.html',
       controller: '<%= menuCtrlName %> as menu'
@@ -57,4 +58,36 @@ angular.module('<%= moduleName %>', [
           }
         }
       });
+<%} else if (answers.template === 'tabs') { -%>
+      abstract: true,
+      templateUrl: '<%= moduleFolder %>/templates/tabs.html'
+    })
+      .state('<%= moduleName %>.list', {
+        url: '/list',
+        views: {
+          'tab-list': {
+            templateUrl: '<%= moduleFolder %>/templates/list.html',
+            // controller: 'SomeCtrl as ctrl'
+          }
+        }
+      })
+      .state('<%= moduleName %>.listDetail', {
+        url: '/list/detail',
+        views: {
+          'tab-list': {
+            templateUrl: '<%= moduleFolder %>/templates/list-detail.html',
+            // controller: 'SomeCtrl as ctrl'
+          }
+        }
+      })
+      .state('<%= moduleName %>.debug', {
+        url: '/debug',
+        views: {
+          'tab-debug': {
+            templateUrl: '<%= moduleFolder %>/templates/debug.html',
+            controller: '<%= debugCtrlName %> as ctrl'
+          }
+        }
+      });
+<% } -%>
 });

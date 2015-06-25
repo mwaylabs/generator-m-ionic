@@ -34,6 +34,9 @@ var MGenerator = yeoman.generators.NamedBase.extend({
     else if (this.options.template === 'menu') {
       this.template('_menu.html', folder + this.fileName + '.html');
     }
+    else if (this.options.template === 'tabs') {
+      this.template('_tabs.html', folder + this.fileName + '.html');
+    }
   }
 });
 

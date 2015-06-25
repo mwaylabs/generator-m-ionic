@@ -31,12 +31,12 @@ var MGenerator = yeoman.generators.NamedBase.extend({
         message: 'Choose a starter template',
         choices: [
           {
-            value: 'tabs',
-            name: 'tabs',
-          },
-          {
             value: 'sidemenu',
             name: 'sidemenu'
+          },
+          {
+            value: 'tabs',
+            name: 'tabs',
           },
           {
             value: 'blank',
@@ -93,8 +93,9 @@ var MGenerator = yeoman.generators.NamedBase.extend({
       this.copy('env-prod.json', modulePath + '/constants/env-prod.json');
     }
 
-    // sidemenu
-    if (this.answers.template === 'sidemenu') {
+    // both
+    if (this.answers.template !== 'blank') {
+      // yo@2x.png
       this.copy('yo.png', modulePath + '/assets/images/yo@2x.png');
 
       // debug
@@ -111,15 +112,6 @@ var MGenerator = yeoman.generators.NamedBase.extend({
         options: {  template: 'debug' }
       });
 
-      // menu
-      this.composeWith('m:controller', {
-        arguments: this.menuCtrlName + ' ' + this.moduleName,
-      });
-      this.composeWith('m:template', {
-        arguments: 'menu ' + this.moduleName,
-        options: { template: 'menu' }
-      });
-
       // other templates
       this.composeWith('m:template', {
         arguments: 'list ' + this.moduleName,
@@ -130,19 +122,25 @@ var MGenerator = yeoman.generators.NamedBase.extend({
         options: { template: 'list-detail' }
       });
     }
-    // tabs
-    else if (this.answers.template === 'tabs') {
-      this.copy('yo.png', modulePath + '/assets/images/yo@2x.png');
+    // sidemenu
+    if (this.answers.template === 'sidemenu') {
+      // menu
+      this.composeWith('m:controller', {
+        arguments: this.menuCtrlName + ' ' + this.moduleName,
+      });
+      this.composeWith('m:template', {
+        arguments: 'menu ' + this.moduleName,
+        options: { template: 'menu' }
+      });
+    }
 
-      var options = {
-        arguments: this.name + ' ' + this.moduleName,
-        options: {
-          sample: 'start'
-        }
-      };
-      this.composeWith('m:template', options);
-      this.composeWith('m:service', options);
-      this.composeWith('m:controller', options);
+    // tabs
+    if (this.answers.template === 'tabs') {
+      // tabs
+      this.composeWith('m:template', {
+        arguments: 'tabs ' + this.moduleName,
+        options: { template: 'tabs' }
+      });
     }
   }
 });
