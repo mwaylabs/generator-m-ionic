@@ -18,14 +18,18 @@
     <!-- endbuild -->
   </head>
   <body ng-app="<%= answers.appModule %>">
-    <!--[if lt IE 10]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
 
-    <ion-nav-bar class="bar-<%= barColor %>"></ion-nav-bar>
+    <!-- the nav bar will be updated as we navigate between views -->
+    <!-- <ion-nav-bar> can be removed when using sidemenu (contained in menu.html) -->
+    <ion-nav-bar class="bar-<%= barColor %>">
+      <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+    <!-- the current view will be rendered in the <ion-nav-view> directive -->
     <ion-nav-view></ion-nav-view>
 
-    <script src="cordova.js"></script> <!-- will be a 404 during development -->
+    <!-- will be a 404 during development -->
+    <script src="cordova.js"></script>
+
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <!-- endbower -->

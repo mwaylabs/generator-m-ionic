@@ -37,6 +37,10 @@ var MGenerator = yeoman.generators.NamedBase.extend({
           {
             value: 'sidemenu',
             name: 'sidemenu'
+          },
+          {
+            value: 'blank',
+            name: 'blank'
           }
         ]
       }, function (answers) { // prompt
@@ -52,39 +56,63 @@ var MGenerator = yeoman.generators.NamedBase.extend({
 
   writing: function () {
 
+    // basic files
     var moduleFolder = 'app/' + this.moduleFolder + '/';
     mkdirp.sync(moduleFolder);
-    this.template('_module.js', moduleFolder + this.moduleFolder + '.js');
-    this.copy('yo.png', moduleFolder + 'assets/images/yo@2x.png');
+    mkdirp.sync(moduleFolder + 'assets/images');
     mkdirp.sync(moduleFolder + 'constants/');
     mkdirp.sync(moduleFolder + 'controllers/');
     mkdirp.sync(moduleFolder + 'directives/');
     mkdirp.sync(moduleFolder + 'filters/');
     mkdirp.sync(moduleFolder + 'services/');
     mkdirp.sync(moduleFolder + 'styles/');
-    this.template('_module.scss', moduleFolder + 'styles/module.scss');
     mkdirp.sync(moduleFolder + 'templates/');
 
-    var options = {
-      arguments: this.name + ' ' + this.moduleName,
-      options: {
-        sample: 'start'
-      }
-    };
-    this.composeWith('m:template', options);
-    this.composeWith('m:service', options);
-    this.composeWith('m:controller', options);
+    // basic templated files
+    this.template('_module.js', moduleFolder + this.moduleFolder + '.js');
+    this.template('_module.scss', moduleFolder + 'styles/module.scss');
     // create config constant
     this.composeWith('m:constant', {
       arguments: utils.configName(this.moduleName) + ' ' + this.moduleName,
-      options: options.options
+      options: {
+        template: 'config'
+      }
     });
 
+    // main module files
     if (this.options && this.options.mainModule) {
       this.copy('env-dev.json', moduleFolder + 'constants/env-dev.json');
       this.copy('env-prod.json', moduleFolder + 'constants/env-prod.json');
     }
 
+    // blank
+    var options = {};
+    if (this.answers.template === 'sidemenu') {
+      this.copy('yo.png', moduleFolder + 'assets/images/yo@2x.png');
+
+      options = {
+        arguments: this.name + ' ' + this.moduleName,
+        options: {
+          sample: 'start'
+        }
+      };
+      this.composeWith('m:template', options);
+      this.composeWith('m:service', options);
+      this.composeWith('m:controller', options);
+    }
+    else if (this.answers.template === 'tabs') {
+      this.copy('yo.png', moduleFolder + 'assets/images/yo@2x.png');
+
+      options = {
+        arguments: this.name + ' ' + this.moduleName,
+        options: {
+          sample: 'start'
+        }
+      };
+      this.composeWith('m:template', options);
+      this.composeWith('m:service', options);
+      this.composeWith('m:controller', options);
+    }
   }
 });
 

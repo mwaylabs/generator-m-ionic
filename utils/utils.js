@@ -4,8 +4,6 @@ var _s = require('underscore.string');
 var config = require('./config.js');
 var strings = require('./strings.js');
 
-// TODO: move string manipulations functions behind facade?
-
 module.exports = {
 
   /**
@@ -61,7 +59,11 @@ module.exports = {
    */
   configName: function (moduleName) {
     var configName;
-    if (moduleName === this.moduleName(config.DEFAULT_MODULE)) {
+
+    if (!moduleName) {
+      configName = config.CONFIG_SUFFIX;
+    }
+    else if (moduleName === this.moduleName(config.DEFAULT_MODULE)) {
       configName = config.CONFIG_SUFFIX;
     }
     else {

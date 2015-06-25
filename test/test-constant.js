@@ -41,11 +41,11 @@ describe('m:constant', function () {
     });
   });
 
-  describe('m:constant myConstant --sample=start', function () {
+  describe('m:constant myConstant --template=config', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../constant'))
         .withArguments('myConstant')
-        .withOptions({ sample: 'start' })
+        .withOptions({ template: 'config' })
         .on('end', done);
     });
 

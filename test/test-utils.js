@@ -38,6 +38,7 @@ describe('utils', function () {
   });
 
   it('.configName()', function () {
+    assert.textEqual(utils.configName(), 'Config');
     assert.textEqual(utils.configName('myModule'), 'MyModuleConfig');
     assert.textEqual(utils.configName(config.DEFAULT_MODULE), 'Config');
   });

@@ -13,12 +13,19 @@ angular.module('<%= moduleName %>', [
   $urlRouterProvider.otherwise('/<%= moduleFolder %>');
 <%} -%>
 
-  // some basic routing
+  // ROUTING with ui.router
   $stateProvider
+    // this state is placed in the <ion-nav-view> in the index.html
     .state('<%= moduleFolder %>', {
       url: '/<%= moduleFolder %>',
-      templateUrl: '<%= moduleFolder %>/templates/<%= fileName %>.html',
-      controller: '<%= controllerName %> as ctrl'
+<% if (answers.template === 'blank') { -%>
+      template: '<ion-view view-title="<%= moduleName %>"></ion-view>',
+      // templateUrl: '<%= moduleFolder %>/templates/<someTemplate>.html',
+      // controller: 'SomeCtrl as ctrl'
+<%} -%>
+      // .state('<%= moduleFolder %>', {
+      //   url: '/<%= moduleFolder %>',
+      //   templateUrl: '<%= moduleFolder %>/templates/<%= fileName %>.html',
+      //   controller: '<%= controllerName %> as ctrl'
     });
-  // TODO: do your thing
 });

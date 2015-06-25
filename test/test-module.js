@@ -5,18 +5,18 @@ var path = require('path');
 var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 
-var sampleAnswers = require('../app/sources/sample-answers.js');
-var answers = sampleAnswers.getStandard();
+var utils = require('../utils/utils.js');
 
 describe('m:module', function () {
 
-  var fileCreationTests = function (moduleFolder) {
+  var basicFilesTests = function (moduleName, options) {
+    var moduleFolder = utils.moduleFolder(moduleName);
     var modulePath = 'app/' + moduleFolder;
 
-    it('creates files and folders', function () {
+    it('basic files and folders', function () {
       assert.file([
         modulePath + '/' + moduleFolder + '.js',
-        modulePath + '/assets/images/yo@2x.png',
+        modulePath + '/assets/images',
         modulePath + '/constants',
         modulePath + '/controllers',
         modulePath + '/directives',
@@ -25,53 +25,106 @@ describe('m:module', function () {
         modulePath + '/styles/module.scss',
         modulePath + '/templates'
       ]);
+
+      var configPath = modulePath + '/constants/';
+      var configName = '';
+      if (options && options.mainModule) {
+        configPath += 'config-const.js';
+        configName = utils.configName();
+      }
+      else {
+        configPath += moduleFolder + '-config-const.js';
+        configName = utils.configName(moduleName);
+      }
+      assert.fileContent(configPath, '.constant(\'' + configName + '\'');
+      assert.fileContent(configPath, 'ENV: {');
     });
   };
 
-  describe('m:module myModule', function () {
-    before(function (done) {
-      helpers.run(path.join(__dirname, '../module'))
-        .withGenerators([ // configure path to subgenerators
-          path.join(__dirname, '../controller'),
-          path.join(__dirname, '../template'),
-          path.join(__dirname, '../service'),
-          path.join(__dirname, '../constant')
-        ])
-        .withPrompts(answers)
-        .withArguments('myModule')
-        .on('end', done);
-    });
+  var mainModuleTests = function (moduleName) {
+    var moduleFolder = utils.moduleFolder(moduleName);
 
-    fileCreationTests('my-module');
-
-    var modulePath = 'app/my-module';
-    var moduleJsPath = modulePath + '/' + 'my-module' + '.js';
-    it('module.js has proper content', function () {
-      assert.fileContent([
-        [moduleJsPath, 'angular.module(\'myModule\','],
-        [moduleJsPath, '.state(\'' + 'my-module' + '\','],
-        [moduleJsPath, 'url: \'/my-module\','],
-        [moduleJsPath, 'controller: \'MyModuleCtrl as ctrl\'']
+    it('--mainModule tests', function () {
+      assert.file([
+        'app/' + moduleFolder + '/constants/env-dev.json',
+        'app/' + moduleFolder + '/constants/env-prod.json'
       ]);
+      assert.fileContent('app/' + moduleFolder + '/styles/module.scss', '$light');
     });
+  };
 
-    it('module.scss is empty', function () {
+  var noMainModuleTests = function (moduleName) {
+    var moduleFolder = utils.moduleFolder(moduleName);
+    var modulePath = 'app/' + moduleFolder;
+
+    it('no mainModule tests', function () {
+      assert.noFile([
+        modulePath + '/constants/env-dev.json',
+        modulePath + '/constants/env-prod.json'
+      ]);
       assert.noFileContent(modulePath + '/styles/module.scss', '$light');
     });
+  };
 
-    it('module files', function () {
-      var modulePath = 'app/my-module';
+  var tabsTests = function (moduleName, options) {
+    var moduleFolder = utils.moduleFolder(moduleName);
+    var modulePath = 'app/' + moduleFolder;
+    console.log(options);
 
+    it('tabs tests', function () {
       assert.file([
-        modulePath + '/controllers/my-module-ctrl.js',
-        modulePath + '/services/my-module-serv.js',
-        modulePath + '/templates/my-module.html',
-        modulePath + '/constants/my-module-config-const.js'
+        modulePath + '/assets/images/yo@2x.png',
+
       ]);
     });
-  });
+  };
 
-  describe('m:module main --mainModule', function () {
+  // var sideMenuTests = function (moduleName, options) {
+  //   var moduleFolder = utils.moduleFolder(moduleName);
+  //   var modulePath = 'app/' + moduleFolder;
+
+  //   it('sideMenu tests', function () {
+  //     assert.file([
+  //       modulePath + '/assets/images/yo@2x.png',
+  //     ]);
+
+  //     // mainModule tests
+  //     if (options.mainModule) {
+  //       assert.fileContent([
+  //         [
+  //           modulePath + '/controllers/debug-ctrl.js',
+  //           '.controller(\'DebugCtrl\''
+  //         ]
+  //       ]);
+  //     }
+  //     // other module tests
+  //     else {
+
+  //     }
+  //   });
+  // };
+
+  var blankTests = function (moduleName) {
+    var moduleFolder = utils.moduleFolder(moduleName);
+    var modulePath = 'app/' + moduleFolder;
+
+    it('blank tests', function () {
+      assert.noFile([
+        modulePath + '/assets/images/yo@2x.png',
+      ]);
+      // module.js
+      var moduleJsPath = modulePath + '/' + moduleFolder + '.js';
+      assert.fileContent(moduleJsPath, '.state(\'' + moduleFolder + '\'');
+      assert.fileContent(moduleJsPath, 'url: \'/' + moduleFolder + '\'');
+      assert.fileContent(moduleJsPath, 'view-title="' + moduleName + '">');
+      assert.fileContent(moduleJsPath, moduleFolder + '/templates');
+    });
+  };
+
+  describe('m:module main --mainModule (tabs)', function () {
+    var options = {
+      mainModule: true
+    };
     before(function (done) {
       helpers.run(path.join(__dirname, '../module'))
         .withGenerators([ // configure path to  subgenerators
@@ -81,14 +134,16 @@ describe('m:module', function () {
           path.join(__dirname, '../constant')
         ])
         .withArguments('main')
-        .withPrompts(answers)
-        .withOptions({ mainModule: true}) // execute with options
+        .withPrompts({ template: 'tabs' })
+        .withOptions(options)
         .on('end', done);
     });
 
-    fileCreationTests('main');
+    basicFilesTests('main', options);
+    mainModuleTests('main');
+    tabsTests('main', options);
 
-    it('start files', function () {
+    it('tab files', function () {
       var modulePath = 'app/main';
 
       assert.file([
@@ -96,14 +151,6 @@ describe('m:module', function () {
         modulePath + '/services/main-serv.js',
         modulePath + '/templates/main.html',
         modulePath + '/constants/config-const.js'
-      ]);
-    });
-
-    it('env files', function () {
-      // make sure its of type 'main', not just any module
-      assert.file([
-        'app/main/constants/env-dev.json',
-        'app/main/constants/env-prod.json'
       ]);
     });
 
@@ -116,9 +163,25 @@ describe('m:module', function () {
         ['app/main/main.js', 'controller: \'MainCtrl as ctrl\'']
       ]);
     });
-
-    it('module.scss has ionic includes', function () {
-      assert.fileContent('app/main/styles/module.scss', '$light');
-    });
   });
+
+  describe('m:module myModule (no main, blank)', function () {
+    before(function (done) {
+      helpers.run(path.join(__dirname, '../module'))
+        .withGenerators([ // configure path to subgenerators
+          path.join(__dirname, '../controller'),
+          path.join(__dirname, '../template'),
+          path.join(__dirname, '../service'),
+          path.join(__dirname, '../constant')
+        ])
+        .withPrompts({ template: 'blank' })
+        .withArguments('myModule')
+        .on('end', done);
+    });
+
+    basicFilesTests('myModule');
+    noMainModuleTests('myModule');
+    blankTests('myModule');
+  });
+
 });

@@ -2,7 +2,7 @@
 angular.module('<%= moduleName %>')
 .constant('<%= constantName %>', {
 
-<% if (options.sample === 'start') { -%>
+<% if (options.template === 'config') { -%>
   // gulp environment: injects environment vars
   // https://github.com/mwaylabs/generator-m#gulp-environment
   ENV: {
