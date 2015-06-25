@@ -57,20 +57,28 @@ var MGenerator = yeoman.generators.NamedBase.extend({
   writing: function () {
 
     // basic files
-    var moduleFolder = 'app/' + this.moduleFolder + '/';
-    mkdirp.sync(moduleFolder);
-    mkdirp.sync(moduleFolder + 'assets/images');
-    mkdirp.sync(moduleFolder + 'constants/');
-    mkdirp.sync(moduleFolder + 'controllers/');
-    mkdirp.sync(moduleFolder + 'directives/');
-    mkdirp.sync(moduleFolder + 'filters/');
-    mkdirp.sync(moduleFolder + 'services/');
-    mkdirp.sync(moduleFolder + 'styles/');
-    mkdirp.sync(moduleFolder + 'templates/');
+    var modulePath = 'app/' + this.moduleFolder;
+    mkdirp.sync(modulePath);
+    mkdirp.sync(modulePath + '/assets/images');
+    mkdirp.sync(modulePath + '/constants/');
+    mkdirp.sync(modulePath + '/controllers/');
+    mkdirp.sync(modulePath + '/directives/');
+    mkdirp.sync(modulePath + '/filters/');
+    mkdirp.sync(modulePath + '/services/');
+    mkdirp.sync(modulePath + '/styles/');
+    mkdirp.sync(modulePath + '/templates/');
 
     // basic templated files
-    this.template('_module.js', moduleFolder + this.moduleFolder + '.js');
-    this.template('_module.scss', moduleFolder + 'styles/module.scss');
+    if (this.options.mainModule) {
+      this.menuCtrlName = utils.controllerName('Menu');
+      this.debugCtrlName = utils.controllerName('Debug');
+    }
+    else {
+      this.menuCtrlName = utils.controllerName(this.moduleName + 'Menu');
+      this.debugCtrlName = utils.controllerName(this.moduleName + 'Debug');
+    }
+    this.template('_module.js', modulePath + '/' + this.moduleFolder + '.js');
+    this.template('_module.scss', modulePath + '/styles/module.scss');
     // create config constant
     this.composeWith('m:constant', {
       arguments: utils.configName(this.moduleName) + ' ' + this.moduleName,
@@ -80,30 +88,53 @@ var MGenerator = yeoman.generators.NamedBase.extend({
     });
 
     // main module files
-    if (this.options && this.options.mainModule) {
-      this.copy('env-dev.json', moduleFolder + 'constants/env-dev.json');
-      this.copy('env-prod.json', moduleFolder + 'constants/env-prod.json');
+    if (this.options.mainModule) {
+      this.copy('env-dev.json', modulePath + '/constants/env-dev.json');
+      this.copy('env-prod.json', modulePath + '/constants/env-prod.json');
     }
 
-    // blank
-    var options = {};
+    // sidemenu
     if (this.answers.template === 'sidemenu') {
-      this.copy('yo.png', moduleFolder + 'assets/images/yo@2x.png');
+      this.copy('yo.png', modulePath + '/assets/images/yo@2x.png');
 
-      options = {
+      // debug
+      this.composeWith('m:controller', {
+        arguments: this.debugCtrlName + ' ' + this.moduleName,
+        options: { template: 'debug' }
+      });
+      this.composeWith('m:template', {
+        arguments: 'debug ' + this.moduleName,
+        options: { template: 'debug' }
+      });
+      this.composeWith('m:service', {
         arguments: this.name + ' ' + this.moduleName,
-        options: {
-          sample: 'start'
-        }
-      };
-      this.composeWith('m:template', options);
-      this.composeWith('m:service', options);
-      this.composeWith('m:controller', options);
-    }
-    else if (this.answers.template === 'tabs') {
-      this.copy('yo.png', moduleFolder + 'assets/images/yo@2x.png');
+        options: {  template: 'debug' }
+      });
 
-      options = {
+      // menu
+      this.composeWith('m:controller', {
+        arguments: this.menuCtrlName + ' ' + this.moduleName,
+      });
+      this.composeWith('m:template', {
+        arguments: 'menu ' + this.moduleName,
+        options: { template: 'menu' }
+      });
+
+      // other templates
+      this.composeWith('m:template', {
+        arguments: 'list ' + this.moduleName,
+        options: { template: 'list' }
+      });
+      this.composeWith('m:template', {
+        arguments: 'list-detail ' + this.moduleName,
+        options: { template: 'list-detail' }
+      });
+    }
+    // tabs
+    else if (this.answers.template === 'tabs') {
+      this.copy('yo.png', modulePath + '/assets/images/yo@2x.png');
+
+      var options = {
         arguments: this.name + ' ' + this.moduleName,
         options: {
           sample: 'start'

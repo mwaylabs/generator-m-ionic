@@ -44,7 +44,7 @@ describe('m:service', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../service'))
         .withArguments('some')
-        .withOptions({ sample: 'start' })
+        .withOptions({ template: 'debug' })
         .on('end', done);
     });
 

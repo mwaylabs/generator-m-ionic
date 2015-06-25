@@ -59,8 +59,11 @@ gulp.task('watch', ['serve', 'linting'], function () {
 
   // watch for changes in scss
   gulp.watch('app/*/styles/**/*.scss', ['styles']);
-  // watch for changes in environment files
-  gulp.watch('app/main/constants/env-*.json', ['environment']);
+  // watch for changes in environment files and new config files
+  gulp.watch([
+    'app/main/constants/env-*.json',
+    'app/*/constants/*config-const.js'
+  ], ['environment']);
 });
 gulp.task('serve', ['connect', 'inject-all'], open);
 gulp.task('connect', createConnectServer(['app', '.tmp']));

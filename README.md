@@ -298,6 +298,7 @@ If you have `gulp watch` running, gulp will automatically inject your new files 
     '<newModuleName>'
   ]);
   ```
+3. restart your `gulp watch` task
 3. navigate to `http://localhost:9000/#/<module-name-in-kebap-case>` in your browser.
 4. **Done!** - see your new module in action!
 

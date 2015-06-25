@@ -5,7 +5,7 @@ angular.module('<%= moduleName %>')
   console.log('Hello from your Service: <%= serviceName %> in module <%= moduleName %>');
   // TODO: do your service thing
 
-<% if(options.sample === 'start') { -%>
+<% if(options.template === 'debug') { -%>
   // some initial data
   this.someData = {
     binding: 'Yes! Got that databinding working'

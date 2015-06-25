@@ -26,6 +26,12 @@ describe('m:module', function () {
         modulePath + '/templates'
       ]);
 
+      // module.js
+      var moduleFile = modulePath + '/' + moduleFolder + '.js';
+      assert.fileContent(moduleFile, '.state(\'' + moduleName + '\'');
+      assert.fileContent(moduleFile, 'url: \'/' + moduleFolder + '\'');
+
+      // config
       var configPath = modulePath + '/constants/';
       var configName = '';
       if (options && options.mainModule) {
@@ -66,65 +72,101 @@ describe('m:module', function () {
     });
   };
 
-  var tabsTests = function (moduleName, options) {
-    var moduleFolder = utils.moduleFolder(moduleName);
-    var modulePath = 'app/' + moduleFolder;
-    console.log(options);
-
-    it('tabs tests', function () {
-      assert.file([
-        modulePath + '/assets/images/yo@2x.png',
-
-      ]);
-    });
-  };
-
-  // var sideMenuTests = function (moduleName, options) {
+  // var tabsTests = function (moduleName, options) {
   //   var moduleFolder = utils.moduleFolder(moduleName);
   //   var modulePath = 'app/' + moduleFolder;
+  //   console.log(options);
 
-  //   it('sideMenu tests', function () {
+  //   it('tabs tests', function () {
   //     assert.file([
   //       modulePath + '/assets/images/yo@2x.png',
+
   //     ]);
-
-  //     // mainModule tests
-  //     if (options.mainModule) {
-  //       assert.fileContent([
-  //         [
-  //           modulePath + '/controllers/debug-ctrl.js',
-  //           '.controller(\'DebugCtrl\''
-  //         ]
-  //       ]);
-  //     }
-  //     // other module tests
-  //     else {
-
-  //     }
   //   });
   // };
 
-  var blankTests = function (moduleName) {
+  var sideMenuTests = function (moduleName, options) {
     var moduleFolder = utils.moduleFolder(moduleName);
     var modulePath = 'app/' + moduleFolder;
 
-    it('blank tests', function () {
-      assert.noFile([
+    it('sideMenu tests', function () {
+      assert.file([
         modulePath + '/assets/images/yo@2x.png',
       ]);
-      // module.js
-      var moduleJsPath = modulePath + '/' + moduleFolder + '.js';
-      assert.fileContent(moduleJsPath, '.state(\'' + moduleFolder + '\'');
-      assert.fileContent(moduleJsPath, 'url: \'/' + moduleFolder + '\'');
-      assert.fileContent(moduleJsPath, 'view-title="' + moduleName + '">');
-      assert.fileContent(moduleJsPath, moduleFolder + '/templates');
+
+      var moduleFile = modulePath + '/' + moduleFolder + '.js';
+      var serviceFile = modulePath + '/services/' + moduleFolder + '-serv.js';
+      var serviceName = utils.serviceName(moduleName);
+      var debugCtrlFile, debugCtrlName;
+      var menuCtrlFile, menuCtrlName;
+      var configName;
+
+      // mainModule tests
+      if (options && options.mainModule) {
+        menuCtrlFile = modulePath + '/controllers/menu-ctrl.js';
+        menuCtrlName = utils.controllerName('Menu');
+        debugCtrlFile = modulePath + '/controllers/debug-ctrl.js';
+        debugCtrlName = utils.controllerName('Debug');
+        configName = utils.configName();
+
+        // module.js
+        assert.fileContent(moduleFile, 'otherwise(\'/' + moduleFolder + '/list');
+      }
+      // no mainModule test
+      else {
+        menuCtrlFile = modulePath + '/controllers/' + moduleFolder + '-menu-ctrl.js';
+        menuCtrlName = utils.controllerName(moduleName + 'Menu');
+        debugCtrlFile = modulePath + '/controllers/' + moduleFolder + '-debug-ctrl.js';
+        debugCtrlName = utils.controllerName(moduleName + 'Debug');
+        configName = utils.configName(moduleName);
+
+        // module.js
+        assert.noFileContent(moduleFile, 'otherwise(\'/');
+      }
+
+      // in any case
+      assert.fileContent([
+        // module.js
+        [moduleFile, 'abstract: true'],
+        [moduleFile, 'templateUrl: \'' + moduleFolder + '/templates/menu.html'],
+        [moduleFile, 'controller: \'' + menuCtrlName + ' as menu\''],
+        [moduleFile, '.state(\'' + moduleName + '.list'],
+        [moduleFile, 'templateUrl: \'' + moduleFolder + '/templates/list.html'],
+        [moduleFile, '.state(\'' + moduleName + '.listDetail'],
+        [moduleFile, 'templateUrl: \'' + moduleFolder + '/templates/list-detail.html'],
+        [moduleFile, '.state(\'' + moduleName + '.debug'],
+        [moduleFile, 'templateUrl: \'' + moduleFolder + '/templates/debug.html'],
+        [moduleFile, 'controller: \'' + debugCtrlName + ' as ctrl'],
+
+        // template files
+        [debugCtrlFile, 'controller(\'' + debugCtrlName],
+        [debugCtrlFile, serviceName + ', ' + configName],
+        [debugCtrlFile, 'this.someData = ' + serviceName],
+        [debugCtrlFile, 'this.ENV = ' + configName],
+        [debugCtrlFile, 'this.BUILD = ' + configName],
+        [serviceFile, 'service(\'' + serviceName],
+        [menuCtrlFile, 'controller(\'' + menuCtrlName],
+      ]);
+
+      // templates
+      assert.fileContent([
+        [modulePath + '/templates/debug.html', 'ctrl.someData.binding'],
+        [modulePath + '/templates/list-detail.html', 'I scaffold apps'],
+        [modulePath + '/templates/list.html', 'Learn more...'],
+        [modulePath + '/templates/list.html', moduleName + '.listDetail'],
+        [modulePath + '/templates/menu.html', '<ion-side-menu'],
+        [modulePath + '/templates/menu.html', moduleName + '.list'],
+        [modulePath + '/templates/menu.html', moduleName + '.debug'],
+      ]);
+
     });
   };
 
-  describe('m:module main --mainModule (tabs)', function () {
+  describe('main (main, sidemenu)', function () {
     var options = {
       mainModule: true
     };
+
     before(function (done) {
       helpers.run(path.join(__dirname, '../module'))
         .withGenerators([ // configure path to  subgenerators
@@ -134,38 +176,77 @@ describe('m:module', function () {
           path.join(__dirname, '../constant')
         ])
         .withArguments('main')
-        .withPrompts({ template: 'tabs' })
+        .withPrompts({ template: 'sidemenu' })
         .withOptions(options)
         .on('end', done);
     });
 
     basicFilesTests('main', options);
     mainModuleTests('main');
-    tabsTests('main', options);
-
-    it('tab files', function () {
-      var modulePath = 'app/main';
-
-      assert.file([
-        modulePath + '/controllers/main-ctrl.js',
-        modulePath + '/services/main-serv.js',
-        modulePath + '/templates/main.html',
-        modulePath + '/constants/config-const.js'
-      ]);
-    });
-
-    it('module.js has proper content', function () {
-      assert.fileContent([
-        ['app/main/main.js', 'angular.module(\'main\','],
-        ['app/main/main.js', '$urlRouterProvider.otherwise(\'/main\');'],
-        ['app/main/main.js', '.state(\'main\','],
-        ['app/main/main.js', 'url: \'/main\','],
-        ['app/main/main.js', 'controller: \'MainCtrl as ctrl\'']
-      ]);
-    });
+    sideMenuTests('main', options);
   });
 
-  describe('m:module myModule (no main, blank)', function () {
+  describe('myModule (no main, sidemenu)', function () {
+
+    before(function (done) {
+      helpers.run(path.join(__dirname, '../module'))
+        .withGenerators([ // configure path to  subgenerators
+          path.join(__dirname, '../controller'),
+          path.join(__dirname, '../template'),
+          path.join(__dirname, '../service'),
+          path.join(__dirname, '../constant')
+        ])
+        .withArguments('myModule')
+        .withPrompts({ template: 'sidemenu' })
+        .on('end', done);
+    });
+
+    basicFilesTests('myModule');
+    noMainModuleTests('myModule');
+    sideMenuTests('myModule');
+  });
+
+  var blankTests = function (moduleName) {
+    var moduleFolder = utils.moduleFolder(moduleName);
+    var modulePath = 'app/' + moduleFolder;
+
+    it('blank tests', function () {
+      assert.noFile([
+        modulePath + '/assets/images/yo@2x.png',
+      ]);
+
+      // module.js
+      var moduleFile = modulePath + '/' + moduleFolder + '.js';
+      assert.fileContent(moduleFile, 'view-title="' + moduleName + '">');
+      assert.fileContent(moduleFile, moduleFolder + '/templates');
+    });
+  };
+
+  describe('main (main, blank)', function () {
+    var options = {
+      mainModule: true
+    };
+
+    before(function (done) {
+      helpers.run(path.join(__dirname, '../module'))
+        .withGenerators([ // configure path to subgenerators
+          path.join(__dirname, '../controller'),
+          path.join(__dirname, '../template'),
+          path.join(__dirname, '../service'),
+          path.join(__dirname, '../constant')
+        ])
+        .withPrompts({ template: 'blank' })
+        .withOptions(options)
+        .withArguments('main')
+        .on('end', done);
+    });
+
+    basicFilesTests('main', options);
+    mainModuleTests('main');
+    blankTests('main', options);
+  });
+
+  describe('myModule (no main, blank)', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../module'))
         .withGenerators([ // configure path to subgenerators

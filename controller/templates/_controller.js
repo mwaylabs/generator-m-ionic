@@ -1,8 +1,8 @@
 'use strict';
 angular.module('<%= moduleName %>')
-.controller('<%= controllerName %>', function (<% if(options.sample === 'start') { %><%= serviceName %>, <%= configName %><% } %>) {
+.controller('<%= controllerName %>', function (<% if(options.template === 'debug') { %><%= serviceName %>, <%= configName %><% } %>) {
 
-<% if (options.sample === 'start') {-%>
+<% if (options.template === 'debug') {-%>
   // bind data from service
   this.someData = <%= serviceName %>.someData;
   this.ENV = <%= configName %>.ENV;

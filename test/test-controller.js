@@ -44,7 +44,7 @@ describe('m:controller', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../controller'))
         .withArguments('someCtrl')
-        .withOptions({ sample: 'start' })
+        .withOptions({ template: 'debug' })
         .on('end', done);
     });
 
@@ -63,7 +63,7 @@ describe('m:controller', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../controller'))
         .withArguments('someCtrl myModule')
-        .withOptions({ sample: 'start' })
+        .withOptions({ template: 'debug' })
         .on('end', done);
     });
 

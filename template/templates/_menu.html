@@ -1,0 +1,40 @@
+<ion-side-menus enable-menu-with-back-views="false">
+
+  <!-- sidemenu content -->
+  <ion-side-menu-content>
+    <!-- header bar -->
+    <!-- the nav bar will be updated as we navigate between views -->
+    <ion-nav-bar class="bar-<%= barColor %>">
+      <!-- back button, shown if applicable -->
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      <!-- nav button, shown if applicable -->
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <!-- actual content goes here: pageContent -->
+    <ion-nav-view name="pageContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <!-- sidemenu left -->
+  <ion-side-menu side="left">
+    <!-- menu header -->
+    <ion-header-bar class="bar-<%= barColor %>">
+      <h1 class="title">Nav</h1>
+    </ion-header-bar>
+    <!-- menu content -->
+    <ion-content>
+      <ion-list>
+        <ion-item menu-close ui-sref="<%= moduleName %>.list">
+          List
+        </ion-item>
+        <ion-item menu-close ui-sref="<%= moduleName %>.debug">
+          Debug
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+
+</ion-side-menus>
