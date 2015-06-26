@@ -8,15 +8,13 @@ angular.module('<%= moduleName %>', [
 .config(function ($stateProvider<% if (options.mainModule) {%>, $urlRouterProvider<%} %>) {
 
   console.log('Allo! Allo from your module: ' + '<%= moduleName %>');
-<% if (options.mainModule && answers.template === 'blank') { -%>
-
-  $urlRouterProvider.otherwise('/<%= moduleFolder %>');
-<%} else if (options.mainModule) { -%>
-
-  $urlRouterProvider.otherwise('/<%= moduleFolder %>/list');
-<%} -%>
 
   // ROUTING with ui.router
+<% if (options.mainModule && answers.template === 'blank') { -%>
+  $urlRouterProvider.otherwise('/<%= moduleFolder %>');
+<%} else if (options.mainModule) { -%>
+  $urlRouterProvider.otherwise('/<%= moduleFolder %>/list');
+<%} -%>
   $stateProvider
     // this state is placed in the <ion-nav-view> in the index.html
     .state('<%= moduleName %>', {

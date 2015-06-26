@@ -39,20 +39,4 @@ describe('m:template', function () {
       ]);
     });
   });
-
-  describe('m:template someTemplate --sample=start', function () {
-    before(function (done) {
-      helpers.run(path.join(__dirname, '../template'))
-        .withArguments('someTemplate')
-        .withOptions({ sample: 'start' })
-        .on('end', done);
-    });
-
-    it('template file contents', function () {
-      var filePath = 'app/main/templates/some-template.html';
-      assert.fileContent([
-        [filePath, '<ion-item class="item">{{ctrl.someData.binding}}']
-      ]);
-    });
-  });
 });

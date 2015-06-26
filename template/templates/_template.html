@@ -1,30 +1,16 @@
 <ion-view view-title="<%= moduleName %> module">
-  <ion-content>
-    <ion-list>
+  <!-- do you want padding? -->
+  <ion-content class="padding">
 
+    <!-- content goes here -->
+    <ion-list>
       <ion-item class="item item-divider">
         This is your <%= templateName %> template!
       </ion-item>
       <ion-item class="item item-icon">
-        icons working?
-        <i class="icon ion-checkmark-circled"></i>
+        Yeiiii!
       </ion-item>
-      <ion-item class="item item-thumbnail">
-        images working?<br>
-        <img width="75" src="main/assets/images/yo@2x.png">
-      </ion-item>
-<% if(options.sample === 'start') { -%>
-      <ion-item class="item">{{ctrl.someData.binding}}</ion-item>
-      <ion-item class="item item-divider">Environment variables:</ion-item>
-      <ion-item class="item item-text-wrap">
-        <pre>{{ctrl.ENV | json}}</pre>
-      </ion-item>
-      <ion-item class="item item-divider">Build variables:</ion-item>
-      <ion-item class="item item-text-wrap">
-        <pre>{{ctrl.BUILD | json}}</pre>
-      </ion-item>
-<% } -%>
-
     </ion-list>
+
   </ion-content>
 </ion-view>

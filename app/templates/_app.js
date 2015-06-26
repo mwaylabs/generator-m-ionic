@@ -1,5 +1,5 @@
 'use strict';
 angular.module('<%= answers.appModule %>', [
-  // your modules
-  'main'
+  // load your modules here
+  'main' // starting with the main module
 ]);
