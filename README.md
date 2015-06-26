@@ -219,7 +219,7 @@ In case your project grows large and you have several modules in your project yo
 
 
 #### gulp build-vars
-Inject variables into your angular app -your `Config` constants which are defined in `app/*/constants/config-const.js` to be exact- during a build.
+Inject variables into your angular app -namely your `Config` constants which are defined in `app/*/constants/config-const.js`- during a build.
 
 Adding the `--buildVars` flag to `gulp build` or any gulp task that runs `gulp build` implicitly, for instance:
 ```sh

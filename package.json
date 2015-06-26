@@ -34,25 +34,25 @@
   ],
   "dependencies": {
     "chalk": "^1.0.0",
-    "cordova-lib": "5.0.0",
-    "inquirer": "^0.8.0",
-    "mkdirp": "^0.5.0",
-    "underscore.string": "^3.0.3",
+    "cordova-lib": "5.1.1",
+    "inquirer": "^0.8.5",
+    "mkdirp": "^0.5.1",
+    "underscore.string": "^3.1.1",
     "yeoman-generator": "^0.20.1",
-    "yosay": "^1.0.1"
+    "yosay": "^1.0.4"
   },
   "devDependencies": {
     "coveralls": "^2.11.2",
-    "gulp": "^3.8.10",
-    "gulp-bump": "^0.3.0",
-    "gulp-istanbul": "^0.9.0",
-    "gulp-jscs": "^1.4.0",
-    "gulp-jshint": "^1.9.0",
+    "gulp": "^3.9.0",
+    "gulp-bump": "^0.3.1",
+    "gulp-istanbul": "^0.10.0",
+    "gulp-jscs": "^1.6.0",
+    "gulp-jshint": "^1.11.0",
     "gulp-load-plugins": "^0.10.0",
-    "gulp-mocha": "^2.0.0",
-    "gulp-plumber": "^1.0.0",
-    "gulp-util": "^3.0.2",
-    "jshint-stylish": "^1.0.0"
+    "gulp-mocha": "^2.1.2",
+    "gulp-plumber": "^1.0.1",
+    "gulp-util": "^3.0.6",
+    "jshint-stylish": "^2.0.1"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"

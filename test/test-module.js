@@ -75,7 +75,6 @@ describe('m:module', function () {
   var tabsTests = function (moduleName, options) {
     var moduleFolder = utils.moduleFolder(moduleName);
     var modulePath = 'app/' + moduleFolder;
-    console.log(options);
 
     it('tabs tests', function () {
       assert.file([
