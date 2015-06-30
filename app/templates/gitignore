@@ -7,6 +7,9 @@
 /node_modules/
 /app/bower_components/
 
+# custom gulp settings
+/gulp_tasks/.gulp_settings.json
+
 # ionic fonts
 /app/main/assets/fonts/ionicons.*
 

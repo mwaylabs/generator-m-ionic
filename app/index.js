@@ -234,7 +234,7 @@ var MGenerator = yeoman.generators.Base.extend({
 
   end: function () {
     this.log(yosay(
-      'All done! See your app in all it\'s glory by running:\n' +
+      'All done! To get going run:\n' +
       chalk.green('gulp watch \n') +
       'More info: http://bit.ly/1DXy7MJ'
     ));

@@ -4,6 +4,7 @@
     "node": ">=0.10.0"
   },
   "devDependencies": {
+    "chalk": "^1.0.0",
     "connect": "^3.4.0",
     "connect-livereload": "^0.5.3",
     "cordova": "5.1.1",
