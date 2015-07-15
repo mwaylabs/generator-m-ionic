@@ -82,4 +82,4 @@ if (options.build !== false) {
   serveBuildDependencies.push('build');
 }
 gulp.task('serve-build', serveBuildDependencies, open);
-gulp.task('connect-build', createConnectServer(paths.dist));
+gulp.task('connect-build', createConnectServer([paths.dist]));
