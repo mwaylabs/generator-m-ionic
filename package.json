@@ -1,6 +1,6 @@
 {
   "name": "generator-m",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "generator-m",
   "license": "MIT",
   "main": "app/index.js",
