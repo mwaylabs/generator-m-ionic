@@ -23,7 +23,7 @@ var MGenerator = yeoman.generators.NamedBase.extend({
       this.template('_template.html', folder + this.fileName + '.html');
     }
     else if (this.options.template === 'debug') {
-      this.template('debug.html', folder + this.fileName + '.html');
+      this.template('_debug.html', folder + this.fileName + '.html');
     }
     else if (this.options.template === 'list-detail') {
       this.template('list-detail.html', folder + this.fileName + '.html');
