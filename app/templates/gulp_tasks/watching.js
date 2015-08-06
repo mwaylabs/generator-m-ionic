@@ -42,9 +42,9 @@ gulp.task('watch', ['serve', 'linting'], function () {
   gulp.watch([
     'app/index.html',
     '.tmp/*/styles/module.css', // each module's module.css
-    'app/*/assets/**/*',
-    'app/*/templates/**/*',
-  ].concat(paths.jsFiles),
+    'app/*/assets/**/*'
+  ].concat(paths.jsFiles)
+  .concat(paths.templates),
   function (event) {
     console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     if (event.type === 'changed') {
