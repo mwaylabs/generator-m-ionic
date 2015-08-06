@@ -66,19 +66,18 @@ gulp.task('bower-fonts', function () {
 });
 
 /**
- * transforms object into a string format that is ready for injection
+ * transforms object into a string format that is ready for injection at indentation 4
  * @param  {Object} obj Object with values to inject
  * @return {String}     properly formatted string
  */
 var injectFormat = function (obj) {
-  obj = JSON.stringify(obj, null, 2);
+  obj = JSON.stringify(obj, null, 4);
   // replace all doublequotes with singlequotes
   obj = obj.replace(/\"/g, '\'');
   // remove first and last line curly braces
   obj = obj.replace(/^\{\n/, '').replace(/\n\}$/, '');
-  // remove first level of indentation
-  obj = obj.replace(/^  /g, '');
-  obj = obj.replace(/\n  /g, '\n');
+  // remove first indentation
+  obj = obj.replace(/^    /g, '');
 
   return obj;
 };
