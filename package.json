@@ -33,9 +33,9 @@
     "yeoman-generator"
   ],
   "dependencies": {
-    "chalk": "^1.0.0",
+    "chalk": "^1.1.0",
     "cordova-lib": "5.1.1",
-    "inquirer": "^0.8.5",
+    "inquirer": "^0.9.0",
     "mkdirp": "^0.5.1",
     "underscore.string": "^3.1.1",
     "yeoman-generator": "^0.20.1",
