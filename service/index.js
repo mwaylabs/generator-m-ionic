@@ -19,6 +19,9 @@ var MGenerator = yeoman.generators.NamedBase.extend({
     // create service with snake-case file name
     var folder = 'app/' + this.moduleFolder + '/services/';
     this.template('_service.js', folder + this.fileName + '-serv.js');
+    // create karma test file
+    var testFolder = 'test/karma/' + this.moduleFolder + '/';
+    this.template('_service.spec.js', testFolder + this.fileName + '-serv.spec.js');
   }
 });
 

@@ -8,7 +8,7 @@ var config = require(path.join(__dirname, '../utils/config.js'));
 
 describe('m:service', function () {
 
-  describe(' some', function () {
+  describe('some', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../service'))
         .withArguments('some')
@@ -20,6 +20,14 @@ describe('m:service', function () {
       assert.fileContent([
         [filePath, 'angular.module(\'' + config.DEFAULT_MODULE + '\')'],
         [filePath, 'service(\'Some\', function ($log) {']
+      ]);
+    });
+
+    it('spec path, default signature, default content', function () {
+      var filePath = 'test/karma/' + config.DEFAULT_MODULE + '/some-serv.spec.js';
+      assert.fileContent([
+        [filePath, 'describe(\'module: main, service: Some'],
+        [filePath, 'it(\'should do something']
       ]);
     });
   });
@@ -38,6 +46,13 @@ describe('m:service', function () {
         [filePath, 'service(\'Some\', function ($log) {']
       ]);
     });
+
+    it('spec path, default signature', function () {
+      var filePath = 'test/karma/my-module/some-serv.spec.js';
+      assert.fileContent([
+        [filePath, 'describe(\'module: myModule, service: Some'],
+      ]);
+    });
   });
 
   describe('some --template=debug', function () {
@@ -54,6 +69,13 @@ describe('m:service', function () {
         [filePath, 'service(\'Some\', function ($log, $timeout) {'],
         [filePath, 'this.someData = {'],
         [filePath, 'this.changeBriefly = function ()']
+      ]);
+    });
+
+    it('spec path, debug content', function () {
+      var filePath = 'test/karma/' + config.DEFAULT_MODULE + '/some-serv.spec.js';
+      assert.fileContent([
+        [filePath, 'describe(\'.changeBriefly()']
       ]);
     });
   });

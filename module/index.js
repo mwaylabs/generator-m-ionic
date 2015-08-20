@@ -93,10 +93,12 @@ var MGenerator = yeoman.generators.NamedBase.extend({
       this.copy('env-prod.json', modulePath + '/constants/env-prod.json');
     }
 
-    // both
+    // both (sidemenu & tabs)
     if (this.answers.template !== 'blank') {
       // yo@2x.png
       this.copy('yo.png', modulePath + '/assets/images/yo@2x.png');
+      // spec file
+      this.template('_module-debug.spec.js', 'test/protractor/' + this.moduleFolder + '-debug.spec.js');
 
       // debug
       this.composeWith('m:controller', {

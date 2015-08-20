@@ -2,16 +2,14 @@
 angular.module('<%= moduleName %>')
 .controller('<%= controllerName %>', function ($log<% if(options.template === 'debug') { %>, <%= serviceName %>, <%= configName %><% } %>) {
 
+  $log.log('Hello from your Controller: <%= controllerName %> in module <%= moduleName%>:. This is your controller:', this);
+
 <% if (options.template === 'debug') {-%>
   // bind data from services
   this.someData = <%= serviceName %>.someData;
   this.ENV = <%= configName %>.ENV;
   this.BUILD = <%= configName %>.BUILD;
 
-<% } -%>
-  $log.log('Hello from your Controller: <%= controllerName %> in module <%= moduleName%>:. This is your controller:', this);
-
-<% if (options.template === 'debug') {-%>
   // PASSWORD EXAMPLE
   this.password = {
     input: '', // by user

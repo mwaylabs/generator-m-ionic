@@ -22,6 +22,14 @@ describe('m:controller', function () {
         [filePath, 'controller(\'SomeCtrl\', function ($log) {']
       ]);
     });
+
+    it('spec path, default signature, default content', function () {
+      var filePath = 'test/karma/' + config.DEFAULT_MODULE + '/some-ctrl.spec.js';
+      assert.fileContent([
+        [filePath, 'describe(\'module: main, controller: SomeCtrl'],
+        [filePath, 'it(\'should do something\', function () {']
+      ]);
+    });
   });
 
   describe('someCtrl myModule', function () {
@@ -35,6 +43,13 @@ describe('m:controller', function () {
       var filePath = 'app/my-module/controllers/some-ctrl.js';
       assert.fileContent([
         [filePath, 'angular.module(\'myModule\')']
+      ]);
+    });
+
+    it('spec path, default signature', function () {
+      var filePath = 'test/karma/my-module/some-ctrl.spec.js';
+      assert.fileContent([
+        [filePath, 'describe(\'module: myModule, controller: SomeCtrl']
       ]);
     });
   });
@@ -57,6 +72,13 @@ describe('m:controller', function () {
         [filePath, 'this.grade = ']
       ]);
     });
+
+    it('spec path, debug content', function () {
+      var filePath = 'test/karma/' + config.DEFAULT_MODULE + '/some-ctrl.spec.js';
+      assert.fileContent([
+        [filePath, 'describe(\'.grade()']
+      ]);
+    });
   });
 
   describe('someCtrl myModule --template=debug', function () {
@@ -75,6 +97,13 @@ describe('m:controller', function () {
         [filePath, 'this.ENV = MyModuleConfig.ENV'],
         [filePath, 'this.BUILD = MyModuleConfig.BUILD'],
         [filePath, 'this.grade = ']
+      ]);
+    });
+
+    it('spec path, debug content', function () {
+      var filePath = 'test/karma/my-module/some-ctrl.spec.js';
+      assert.fileContent([
+        [filePath, 'describe(\'.grade()']
       ]);
     });
   });

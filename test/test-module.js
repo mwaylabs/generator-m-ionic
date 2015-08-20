@@ -85,12 +85,14 @@ describe('m:module', function () {
       var serviceFile = modulePath + '/services/' + moduleFolder + '-serv.js';
       var serviceName = utils.serviceName(moduleName);
       var debugCtrlFile, debugCtrlName;
+      var debugSpecFile;
       var configName;
 
       // mainModule tests
       if (options && options.mainModule) {
         debugCtrlFile = modulePath + '/controllers/debug-ctrl.js';
         debugCtrlName = utils.controllerName('Debug');
+        debugSpecFile = 'test/protractor/main-debug.spec.js';
         configName = utils.configName();
 
         // module.js
@@ -100,6 +102,7 @@ describe('m:module', function () {
       else {
         debugCtrlFile = modulePath + '/controllers/' + moduleFolder + '-debug-ctrl.js';
         debugCtrlName = utils.controllerName(moduleName + 'Debug');
+        debugSpecFile = 'test/protractor/' + moduleFolder + '-debug.spec.js';
         configName = utils.configName(moduleName);
 
         // module.js
@@ -137,6 +140,11 @@ describe('m:module', function () {
         [modulePath + '/templates/tabs.html', '<ion-tabs'],
         [modulePath + '/templates/tabs.html', moduleName + '.list'],
         [modulePath + '/templates/tabs.html', moduleName + '.debug'],
+      ]);
+
+      // tests
+      assert.fileContent([
+        [debugSpecFile, 'browser.get(\'/#/' + moduleFolder + '/debug']
       ]);
     });
   };
