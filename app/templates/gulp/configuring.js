@@ -59,7 +59,7 @@ gulp.task('config', function () {
 });
 
 gulp.task('defaults', function () {
-  var filePath = './gulp_tasks/.gulp_settings.json';
+  var filePath = './gulp/.gulp_settings.json';
   var exists = fs.existsSync(filePath);
 
   var fileContent = {};

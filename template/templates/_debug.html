@@ -4,6 +4,7 @@
 
     <!-- content goes here -->
     <ion-list>
+
       <ion-item class="item item-divider">
         Some basic checks
       </ion-item>
@@ -24,6 +25,27 @@
       <ion-item class="item item-text-wrap">
         <pre>{{ctrl.BUILD | json}}</pre>
       </ion-item>
+
+      <ion-item class="item item-divider">Password Test:</ion-item>
+      <ion-item class="item item-text-wrap">
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password"
+            ng-model="ctrl.password.input"
+            ng-change="ctrl.grade()">
+        </label>
+      </ion-item>
+      <ion-item class="item item-text-wrap">
+        Strength
+        <span class="badge"
+          ng-class="{
+            'badge-assertive': ctrl.password.strength === 'weak',
+            'badge-balanced': ctrl.password.strength === 'strong',
+            'badge-energized': ctrl.password.strength === 'medium'
+          }"
+          ng-bind="ctrl.password.strength"></span>
+      </ion-item>
+
     </ion-list>
 
   </ion-content>

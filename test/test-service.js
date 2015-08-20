@@ -8,39 +8,39 @@ var config = require(path.join(__dirname, '../utils/config.js'));
 
 describe('m:service', function () {
 
-  describe('m:service some', function () {
+  describe(' some', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../service'))
         .withArguments('some')
         .on('end', done);
     });
 
-    it('service file contents', function () {
+    it('file path, module name, service signature', function () {
       var filePath = 'app/' + config.DEFAULT_MODULE + '/services/some-serv.js';
       assert.fileContent([
         [filePath, 'angular.module(\'' + config.DEFAULT_MODULE + '\')'],
-        [filePath, 'service(\'Some\',']
+        [filePath, 'service(\'Some\', function ($log) {']
       ]);
     });
   });
 
-  describe('m:service some myModule', function () {
+  describe('some myModule', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../service'))
         .withArguments('some myModule')
         .on('end', done);
     });
 
-    it('service file contents', function () {
+    it('file path, module name, service signature', function () {
       var filePath = 'app/my-module/services/some-serv.js';
       assert.fileContent([
         [filePath, 'angular.module(\'myModule\')'],
-        [filePath, 'service(\'Some\',']
+        [filePath, 'service(\'Some\', function ($log) {']
       ]);
     });
   });
 
-  describe('m:service some', function () {
+  describe('some --template=debug', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../service'))
         .withArguments('some')
@@ -48,10 +48,12 @@ describe('m:service', function () {
         .on('end', done);
     });
 
-    it('service file contents', function () {
+    it('file path, service signature, debug logic', function () {
       var filePath = 'app/main/services/some-serv.js';
       assert.fileContent([
-        [filePath, 'this.someData = {']
+        [filePath, 'service(\'Some\', function ($log, $timeout) {'],
+        [filePath, 'this.someData = {'],
+        [filePath, 'this.changeBriefly = function ()']
       ]);
     });
   });

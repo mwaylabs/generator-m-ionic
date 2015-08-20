@@ -13,7 +13,8 @@ gulp.paths = {
   dist: 'www',
   jsFiles: ['app/**/*.js', '!app/bower_components/**/*.js'],
   jsonFiles: ['app/**/*.json', '!app/bower_components/**/*.json'],
-  templates: ['app/*/templates/**/*']
+  templates: ['app/*/templates/**/*'],
+  protractor: ['test/protractor/**/*.js']
 };
 
 // OPTIONS
@@ -22,8 +23,8 @@ var options = gulp.options = minimist(process.argv.slice(2));
 // set defaults
 var task = options._[0]; // only for first task
 var gulpSettings;
-if (fs.existsSync('./gulp_tasks/.gulp_settings.json')) {
-  gulpSettings = require('./gulp_tasks/.gulp_settings.json');
+if (fs.existsSync('./gulp/.gulp_settings.json')) {
+  gulpSettings = require('./gulp/.gulp_settings.json');
   var defaults = gulpSettings.defaults;
   if (defaults) {
     // defaults present for said task?
@@ -58,7 +59,7 @@ if (options.cordova && options.build !== false) { // --no-build
 }
 
 // load tasks
-requireDir('./gulp_tasks');
+requireDir('./gulp');
 
 // default task
 gulp.task('default', function () {

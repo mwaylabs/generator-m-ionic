@@ -12,6 +12,7 @@
 [daviddm-url]: https://david-dm.org/mwaylabs/generator-m
 
 
+
 ## Why you need it
 Build mobile Cordova/PhoneGap apps quickly with the tools you love:
 Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy generator.
@@ -38,12 +39,11 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/6041269/20ed1196-ac7b-11e4-8707-68fa331f1aeb.png">
   </a>
 </p>
-We use:
+We use: 
 
 - **yeoman** to scaffold your app - http://yeoman.io/
 - **gulp** to run your tasks - http://gulpjs.com/
 - **bower** to manage your client packages - http://bower.io/
-
 
 The following technology stack:
 
@@ -53,7 +53,8 @@ The following technology stack:
   - **ngCordova** - http://ngcordova.com/
 - **Cordova** - http://cordova.apache.org/
 
-Many many tools and tweaks for your convenience:
+Many many **features and tools** for your convenience:
+
 - powerful collection of [gulp tasks](https://github.com/mwaylabs/generator-m#more-gulp-tasks)
 - broad selection of [sub-generators](https://github.com/mwaylabs/generator-m#sub-generators)
 - fine tuned [integration with git](https://github.com/mwaylabs/generator-m#git-integration)
@@ -124,7 +125,7 @@ Livereloads your application when changing/adding/deleting files to immediately 
 │   │   ├──  ...
 │   ├──  app.js               - application module, includes main module, ionic, ui-router etc ...
 │   └──  index.html           - angular entry point, injects: app files, bower files, fonts,  ...
-├──  gulp_tasks/    - gulp tasks
+├──  gulp/    - gulp tasks
 ├──  hooks/         - cordova hooks
 ├──  nodes_modules/ - local installation of node modules
 ├──  platforms/     - cordova platforms
@@ -221,7 +222,7 @@ In case your project grows large and you have several modules in your project yo
 #### gulp build-vars
 Inject variables into your angular app -namely your `Config` constants which are defined in `app/*/constants/config-const.js`- during a build.
 
-Adding the `--buildVars` flag to any gulp task that runs `gulp build` implicitly or `gulp watch`, for instance:
+Adding the `--buildVars` flag to `gulp build` or any gulp task that runs `gulp build` implicitly, for instance:
 ```sh
 gulp watch --buildVars='key:value,keys2:value2'
 ```
@@ -255,7 +256,7 @@ You may have noticed that the Generator-M supplies an extended amount of gulp ta
 For instance we use `gulp watch --no-open` a lot.
 
 ##### setting a default
-Running the following command will create a new `gulp_tasks/.gulp_settings.json` file and save your default flags in it. **Note**: the `.gulp_settings.json` file will be ignored by git, so these settings are only applied locally to your machine. If you want these settings to be part of the repository and share it with your team, simply remove the according line from the `.gitignore` and add `.gulp_setting.json` to your commit.
+Running the following command will create a new `gulp/.gulp_settings.json` file and save your default flags in it. **Note**: the `.gulp_settings.json` file will be ignored by git, so these settings are only applied locally to your machine. If you want these settings to be part of the repository and share it with your team, simply remove the according line from the `.gitignore` and add `.gulp_setting.json` to your commit.
 
 ```sh
 gulp defaults --set='watch --no-open'

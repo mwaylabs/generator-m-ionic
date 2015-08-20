@@ -7,8 +7,6 @@ angular.module('<%= moduleName %>', [
 ])
 .config(function ($stateProvider<% if (options.mainModule) {%>, $urlRouterProvider<%} %>) {
 
-  console.log('Allo! Allo from your module: ' + '<%= moduleName %>');
-
   // ROUTING with ui.router
 <% if (options.mainModule && answers.template === 'blank') { -%>
   $urlRouterProvider.otherwise('/<%= moduleFolder %>');

@@ -66,6 +66,7 @@ gulp.task('watch', ['serve', 'linting'], function () {
   ], ['environment']);
 });
 gulp.task('serve', ['connect', 'inject-all'], open);
+gulp.task('serve-no-open', ['connect', 'inject-all']);
 gulp.task('connect', createConnectServer(['app', '.tmp']));
 
 // WATCH-BUILD
@@ -82,4 +83,5 @@ if (options.build !== false) {
   serveBuildDependencies.push('build');
 }
 gulp.task('serve-build', serveBuildDependencies, open);
+gulp.task('serve-build-no-open', serveBuildDependencies);
 gulp.task('connect-build', createConnectServer([paths.dist]));

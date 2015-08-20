@@ -43,15 +43,13 @@ describe('m', function () {
         'README.md',
         'bower.json',
         'config.xml',
+        'gulp/building.js', // one per example
         'gulpfile.js',
         'jenkins.sh',
+        'karma.conf.js',
         'package.json',
-        'gulp_tasks/building.js',
-        'gulp_tasks/configuring.js',
-        'gulp_tasks/cordova.js',
-        'gulp_tasks/injecting.js',
-        'gulp_tasks/linting.js',
-        'gulp_tasks/watching.js'
+        'protractor.conf.js',
+        'test/karma/.jshintrc', // one per example
       ]);
     });
 
@@ -86,6 +84,8 @@ describe('m', function () {
       assert.fileContent([
         // dependencies, test only one as example
         ['bower.json', 'ionic": "~1.0.0"'],
+        // devDependencies, test only on as example
+        ['bower.json', 'angular-mocks": "~1.4.1"'],
         // resolutions, test only one as example
         ['bower.json', 'angular": "~1.4.1"'],
         // optional, test all for correctness

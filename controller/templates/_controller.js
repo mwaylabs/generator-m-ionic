@@ -1,6 +1,6 @@
 'use strict';
 angular.module('<%= moduleName %>')
-.controller('<%= controllerName %>', function (<% if(options.template === 'debug') { %><%= serviceName %>, <%= configName %><% } %>) {
+.controller('<%= controllerName %>', function ($log<% if(options.template === 'debug') { %>, <%= serviceName %>, <%= configName %><% } %>) {
 
 <% if (options.template === 'debug') {-%>
   // bind data from services
@@ -9,7 +9,25 @@ angular.module('<%= moduleName %>')
   this.BUILD = <%= configName %>.BUILD;
 
 <% } -%>
-  console.log('Hello from your Controller: <%= controllerName %> in module <%= moduleName%>:. This is your controller:', this);
-  // TODO: do your controller thing
+  $log.log('Hello from your Controller: <%= controllerName %> in module <%= moduleName%>:. This is your controller:', this);
 
+<% if (options.template === 'debug') {-%>
+  // PASSWORD EXAMPLE
+  this.password = {
+    input: '', // by user
+    strength: ''
+  };
+  this.grade = function () {
+    var size = this.password.input.length;
+    if (size > 8) {
+      this.password.strength = 'strong';
+    } else if (size > 3) {
+      this.password.strength = 'medium';
+    } else {
+      this.password.strength = 'weak';
+    }
+  };
+  this.grade();
+
+<% } -%>
 });

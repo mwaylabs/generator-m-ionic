@@ -184,7 +184,7 @@ var MGenerator = yeoman.generators.Base.extend({
 
       // dependencies
       this.write('bower.json', JSON.stringify(bowerJSON, null, 2));
-      this.template('_package.json', 'package.json');
+      this.copy('package.json', 'package.json');
 
       // app files
       // add random color to navbar
@@ -193,13 +193,18 @@ var MGenerator = yeoman.generators.Base.extend({
       this.template('_app.js', 'app/app.js');
 
       // other files
-      this.template('_gulpfile.js', 'gulpfile.js');
-      this.directory('gulp_tasks', 'gulp_tasks');
+      this.copy('gulpfile.js', 'gulpfile.js');
+      this.directory('gulp', 'gulp');
+      this.copy('jenkins.sh', 'jenkins.sh');
+      this.copy('karma.conf.js', 'karma.conf.js');
+      this.copy('protractor.conf.js', 'protractor.conf.js');
+      this.directory('test', 'test');
+
+      // dot files
       this.copy('bowerrc', '.bowerrc');
       this.copy('editorconfig', '.editorconfig');
       this.copy('gitattributes', '.gitattributes');
       this.copy('gitignore', '.gitignore');
-      this.copy('jenkins.sh', 'jenkins.sh');
       this.copy('.travis.yml', '.travis.yml');
       this.copy('jscsrc', '.jscsrc');
       this.copy('jshintrc', '.jshintrc');
