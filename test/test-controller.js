@@ -15,7 +15,7 @@ describe('m:controller', function () {
         .on('end', done);
     });
 
-    it('file path, module name, controller signature', function () {
+    it('file, module name, controller signature', function () {
       var filePath = 'app/' + config.DEFAULT_MODULE + '/controllers/some-ctrl.js';
       assert.fileContent([
         [filePath, 'angular.module(\'' + config.DEFAULT_MODULE + '\')'],
@@ -23,7 +23,7 @@ describe('m:controller', function () {
       ]);
     });
 
-    it('spec path, default signature, default content', function () {
+    it('spec file, default signature, default content', function () {
       var filePath = 'test/karma/' + config.DEFAULT_MODULE + '/some-ctrl.spec.js';
       assert.fileContent([
         [filePath, 'describe(\'module: main, controller: SomeCtrl'],
@@ -39,14 +39,14 @@ describe('m:controller', function () {
         .on('end', done);
     });
 
-    it('file path, module name', function () {
+    it('file, module name', function () {
       var filePath = 'app/my-module/controllers/some-ctrl.js';
       assert.fileContent([
         [filePath, 'angular.module(\'myModule\')']
       ]);
     });
 
-    it('spec path, default signature', function () {
+    it('spec file, default signature', function () {
       var filePath = 'test/karma/my-module/some-ctrl.spec.js';
       assert.fileContent([
         [filePath, 'describe(\'module: myModule, controller: SomeCtrl']
@@ -62,7 +62,7 @@ describe('m:controller', function () {
         .on('end', done);
     });
 
-    it('file path, controller signature, debug logic & placeholders', function () {
+    it('file, controller signature, debug logic & placeholders', function () {
       var filePath = 'app/main/controllers/some-ctrl.js';
       assert.fileContent([
         [filePath, '$log, Main, Config'],
@@ -73,7 +73,7 @@ describe('m:controller', function () {
       ]);
     });
 
-    it('spec path, debug content', function () {
+    it('spec file, debug content', function () {
       var filePath = 'test/karma/' + config.DEFAULT_MODULE + '/some-ctrl.spec.js';
       assert.fileContent([
         [filePath, 'describe(\'.grade()']
@@ -89,7 +89,7 @@ describe('m:controller', function () {
         .on('end', done);
     });
 
-    it('file path, controller signature, debug logic & placeholders', function () {
+    it('file, controller signature, debug logic & placeholders', function () {
       var filePath = 'app/my-module/controllers/some-ctrl.js';
       assert.fileContent([
         [filePath, '$log, MyModule, MyModuleConfig'],
@@ -100,7 +100,7 @@ describe('m:controller', function () {
       ]);
     });
 
-    it('spec path, debug content', function () {
+    it('spec file, debug content', function () {
       var filePath = 'test/karma/my-module/some-ctrl.spec.js';
       assert.fileContent([
         [filePath, 'describe(\'.grade()']

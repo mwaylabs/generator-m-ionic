@@ -18,5 +18,8 @@ module.exports = yeoman.generators.NamedBase.extend({
     // create filter with snake-case file name
     var folder = 'app/' + this.moduleFolder + '/filters/';
     this.template('_filter.js', folder + this.fileName + '-fil.js');
+    // create karma test file
+    var testFolder = 'test/karma/' + this.moduleFolder + '/';
+    this.template('_filter.spec.js', testFolder + this.fileName + '-fil.spec.js');
   }
 });

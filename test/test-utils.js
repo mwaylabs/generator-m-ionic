@@ -60,6 +60,12 @@ describe('utils', function () {
     assert.textEqual(utils.serviceName('MyService'), 'MyService');
   });
 
+  it('.directiveTagName()', function () {
+    assert.textEqual(utils.directiveTagName('my'), 'my');
+    assert.textEqual(utils.directiveTagName('dirName'), 'dir-name');
+    assert.textEqual(utils.directiveTagName('AnotherDir'), 'another-dir');
+  });
+
   it('.fileName()', function () {
     assert.textEqual(utils.fileName('lower'), 'lower');
     assert.textEqual(utils.fileName('Upper'), 'upper');

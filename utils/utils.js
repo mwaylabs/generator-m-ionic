@@ -105,6 +105,15 @@ module.exports = {
   },
 
   /**
+   * transforms userInput into a directive tag for angular
+   * @param  {String} userInput arbitrary user input
+   * @return {String}           directive tag
+   */
+  directiveTagName: function (userInput) {
+    return strings.camelToSnake(userInput);
+  },
+
+  /**
    * transforms a module, controller, service, template name
    * into a FS-friendly filename
    * @param  {String} camelCase string in camelcase notation

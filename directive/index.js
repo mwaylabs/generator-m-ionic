@@ -11,6 +11,7 @@ module.exports = yeoman.generators.NamedBase.extend({
     this.log('You called the m:directive subgenerator.');
 
     this.directiveName = this.name;
+    this.directiveTagName = utils.directiveTagName(this.directiveName);
     this.fileName = utils.fileName(this.directiveName);
   },
 
@@ -18,5 +19,8 @@ module.exports = yeoman.generators.NamedBase.extend({
     // create directive with snake-case file name
     var folder = 'app/' + this.moduleFolder + '/directives/';
     this.template('_directive.js', folder + this.fileName + '-dir.js');
+    // create karma test file
+    var testFolder = 'test/karma/' + this.moduleFolder + '/';
+    this.template('_directive.spec.js', testFolder + this.fileName + '-dir.spec.js');
   }
 });
