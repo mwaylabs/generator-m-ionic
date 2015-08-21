@@ -24,7 +24,7 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/6041228/c1f91cac-ac7a-11e4-9c85-1a5298e29067.png">
   </a>
   <a href="http://gulpjs.com/" target="_blank">
-    <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/6041282/34b4a914-ac7b-11e4-8f24-86795ccf49df.png">
+    <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/9409728/c5332474-481c-11e5-9a6e-74641a0f1782.png">
   </a>
   <a href="http://bower.io/" target="_blank">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/6041250/ef9a78b8-ac7a-11e4-9586-7e7e894e201e.png">
@@ -38,22 +38,45 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
   <a href="http://cordova.apache.org/" target="_blank">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/6041269/20ed1196-ac7b-11e4-8707-68fa331f1aeb.png">
   </a>
+  <br>
+  <br>
+  <a href="http://sass-lang.com/" target="_blank">
+    <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/9410121/c330a3de-481e-11e5-8a69-ca0c56f6cabc.png">
+  </a>
+  <a href="http://karma-runner.github.io/" target="_blank">
+    <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/9410216/44fef8fc-481f-11e5-8037-2f7f03678f4c.png">
+  </a>
+  <a href="http://jasmine.github.io/" target="_blank">
+    <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/9410153/ebd46a00-481e-11e5-9864-f00fa8427d17.png">
+  </a>
+  <a href="https://angular.github.io/protractor/#/" target="_blank">
+    <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/9410114/b99aaa9a-481e-11e5-8655-ebc1e324200d.png">
+  </a>
+
 </p>
-We use: 
+We provide:
 
 - **yeoman** to scaffold your app - http://yeoman.io/
 - **gulp** to run your tasks - http://gulpjs.com/
 - **bower** to manage your client packages - http://bower.io/
 
-The following technology stack:
+the following technology stack:
 
-- **angular** - https://angularjs.org/
+- **angular** for app structure & logic - https://angularjs.org/
   - **angular-ui-router** - https://github.com/angular-ui/ui-router
-- **ionic** - http://ionicframework.com/
+- **ionic** for mobile UIs - http://ionicframework.com/
+- **cordova** for accessing phone APIs - http://cordova.apache.org/
   - **ngCordova** - http://ngcordova.com/
-- **Cordova** - http://cordova.apache.org/
+- **sass** for styling - http://sass-lang.com/
 
-Many many **features and tools** for your convenience:
+
+an integrated testing workflow with:
+
+- **karma** to run your unit tests - http://karma-runner.github.io/
+- **jasmine** for writing unit & integration tests - http://jasmine.github.io/
+- **protractor** for running and writing integration tests - https://angular.github.io/protractor/#/
+
+and many many **features and tools** for your convenience:
 
 - powerful collection of [gulp tasks](https://github.com/mwaylabs/generator-m#more-gulp-tasks)
 - broad selection of [sub-generators](https://github.com/mwaylabs/generator-m#sub-generators)
@@ -64,7 +87,11 @@ Many many **features and tools** for your convenience:
   - continuous integration with [Travis CI](https://travis-ci.org/) and [Jenkins CI](https://jenkins-ci.org/)
 
 
-## Talk to us
+## Try the demo
+For a quick impression head over to https://github.com/mwaylabs/generator-m-demo and clone a sample project generated with the latest version of Generator-M.
+
+
+## Questions? Talk to us!
 [![Join the chat at https://gitter.im/mwaylabs/generator-m](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mwaylabs/generator-m?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Install
@@ -130,6 +157,7 @@ Livereloads your application when changing/adding/deleting files to immediately 
 ├──  nodes_modules/ - local installation of node modules
 ├──  platforms/     - cordova platforms
 ├──  plugins/       - corodova plugins
+├──  test/          - unit and integration tests
 ├──  www/           - your gulp build goes here, cordova starts building from here
 ├──  .bowerrc       - bower configuration
 ├──  .editorconfig  - editor configuration
@@ -147,6 +175,29 @@ Livereloads your application when changing/adding/deleting files to immediately 
 ├──  package.json   - node dependencies configuration
 ├──  README.md      - the generator's README.md
 </pre>
+
+## Testing
+When setting up your project or using the module, controller, service, directive or filter sub-generator, Generator-M will automatically generate sample test files for that component. These files can be found in the `test/karma` and `test/protractor` directory respectively. To check if all tests are running properly run:
+
+```sh
+gulp karma
+# and
+gulp protractor
+```
+**Hint**: `gulp watch` and `gulp protractor` cannot be run at the same time.
+
+If you are new to testing your app with protractor, karma and jasmine. Here are some good places to get started:
+
+**jasmine**
+- Smashing Magazine - [Unit Testing In AngularJS](http://www.smashingmagazine.com/2014/10/introduction-to-unit-testing-in-angularjs/)
+- AngularJS Developer Guide - [Unit Testing](https://docs.angularjs.org/guide/unit-testing)
+- website - http://jasmine.github.io/
+
+**protractor**
+- website - http://angular.github.io/protractor/#/
+
+**karma**
+- website - http://karma-runner.github.io/
 
 ## More gulp tasks
 
@@ -243,7 +294,7 @@ angular.module('main')
     'key': 'value',
     'keys2': 'value2'
     /*endinject*/
-  }
+}
 
 });
 ```

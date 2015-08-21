@@ -10,7 +10,7 @@ var $ = require('gulp-load-plugins')();
 // modules
 var karma = require('karma');
 
-function runTests (singleRun, done) {
+function runKarma (singleRun, done) {
   karma.server.start({
     configFile: path.join(__dirname, '/../karma.conf.js'),
     singleRun: singleRun,
@@ -20,12 +20,12 @@ function runTests (singleRun, done) {
   });
 }
 
-gulp.task('test', function (done) {
-  runTests(true, done);
+gulp.task('karma', ['linting'], function (done) {
+  runKarma(true, done);
 });
 
-gulp.task('test:auto', function (done) {
-  runTests(false, done);
+gulp.task('karma:auto', ['linting'], function (done) {
+  runKarma(false, done);
 });
 
 // Downloads the selenium webdriver
@@ -48,5 +48,5 @@ function runProtractor (done) {
     });
 }
 
-gulp.task('protractor', ['serve-no-open', 'webdriver-update'], runProtractor);
-gulp.task('protractor-build', ['serve-build-no-open', 'webdriver-update'], runProtractor);
+gulp.task('protractor', ['serve-no-open', 'linting', 'webdriver-update'], runProtractor);
+gulp.task('protractor-build', ['serve-build-no-open', 'linting', 'webdriver-update'], runProtractor);

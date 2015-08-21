@@ -14,7 +14,7 @@ gulp.task('linting-throw', ['jshint-throw', 'jscs-throw', 'jsonlint-throw']);
 // check for jshint errors
 var jshint = function (fail) {
   return function () {
-    return gulp.src(paths.jsFiles)
+    return gulp.src(paths.jsFiles.concat(paths.karma).concat(paths.protractor))
       .pipe($.jshint())
       .pipe($.jshint.reporter('jshint-stylish'))
       .pipe($.if(fail, $.jshint.reporter('fail')));
@@ -26,7 +26,7 @@ gulp.task('jshint-throw', jshint(true));
 // check for jscs errors
 var jscs = function () {
   return function () {
-    return gulp.src(paths.jsFiles)
+    return gulp.src(paths.jsFiles.concat(paths.karma).concat(paths.protractor))
       .pipe($.jscs());
   };
 };
