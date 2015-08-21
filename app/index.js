@@ -193,6 +193,7 @@ var MGenerator = yeoman.generators.Base.extend({
       this.template('_app.js', 'app/app.js');
 
       // other files
+      this.directory('hooks', 'hooks');
       this.copy('gulpfile.js', 'gulpfile.js');
       this.directory('gulp', 'gulp');
       this.copy('jenkins.sh', 'jenkins.sh');

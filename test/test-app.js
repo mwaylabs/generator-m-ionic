@@ -43,6 +43,7 @@ describe('m', function () {
         'README.md',
         'bower.json',
         'config.xml',
+        'hooks/update_platform_config.js', // one per example
         'gulp/building.js', // one per example
         'gulpfile.js',
         'jenkins.sh',
