@@ -60,7 +60,7 @@ We provide:
 - **gulp** to run your tasks - http://gulpjs.com/
 - **bower** to manage your client packages - http://bower.io/
 
-the following technology stack:
+the following **technology stack**:
 
 - **angular** for app structure & logic - https://angularjs.org/
   - **angular-ui-router** - https://github.com/angular-ui/ui-router
@@ -70,7 +70,7 @@ the following technology stack:
 - **sass** for styling - http://sass-lang.com/
 
 
-an integrated testing workflow with:
+an integrated **testing workflow** with:
 
 - **karma** to run your unit tests - http://karma-runner.github.io/
 - **jasmine** for writing unit & integration tests - http://jasmine.github.io/
@@ -88,7 +88,7 @@ and many many **features and tools** for your convenience:
 
 
 ## Try the demo
-For a quick impression head over to https://github.com/mwaylabs/generator-m-demo and clone a sample project generated with the latest version of Generator-M.
+For a quick impression head over to https://github.com/mwaylabs/generator-m-demo and clone the sample project generated with the latest version of Generator-M.
 
 
 ## Questions? Talk to us!
