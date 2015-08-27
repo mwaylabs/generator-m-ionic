@@ -23,7 +23,8 @@ module.exports = {
     ],
     plugins: [
       'cordova-plugin-device',
-      'cordova-plugin-dialogs'
+      'cordova-plugin-dialogs',
+      'com.ionic.keyboard'
     ],
     template: 'tabs'
   },
