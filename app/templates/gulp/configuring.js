@@ -24,16 +24,18 @@ gulp.task('config', function () {
   // read & parse file
   var xmlFile = fs.readFileSync('config.xml');
   parser.parseString(xmlFile, function (err, result) {
+    // get values
+    if (options.getWidgetAttr) {
+      console.log(result.widget.$[options.getWidgetAttr]);
+    }
     // update values
-    if (options.setVersion) {
-      result.widget.$.version = options.setVersion;
+    if (options.setWidgetAttr) {
+      var split = options.setWidgetAttr.split('=');
+      var key = split[0];
+      var value = split[1];
+      result.widget.$[key] = value;
     }
-    if (options.setBuild) {
-      result.widget.$.version = result.widget.$.version + '.' + options.setBuild;
-    }
-    if (options.setBundle) {
-      result.widget.$.id = options.setBundle;
-    }
+
     if (options.setName) {
       result.widget.name = options.setName;
     }

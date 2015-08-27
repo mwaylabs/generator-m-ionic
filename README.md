@@ -199,7 +199,8 @@ If you are new to testing your app with protractor, karma and jasmine. Here are 
 
 
 ## Guides
-- Managing [app icons and splash screens](https://github.com/mwaylabs/generator-m/tree/master/docs/guides/icons_splash_screens.md)
+- Managing app [icons and splash screens](https://github.com/mwaylabs/generator-m/tree/master/docs/guides/icons_splash_screens.md). Good for different app configurations (beta, production, ...).
+- The contents of the [`config.xml` can be changed programmatically](https://github.com/mwaylabs/generator-m/tree/master/docs/guides/programmatically_change_configxml.md). Good for continuous integration.
 
 ## More gulp tasks
 
@@ -341,18 +342,6 @@ By running `gulp defaults` without a 'set' or 'clear' flag, a comprehensive list
 ```sh
 gulp defaults
 ```
-
-#### gulp config
-Manages project configuration. Modifies cordova's `config.xml`
-```sh
-gulp config --setVersion=1.1.0
-gulp config --setBuild=12
-gulp config --setBundle=com.new.bundle # USE WITH CARE! (see below)
-gulp config --setName='hello world' # USE WITH CARE! (see below)
-gulp config --setDescription='a small app to make the world a happy place'
-gulp config --setAuthor='Your Name---your@mail.com---http://yourwebsite.com'
-```
-**Important**: When **changing the name** or **bundle identifier** of your project, it may lead to problems with the platform projects. If you have your plugins and platforms managed in the `config.xml` you can avoid this by deleting your `plugins/` and `platforms/` folders and installing them again using `gulp --cordova 'prepare'`. For more information see the **Git integration** section in this document.
 
 ## Running on Windows
 The generator should work just like on unix/mac except there's one difference, when running `gulp --cordova` tasks. They need doublequotes. So write this:
