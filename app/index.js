@@ -199,6 +199,7 @@ var MGenerator = yeoman.generators.Base.extend({
       this.copy('jenkins.sh', 'jenkins.sh');
       this.copy('karma.conf.js', 'karma.conf.js');
       this.copy('protractor.conf.js', 'protractor.conf.js');
+      this.directory('res', 'res');
       this.directory('test', 'test');
 
       // dot files

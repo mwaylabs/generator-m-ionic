@@ -16,6 +16,7 @@
 # cordova
 /platforms/
 /plugins/
+/res/*/current/
 
 # build folder
 /www/**

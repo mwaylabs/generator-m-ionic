@@ -29,6 +29,7 @@
     "gulp-ng-annotate": "^1.0.0",
     "gulp-plumber": "^1.0.1",
     "gulp-protractor": "^1.0.0",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.0.2",
     "gulp-shell": "^0.4.2",
     "gulp-size": "^1.2.2",

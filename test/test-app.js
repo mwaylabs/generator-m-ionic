@@ -50,6 +50,7 @@ describe('m', function () {
         'karma.conf.js',
         'package.json',
         'protractor.conf.js',
+        'res/ios/default/icon.png', // one per example
         'test/karma/.jshintrc', // one per example
       ]);
     });

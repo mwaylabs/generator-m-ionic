@@ -48,12 +48,12 @@ options.env = options.env || 'dev';
 if (defaults && defaults[task]) {
   console.log(chalk.green('defaults for task \'' + task + '\': '), defaults[task]);
 }
-// gulp build before running cordova?
-if (options.cordova && options.build !== false) { // --no-build
+// cordova command one of cordova's build commands?
+if (options.cordova) {
   var cmds = ['build', 'run', 'emulate', 'prepare'];
   for (var i = 0, cmd; (cmd = cmds[i]); i++) {
     if (options.cordova.indexOf(cmd) >= 0) {
-      options.runBuild = true;
+      options.cordovaBuild = true;
       break;
     }
   }
@@ -64,9 +64,13 @@ requireDir('./gulp');
 
 // default task
 gulp.task('default', function () {
-  // cordova with build
-  if (options.runBuild) {
+  // cordova build command & gulp build
+  if (options.cordovaBuild && options.build !== false) {
     return gulp.start('cordova-with-build');
+  }
+  // cordova build command & no gulp build
+  else if (options.cordovaBuild && options.build === false) {
+    return gulp.start('cordova-only-resources');
   }
   // cordova without build
   else if (options.cordova) {

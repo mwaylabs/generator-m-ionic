@@ -102,11 +102,8 @@ For a quick impression head over to https://github.com/mwaylabs/generator-m-demo
   - yo: `npm install --global yo` - http://yeoman.io/
   - gulp: `npm install --global gulp` - http://gulpjs.com/
   - bower: `npm install --global bower` - http://bower.io/
-- Sass http://sass-lang.com/
-  - no need to install in `> v1.1.0` since we're using [gulp-sass](https://github.com/dlmanning/gulp-sass) from now on
-  - for older versions check the old [v1.1.0 README.md](https://github.com/mwaylabs/generator-m/tree/1.1.0)
-- Want to test or run your app on a device ? Then you'll need:
-  - Platform SDKs for cordova. Head over to cordova documentation: [Platform Guides](http://cordova.apache.org/docs/en/edge/guide_platforms_index.md.html#Platform%20Guides) or cordova cli: [Requirements](https://github.com/apache/cordova-cli/)
+- In order to run your app on a device, you'll need:
+  - **Platform SDKs** for the ones you are developing for. Head over to cordova documentation: [Platform Guides](http://cordova.apache.org/docs/en/edge/guide_platforms_index.md.html#Platform%20Guides) or cordova cli: [Requirements](https://github.com/apache/cordova-cli/)
 
 ### Generator
 
@@ -157,6 +154,7 @@ Livereloads your application when changing/adding/deleting files to immediately 
 ├──  nodes_modules/ - local installation of node modules
 ├──  platforms/     - cordova platforms
 ├──  plugins/       - corodova plugins
+├──  res/           - resources folder for splash screens and app icons
 ├──  test/          - unit and integration tests
 ├──  www/           - your gulp build goes here, cordova starts building from here
 ├──  .bowerrc       - bower configuration
@@ -198,6 +196,10 @@ If you are new to testing your app with protractor, karma and jasmine. Here are 
 
 **karma**
 - website - http://karma-runner.github.io/
+
+
+## Guides
+- Managing [app icons and splash screens](https://github.com/mwaylabs/generator-m/tree/master/docs/guides/icons_splash_screens.md))
 
 ## More gulp tasks
 
