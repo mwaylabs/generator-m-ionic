@@ -18,14 +18,14 @@ describe('strings', function () {
     // spaces and capitalization
     assert.textEqual(strings.textToCamel('My new app'), 'myNewApp');
     assert.textEqual(strings.textToCamel('My New app'), 'myNewApp');
-    assert.textEqual(strings.textToCamel('My NEW aPP'), 'myNewApp');
+    assert.textEqual(strings.textToCamel('My NEW aPP'), 'myNEWAPP');
     // dashes and spaces
-    assert.textEqual(strings.textToCamel('My-NEW aPP'), 'myNewApp');
-    assert.textEqual(strings.textToCamel('My NEW-aPP'), 'myNewApp');
-    assert.textEqual(strings.textToCamel('My-NEW-aPP'), 'myNewApp');
+    assert.textEqual(strings.textToCamel('My-NEW aPP'), 'myNEWAPP');
+    assert.textEqual(strings.textToCamel('My NEW-aPP'), 'myNEWAPP');
+    assert.textEqual(strings.textToCamel('My-NEW-aPP'), 'myNEWAPP');
     // dashes, spaces and numbers
-    assert.textEqual(strings.textToCamel('M1y N2EW-a3PP'), 'm1yN2ewA3pp');
-    assert.textEqual(strings.textToCamel('M1y-N2EW 3PP'), 'm1yN2ew3pp');
+    assert.textEqual(strings.textToCamel('M1y N2EW-a3PP'), 'm1yN2EWA3PP');
+    assert.textEqual(strings.textToCamel('M1y-N2EW 3PP'), 'm1yN2EW3PP');
   });
 
   it('.camelToSnake()', function () {
