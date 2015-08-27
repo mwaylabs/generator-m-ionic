@@ -213,7 +213,7 @@ Head over to the [cordova cli documentation](http://cordova.apache.org/docs/en/e
 
 #### gulp --cordova 'build-related task'
 
-If you run one of the following cordova commands: `build <platform>`, `run <platform>`, `emulate <platform>` or `prepare <platform>`, `gulp build` will build your app into the www folder, before cordova will take it from there. For instance if you want to test your app on your connected ios device, run:
+If you run one of the following cordova commands: `build <platform>`, `run <platform>`, `emulate <platform>`, 'serve' or `prepare <platform>`, `gulp build` will build your app into the www folder, before cordova will take it from there. For instance if you want to test your app on your connected ios device, run:
 ```sh
 gulp --cordova 'run ios' # runs gulp build, then cordova run ios
 ```

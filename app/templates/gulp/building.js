@@ -32,8 +32,8 @@ gulp.task('clean', function () {
 // and copy to build folder destinations
 gulp.task('build-app', ['clean', 'inject-all'], function () {
   var assets = $.useref.assets({searchPath: '{.tmp,app}'});
-  var jsFilter = $.filter('**/*.js');
-  var cssFilter = $.filter('**/*.css');
+  var jsFilter = $.filter('**/*.js', {restore: true});
+  var cssFilter = $.filter('**/*.css', {restore: true});
 
   var stream = gulp.src('app/index.html') // main html file
     .pipe(assets); // all assets (without index.html)
@@ -46,10 +46,10 @@ gulp.task('build-app', ['clean', 'inject-all'], function () {
         sourcemap: true
       }))
       .pipe($.uglify())
-      .pipe(jsFilter.restore())
+      .pipe(jsFilter.restore)
       .pipe(cssFilter)
       .pipe($.csso())
-      .pipe(cssFilter.restore());
+      .pipe(cssFilter.restore);
   }
 
   stream

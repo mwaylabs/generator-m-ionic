@@ -31,7 +31,7 @@ For the simplest example include this in your `config.xml`:
   <icon src="res/ios/default/icon.png" />
 </platform>
 ```
-And run any of the cordova build related commands (`cordova run, build, emulate, prepare`), for instance:
+And run any of the cordova build related commands (`cordova run, build, emulate, serve, prepare`), for instance:
 
 ```sh
 gulp --cordova 'run ios --device'
