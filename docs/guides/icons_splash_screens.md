@@ -23,6 +23,7 @@ For most projects it will suffice to put all the icons and splash screen files i
 For the simplest example include this in your `config.xml`:
 
 ```xml
+<!-- both icons are static in default folder -->
 <platform name="android">
   <icon src="res/android/default/icon.png" />
 </platform>
@@ -57,6 +58,7 @@ This effectively enables you to change the app icons and splash screens when bui
 First we start out similar to the last example, however this time the icon's src attribute points to `current/icon.png` inside the platform folder.
 
 ```xml
+<!-- both icons are dynamically included in current folder -->
 <platform name="android">
   <icon src="res/android/current/icon.png" />
 </platform>
@@ -91,12 +93,13 @@ So by adding the `--res` option you can change from which folder gulp copies the
 ### Notes
 - Make sure that you have a valid file for every icon in every set, that you are trying to change dynamically.
 - When you set an invalid path in the `--res` option, gulp will not fail. So make sure that the path exists and contains all the correct files.
-- the `res/*/current/* folder is contained in the `.gitignore` thus any changes to it will not interfere with git.
+- the `res/*/current/*` folder is contained in the `.gitignore` thus any changes to it will not interfere with git.
 
 ### Mixing static and dynamic resources
 No problem! - Simply put the static resources into your `default/` folder and directly link to them. You can link to all the dynamic files using the `current/` folder.
 
 ```xml
+<!-- dynamic and static mixed -->
 <platform name="android">
   <icon src="res/android/default/icon.png" />
 </platform>

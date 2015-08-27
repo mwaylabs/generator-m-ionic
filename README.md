@@ -199,7 +199,7 @@ If you are new to testing your app with protractor, karma and jasmine. Here are 
 
 
 ## Guides
-- Managing [app icons and splash screens](https://github.com/mwaylabs/generator-m/tree/master/docs/guides/icons_splash_screens.md))
+- Managing [app icons and splash screens](https://github.com/mwaylabs/generator-m/tree/master/docs/guides/icons_splash_screens.md)
 
 ## More gulp tasks
 
