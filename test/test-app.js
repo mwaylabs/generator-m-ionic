@@ -85,16 +85,16 @@ describe('m', function () {
     it('has proper bower.json content', function () {
       assert.fileContent([
         // dependencies, test only one as example
-        ['bower.json', 'ionic": "~1.0.0"'],
+        ['bower.json', 'ionic": "~1.1.0"'],
         // devDependencies, test only on as example
-        ['bower.json', 'angular-mocks": "~1.4.1"'],
+        ['bower.json', 'angular-mocks": "~1.4.5"'],
         // resolutions, test only one as example
-        ['bower.json', 'angular": "~1.4.1"'],
+        ['bower.json', 'angular": "~1.4.5"'],
         // optional, test all for correctness
         ['bower.json', 'angular-dynamic-locale": "~0.1.27"'],
-        ['bower.json', 'angular-translate": "~2.7.0"'],
-        ['bower.json', 'angular-translate-loader-static-files": "~2.7.0"'],
-        ['bower.json', 'angular-localForage": "~1.2.2"']
+        ['bower.json', 'angular-translate": "~2.7.2"'],
+        ['bower.json', 'angular-translate-loader-static-files": "~2.7.2"'],
+        ['bower.json', 'angular-localForage": "~1.2.3"']
       ]);
     });
 
