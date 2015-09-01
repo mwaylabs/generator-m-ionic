@@ -199,7 +199,7 @@ If you are new to testing your app with protractor, karma and jasmine. Here are 
 
 
 ## Guides
-- Using ionic [css or sass](https://github.com/mwaylabs/generator-m/tree/master/docs/guides/ionic_css_or_sass.md)
+- Using Ionic [CSS or SASS](https://github.com/mwaylabs/generator-m/tree/master/docs/guides/ionic_css_or_sass.md)
 - Managing app [icons and splash screens](https://github.com/mwaylabs/generator-m/tree/master/docs/guides/icons_splash_screens.md). Good for different app configurations (beta, production, ...).
 - The contents of the [`config.xml` can be changed programmatically](https://github.com/mwaylabs/generator-m/tree/master/docs/guides/programmatically_change_configxml.md). Good for continuous integration.
 

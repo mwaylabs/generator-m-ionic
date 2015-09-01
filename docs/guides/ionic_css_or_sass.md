@@ -19,36 +19,34 @@ When changing the from Ionic CSS to SASS or vice versa, there's three files that
 
 ### Change to SCSS
 1. In the `.yo-rc.json` change the ionicCss option to false:
-```json
-"ionicCss": false,
-```
-This is not necessary but it's good for your `.yo-rc.json` to actually reflect the state of your project.
-
+  ```json
+  "ionicCss": false,
+  ```
+  This is not necessary but it's good for your `.yo-rc.json` to actually reflect the state of your project.
 1. There's two gulp tasks you need to change in the `gulp/building.js` file. The `wiredep` and `bower-fonts` task should look like this:
-```js
-// inject bower components into index.html
-gulp.task('wiredep', function () {
-
-  return gulp.src('app/index.html')
-    // exclude ionic scss since we're using ionic sass
-    .pipe(wiredep.stream({exclude: ['bower_components/ionic/release/css']}))
-    .pipe(gulp.dest('app/'));
-});
-```
-```js
-// copy bower fonts
-gulp.task('bower-fonts', function () {
-  // to app/main/assets/fonts (path can be set in app/main/styles/module.scss)
-  var DEST = 'app/main/assets/fonts';
-  var fontFiles = mainBowerFiles({filter: /\.(eot|svg|ttf|woff)$/i})
-    .concat('app/main/assets/fonts/**/*');
-
-  return gulp.src(fontFiles)
-    .pipe($.changed(DEST))
-    .pipe(gulp.dest(DEST));
-});
-```
-
+  ```js
+  // inject bower components into index.html
+  gulp.task('wiredep', function () {
+  
+    return gulp.src('app/index.html')
+      // exclude ionic scss since we're using ionic sass
+      .pipe(wiredep.stream({exclude: ['bower_components/ionic/release/css']}))
+      .pipe(gulp.dest('app/'));
+  });
+  ```
+  ```js
+  // copy bower fonts
+  gulp.task('bower-fonts', function () {
+    // to app/main/assets/fonts (path can be set in app/main/styles/module.scss)
+    var DEST = 'app/main/assets/fonts';
+    var fontFiles = mainBowerFiles({filter: /\.(eot|svg|ttf|woff)$/i})
+      .concat('app/main/assets/fonts/**/*');
+  
+    return gulp.src(fontFiles)
+      .pipe($.changed(DEST))
+      .pipe(gulp.dest(DEST));
+  });
+  ```
 1. **Add** the ionic includes and settings to the `app/main/styles/module.scss` file:
   ```scss
   /*
@@ -78,35 +76,33 @@ gulp.task('bower-fonts', function () {
 
 ### Change to CSS
 1. In the `.yo-rc.json` change the ionicCss option to true:
-```json
-"ionicCss": true,
-```
-This is not necessary but it's good for your `.yo-rc.json` to actually reflect the state of your project.
-
+  ```json
+  "ionicCss": true,
+  ```
+  This is not necessary but it's good for your `.yo-rc.json` to actually reflect the state of your project.
 1. There's two gulp tasks you need to change in the `gulp/building.js` file. The `wiredep` and `bower-fonts` task should look like this:
-```js
-// inject bower components into index.html
-gulp.task('wiredep', function () {
-
-  return gulp.src('app/index.html')
-    // we're not excluding the ionic css here
-    .pipe(wiredep.stream())
-    .pipe(gulp.dest('app/'));
-});
-```
-```js
-// copy bower fonts
-gulp.task('bower-fonts', ['clean'], function () {
-  // to do www/fonts (ionic css requires it to be in this folder)
-  var DEST = 'www/fonts';
-  var fontFiles = mainBowerFiles({filter: /\.(eot|svg|ttf|woff)$/i});
-
-  return gulp.src(fontFiles)
-    .pipe($.changed(DEST))
-    .pipe(gulp.dest(DEST));
-});
-```
-
+  ```js
+  // inject bower components into index.html
+  gulp.task('wiredep', function () {
+  
+    return gulp.src('app/index.html')
+      // we're not excluding the ionic css here
+      .pipe(wiredep.stream())
+      .pipe(gulp.dest('app/'));
+  });
+  ```
+  ```js
+  // copy bower fonts
+  gulp.task('bower-fonts', ['clean'], function () {
+    // to do www/fonts (ionic css requires it to be in this folder)
+    var DEST = 'www/fonts';
+    var fontFiles = mainBowerFiles({filter: /\.(eot|svg|ttf|woff)$/i});
+  
+    return gulp.src(fontFiles)
+      .pipe($.changed(DEST))
+      .pipe(gulp.dest(DEST));
+  });
+  ```
 1. **Remove** the ionic includes and settings **completely** from the `app/main/styles/module.scss` file (by deleting or uncommenting):
   ```scss
   /*
