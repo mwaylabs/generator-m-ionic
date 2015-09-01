@@ -8,16 +8,14 @@ var paths = gulp.paths;
 // plugins
 var $ = require('gulp-load-plugins')();
 // modules
-var karma = require('karma');
+var Server = require('karma').Server;
 
 function runKarma (singleRun, done) {
-  karma.server.start({
+  new Server({
     configFile: path.join(__dirname, '/../karma.conf.js'),
     singleRun: singleRun,
     autoWatch: !singleRun
-  }, function () {
-    done();
-  });
+  }, done).start();
 }
 
 gulp.task('karma', ['linting'], function (done) {
