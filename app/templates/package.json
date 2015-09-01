@@ -8,7 +8,7 @@
     "connect": "^3.4.0",
     "connect-livereload": "^0.5.3",
     "cordova": "5.2.0",
-    "del": "^1.2.0",
+    "del": "^2.0.0",
     "elementtree": "^0.1.6",
     "gulp": "^3.9.0",
     "gulp-angular-filesort": "^1.1.1",
@@ -51,7 +51,7 @@
     "plist": "^1.1.0",
     "require-dir": "^0.3.0",
     "serve-static": "^1.10.0",
-    "vinyl-paths": "^1.0.0",
+    "vinyl-paths": "^2.0.0",
     "wiredep": "^2.2.2",
     "xml2js": "^0.4.9"
   }
