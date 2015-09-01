@@ -67,6 +67,22 @@ var MGenerator = yeoman.generators.Base.extend({
         message: 'state a bundle identifier for your project (e.g. com.company.project)',
         validate: utils.validateAppId
       },
+      // ionic css
+      {
+        type: 'list',
+        name: 'ionicCss',
+        message: 'Choose ionic CSS or SASS',
+        choices: [
+          {
+            name: 'ionic CSS (recommended, faster)',
+            value: true
+          },
+          {
+            name: 'ionic SASS (more flexible)',
+            value: false
+          }
+        ]
+      },
       // bower packages
       {
         type: 'checkbox',
@@ -195,7 +211,13 @@ var MGenerator = yeoman.generators.Base.extend({
       // other files
       this.directory('hooks', 'hooks');
       this.copy('gulpfile.js', 'gulpfile.js');
-      this.directory('gulp', 'gulp');
+      this.template('gulp/_injecting.js', 'gulp/injecting.js');
+      this.copy('gulp/building.js');
+      this.copy('gulp/configuring.js');
+      this.copy('gulp/cordova.js');
+      this.copy('gulp/linting.js');
+      this.copy('gulp/testing.js');
+      this.copy('gulp/watching.js');
       this.copy('jenkins.sh', 'jenkins.sh');
       this.copy('karma.conf.js', 'karma.conf.js');
       this.copy('protractor.conf.js', 'protractor.conf.js');
@@ -224,6 +246,7 @@ var MGenerator = yeoman.generators.Base.extend({
         arguments: config.DEFAULT_MODULE,
         options: {
           mainModule: true,
+          ionicCss: this.answers.ionicCss,
           'skip-prompts': this.options['skip-prompts']
         }
       });

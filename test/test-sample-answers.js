@@ -6,13 +6,28 @@ var sampleAnswers = require('../app/sources/sample-answers.js');
 
 describe('sample-answers', function () {
 
-  it('getStandard(options)', function () {
-    var answers = sampleAnswers.getStandard({'ios-only': true});
-    assert.deepEqual(answers.platforms, ['ios']);
-    answers = sampleAnswers.getStandard({'android-only': true});
-    assert.deepEqual(answers.platforms, ['android']);
-    answers = sampleAnswers.getStandard({'cordova': false});
-    assert.deepEqual(answers.platforms, []);
-    assert.deepEqual(answers.plugins, []);
+  describe('.getStandard(options)', function () {
+
+    it('ios-only: true', function () {
+      var answers = sampleAnswers.getStandard({'ios-only': true});
+      assert.deepEqual(answers.platforms, ['ios']);
+    });
+
+    it('android-only: true', function () {
+      var answers = sampleAnswers.getStandard({'android-only': true});
+      assert.deepEqual(answers.platforms, ['android']);
+    });
+
+    it('cordova: false', function () {
+      var answers = sampleAnswers.getStandard({'cordova': false});
+      assert.deepEqual(answers.platforms, []);
+      assert.deepEqual(answers.plugins, []);
+    });
+
+    it('ionicCss: true', function () {
+      var answers = sampleAnswers.getStandard({'ionicCss': true});
+      assert(answers.ionicCss);
+    });
+
   });
 });

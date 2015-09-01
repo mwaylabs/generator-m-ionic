@@ -17,6 +17,7 @@ module.exports = {
       }
       return packages;
     })(),
+    ionicCss: true,
     platforms: [
       'ios',
       'android'
@@ -34,18 +35,21 @@ module.exports = {
    * @return {object}
    */
   getStandard: function (options) {
-    var answerCopy = JSON.parse(JSON.stringify(this.standard));
+    var standardCopy = JSON.parse(JSON.stringify(this.standard));
     if (options && options['ios-only']) {
-      answerCopy.platforms = ['ios'];
+      standardCopy.platforms = ['ios'];
     }
     if (options && options['android-only']) {
-      answerCopy.platforms = ['android'];
+      standardCopy.platforms = ['android'];
     }
     if (options && options.cordova === false) {
-      answerCopy.platforms = [];
-      answerCopy.plugins = [];
+      standardCopy.platforms = [];
+      standardCopy.plugins = [];
     }
-    return answerCopy;
+    if (options && options.ionicCss !== undefined) {
+      standardCopy.ionicCss = options.ionicCss;
+    }
+    return standardCopy;
   },
 
   getForAppNameOption: function () {

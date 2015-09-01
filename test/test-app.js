@@ -12,7 +12,7 @@ var sampleAnswers = require('../app/sources/sample-answers.js');
 describe('m', function () {
   this.timeout(60000); // allow 1 minute to execute
 
-  describe('m --skip-install', function () {
+  describe('sampleAnswers (--skip-install)', function () {
     var answers = sampleAnswers.getStandard();
 
     before(function (done) {
@@ -44,7 +44,13 @@ describe('m', function () {
         'bower.json',
         'config.xml',
         'hooks/after_prepare/update_platform_config.js', // one per example
-        'gulp/building.js', // one per example
+        'gulp/building.js',
+        'gulp/configuring.js',
+        'gulp/cordova.js',
+        'gulp/injecting.js',
+        'gulp/linting.js',
+        'gulp/testing.js',
+        'gulp/watching.js',
         'gulpfile.js',
         'jenkins.sh',
         'karma.conf.js',
@@ -75,7 +81,6 @@ describe('m', function () {
       assert.file([
         'app/main/constants/env-dev.json',
       ]);
-      assert.fileContent('app/main/styles/module.scss', '$light');
     });
 
     it('version injected in README.md', function () {
@@ -119,7 +124,55 @@ describe('m', function () {
     });
   });
 
-  describe('m --app-name=tradecore', function () {
+  describe('ionicCss', function () {
+    var answers = sampleAnswers.getStandard({ionicCss: true});
+
+    before(function (done) {
+      helpers.run(path.join(__dirname, '../app'))
+        .withGenerators([ // configure path to subgenerators
+          path.join(__dirname, '../module'),
+          path.join(__dirname, '../constant'),
+          path.join(__dirname, '../controller'),
+          path.join(__dirname, '../template'),
+          path.join(__dirname, '../service')
+        ])
+        .withOptions({ 'skip-install': true, 'skip-sdk': true }) // execute with options
+        .withPrompts(answers)  // answer prompts
+        .on('end', done);
+    });
+
+    it('includes ionic css', function () {
+      assert.noFileContent('app/main/styles/module.scss', '$light');
+      assert.fileContent('gulp/injecting.js', '.pipe(wiredep.stream())');
+      assert.fileContent('gulp/injecting.js', 'var DEST = \'www/fonts\';');
+    });
+  });
+
+  describe('ionicSass', function () {
+    var answers = sampleAnswers.getStandard({ionicCss: false});
+
+    before(function (done) {
+      helpers.run(path.join(__dirname, '../app'))
+        .withGenerators([ // configure path to subgenerators
+          path.join(__dirname, '../module'),
+          path.join(__dirname, '../constant'),
+          path.join(__dirname, '../controller'),
+          path.join(__dirname, '../template'),
+          path.join(__dirname, '../service')
+        ])
+        .withOptions({ 'skip-install': true, 'skip-sdk': true }) // execute with options
+        .withPrompts(answers)  // answer prompts
+        .on('end', done);
+    });
+
+    it('includes ionicSass', function () {
+      assert.fileContent('app/main/styles/module.scss', '$light');
+      assert.fileContent('gulp/injecting.js', '.pipe(wiredep.stream({exclude: [\'bower_components/ionic/release/css\']}))');
+      assert.fileContent('gulp/injecting.js', 'var DEST = \'app/main/assets/fonts\'');
+    });
+  });
+
+  describe('--app-name=tradecore', function () {
     var answers = sampleAnswers.getForAppNameOption();
 
     before(function (done) {
@@ -161,7 +214,7 @@ describe('m', function () {
     });
   };
 
-  describe('m --skip-prompts', function () {
+  describe('--skip-prompts', function () {
     var answers = sampleAnswers.getStandard();
 
     before(function (done) {
@@ -181,7 +234,7 @@ describe('m', function () {
     yoRcHasAnswers(answers);
   });
 
-  describe('m --skip-prompts --ios-only', function () {
+  describe('--skip-prompts --ios-only', function () {
     var answers = sampleAnswers.getStandard({'ios-only': true});
 
     before(function (done) {
@@ -201,7 +254,7 @@ describe('m', function () {
     yoRcHasAnswers(answers);
   });
 
-  describe('m --skip-prompts --no-cordova', function () {
+  describe('--skip-prompts --no-cordova', function () {
     var answers = sampleAnswers.getStandard({'cordova': false});
 
     before(function (done) {

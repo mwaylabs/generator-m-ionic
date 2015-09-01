@@ -49,16 +49,29 @@ gulp.task('styles', ['clean'], function () {
 gulp.task('wiredep', function () {
 
   return gulp.src('app/index.html')
-     // exclude ionic scss since we're using ionic sass
+<% if (answers.ionicCss) { -%>
+    // we're not excluding the ionic css here
+    .pipe(wiredep.stream())
+<% } else { -%>
+    // exclude ionic scss since we're using ionic sass
     .pipe(wiredep.stream({exclude: ['bower_components/ionic/release/css']}))
+<% } -%>
     .pipe(gulp.dest('app/'));
 });
 
-// copy bower-fonts to do app/main/assets/fonts
+// copy bower fonts
+<% if (answers.ionicCss) { -%>
+gulp.task('bower-fonts', ['clean'], function () {
+  // to do www/fonts (ionic css requires it to be in this folder)
+  var DEST = 'www/fonts';
+  var fontFiles = mainBowerFiles({filter: /\.(eot|svg|ttf|woff)$/i});
+<% } else { -%>
 gulp.task('bower-fonts', function () {
+  // to app/main/assets/fonts (path can be set in app/main/styles/module.scss)
   var DEST = 'app/main/assets/fonts';
   var fontFiles = mainBowerFiles({filter: /\.(eot|svg|ttf|woff)$/i})
     .concat('app/main/assets/fonts/**/*');
+<% } -%>
 
   return gulp.src(fontFiles)
     .pipe($.changed(DEST))

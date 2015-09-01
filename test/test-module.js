@@ -50,11 +50,26 @@ describe('m:module', function () {
   var mainModuleTests = function (moduleName) {
     var moduleFolder = utils.moduleFolder(moduleName);
 
-    it('--mainModule tests', function () {
+    it('--mainModule (ionicCss) tests', function () {
       assert.file([
         'app/' + moduleFolder + '/constants/env-dev.json',
         'app/' + moduleFolder + '/constants/env-prod.json'
       ]);
+    });
+  };
+
+  var ionicCssTests = function (moduleName) {
+    var moduleFolder = utils.moduleFolder(moduleName);
+
+    it('ionicCss', function () {
+      assert.noFileContent('app/' + moduleFolder + '/styles/module.scss', '$light');
+    });
+  };
+
+  var ionicSassTests = function (moduleName) {
+    var moduleFolder = utils.moduleFolder(moduleName);
+
+    it('ionicSass', function () {
       assert.fileContent('app/' + moduleFolder + '/styles/module.scss', '$light');
     });
   };
@@ -151,7 +166,8 @@ describe('m:module', function () {
 
   describe('main (main, tabs)', function () {
     var options = {
-      mainModule: true
+      mainModule: true,
+      ionicCss: true
     };
 
     before(function (done) {
@@ -170,7 +186,30 @@ describe('m:module', function () {
 
     basicFilesTests('main', options);
     mainModuleTests('main');
+    ionicCssTests('main');
     tabsTests('main', options);
+  });
+
+  describe('ionicSass tests', function () {
+    var options = {
+      mainModule: true,
+    };
+
+    before(function (done) {
+      helpers.run(path.join(__dirname, '../module'))
+        .withGenerators([ // configure path to  subgenerators
+          path.join(__dirname, '../controller'),
+          path.join(__dirname, '../template'),
+          path.join(__dirname, '../service'),
+          path.join(__dirname, '../constant')
+        ])
+        .withArguments('main')
+        .withPrompts({ template: 'tabs'})
+        .withOptions(options)
+        .on('end', done);
+    });
+
+    ionicSassTests('main');
   });
 
   describe('myModule (no main, tabs)', function () {

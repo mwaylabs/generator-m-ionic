@@ -1,0 +1,135 @@
+# Use Ionic CSS or SASS
+
+If you are unsure whether to choose Ionic's CSS or SASS version, there's only one thing to consider:
+
+> Ionic SASS simplifies changing the basic layout of ionic components, but comes with the drawback of having to compile the whole Ionic SCSS on every change. If Ionic suffices for your project as is, use the CSS version, which is much faster.
+
+## Switching the Ionic style source
+If you want to change the style source of your project, generated with Generator-M, there's two simple options.
+
+1. Re-generate your project and choose the style source (CSS or SASS) you like
+2. Manually change the style source with the guide below
+
+## Manually change the style source
+When changing the from Ionic CSS to SASS or vice versa, there's three files that need alteration.
+
+1. `.yo-rc.json` - ionicCss option
+2. `gulp/injecting.js` - the `wiredep` and `bower-fonts` task
+3. `app/main/styles/module.scss` - ionic includes and settings
+
+### Change to SCSS
+1. In the `.yo-rc.json` change the ionicCss option to false:
+```json
+"ionicCss": false,
+```
+This is not necessary but it's good for your `.yo-rc.json` to actually reflect the state of your project.
+
+1. There's two gulp tasks you need to change in the `gulp/building.js` file. The `wiredep` and `bower-fonts` task should look like this:
+```js
+// inject bower components into index.html
+gulp.task('wiredep', function () {
+
+  return gulp.src('app/index.html')
+    // exclude ionic scss since we're using ionic sass
+    .pipe(wiredep.stream({exclude: ['bower_components/ionic/release/css']}))
+    .pipe(gulp.dest('app/'));
+});
+```
+```js
+// copy bower fonts
+gulp.task('bower-fonts', function () {
+  // to app/main/assets/fonts (path can be set in app/main/styles/module.scss)
+  var DEST = 'app/main/assets/fonts';
+  var fontFiles = mainBowerFiles({filter: /\.(eot|svg|ttf|woff)$/i})
+    .concat('app/main/assets/fonts/**/*');
+
+  return gulp.src(fontFiles)
+    .pipe($.changed(DEST))
+    .pipe(gulp.dest(DEST));
+});
+```
+
+1. **Add** the ionic includes and settings to the `app/main/styles/module.scss` file:
+  ```scss
+  /*
+  To customize the look and feel of Ionic, you can override the variables
+  in ionic's _variables.scss file.
+
+  For example, you might change some of the default colors:
+  */
+
+  $light:                           #fff !default;
+  $stable:                          #f8f8f8 !default;
+  $positive:                        #4a87ee !default;
+  $calm:                            #43cee6 !default;
+  $balanced:                        #66cc33 !default;
+  $energized:                       #f0b840 !default;
+  $assertive:                       #ef4e3a !default;
+  $royal:                           #8a6de9 !default;
+  $dark:                            #444 !default;
+
+  // The path for our ionicons font files, relative to the built & temporary module.css
+  $ionicons-font-path: "../assets/fonts" !default;
+
+  // Include all of Ionic
+  @import "../../bower_components/ionic/scss/ionic";
+  ```
+
+
+### Change to CSS
+1. In the `.yo-rc.json` change the ionicCss option to true:
+```json
+"ionicCss": true,
+```
+This is not necessary but it's good for your `.yo-rc.json` to actually reflect the state of your project.
+
+1. There's two gulp tasks you need to change in the `gulp/building.js` file. The `wiredep` and `bower-fonts` task should look like this:
+```js
+// inject bower components into index.html
+gulp.task('wiredep', function () {
+
+  return gulp.src('app/index.html')
+    // we're not excluding the ionic css here
+    .pipe(wiredep.stream())
+    .pipe(gulp.dest('app/'));
+});
+```
+```js
+// copy bower fonts
+gulp.task('bower-fonts', ['clean'], function () {
+  // to do www/fonts (ionic css requires it to be in this folder)
+  var DEST = 'www/fonts';
+  var fontFiles = mainBowerFiles({filter: /\.(eot|svg|ttf|woff)$/i});
+
+  return gulp.src(fontFiles)
+    .pipe($.changed(DEST))
+    .pipe(gulp.dest(DEST));
+});
+```
+
+1. **Remove** the ionic includes and settings **completely** from the `app/main/styles/module.scss` file (by deleting or uncommenting):
+  ```scss
+  /*
+  To customize the look and feel of Ionic, you can override the variables
+  in ionic's _variables.scss file.
+
+  For example, you might change some of the default colors:
+
+  $light:                           #fff !default;
+  $stable:                          #f8f8f8 !default;
+  $positive:                        #4a87ee !default;
+  $calm:                            #43cee6 !default;
+  $balanced:                        #66cc33 !default;
+  $energized:                       #f0b840 !default;
+  $assertive:                       #ef4e3a !default;
+  $royal:                           #8a6de9 !default;
+  $dark:                            #444 !default;
+
+  // The path for our ionicons font files, relative to the built & temporary module.css
+  $ionicons-font-path: "../assets/fonts" !default;
+
+  // Include all of Ionic
+  @import "../../bower_components/ionic/scss/ionic";
+  */
+
+  ```
