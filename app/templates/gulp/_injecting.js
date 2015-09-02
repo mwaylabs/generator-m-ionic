@@ -25,7 +25,7 @@ gulp.task('inject-all', ['styles', 'wiredep', 'bower-fonts', 'environment', 'bui
         {relative: true}))
     .pipe(
       $.inject( // inject compiled css
-        gulp.src('.tmp/*/styles/module.css', {read: false}),
+        gulp.src('.tmp/*/styles/*.css', {read: false}),
         {
           ignorePath: '../.tmp',
           relative: true,
@@ -35,8 +35,8 @@ gulp.task('inject-all', ['styles', 'wiredep', 'bower-fonts', 'environment', 'bui
 
 // build styles to tmp
 gulp.task('styles', ['clean'], function () {
-  // compile css starting from each module's module.scss
-  return gulp.src('app/*/styles/module.scss')
+  // compile css starting from each module's scss
+  return gulp.src('app/*/styles/!(_)*.scss')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe($.sass.sync().on('error', $.sass.logError))
@@ -67,7 +67,7 @@ gulp.task('bower-fonts', ['clean'], function () {
   var fontFiles = mainBowerFiles({filter: /\.(eot|svg|ttf|woff)$/i});
 <% } else { -%>
 gulp.task('bower-fonts', function () {
-  // to app/main/assets/fonts (path can be set in app/main/styles/module.scss)
+  // to app/main/assets/fonts (path can be set in app/main/styles/<module>.scss)
   var DEST = 'app/main/assets/fonts';
   var fontFiles = mainBowerFiles({filter: /\.(eot|svg|ttf|woff)$/i})
     .concat('app/main/assets/fonts/**/*');

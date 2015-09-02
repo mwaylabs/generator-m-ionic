@@ -78,7 +78,7 @@ var MGenerator = yeoman.generators.NamedBase.extend({
       this.debugCtrlName = utils.controllerName(this.moduleName + 'Debug');
     }
     this.template('_module.js', modulePath + '/' + this.moduleFolder + '.js');
-    this.template('_module.scss', modulePath + '/styles/module.scss');
+    this.template('_module.scss', modulePath + '/styles/' + this.moduleFolder + '.scss');
     // create config constant
     this.composeWith('m:constant', {
       arguments: utils.configName(this.moduleName) + ' ' + this.moduleName,

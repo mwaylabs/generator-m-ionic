@@ -15,7 +15,7 @@ When changing the from Ionic CSS to SASS or vice versa, there's three files that
 
 1. `.yo-rc.json` - ionicCss option
 2. `gulp/injecting.js` - the `wiredep` and `bower-fonts` task
-3. `app/main/styles/module.scss` - ionic includes and settings
+3. `app/main/styles/main.scss` - ionic includes and settings
 
 ### Change to SCSS
 1. In the `.yo-rc.json` change the ionicCss option to false:
@@ -37,7 +37,7 @@ When changing the from Ionic CSS to SASS or vice versa, there's three files that
   ```js
   // copy bower fonts
   gulp.task('bower-fonts', function () {
-    // to app/main/assets/fonts (path can be set in app/main/styles/module.scss)
+    // to app/main/assets/fonts (path can be set in app/main/styles/main.scss)
     var DEST = 'app/main/assets/fonts';
     var fontFiles = mainBowerFiles({filter: /\.(eot|svg|ttf|woff)$/i})
       .concat('app/main/assets/fonts/**/*');
@@ -47,7 +47,7 @@ When changing the from Ionic CSS to SASS or vice versa, there's three files that
       .pipe(gulp.dest(DEST));
   });
   ```
-1. **Add** the ionic includes and settings to the `app/main/styles/module.scss` file:
+1. **Add** the ionic includes and settings to the `app/main/styles/main.scss` file:
   ```scss
   /*
   To customize the look and feel of Ionic, you can override the variables
@@ -66,7 +66,7 @@ When changing the from Ionic CSS to SASS or vice versa, there's three files that
   $royal:                           #8a6de9 !default;
   $dark:                            #444 !default;
 
-  // The path for our ionicons font files, relative to the built & temporary module.css
+  // The path for our ionicons font files, relative to the built & temporary main.css
   $ionicons-font-path: "../assets/fonts" !default;
 
   // Include all of Ionic
@@ -103,7 +103,7 @@ When changing the from Ionic CSS to SASS or vice versa, there's three files that
       .pipe(gulp.dest(DEST));
   });
   ```
-1. **Remove** the ionic includes and settings **completely** from the `app/main/styles/module.scss` file (by deleting or uncommenting):
+1. **Remove** the ionic includes and settings **completely** from the `app/main/styles/main.scss` file (by deleting or uncommenting):
   ```scss
   /*
   To customize the look and feel of Ionic, you can override the variables
@@ -121,7 +121,7 @@ When changing the from Ionic CSS to SASS or vice versa, there's three files that
   $royal:                           #8a6de9 !default;
   $dark:                            #444 !default;
 
-  // The path for our ionicons font files, relative to the built & temporary module.css
+  // The path for our ionicons font files, relative to the built & temporary main.css
   $ionicons-font-path: "../assets/fonts" !default;
 
   // Include all of Ionic

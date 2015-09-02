@@ -142,7 +142,7 @@ describe('m', function () {
     });
 
     it('includes ionic css', function () {
-      assert.noFileContent('app/main/styles/module.scss', '$light');
+      assert.noFileContent('app/main/styles/main.scss', '$light');
       assert.fileContent('gulp/injecting.js', '.pipe(wiredep.stream())');
       assert.fileContent('gulp/injecting.js', 'var DEST = \'www/fonts\';');
     });
@@ -166,7 +166,7 @@ describe('m', function () {
     });
 
     it('includes ionicSass', function () {
-      assert.fileContent('app/main/styles/module.scss', '$light');
+      assert.fileContent('app/main/styles/main.scss', '$light');
       assert.fileContent('gulp/injecting.js', '.pipe(wiredep.stream({exclude: [\'bower_components/ionic/release/css\']}))');
       assert.fileContent('gulp/injecting.js', 'var DEST = \'app/main/assets/fonts\'');
     });

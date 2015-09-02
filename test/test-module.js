@@ -22,7 +22,7 @@ describe('m:module', function () {
         modulePath + '/directives',
         modulePath + '/filters',
         modulePath + '/services',
-        modulePath + '/styles/module.scss',
+        modulePath + '/styles/' + moduleFolder + '.scss',
         modulePath + '/templates'
       ]);
 
@@ -62,7 +62,7 @@ describe('m:module', function () {
     var moduleFolder = utils.moduleFolder(moduleName);
 
     it('ionicCss', function () {
-      assert.noFileContent('app/' + moduleFolder + '/styles/module.scss', '$light');
+      assert.noFileContent('app/' + moduleFolder + '/styles/' + moduleFolder + '.scss', '$light');
     });
   };
 
@@ -70,7 +70,7 @@ describe('m:module', function () {
     var moduleFolder = utils.moduleFolder(moduleName);
 
     it('ionicSass', function () {
-      assert.fileContent('app/' + moduleFolder + '/styles/module.scss', '$light');
+      assert.fileContent('app/' + moduleFolder + '/styles/' + moduleFolder + '.scss', '$light');
     });
   };
 
@@ -83,7 +83,7 @@ describe('m:module', function () {
         modulePath + '/constants/env-dev.json',
         modulePath + '/constants/env-prod.json'
       ]);
-      assert.noFileContent(modulePath + '/styles/module.scss', '$light');
+      assert.noFileContent(modulePath + '/styles/' + moduleFolder + '.scss', '$light');
     });
   };
 
