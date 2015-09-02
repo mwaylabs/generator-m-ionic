@@ -1,4 +1,3 @@
-/* jshint -W079 */ // prevent redefinition of $ warning
 'use strict';
 
 // tasks based on : https://github.com/youngmountain/generator-node-gulp/blob/master/gulpfile.js

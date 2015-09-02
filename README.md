@@ -365,6 +365,7 @@ yo m:constant <constantName> <moduleName>
 yo m:controller <controllerName> <moduleName>
 yo m:directive <directiveName> <moduleName>
 yo m:filter <filterName> <moduleName>
+yo m:pair <pairName> <moduleName> # creates controller & template
 yo m:template <templateName> <moduleName>
 yo m:service <serviceName> <moduleName>
 ```

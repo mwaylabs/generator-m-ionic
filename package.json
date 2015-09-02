@@ -27,7 +27,8 @@
     "utils",
     "directive",
     "filter",
-    "constant"
+    "constant",
+    "generators/pair"
   ],
   "keywords": [
     "yeoman-generator"
