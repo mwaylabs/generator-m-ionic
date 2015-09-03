@@ -6,7 +6,7 @@ var helpers = require('yeoman-generator').test;
 var pkg = require('../package.json');
 
 // local modules
-var sampleAnswers = require('../app/sources/sample-answers.js');
+var sampleAnswers = require('../generators/app/sources/sample-answers.js');
 
 describe('m', function () {
   this.timeout(60000); // allow 1 minute to execute
@@ -15,7 +15,7 @@ describe('m', function () {
     var answers = sampleAnswers.getStandard();
 
     before(function (done) {
-      helpers.run(path.join(__dirname, '../app'))
+      helpers.run(path.join(__dirname, '../generators/app'))
         .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../module'),
           path.join(__dirname, '../constant'),
@@ -127,7 +127,7 @@ describe('m', function () {
     var answers = sampleAnswers.getStandard({ionicCss: true});
 
     before(function (done) {
-      helpers.run(path.join(__dirname, '../app'))
+      helpers.run(path.join(__dirname, '../generators/app'))
         .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../module'),
           path.join(__dirname, '../constant'),
@@ -151,7 +151,7 @@ describe('m', function () {
     var answers = sampleAnswers.getStandard({ionicCss: false});
 
     before(function (done) {
-      helpers.run(path.join(__dirname, '../app'))
+      helpers.run(path.join(__dirname, '../generators/app'))
         .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../module'),
           path.join(__dirname, '../constant'),
@@ -175,7 +175,7 @@ describe('m', function () {
     var answers = sampleAnswers.getForAppNameOption();
 
     before(function (done) {
-      helpers.run(path.join(__dirname, '../app'))
+      helpers.run(path.join(__dirname, '../generators/app'))
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../module'),
           path.join(__dirname, '../constant'),
@@ -217,7 +217,7 @@ describe('m', function () {
     var answers = sampleAnswers.getStandard();
 
     before(function (done) {
-      helpers.run(path.join(__dirname, '../app'))
+      helpers.run(path.join(__dirname, '../generators/app'))
         .withOptions({ 'skip-install': true, 'skip-sdk': true, 'skip-prompts': true}) // execute with options
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../module'),
@@ -237,7 +237,7 @@ describe('m', function () {
     var answers = sampleAnswers.getStandard({'ios-only': true});
 
     before(function (done) {
-      helpers.run(path.join(__dirname, '../app'))
+      helpers.run(path.join(__dirname, '../generators/app'))
         .withOptions({ 'skip-install': true, 'skip-sdk': true, 'skip-prompts': true, 'ios-only': true}) // execute with options
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../module'),
@@ -257,7 +257,7 @@ describe('m', function () {
     var answers = sampleAnswers.getStandard({'cordova': false});
 
     before(function (done) {
-      helpers.run(path.join(__dirname, '../app'))
+      helpers.run(path.join(__dirname, '../generators/app'))
         .withOptions({ 'skip-install': true, 'skip-sdk': true, 'skip-prompts': true, 'cordova': false}) // execute with options
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../module'),

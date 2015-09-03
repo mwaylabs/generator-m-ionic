@@ -1,7 +1,7 @@
 'use strict';
 
 var assert = require('yeoman-generator').assert;
-var sampleAnswers = require('../app/sources/sample-answers.js');
+var sampleAnswers = require('../generators/app/sources/sample-answers.js');
 
 describe('sample-answers', function () {
 

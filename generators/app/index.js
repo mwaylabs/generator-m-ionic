@@ -8,8 +8,8 @@ var cordova = require('cordova-lib').cordova.raw; // get the promise version of 
 var fs = require('fs');
 
 // local modules
-var utils = require('../utils/utils.js');
-var config = require('../utils/config.js');
+var utils = require('../../utils/utils.js');
+var config = require('../../utils/config.js');
 var bowerConfig = require('./sources/bower-config.js');
 var cordovaConfig = require('./sources/cordova-config.js');
 var sampleAnswers = require('./sources/sample-answers.js');
@@ -17,7 +17,7 @@ var sampleAnswers = require('./sources/sample-answers.js');
 var MGenerator = yeoman.generators.Base.extend({
   initializing: function () {
     // get package.json content
-    this.pkg = require('../package.json');
+    this.pkg = require('../../package.json');
     // non-empty dir?
     this.fileCount = fs.readdirSync('.').length;
     // read .yo-rc
@@ -235,7 +235,7 @@ var MGenerator = yeoman.generators.Base.extend({
       this.copy('jshintignore', '.jshintignore');
 
       // inject version into readme
-      var readme = this.read(path.join(__dirname, '../', 'README.md'));
+      var readme = this.read(path.join(__dirname, '../../', 'README.md'));
       readme = readme.replace(/^# Generator-M/, '# Generator-M v' + this.pkg.version);
       this.write(this.destinationRoot() + '/README.md', readme);
     },
