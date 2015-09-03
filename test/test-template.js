@@ -9,7 +9,7 @@ describe('m:template', function () {
 
   describe('some-template', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../template'))
+      helpers.run(path.join(__dirname, '../generators/template'))
         .withArguments('some-template')
         .on('end', done);
     });
@@ -25,7 +25,7 @@ describe('m:template', function () {
 
   describe('someTemplate myModule', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../template'))
+      helpers.run(path.join(__dirname, '../generators/template'))
         .withArguments('someTemplate myModule')
         .on('end', done);
     });
@@ -41,7 +41,7 @@ describe('m:template', function () {
 
   describe('debug', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../template'))
+      helpers.run(path.join(__dirname, '../generators/template'))
         .withArguments('debug')
         .withOptions({ template: 'debug' })
         .on('end', done);
@@ -58,7 +58,7 @@ describe('m:template', function () {
 
   describe('list-detail', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../template'))
+      helpers.run(path.join(__dirname, '../generators/template'))
         .withArguments('list-detail')
         .withOptions({ template: 'list-detail' })
         .on('end', done);
@@ -74,7 +74,7 @@ describe('m:template', function () {
 
   describe('list', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../template'))
+      helpers.run(path.join(__dirname, '../generators/template'))
         .withArguments('list')
         .withOptions({ template: 'list' })
         .on('end', done);
@@ -91,7 +91,7 @@ describe('m:template', function () {
 
   describe('list myModule', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../template'))
+      helpers.run(path.join(__dirname, '../generators/template'))
         .withArguments('list myModule')
         .withOptions({ template: 'list' })
         .on('end', done);
@@ -108,7 +108,7 @@ describe('m:template', function () {
 
   describe('menu', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../template'))
+      helpers.run(path.join(__dirname, '../generators/template'))
         .withArguments('menu')
         .withOptions({ template: 'menu' })
         .on('end', done);
@@ -126,7 +126,7 @@ describe('m:template', function () {
 
   describe('menu myModule', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../template'))
+      helpers.run(path.join(__dirname, '../generators/template'))
         .withArguments('menu myModule')
         .withOptions({ template: 'menu' })
         .on('end', done);
@@ -144,7 +144,7 @@ describe('m:template', function () {
 
   describe('tabs', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../template'))
+      helpers.run(path.join(__dirname, '../generators/template'))
         .withArguments('tabs')
         .withOptions({ template: 'tabs' })
         .on('end', done);
@@ -162,7 +162,7 @@ describe('m:template', function () {
 
   describe('tabs myModule', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../template'))
+      helpers.run(path.join(__dirname, '../generators/template'))
         .withArguments('tabs myModule')
         .withOptions({ template: 'tabs' })
         .on('end', done);
