@@ -5,38 +5,32 @@
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 
-var packageJSON = require('./package.json');
-
 // ADD PATHS AUTOMATICALLY
 var paths = {
   coverage: [ // code actually run by the generator
+    'generators/*/index.js',
+    'utils/**/*.js'
   ],
   lint: [ // code to lint
     './gulpfile.js',
+    'generators/*/index.js',
+    'generators/*/templates/**/!(_)*.js',
+    'utils/**/*.js',
   ],
   watch: [ // code that should be watched
     './gulpfile.js',
+    'generators/**/*',
+    'utils/**/*'
   ],
   test: [
     './test/**/*.js',
     '!./test/temp/**/*.js'
   ],
   extra: [
-    'app/sources/**/*.js',
-    'utils/**/*.js'
+    'generators/app/sources/**/*.js',
   ]
 };
-// package.json files
-for (var i = 0, folder; (folder = packageJSON.files[i]); i++) {
-  // coverage: add every generator's index.js
-  paths.coverage.push('./' + folder + '/index.js');
-  // lint: index.js & add untemplated files
-  paths.lint.push('./' + folder + '/index.js');
-  paths.lint.push('./' + folder + '/templates/**/*.js');
-  paths.lint.push('!./' + folder + '/templates/**/_*.js');
-  // watch: add all files in folders
-  paths.watch.push('./' + folder + '/**/*');
-}
+
 // add extra files
 paths.coverage = paths.coverage.concat(paths.extra);
 paths.lint = paths.lint.concat(paths.extra);

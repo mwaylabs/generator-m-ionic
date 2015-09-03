@@ -19,16 +19,8 @@
     "test": "gulp test"
   },
   "files": [
-    "app",
-    "controller",
-    "module",
-    "service",
-    "template",
     "utils",
-    "directive",
-    "filter",
-    "constant",
-    "generators/pair"
+    "generators"
   ],
   "keywords": [
     "yeoman-generator"
