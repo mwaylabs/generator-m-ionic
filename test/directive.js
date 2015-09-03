@@ -8,7 +8,7 @@ var config = require(path.join(__dirname, '../utils/config.js'));
 describe('m:directive', function () {
   describe('some', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../directive'))
+      helpers.run(path.join(__dirname, '../generators/directive'))
         .withArguments('some')
         .on('end', done);
     });
@@ -34,7 +34,7 @@ describe('m:directive', function () {
 
   describe('someThing myModule', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../directive'))
+      helpers.run(path.join(__dirname, '../generators/directive'))
         .withArguments('someThing myModule')
         .on('end', done);
     });
