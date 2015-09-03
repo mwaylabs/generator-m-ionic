@@ -9,7 +9,7 @@ describe('m:controller', function () {
 
   describe('some', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../controller'))
+      helpers.run(path.join(__dirname, '../generators/controller'))
         .withArguments('some')
         .on('end', done);
     });
@@ -33,7 +33,7 @@ describe('m:controller', function () {
 
   describe('someCtrl myModule', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../controller'))
+      helpers.run(path.join(__dirname, '../generators/controller'))
         .withArguments('someCtrl myModule')
         .on('end', done);
     });
@@ -55,7 +55,7 @@ describe('m:controller', function () {
 
   describe('someCtrl --template=debug', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../controller'))
+      helpers.run(path.join(__dirname, '../generators/controller'))
         .withArguments('someCtrl')
         .withOptions({ template: 'debug' })
         .on('end', done);
@@ -82,7 +82,7 @@ describe('m:controller', function () {
 
   describe('someCtrl myModule --template=debug', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../controller'))
+      helpers.run(path.join(__dirname, '../generators/controller'))
         .withArguments('someCtrl myModule')
         .withOptions({ template: 'debug' })
         .on('end', done);

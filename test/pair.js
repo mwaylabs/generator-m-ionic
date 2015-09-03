@@ -8,7 +8,7 @@ describe('M:generators/pair', function () {
   before(function (done) {
     helpers.run(path.join(__dirname, '../generators/pair'))
       .withGenerators([ // configure path to subgenerators
-        path.join(__dirname, '../controller'),
+        path.join(__dirname, '../generators/controller'),
         path.join(__dirname, '../template'),
       ])
       .withArguments('name')
