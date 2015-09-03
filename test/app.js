@@ -18,7 +18,7 @@ describe('m', function () {
       helpers.run(path.join(__dirname, '../generators/app'))
         .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../module'),
-          path.join(__dirname, '../constant'),
+          path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../controller'),
           path.join(__dirname, '../template'),
           path.join(__dirname, '../service')
@@ -130,7 +130,7 @@ describe('m', function () {
       helpers.run(path.join(__dirname, '../generators/app'))
         .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../module'),
-          path.join(__dirname, '../constant'),
+          path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../controller'),
           path.join(__dirname, '../template'),
           path.join(__dirname, '../service')
@@ -154,7 +154,7 @@ describe('m', function () {
       helpers.run(path.join(__dirname, '../generators/app'))
         .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../module'),
-          path.join(__dirname, '../constant'),
+          path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../controller'),
           path.join(__dirname, '../template'),
           path.join(__dirname, '../service')
@@ -178,7 +178,7 @@ describe('m', function () {
       helpers.run(path.join(__dirname, '../generators/app'))
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../module'),
-          path.join(__dirname, '../constant'),
+          path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../controller'),
           path.join(__dirname, '../template'),
           path.join(__dirname, '../service')
@@ -221,7 +221,7 @@ describe('m', function () {
         .withOptions({ 'skip-install': true, 'skip-sdk': true, 'skip-prompts': true}) // execute with options
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../module'),
-          path.join(__dirname, '../constant'),
+          path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../controller'),
           path.join(__dirname, '../template'),
           path.join(__dirname, '../service')
@@ -241,7 +241,7 @@ describe('m', function () {
         .withOptions({ 'skip-install': true, 'skip-sdk': true, 'skip-prompts': true, 'ios-only': true}) // execute with options
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../module'),
-          path.join(__dirname, '../constant'),
+          path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../controller'),
           path.join(__dirname, '../template'),
           path.join(__dirname, '../service')
@@ -261,7 +261,7 @@ describe('m', function () {
         .withOptions({ 'skip-install': true, 'skip-sdk': true, 'skip-prompts': true, 'cordova': false}) // execute with options
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../module'),
-          path.join(__dirname, '../constant'),
+          path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../controller'),
           path.join(__dirname, '../template'),
           path.join(__dirname, '../service')

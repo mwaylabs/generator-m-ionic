@@ -8,7 +8,7 @@ var config = require(path.join(__dirname, '../utils/config.js'));
 describe('m:constant', function () {
   describe('m:constant some', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../constant'))
+      helpers.run(path.join(__dirname, '../generators/constant'))
         .withArguments('some')
         .on('end', done);
     });
@@ -25,7 +25,7 @@ describe('m:constant', function () {
 
   describe('m:constant someThing myModule', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../constant'))
+      helpers.run(path.join(__dirname, '../generators/constant'))
         .withArguments('someThing myModule')
         .on('end', done);
     });
@@ -42,7 +42,7 @@ describe('m:constant', function () {
 
   describe('m:constant myConstant --template=config', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../constant'))
+      helpers.run(path.join(__dirname, '../generators/constant'))
         .withArguments('myConstant')
         .withOptions({ template: 'config' })
         .on('end', done);

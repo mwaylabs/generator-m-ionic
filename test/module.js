@@ -175,7 +175,7 @@ describe('m:module', function () {
           path.join(__dirname, '../controller'),
           path.join(__dirname, '../template'),
           path.join(__dirname, '../service'),
-          path.join(__dirname, '../constant')
+          path.join(__dirname, '../generators/constant')
         ])
         .withArguments('main')
         .withPrompts({ template: 'tabs' })
@@ -200,7 +200,7 @@ describe('m:module', function () {
           path.join(__dirname, '../controller'),
           path.join(__dirname, '../template'),
           path.join(__dirname, '../service'),
-          path.join(__dirname, '../constant')
+          path.join(__dirname, '../generators/constant')
         ])
         .withArguments('main')
         .withPrompts({ template: 'tabs'})
@@ -219,7 +219,7 @@ describe('m:module', function () {
           path.join(__dirname, '../controller'),
           path.join(__dirname, '../template'),
           path.join(__dirname, '../service'),
-          path.join(__dirname, '../constant')
+          path.join(__dirname, '../generators/constant')
         ])
         .withArguments('myModule')
         .withPrompts({ template: 'tabs' })
@@ -319,7 +319,7 @@ describe('m:module', function () {
           path.join(__dirname, '../controller'),
           path.join(__dirname, '../template'),
           path.join(__dirname, '../service'),
-          path.join(__dirname, '../constant')
+          path.join(__dirname, '../generators/constant')
         ])
         .withArguments('main')
         .withPrompts({ template: 'sidemenu' })
@@ -340,7 +340,7 @@ describe('m:module', function () {
           path.join(__dirname, '../controller'),
           path.join(__dirname, '../template'),
           path.join(__dirname, '../service'),
-          path.join(__dirname, '../constant')
+          path.join(__dirname, '../generators/constant')
         ])
         .withArguments('myModule')
         .withPrompts({ template: 'sidemenu' })
@@ -379,7 +379,7 @@ describe('m:module', function () {
           path.join(__dirname, '../controller'),
           path.join(__dirname, '../template'),
           path.join(__dirname, '../service'),
-          path.join(__dirname, '../constant')
+          path.join(__dirname, '../generators/constant')
         ])
         .withPrompts({ template: 'blank' })
         .withOptions(options)
@@ -399,7 +399,7 @@ describe('m:module', function () {
           path.join(__dirname, '../controller'),
           path.join(__dirname, '../template'),
           path.join(__dirname, '../service'),
-          path.join(__dirname, '../constant')
+          path.join(__dirname, '../generators/constant')
         ])
         .withPrompts({ template: 'blank' })
         .withArguments('myModule')
