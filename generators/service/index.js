@@ -1,6 +1,6 @@
 'use strict';
 var yeoman = require('yeoman-generator');
-var utils = require('../utils/utils.js');
+var utils = require('../../utils/utils.js');
 
 var MGenerator = yeoman.generators.NamedBase.extend({
 

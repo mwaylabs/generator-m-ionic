@@ -174,7 +174,7 @@ describe('m:module', function () {
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
-          path.join(__dirname, '../service'),
+          path.join(__dirname, '../generators/service'),
           path.join(__dirname, '../generators/constant')
         ])
         .withArguments('main')
@@ -199,7 +199,7 @@ describe('m:module', function () {
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
-          path.join(__dirname, '../service'),
+          path.join(__dirname, '../generators/service'),
           path.join(__dirname, '../generators/constant')
         ])
         .withArguments('main')
@@ -218,7 +218,7 @@ describe('m:module', function () {
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
-          path.join(__dirname, '../service'),
+          path.join(__dirname, '../generators/service'),
           path.join(__dirname, '../generators/constant')
         ])
         .withArguments('myModule')
@@ -318,7 +318,7 @@ describe('m:module', function () {
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
-          path.join(__dirname, '../service'),
+          path.join(__dirname, '../generators/service'),
           path.join(__dirname, '../generators/constant')
         ])
         .withArguments('main')
@@ -339,7 +339,7 @@ describe('m:module', function () {
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
-          path.join(__dirname, '../service'),
+          path.join(__dirname, '../generators/service'),
           path.join(__dirname, '../generators/constant')
         ])
         .withArguments('myModule')
@@ -378,7 +378,7 @@ describe('m:module', function () {
         .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
-          path.join(__dirname, '../service'),
+          path.join(__dirname, '../generators/service'),
           path.join(__dirname, '../generators/constant')
         ])
         .withPrompts({ template: 'blank' })
@@ -398,7 +398,7 @@ describe('m:module', function () {
         .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
-          path.join(__dirname, '../service'),
+          path.join(__dirname, '../generators/service'),
           path.join(__dirname, '../generators/constant')
         ])
         .withPrompts({ template: 'blank' })

@@ -21,7 +21,7 @@ describe('m', function () {
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
-          path.join(__dirname, '../service')
+          path.join(__dirname, '../generators/service')
         ])
         .withOptions({ 'skip-install': true, 'skip-sdk': true }) // execute with options
         .withPrompts(answers)  // answer prompts
@@ -133,7 +133,7 @@ describe('m', function () {
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
-          path.join(__dirname, '../service')
+          path.join(__dirname, '../generators/service')
         ])
         .withOptions({ 'skip-install': true, 'skip-sdk': true }) // execute with options
         .withPrompts(answers)  // answer prompts
@@ -157,7 +157,7 @@ describe('m', function () {
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
-          path.join(__dirname, '../service')
+          path.join(__dirname, '../generators/service')
         ])
         .withOptions({ 'skip-install': true, 'skip-sdk': true }) // execute with options
         .withPrompts(answers)  // answer prompts
@@ -181,7 +181,7 @@ describe('m', function () {
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
-          path.join(__dirname, '../service')
+          path.join(__dirname, '../generators/service')
         ])
         .withOptions({ 'skip-install': true, 'skip-sdk': true, 'app-name': 'tradecore' }) // execute with options
         .withPrompts(answers)  // answer prompts
@@ -224,7 +224,7 @@ describe('m', function () {
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
-          path.join(__dirname, '../service')
+          path.join(__dirname, '../generators/service')
         ])
         .withPrompts(answers)  // answer prompts
         .on('end', done);
@@ -244,7 +244,7 @@ describe('m', function () {
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
-          path.join(__dirname, '../service')
+          path.join(__dirname, '../generators/service')
         ])
         .withPrompts(answers)  // answer prompts
         .on('end', done);
@@ -264,7 +264,7 @@ describe('m', function () {
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
-          path.join(__dirname, '../service')
+          path.join(__dirname, '../generators/service')
         ])
         .withPrompts(answers)  // answer prompts
         .on('end', done);

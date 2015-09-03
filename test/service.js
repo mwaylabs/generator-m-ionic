@@ -9,7 +9,7 @@ describe('m:service', function () {
 
   describe('some', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../service'))
+      helpers.run(path.join(__dirname, '../generators/service'))
         .withArguments('some')
         .on('end', done);
     });
@@ -33,7 +33,7 @@ describe('m:service', function () {
 
   describe('some myModule', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../service'))
+      helpers.run(path.join(__dirname, '../generators/service'))
         .withArguments('some myModule')
         .on('end', done);
     });
@@ -56,7 +56,7 @@ describe('m:service', function () {
 
   describe('some --template=debug', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../service'))
+      helpers.run(path.join(__dirname, '../generators/service'))
         .withArguments('some')
         .withOptions({ template: 'debug' })
         .on('end', done);
