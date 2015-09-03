@@ -5,50 +5,44 @@
 var gulp = require('gulp');
 var paths = gulp.paths;
 var options = gulp.options;
-// plugins
-var $ = require('gulp-load-plugins')();
 // modules
-var http = require('http');
-var connect = require('connect');
-var opn = require('opn');
-var serveStatic = require('serve-static');
-var connectLiveReload = require('connect-livereload');
+var bs = require('browser-sync').create();
 
-var createConnectServer = function (paths) {
-  return function () {
-    var app = connect()
-    .use(connectLiveReload({port: 35729}));
-    for (var key in paths) {
-      app.use(serveStatic(paths[key]));
+var bsInit = function (paths, openOverride) {
+  var bsOptions = {
+    server: {
+      baseDir: paths
     }
-    http.createServer(app)
-      .listen(9000)
-      .on('listening', function () {
-        console.log('Started connect web server on http://localhost:9000');
-      });
   };
-};
-
-var open = function () {
-  if (options.open !== false) {
-    opn('http://localhost:9000');
+  if (options.open === false) {
+    bsOptions.open = false;
   }
+  if (openOverride !== undefined) {
+    bsOptions.open = openOverride;
+  }
+  bs.init(bsOptions);
 };
 
 // WATCH
-gulp.task('watch', ['serve', 'linting'], function () {
-  $.livereload.listen();
+gulp.task('watch', ['inject-all'], function () {
 
-  gulp.watch([
-    'app/index.html',
-    '.tmp/*/styles/*.css', // each module's css
-    'app/*/assets/**/*'
-  ].concat(paths.jsFiles)
-  .concat(paths.templates),
-  function (event) {
+  // browser sync server
+  bsInit(['app', '.tmp']);
+
+  var watchFiles = paths.jsFiles
+    .concat([
+      'app/index.html',
+      '.tmp/*/styles/*.css', // each module's css
+      'app/*/assets/**/*'
+    ])
+    .concat(paths.templates);
+
+  // start linting and watching
+  gulp.start('linting');
+  gulp.watch(watchFiles, function (event) {
     console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     if (event.type === 'changed') {
-      $.livereload.reload();
+      bs.reload();
       gulp.start('linting');
     }
     else { // added or deleted
@@ -56,7 +50,6 @@ gulp.task('watch', ['serve', 'linting'], function () {
       gulp.start('inject-all');
     }
   });
-
   // watch for changes in scss
   gulp.watch('app/*/styles/**/*.scss', ['styles']);
   // watch for changes in environment files and new config files
@@ -65,23 +58,24 @@ gulp.task('watch', ['serve', 'linting'], function () {
     'app/*/constants/*config-const.js'
   ], ['environment']);
 });
-gulp.task('serve', ['connect', 'inject-all'], open);
-gulp.task('serve-no-open', ['connect', 'inject-all']);
-gulp.task('connect', createConnectServer(['app', '.tmp']));
 
 // WATCH-BUILD
-gulp.task('watch-build', ['serve-build'], function () {
-  $.livereload.listen();
-
-  gulp.watch(paths.dist + '/**/*', function () {
-    $.livereload.reload();
+var watchBuildDeps = [];
+if (options.build !== false) {
+  watchBuildDeps.push('build');
+}
+gulp.task('watch-build', watchBuildDeps, function () {
+  bsInit(paths.dist);
+  gulp.watch(paths.dist + '**/*', function () {
+    bs.reload();
   });
 });
 
-var serveBuildDependencies = ['connect-build'];
-if (options.build !== false) {
-  serveBuildDependencies.push('build');
-}
-gulp.task('serve-build', serveBuildDependencies, open);
-gulp.task('serve-build-no-open', serveBuildDependencies);
-gulp.task('connect-build', createConnectServer([paths.dist]));
+// SERVE TASKS
+gulp.task('serve', ['inject-all'], function () {
+  bsInit(['app', '.tmp'], false);
+});
+gulp.task('serve-build', ['build'], function () {
+  bsInit(['app', '.tmp'], false);
+});
+

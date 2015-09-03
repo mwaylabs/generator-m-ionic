@@ -4,9 +4,8 @@
     "node": ">=0.10.0"
   },
   "devDependencies": {
+    "browser-sync": "^2.8.3",
     "chalk": "^1.1.0",
-    "connect": "^3.4.0",
-    "connect-livereload": "^0.5.3",
     "cordova": "5.2.0",
     "del": "^2.0.0",
     "elementtree": "^0.1.6",
@@ -22,7 +21,6 @@
     "gulp-jscs": "^2.0.0",
     "gulp-jshint": "^1.11.0",
     "gulp-jsonlint": "^1.1.0",
-    "gulp-livereload": "^3.8.0",
     "gulp-load-plugins": "^1.0.0-rc",
     "gulp-minify-html": "^1.0.3",
     "gulp-natural-sort": "^0.1.0",
@@ -45,12 +43,10 @@
     "lodash": "^3.10.1",
     "main-bower-files": "^2.9.0",
     "minimist": "^1.2.0",
-    "opn": "^3.0.2",
     "path": "^0.11.14",
     "phantomjs": "^1.9.17",
     "plist": "^1.1.0",
     "require-dir": "^0.3.0",
-    "serve-static": "^1.10.0",
     "vinyl-paths": "^2.0.0",
     "wiredep": "^2.2.2",
     "xml2js": "^0.4.9"
