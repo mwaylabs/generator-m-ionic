@@ -7,18 +7,18 @@ For your convenience, Generator-M provides a `res/` folder to put in the icons a
 
 ```
 res/
-  |- android
-    | icon1.png
+  |- android/
+    | default/
     | ....
-  |- ios
-    | icon1.png
+  |- ios/
+    | default/
     | ....
 ```
 
 The Generator-M also creates a couple of files and folders. Initially a folder for the android and ios resources with some more example files in them.
 
 ## Simple example
-For most projects it will suffice to put all the icons and splash screen files in the platform folders and link to them in the `config.xml`.
+For most projects it will suffice to put all the icons and splash screen files in the `res/platform/default` folders and link to them in the `config.xml`.
 
 For the simplest example include this in your `config.xml`:
 
@@ -37,7 +37,7 @@ And run any of the cordova build related commands (`cordova run, build, emulate,
 gulp --cordova 'run ios --device'
 ```
 
-This will build the app with a custom app icon for android and ios. If you haven't changed the files that Generator-M created, cordova will build the app with the following app icons:
+This will build the app with a custom app icon for android and ios. If you haven't changed the files that Generator-M created for you, cordova will build the app with the following app icons:
 
 **Android**
 <img height="100px" src="../../app/templates/res/android/default/icon.png" />

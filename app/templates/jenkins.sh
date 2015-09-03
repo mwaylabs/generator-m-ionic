@@ -32,16 +32,17 @@ gulp config --silent --setWidgetAttr="ios-CFBundleVersion=${VERSION}.${BUILD}"
 echo -e '\n#######################      GULP BUILD      #######################\n'
 # run gulp build explicitly to make it more obvious what's happening
 # build: inject version and build number into app
-# build: with dev environment and resources set1
-# build: minify
-gulp build --buildVars="version:${VERSION},build:${BUILD}" --env=dev --res=set1 --minify
+# build: with dev environment and minify
+gulp build --buildVars="version:${VERSION},build:${BUILD}" --env=dev --minify
 
 echo -e '\n#######################     BUILDING IOS     #######################\n'
 # --no-build here so we can use the one we just built
-gulp --cordova 'prepare ios' --no-build
+# provide resources set1
+gulp --cordova 'prepare ios' --no-build --res=set1
 
 echo -e '\n########################   BUILDING ANDROID   #######################\n'
 # --no-build here so we can use the one we just built
-gulp --cordova 'build android --release' --no-build
+# provide different resources set
+gulp --cordova 'build android --release' --no-build --res=set2
 
 echo -e '\n#######################         DONE         #######################\n'

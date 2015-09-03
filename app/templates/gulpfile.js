@@ -72,7 +72,7 @@ gulp.task('default', function () {
   else if (options.cordovaBuild && options.build === false) {
     return gulp.start('cordova-only-resources');
   }
-  // cordova without build
+  // cordova non-build command
   else if (options.cordova) {
     return gulp.start('cordova');
   }
