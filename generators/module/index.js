@@ -1,9 +1,9 @@
 'use strict';
 var yeoman = require('yeoman-generator');
-var utils = require('../utils/utils.js');
 var mkdirp = require('mkdirp');
 
-var sampleAnswers = require('../generators/app/sources/sample-answers.js');
+var utils = require('../../utils/utils.js');
+var sampleAnswers = require('../app/sources/sample-answers.js');
 
 var MGenerator = yeoman.generators.NamedBase.extend({
 

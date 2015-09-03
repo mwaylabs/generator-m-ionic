@@ -170,7 +170,7 @@ describe('m:module', function () {
     };
 
     before(function (done) {
-      helpers.run(path.join(__dirname, '../module'))
+      helpers.run(path.join(__dirname, '../generators/module'))
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
@@ -195,7 +195,7 @@ describe('m:module', function () {
     };
 
     before(function (done) {
-      helpers.run(path.join(__dirname, '../module'))
+      helpers.run(path.join(__dirname, '../generators/module'))
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
@@ -214,7 +214,7 @@ describe('m:module', function () {
   describe('myModule (no main, tabs)', function () {
 
     before(function (done) {
-      helpers.run(path.join(__dirname, '../module'))
+      helpers.run(path.join(__dirname, '../generators/module'))
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
@@ -314,7 +314,7 @@ describe('m:module', function () {
     };
 
     before(function (done) {
-      helpers.run(path.join(__dirname, '../module'))
+      helpers.run(path.join(__dirname, '../generators/module'))
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
@@ -335,7 +335,7 @@ describe('m:module', function () {
   describe('myModule (no main, sidemenu)', function () {
 
     before(function (done) {
-      helpers.run(path.join(__dirname, '../module'))
+      helpers.run(path.join(__dirname, '../generators/module'))
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
@@ -374,7 +374,7 @@ describe('m:module', function () {
     };
 
     before(function (done) {
-      helpers.run(path.join(__dirname, '../module'))
+      helpers.run(path.join(__dirname, '../generators/module'))
         .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
@@ -394,7 +394,7 @@ describe('m:module', function () {
 
   describe('myModule (no main, blank)', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../module'))
+      helpers.run(path.join(__dirname, '../generators/module'))
         .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
