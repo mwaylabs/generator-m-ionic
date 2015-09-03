@@ -23,7 +23,28 @@
     "generators"
   ],
   "keywords": [
-    "yeoman-generator"
+    "angular",
+    "angularjs",
+    "cordova",
+    "phonegap",
+    "mobile",
+    "app",
+    "hybrid",
+    "gulp",
+    "bower",
+    "ionic",
+    "ionic framework",
+    "ionicframework",
+    "sass",
+    "protractor",
+    "karma",
+    "generator",
+    "generator-m",
+    "generator-ionic",
+    "generator-m-ionic",
+    "yeoman-generator",
+    "yo",
+    "yeoman"
   ],
   "dependencies": {
     "chalk": "^1.1.0",
