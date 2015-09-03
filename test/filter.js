@@ -8,7 +8,7 @@ var config = require(path.join(__dirname, '../utils/config.js'));
 describe('m:filter', function () {
   describe('some', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../filter'))
+      helpers.run(path.join(__dirname, '../generators/filter'))
         .withArguments('some')
         .on('end', done);
     });
@@ -34,7 +34,7 @@ describe('m:filter', function () {
 
   describe('someThing myModule', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../filter'))
+      helpers.run(path.join(__dirname, '../generators/filter'))
         .withArguments('someThing myModule')
         .on('end', done);
     });
