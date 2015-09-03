@@ -1,5 +1,3 @@
-/* jshint -W079 */ // prevent redefinition of $ warning
-
 'use strict';
 // gulp
 var gulp = require('gulp');

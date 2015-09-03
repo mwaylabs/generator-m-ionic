@@ -1,6 +1,3 @@
-// generated on 2015-01-12 using generator-m 0.2.7
-/* jshint -W079 */ // prevent redefinition of $ warning
-
 'use strict';
 var gulp = require('gulp');
 var minimist = require('minimist');
