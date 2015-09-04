@@ -225,14 +225,13 @@ var MGenerator = yeoman.generators.Base.extend({
       this.directory('test', 'test');
 
       // dot files
+      this.copy('eslintrc_app', 'app/.eslintrc');
       this.copy('bowerrc', '.bowerrc');
       this.copy('editorconfig', '.editorconfig');
+      this.copy('eslintrc', '.eslintrc');
       this.copy('gitattributes', '.gitattributes');
       this.copy('gitignore', '.gitignore');
       this.copy('.travis.yml', '.travis.yml');
-      this.copy('jscsrc', '.jscsrc');
-      this.copy('jshintrc', '.jshintrc');
-      this.copy('jshintignore', '.jshintignore');
 
       // inject version into readme
       var readme = this.read(path.join(__dirname, '../../', 'README.md'));

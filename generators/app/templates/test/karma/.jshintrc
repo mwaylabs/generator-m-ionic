@@ -1,9 +1,0 @@
-{
-  "extends": "../../.jshintrc",
-
-  "jasmine": true,
-  "globals": {
-    "inject": false,
-    "module": false
-  }
-}

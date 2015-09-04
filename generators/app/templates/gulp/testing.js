@@ -29,10 +29,8 @@ gulp.task('karma:auto', ['linting'], function (done) {
 
 // PROTRACTOR
 // Downloads the selenium webdriver
-var webdriverUpdate = 'webdriver_update';
-var webdriverStandalone = 'webdriver_standalone';
-gulp.task('webdriver-update', $.protractor[webdriverUpdate]);
-gulp.task('webdriver-standalone', $.protractor[webdriverStandalone]);
+gulp.task('webdriver-update', $.protractor.webdriver_update);
+gulp.task('webdriver-standalone', $.protractor.webdriver_standalone);
 
 function runProtractor (done) {
   gulp.src(paths.protractor)

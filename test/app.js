@@ -30,13 +30,12 @@ describe('m', function () {
 
     it('creates config files etc... in root', function () {
       assert.file([
+        'app/.eslintrc',
         '.bowerrc',
         '.editorconfig',
         '.gitattributes',
         '.gitignore',
-        '.jscsrc',
-        '.jshintignore',
-        '.jshintrc',
+        '.eslintrc',
         '.travis.yml',
         '.yo-rc.json',
         'README.md',
@@ -56,7 +55,7 @@ describe('m', function () {
         'package.json',
         'protractor.conf.js',
         'res/ios/default/icon.png', // one per example
-        'test/karma/.jshintrc', // one per example
+        'test/karma/.eslintrc', // one per example
       ]);
     });
 

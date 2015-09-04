@@ -82,9 +82,9 @@ and many many **features and tools** for your convenience:
 - broad selection of [sub-generators](https://github.com/mwaylabs/generator-m#sub-generators)
 - fine tuned [integration with git](https://github.com/mwaylabs/generator-m#git-integration)
 - sensible defaults for:
-  - code style checks with [JSCS](http://jscs.info/) and [JSHint](http://jshint.com/)
-  - configuration files like [.editorconfig](http://editorconfig.org/), [.gitignore](http://git-scm.com/docs/gitignore), [.gitattriubtes](http://git-scm.com/docs/gitattributes) and others
   - continuous integration with [Travis CI](https://travis-ci.org/) and [Jenkins CI](https://jenkins-ci.org/)
+  - code style checks with [ESLint](http://eslint.org/)
+  - configuration files like [.editorconfig](http://editorconfig.org/), [.gitignore](http://git-scm.com/docs/gitignore), [.gitattriubtes](http://git-scm.com/docs/gitattributes) and others
 
 
 ## Try the demo
@@ -129,7 +129,7 @@ Prepares everything for development and opens your default browser. Get ready to
 ```sh
 gulp watch
 ```
-Livereloads your application when changing/adding/deleting files to immediately reflect the changes you make. If you don't want this task to open your browser, just add the `--no-open` option and navigate to `http://localhost:9000` yourself. For your convenience any occurring **jscs, jshint or jsonlint errors** will be presented to you on every livereload.
+Livereloads your application when changing/adding/deleting files to immediately reflect the changes you make. If you don't want this task to open your browser, just add the `--no-open` option and navigate to `http://localhost:9000` yourself. For your convenience any occurring **ESLint or jsonlint errors** will be presented to you on every livereload.
 
 #### File structure
 <pre>
@@ -159,11 +159,9 @@ Livereloads your application when changing/adding/deleting files to immediately 
 ├──  www/           - your gulp build goes here, cordova starts building from here
 ├──  .bowerrc       - bower configuration
 ├──  .editorconfig  - editor configuration
+├──  .eslintrc      - ESLint configuration
 ├──  .gitattributes - git's attribute configuration
 ├──  .gitignore     - git's ignore configuration
-├──  .jscsrc        - jscs configuration
-├──  .jshintignore  - jshint ignore
-├──  .jshintrc      - jshint configuration
 ├──  .travis.yml    - travis continuous integration configuration
 ├──  .yo-rc.json    - yeoman's .yo-rc.json
 ├──  bower.json     - bower dependencies
@@ -199,6 +197,7 @@ Articles on **testing angular**
 
 
 ## Guides
+- Setting up and working with [ESLint](https://github.com/mwaylabs/generator-m/tree/master/docs/guides/eslint.md)
 - Using the [`app/module/styles` folder](https://github.com/mwaylabs/generator-m/tree/master/docs/guides/styles_folder.md)
 - Using Ionic [CSS or SASS](https://github.com/mwaylabs/generator-m/tree/master/docs/guides/ionic_css_or_sass.md)
 - Managing app [icons and splash screens](https://github.com/mwaylabs/generator-m/tree/master/docs/guides/icons_splash_screens.md). Good for different app configurations (beta, production, ...).
@@ -236,7 +235,7 @@ Builds your angular app and moves it to the www folder. Usually you don't run th
 ```sh
 gulp build
 ```
-Note that the build will not complete if you have any **jscs, jshint or jsonlint errors** in your code! Sometimes it's necessary to let the build run anyway. Use the `--force-build` option to do so. The `--minify` option will minify javascript, css, html and images. These options will also work for all the build-related cordova tasks!
+Note that the build will not complete if you have any **ESLint or jsonlint errors** in your code! Sometimes it's necessary to let the build run anyway. Use the `--force-build` option to do so. The `--minify` option will minify javascript, css, html and images. These options will also work for all the build-related cordova tasks!
 
 #### gulp environment
 Injects environment (dev, prod and any other you'd like) variables into your `Config` constants.

@@ -1,0 +1,11 @@
+{
+  "extends": "../../app/.eslintrc",
+  "env": {
+    "jasmine": true,
+    "protractor": true
+  },
+  "globals": {
+  },
+  "rules": {
+  }
+}

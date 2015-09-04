@@ -1,0 +1,12 @@
+{
+  "extends": "../.eslintrc",
+  "env": {
+    "node": false
+  },
+  "globals": {
+    "angular": true,
+    "ionic": true
+  },
+  "rules": {
+  }
+}

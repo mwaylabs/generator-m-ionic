@@ -6,30 +6,20 @@ var paths = gulp.paths;
 var $ = require('gulp-load-plugins')();
 
 // all linting tasks
-gulp.task('linting', ['jshint', 'jscs', 'jsonlint']);
-gulp.task('linting-throw', ['jshint-throw', 'jscs-throw', 'jsonlint-throw']);
+gulp.task('linting', ['eslint', 'jsonlint']);
+gulp.task('linting-throw', ['eslint', 'jsonlint-throw']);
 
-// check for jshint errors
-var jshint = function (fail) {
+// check for eslint errors
+var eslint = function (fail) {
   return function () {
     return gulp.src(paths.jsFiles.concat(paths.karma).concat(paths.protractor))
-      .pipe($.jshint())
-      .pipe($.jshint.reporter('jshint-stylish'))
-      .pipe($.if(fail, $.jshint.reporter('fail')));
-  };
+      .pipe($.eslint())
+      .pipe($.eslint.format())
+      .pipe($.if(fail, $.eslint.failOnError()));
+  }
 };
-gulp.task('jshint', jshint());
-gulp.task('jshint-throw', jshint(true));
-
-// check for jscs errors
-var jscs = function () {
-  return function () {
-    return gulp.src(paths.jsFiles.concat(paths.karma).concat(paths.protractor))
-      .pipe($.jscs());
-  };
-};
-gulp.task('jscs', jscs());
-gulp.task('jscs-throw', jscs(true));
+gulp.task('eslint', eslint());
+gulp.task('eslint-throw', eslint(true));
 
 // check for jsonlint errors
 var jsonlint = function (fail) {
