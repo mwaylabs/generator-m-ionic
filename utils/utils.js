@@ -88,8 +88,6 @@ module.exports = {
     else if (controllerName.substr(-4) === config.CONTROLLER_SUFFIX) {
       controllerName = controllerName.substr(0, controllerName.length - 4);
     }
-    else {
-    }
     controllerName += config.CONTROLLER_SUFFIX;
 
     return controllerName;

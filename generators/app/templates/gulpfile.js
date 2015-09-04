@@ -48,7 +48,7 @@ if (defaults && defaults[task]) {
 // cordova command one of cordova's build commands?
 if (options.cordova) {
   var cmds = ['build', 'run', 'emulate', 'prepare', 'serve'];
-  for (var i = 0, cmd; (cmd = cmds[i]); i++) {
+  for (var i = 0, cmd; ((cmd = cmds[i])); i++) {
     if (options.cordova.indexOf(cmd) >= 0) {
       options.cordovaBuild = true;
       break;

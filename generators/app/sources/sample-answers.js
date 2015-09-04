@@ -10,7 +10,7 @@ module.exports = {
     appId: 'com.company.project',
     bowerPackages: (function () { // list all packages from the bower-config optional list
       var packages = [];
-      for (var i = 0, component; (component = bowerConfig.optional[i]); i++) {
+      for (var i = 0, component; ((component = bowerConfig.optional[i])); i++) {
         if (component.value) {
           packages.push(component.value);
         }

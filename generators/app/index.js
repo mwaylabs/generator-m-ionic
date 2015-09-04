@@ -189,7 +189,7 @@ var MGenerator = yeoman.generators.Base.extend({
       // prepare bower.json
       var bowerJSON = bowerConfig.bowerJSON;
       // include selected packages
-      for (var i = 0, bowerPackage; (bowerPackage = this.answers.bowerPackages[i]); i++) {
+      for (var i = 0, bowerPackage; ((bowerPackage = this.answers.bowerPackages[i])); i++) {
         bowerPackage = bowerPackage.split('#');
         bowerJSON.dependencies[bowerPackage[0]] = bowerPackage[1];
       }

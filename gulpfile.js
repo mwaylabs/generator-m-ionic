@@ -55,10 +55,10 @@ gulp.task('watch', ['lint', 'istanbul'], function () {
 // will run coding style checks
 gulp.task('lint', ['istanbul'], function () {
   return gulp.src(paths.lint)
-    .pipe($.jshint('.jshintrc'))
     .pipe($.plumber(plumberConf))
-    .pipe($.jscs())
-    .pipe($.jshint.reporter('jshint-stylish'));
+    .pipe($.eslint())
+    .pipe($.eslint.format())
+    .pipe($.eslint.failOnError());
 });
 
 // will run mocha and print reports

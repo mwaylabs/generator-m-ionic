@@ -204,7 +204,7 @@ describe('m', function () {
             assert.fileContent('.yo-rc.json', '"' + key + '": "' + value + '"');
           }
           else if (Object.prototype.toString.call(value) === '[object Array]') {
-            for (var i = 0, newValue; (newValue = value[i]); i++) {
+            for (var i = 0, newValue; ((newValue = value[i])); i++) {
               assert.fileContent('.yo-rc.json', '"' + newValue + '"');
             }
           }

@@ -88,7 +88,7 @@ describe('utils', function () {
     }
     // check that the rolls are not less than half of what we expect
     var minimalCount = TEST_COUNT / config.IONIC_COLORS.length * MAX_DEVIATION_FACTOR;
-    for (var j = 0, color; (color = config.IONIC_COLORS[j]); j++) {
+    for (var j = 0, color; ((color = config.IONIC_COLORS[j])); j++) {
       assert(results[color] > minimalCount);
     }
   });

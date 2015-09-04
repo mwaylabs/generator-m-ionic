@@ -24,8 +24,7 @@ var MGenerator = yeoman.generators.NamedBase.extend({
       // so it can wait with subsequent tasks
       var done = this.async();
 
-      this.prompt(
-      {
+      this.prompt({
         type: 'list',
         name: 'template',
         message: 'Choose a starter template',
@@ -43,7 +42,8 @@ var MGenerator = yeoman.generators.NamedBase.extend({
             name: 'blank'
           }
         ]
-      }, function (answers) { // prompt
+      },
+      function (answers) { // prompt
         this.answers = answers;
 
         done();
