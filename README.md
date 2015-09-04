@@ -186,16 +186,16 @@ gulp protractor
 
 If you are new to testing your app with protractor, karma and jasmine. Here are some good places to get started:
 
-**jasmine**
-- Smashing Magazine - [Unit Testing In AngularJS](http://www.smashingmagazine.com/2014/10/introduction-to-unit-testing-in-angularjs/)
+Articles on **testing angular**
 - AngularJS Developer Guide - [Unit Testing](https://docs.angularjs.org/guide/unit-testing)
-- website - http://jasmine.github.io/
+- Smashing Magazine - [Unit Testing In AngularJS](http://www.smashingmagazine.com/2014/10/introduction-to-unit-testing-in-angularjs/)
+  - careful: uses mocha, chai & sinon but we use jasmine. Still worth a look!
 
-**protractor**
-- website - http://angular.github.io/protractor/#/
+**jasmine** website - http://jasmine.github.io/
 
-**karma**
-- website - http://karma-runner.github.io/
+**protractor** website - http://angular.github.io/protractor/#/
+
+**karma** website - http://karma-runner.github.io/
 
 
 ## Guides
