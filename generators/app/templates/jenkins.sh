@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # VARS
-REPOSITORY_NAME='generator-m-demo'
+REPOSITORY_NAME='generator-m-ionic-demo'
 REPOSITORY_BASE='https://github.com/mwaylabs/'
 # TODO: set BUILD variable
 BUILD=0

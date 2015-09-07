@@ -14,7 +14,7 @@ var bowerConfig = require('./sources/bower-config.js');
 var cordovaConfig = require('./sources/cordova-config.js');
 var sampleAnswers = require('./sources/sample-answers.js');
 
-var MGenerator = yeoman.generators.Base.extend({
+module.exports = yeoman.generators.Base.extend({
   initializing: function () {
     // get package.json content
     this.pkg = require('../../package.json');
@@ -39,7 +39,7 @@ var MGenerator = yeoman.generators.Base.extend({
     // say hello
     if (!this.options['skip-welcome-message']) { // for use with generator-m-server
       this.log(yosay(
-        'Welcome to the polished Generator-M! v.' + this.pkg.version
+        'Welcome to the polished Generator-M-Ionic! v.' + this.pkg.version
       ));
     }
 
@@ -235,7 +235,7 @@ var MGenerator = yeoman.generators.Base.extend({
 
       // inject version into readme
       var readme = this.read(path.join(__dirname, '../../', 'README.md'));
-      readme = readme.replace(/^# Generator-M/, '# Generator-M v' + this.pkg.version);
+      readme = readme.replace(/^# Generator-M-Ionic/, '# Generator-M-Ionic v' + this.pkg.version);
       this.write(this.destinationRoot() + '/README.md', readme);
     },
 
@@ -269,5 +269,3 @@ var MGenerator = yeoman.generators.Base.extend({
     ));
   }
 });
-
-module.exports = MGenerator;

@@ -5,7 +5,7 @@ If you are unsure whether to choose Ionic's CSS or SASS version, there's only on
 > Ionic SASS simplifies changing the basic layout of ionic components, but comes with the drawback of having to compile the whole Ionic SCSS on every change. If Ionic suffices for your project as is, use the CSS version, which is much faster.
 
 ## Switching the Ionic style source
-If you want to change the style source of your project, generated with Generator-M, there's two simple options.
+If you want to change the style source of your project, generated with Generator-M-Ionic, there's two simple options.
 
 1. Re-generate your project and choose the style source (CSS or SASS) you like
 2. Manually change the style source with the guide below
@@ -27,7 +27,7 @@ When changing the from Ionic CSS to SASS or vice versa, there's three files that
   ```js
   // inject bower components into index.html
   gulp.task('wiredep', function () {
-  
+
     return gulp.src('app/index.html')
       // exclude ionic scss since we're using ionic sass
       .pipe(wiredep.stream({exclude: ['bower_components/ionic/release/css']}))
@@ -41,7 +41,7 @@ When changing the from Ionic CSS to SASS or vice versa, there's three files that
     var DEST = 'app/main/assets/fonts';
     var fontFiles = mainBowerFiles({filter: /\.(eot|svg|ttf|woff)$/i})
       .concat('app/main/assets/fonts/**/*');
-  
+
     return gulp.src(fontFiles)
       .pipe($.changed(DEST))
       .pipe(gulp.dest(DEST));
@@ -84,7 +84,7 @@ When changing the from Ionic CSS to SASS or vice versa, there's three files that
   ```js
   // inject bower components into index.html
   gulp.task('wiredep', function () {
-  
+
     return gulp.src('app/index.html')
       // we're not excluding the ionic css here
       .pipe(wiredep.stream())
@@ -97,7 +97,7 @@ When changing the from Ionic CSS to SASS or vice versa, there's three files that
     // to do www/fonts (ionic css requires it to be in this folder)
     var DEST = 'www/fonts';
     var fontFiles = mainBowerFiles({filter: /\.(eot|svg|ttf|woff)$/i});
-  
+
     return gulp.src(fontFiles)
       .pipe($.changed(DEST))
       .pipe(gulp.dest(DEST));

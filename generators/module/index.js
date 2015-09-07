@@ -5,7 +5,7 @@ var mkdirp = require('mkdirp');
 var utils = require('../../utils/utils.js');
 var sampleAnswers = require('../app/sources/sample-answers.js');
 
-var MGenerator = yeoman.generators.NamedBase.extend({
+module.exports = yeoman.generators.NamedBase.extend({
 
   initializing: function () {
     this.log('You called the m:module subgenerator with the argument ' + this.name + '.');
@@ -146,5 +146,3 @@ var MGenerator = yeoman.generators.NamedBase.extend({
     }
   }
 });
-
-module.exports = MGenerator;

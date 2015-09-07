@@ -1,9 +1,9 @@
 # Icons and splash screens
 
-> With cordova it's easy to change the default app icons and splash screens. This can be done in the `config.xml` as described [here](http://cordova.apache.org/docs/en/edge/config_ref_images.md.html#Icons%20and%20Splash%20Screens) in the cordova documentation. Generator-M provides a **res/** folder and a **gulp task** to make the configuration easier.
+> With cordova it's easy to change the default app icons and splash screens. This can be done in the `config.xml` as described [here](http://cordova.apache.org/docs/en/edge/config_ref_images.md.html#Icons%20and%20Splash%20Screens) in the cordova documentation. Generator-M-Ionic provides a **res/** folder and a **gulp task** to make the configuration easier.
 
 ## The `res/` folder
-For your convenience, Generator-M provides a `res/` folder to put in the icons and splash screen files.
+For your convenience, Generator-M-Ionic provides a `res/` folder to put in the icons and splash screen files.
 
 ```
 res/
@@ -15,7 +15,7 @@ res/
     | ....
 ```
 
-The Generator-M also creates a couple of files and folders. Initially a folder for the android and ios resources with some more example files in them.
+The Generator-M-Ionic also creates a couple of files and folders. Initially a folder for the android and ios resources with some more example files in them.
 
 ## Simple example
 For most projects it will suffice to put all the icons and splash screen files in the `res/platform/default` folders and link to them in the `config.xml`.
@@ -37,7 +37,7 @@ And run any of the cordova build related commands (`cordova run, build, emulate,
 gulp --cordova 'run ios --device'
 ```
 
-This will build the app with a custom app icon for android and ios. If you haven't changed the files that Generator-M created for you, cordova will build the app with the following app icons:
+This will build the app with a custom app icon for android and ios. If you haven't changed the files that Generator-M-Ionic created for you, cordova will build the app with the following app icons:
 
 **Android**
 <img height="100px" src="../../generators/app/templates/res/android/default/icon.png" />
@@ -48,7 +48,7 @@ This will build the app with a custom app icon for android and ios. If you haven
 ## Different sets of icons and splash screens
 At M-Way we often deliver different versions of the same app to our customers: for testing, integration and reviewing purposes. In order to not get confused we also deliver these apps with different app icons and or splash screens.
 
-In order to achieve this, Generator-M's gulp tasks include this neat little feature:
+In order to achieve this, Generator-M-Ionic's gulp tasks include this neat little feature:
 
 > When running any build-related cordova commands, gulp can be told to copy different assets to the `res/*/current/` folder.
 

@@ -82,7 +82,7 @@ describe('m', function () {
     });
 
     it('version injected in README.md', function () {
-      assert.fileContent('README.md', '# Generator-M v' + pkg.version);
+      assert.fileContent('README.md', '# Generator-M-Ionic v' + pkg.version);
     });
 
     it('has proper bower.json content', function () {

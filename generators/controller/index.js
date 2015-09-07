@@ -2,7 +2,7 @@
 var yeoman = require('yeoman-generator');
 var utils = require('../../utils/utils.js');
 
-var MGenerator = yeoman.generators.NamedBase.extend({
+module.exports = yeoman.generators.NamedBase.extend({
 
   initializing: function () {
     this.argument('module', { type: String, required: false });
@@ -26,5 +26,3 @@ var MGenerator = yeoman.generators.NamedBase.extend({
     this.template('_controller.spec.js', testFolder + this.fileName + '.spec.js');
   }
 });
-
-module.exports = MGenerator;

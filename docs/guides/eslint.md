@@ -11,7 +11,7 @@ Here are the installation instructions for the most popular editors based on the
 - Webstorm - https://www.jetbrains.com/webstorm/help/using-javascript-code-quality-tools.html#d228115e577
 
 **HINTS**:  
-- Generator-M provides a local version of ESLint for you. So you **don't need to install the eslint package** (neither globally nor locally).
+- Generator-M-Ionic provides a local version of ESLint for you. So you **don't need to install the eslint package** (neither globally nor locally).
 - For Atom and Sublime both plugins require to have a **parent linting plugin** installed.
 - It may be necessary that you **disable any other style-checking plugin** like jscs or jshint while working with ESLint.
 

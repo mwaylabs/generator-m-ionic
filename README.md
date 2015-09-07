@@ -1,4 +1,4 @@
-# Generator-M
+# Generator-M-Ionic
 
 [![NPM version](http://img.shields.io/npm/v/generator-m.svg?style=flat-square)][npm-url]
 [![Coverage Status](http://img.shields.io/coveralls/mwaylabs/generator-m.svg?style=flat-square)][coveralls-url]
@@ -78,9 +78,9 @@ an integrated **testing workflow** with:
 
 and many many **features and tools** for your convenience:
 
-- powerful collection of [gulp tasks](https://github.com/mwaylabs/generator-m#more-gulp-tasks)
-- broad selection of [sub-generators](https://github.com/mwaylabs/generator-m#sub-generators)
-- fine tuned [integration with git](https://github.com/mwaylabs/generator-m#git-integration)
+- powerful collection of [gulp tasks](https://github.com/mwaylabs/generator-m-ionic#more-gulp-tasks)
+- broad selection of [sub-generators](https://github.com/mwaylabs/generator-m-ionic#sub-generators)
+- fine tuned [integration with git](https://github.com/mwaylabs/generator-m-ionic#git-integration)
 - sensible defaults for:
   - continuous integration with [Travis CI](https://travis-ci.org/) and [Jenkins CI](https://jenkins-ci.org/)
   - code style checks with [ESLint](http://eslint.org/)
@@ -88,7 +88,7 @@ and many many **features and tools** for your convenience:
 
 
 ## Try the demo
-For a quick impression head over to https://github.com/mwaylabs/generator-m-demo and clone the sample project generated with the latest version of Generator-M.
+For a quick impression head over to https://github.com/mwaylabs/generator-m-ionic-demo and clone the sample project generated with the latest version of Generator-M-Ionic.
 
 
 ## Questions? Talk to us!
@@ -108,7 +108,7 @@ For a quick impression head over to https://github.com/mwaylabs/generator-m-demo
 ### Generator
 
 ```sh
-npm install --global generator-m
+npm install --global generator-m-ionic
 ```
 
 
@@ -173,7 +173,7 @@ Livereloads your application when changing/adding/deleting files to immediately 
 </pre>
 
 ## Testing
-When setting up your project or using the module, controller, service, directive or filter sub-generator, Generator-M will automatically generate sample test files for that component. These files can be found in the `test/karma` and `test/protractor` directory respectively. To check if all tests are running properly run:
+When setting up your project or using the module, controller, service, directive or filter sub-generator, Generator-M-Ionic will automatically generate sample test files for that component. These files can be found in the `test/karma` and `test/protractor` directory respectively. To check if all tests are running properly run:
 
 ```sh
 gulp karma
@@ -197,11 +197,11 @@ Articles on **testing angular**
 
 
 ## Guides
-- Setting up and working with [ESLint](https://github.com/mwaylabs/generator-m/tree/master/docs/guides/eslint.md)
-- Working with our [SASS integration](https://github.com/mwaylabs/generator-m/tree/master/docs/guides/sass_integration.md)
-- Using Ionic [CSS or SASS](https://github.com/mwaylabs/generator-m/tree/master/docs/guides/ionic_css_or_sass.md)
-- Managing app [icons and splash screens](https://github.com/mwaylabs/generator-m/tree/master/docs/guides/icons_splash_screens.md). Good for different app configurations (beta, production, ...).
-- The contents of the [`config.xml` can be changed programmatically](https://github.com/mwaylabs/generator-m/tree/master/docs/guides/programmatically_change_configxml.md). Good for continuous integration.
+- Setting up and working with [ESLint](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/eslint.md)
+- Working with our [SASS integration](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sass_integration.md)
+- Using Ionic [CSS or SASS](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/ionic_css_or_sass.md)
+- Managing app [icons and splash screens](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/icons_splash_screens.md). Good for different app configurations (beta, production, ...).
+- The contents of the [`config.xml` can be changed programmatically](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/programmatically_change_configxml.md). Good for continuous integration.
 
 ## More gulp tasks
 
@@ -210,7 +210,7 @@ A local wrapper for cordova cli (allows to use different cordova CLI versions in
 ```sh
 gulp --cordova 'plugin ls'
 ```
-Head over to the [cordova cli documentation](http://cordova.apache.org/docs/en/edge/guide_cli_index.md.html#The%20Command-Line%20Interface) or their [github page](https://github.com/apache/cordova-cli/) to learn how to use the cordova cli. Remember that when using generator-m you don't need to install cordova globally!
+Head over to the [cordova cli documentation](http://cordova.apache.org/docs/en/edge/guide_cli_index.md.html#The%20Command-Line%20Interface) or their [github page](https://github.com/apache/cordova-cli/) to learn how to use the cordova cli. Remember that when using Generator-M-Ionic you don't need to install cordova globally!
 
 #### gulp --cordova 'build-related task'
 
@@ -306,7 +306,7 @@ angular.module('main')
 #### gulp defaults
 Define default flags for each gulp task.
 
-You may have noticed that the Generator-M supplies an extended amount of gulp tasks and flags to modify the behaviour of these tasks. Depending on your project specifics you may find yourself always typing the same flags for the same tasks over and over again. With the `gulp defaults` task you can spare yourself some typing. Here's how it works:
+You may have noticed that the Generator-M-Ionic supplies an extended amount of gulp tasks and flags to modify the behaviour of these tasks. Depending on your project specifics you may find yourself always typing the same flags for the same tasks over and over again. With the `gulp defaults` task you can spare yourself some typing. Here's how it works:
 
 For instance we use `gulp watch --no-open` a lot.
 
@@ -433,7 +433,7 @@ gulp --cordova 'plugin save'
 ```
 
 ## Troubleshooting
-If you're experiencing difficulties using the generator please refer to the [Troubleshooting](https://github.com/mwaylabs/generator-m/wiki/Troubleshooting) section in our wiki or [create an issue](https://github.com/mwaylabs/generator-m/issues/new)!
+If you're experiencing difficulties using the generator please refer to the [Troubleshooting](https://github.com/mwaylabs/generator-m-ionic/wiki/Troubleshooting) section in our wiki or [create an issue](https://github.com/mwaylabs/generator-m-ionic/issues/new)!
 
 ## Options for debugging and development
 ```sh
@@ -450,8 +450,8 @@ yo m --no-cordova # in conjunction with --skip-prompts, no platforms/plugins
 ## Want to contribute?
 Start by reading our:
 
-1. [Mission Statement](https://github.com/mwaylabs/generator-m/wiki/Mission-Statement)
-1. [Contribution Guide](https://github.com/mwaylabs/generator-m/wiki/Contribution-Guide)
+1. [Mission Statement](https://github.com/mwaylabs/generator-m-ionic/wiki/Mission-Statement)
+1. [Contribution Guide](https://github.com/mwaylabs/generator-m-ionic/wiki/Contribution-Guide)
 
 
 ## License

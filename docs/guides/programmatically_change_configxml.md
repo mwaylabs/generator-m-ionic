@@ -2,7 +2,7 @@
 
 > The `gulp config` task changes the contents of the `config.xml` programmatically which is very convenient in a continuous integration environment.
 
-A more elaborate example of how you can put this to use in a **continuous integration** environment can be found in the [`jenkins.sh`](https://github.com/mwaylabs/generator-m/blob/master/generators/app/templates/jenkins.sh) of your project.
+A more elaborate example of how you can put this to use in a **continuous integration** environment can be found in the [`jenkins.sh`](https://github.com/mwaylabs/generator-m-ionic/blob/master/generators/app/templates/jenkins.sh) of your project.
 
 ## gulp config
 
@@ -118,7 +118,7 @@ angular.module('main')
 .constant('Config', {
 
   // gulp build-vars: injects build vars
-  // https://github.com/mwaylabs/generator-m#gulp-build-vars
+  // https://github.com/mwaylabs/generator-m-ionic#gulp-build-vars
   BUILD: {
     /*inject-build*/
     'version': '1.0.0',
