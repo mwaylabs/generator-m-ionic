@@ -1,4 +1,6 @@
-# Using the `app/module/styles` folder
+# SASS integration
+> [SASS](http://sass-lang.com/) is tightly integrated into the Generator workflow. Learn how to use it to your advantage!
+
 With the creation of every module comes a dedictate `.scss` file in the module's `styles` folder carrying the name of the module.
 
 ![main module's main.scss](https://cloud.githubusercontent.com/assets/1370779/9638373/b7e4dafe-51a6-11e5-9968-abe71d10c1eb.png)
