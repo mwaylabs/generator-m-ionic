@@ -40,9 +40,9 @@ gulp --cordova 'run ios --device'
 This will build the app with a custom app icon for android and ios. If you haven't changed the files that Generator-M created for you, cordova will build the app with the following app icons:
 
 **Android**
-<img height="100px" src="../../app/templates/res/android/default/icon.png" />
+<img height="100px" src="../../generators/app/templates/res/android/default/icon.png" />
 **iOS**
-<img height="100px" src="../../app/templates/res/ios/default/icon.png" />
+<img height="100px" src="../../generators/app/templates/res/ios/default/icon.png" />
 
 
 ## Different sets of icons and splash screens
@@ -72,9 +72,9 @@ When you now run any of the build-related cordova commands, you'll notice that t
 gulp --cordova 'run ios --device'
 ```
 **Android** (default)
-<img height="100px" src="../../app/templates/res/android/default/icon.png" />
+<img height="100px" src="../../generators/app/templates/res/android/default/icon.png" />
 **iOS** (default)
-<img height="100px" src="../../app/templates/res/ios/default/icon.png" />
+<img height="100px" src="../../generators/app/templates/res/ios/default/icon.png" />
 
 Now try:
 ```sh
@@ -84,9 +84,9 @@ gulp --cordova 'run ios --device' --res=set1
 The result for the app icons is, which are the icons that lie in `res/*/set1/`:
 
 **Android** (set1)
-<img height="100px" src="../../app/templates/res/android/set1/icon.png" />
+<img height="100px" src="../../generators/app/templates/res/android/set1/icon.png" />
 **iOS** (set1)
-<img height="100px" src="../../app/templates/res/ios/set1/icon.png" />
+<img height="100px" src="../../generators/app/templates/res/ios/set1/icon.png" />
 
 So by adding the `--res` option you can change from which folder gulp copies the files into the `current/` folder. If you ensure that all your icons and splash screen paths in the `config.xml` link to the `current/` folder, you can control which files will be built into the app when building.
 
