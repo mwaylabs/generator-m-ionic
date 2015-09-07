@@ -1,6 +1,6 @@
 # Icons and splash screens
 
-> With cordova it's easy to change the default app icons and splash screens. This can be done in the `config.xml` as described in the [here](http://cordova.apache.org/docs/en/edge/config_ref_images.md.html#Icons%20and%20Splash%20Screens) in the cordova documentation.
+> With cordova it's easy to change the default app icons and splash screens. This can be done in the `config.xml` as described [here](http://cordova.apache.org/docs/en/edge/config_ref_images.md.html#Icons%20and%20Splash%20Screens) in the cordova documentation. Generator-M provides a **res/** folder and a **gulp task** to make the configuration easier.
 
 ## The `res/` folder
 For your convenience, Generator-M provides a `res/` folder to put in the icons and splash screen files.
