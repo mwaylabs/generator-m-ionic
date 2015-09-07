@@ -198,7 +198,7 @@ Articles on **testing angular**
 
 ## Guides
 - Setting up and working with [ESLint](https://github.com/mwaylabs/generator-m/tree/master/docs/guides/eslint.md)
-- Using the [`app/module/styles` folder](https://github.com/mwaylabs/generator-m/tree/master/docs/guides/styles_folder.md)
+- Working with our [SASS integration](https://github.com/mwaylabs/generator-m/tree/master/docs/guides/sass_integration.md)
 - Using Ionic [CSS or SASS](https://github.com/mwaylabs/generator-m/tree/master/docs/guides/ionic_css_or_sass.md)
 - Managing app [icons and splash screens](https://github.com/mwaylabs/generator-m/tree/master/docs/guides/icons_splash_screens.md). Good for different app configurations (beta, production, ...).
 - The contents of the [`config.xml` can be changed programmatically](https://github.com/mwaylabs/generator-m/tree/master/docs/guides/programmatically_change_configxml.md). Good for continuous integration.
