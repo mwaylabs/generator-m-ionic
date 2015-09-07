@@ -74,11 +74,11 @@ var MGenerator = yeoman.generators.Base.extend({
         message: 'Choose ionic CSS or SASS',
         choices: [
           {
-            name: 'ionic CSS (recommended, faster)',
+            name: 'ionic CSS (faster, for starters)',
             value: true
           },
           {
-            name: 'ionic SASS (more flexible)',
+            name: 'ionic SASS (more flexible, for pros)',
             value: false
           }
         ]
