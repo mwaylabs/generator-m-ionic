@@ -19,7 +19,7 @@ Development:
 
 
 ## Looking for Generator-M?
-This is it! We changed the name to better reflect what this generator is all about. Read more here!
+This is it! We changed the name to better reflect what this generator is all about. Read more [here](https://github.com/mwaylabs/generator-m-ionic/wiki/Name-Change)!
 
 
 ## Why you need it
