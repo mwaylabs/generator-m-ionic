@@ -1,22 +1,25 @@
 # Generator-M-Ionic
 
-[![NPM version](http://img.shields.io/npm/v/generator-m.svg?style=flat-square)][npm-url]
-[![Coverage Status](http://img.shields.io/coveralls/mwaylabs/generator-m/master.svg?style=flat-square)][coveralls-url]
-[![Build Status](https://img.shields.io/travis/mwaylabs/generator-m/master.svg?style=flat-square)][travis-url]
-[![Dependency Status](http://img.shields.io/david/mwaylabs/generator-m.svg/master?style=flat-square)][daviddm-url]
-[![Download Month](http://img.shields.io/npm/dm/generator-m.svg?style=flat-square)][npm-url]
+[![NPM version](http://img.shields.io/npm/v/generator-m-ionic.svg?style=flat-square)][npm-url]
+[![Coverage Status](http://img.shields.io/coveralls/mwaylabs/generator-m-ionic/master.svg?style=flat-square)][coveralls-url]
+[![Build Status](https://img.shields.io/travis/mwaylabs/generator-m-ionic/master.svg?style=flat-square)][travis-url]
+[![Dependency Status](http://img.shields.io/david/mwaylabs/generator-m-ionic.svg/master?style=flat-square)][daviddm-url]
+[![Download Month](http://img.shields.io/npm/dm/generator-m-ionic.svg?style=flat-square)][npm-url]
 
-[npm-url]: https://npmjs.org/package/generator-m
-[coveralls-url]: https://coveralls.io/r/mwaylabs/generator-m?branch=master
-[travis-url]: https://travis-ci.org/mwaylabs/generator-m
-[daviddm-url]: https://david-dm.org/mwaylabs/generator-m
+[npm-url]: https://npmjs.org/package/generator-m-ionic
+[coveralls-url]: https://coveralls.io/r/mwaylabs/generator-m-ionic?branch=master
+[travis-url]: https://travis-ci.org/mwaylabs/generator-m-ionic
+[daviddm-url]: https://david-dm.org/mwaylabs/generator-m-ionic
 
 Development:
 
-[![Dev Coverage Status](http://img.shields.io/coveralls/mwaylabs/generator-m/dev.svg?style=flat-square)][coveralls-url]
-[![Dev Build Status](https://img.shields.io/travis/mwaylabs/generator-m/dev.svg?style=flat-square)][travis-url]
-[![Dev Dependency Status](http://img.shields.io/david/mwaylabs/generator-m/dev.svg?style=flat-square)][daviddm-url]
+[![Dev Coverage Status](http://img.shields.io/coveralls/mwaylabs/generator-m-ionic/dev.svg?style=flat-square)][coveralls-url]
+[![Dev Build Status](https://img.shields.io/travis/mwaylabs/generator-m-ionic/dev.svg?style=flat-square)][travis-url]
+[![Dev Dependency Status](http://img.shields.io/david/mwaylabs/generator-m-ionic/dev.svg?style=flat-square)][daviddm-url]
 
+
+## Looking for Generator-M?
+This is it! We changed the name to better reflect what this generator is all about. Read more here!
 
 
 ## Why you need it
@@ -98,7 +101,7 @@ For a quick impression head over to https://github.com/mwaylabs/generator-m-ioni
 
 
 ## Questions? Talk to us!
-[![Join the chat at https://gitter.im/mwaylabs/generator-m](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mwaylabs/generator-m?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/mwaylabs/generator-m-ionic](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mwaylabs/generator-m-ionic?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Install
 
