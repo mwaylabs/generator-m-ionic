@@ -3,8 +3,8 @@
 [![NPM version](http://img.shields.io/npm/v/generator-m-ionic.svg?style=flat-square)][npm-url]
 [![Coverage Status](http://img.shields.io/coveralls/mwaylabs/generator-m-ionic/master.svg?style=flat-square)][coveralls-url]
 [![Build Status](https://img.shields.io/travis/mwaylabs/generator-m-ionic/master.svg?style=flat-square)][travis-url]
-[![Dependency Status](http://img.shields.io/david/mwaylabs/generator-m-ionic.svg/master?style=flat-square)][daviddm-url]
-[![Download Month](http://img.shields.io/npm/dm/generator-m-ionic.svg?style=flat-square)][npm-url]
+[![Dependency Status](http://img.shields.io/david/mwaylabs/generator-m-ionic/master.svg?style=flat-square)][daviddm-url]
+[![Download Month](http://img.shields.io/npm/dm/generator-m.svg?style=flat-square)][npm-url]
 
 [npm-url]: https://npmjs.org/package/generator-m-ionic
 [coveralls-url]: https://coveralls.io/r/mwaylabs/generator-m-ionic?branch=master
