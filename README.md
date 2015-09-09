@@ -128,9 +128,9 @@ mkdir myApp && cd $_
 ```
 **run the generator** - and follow the instructions
 ```sh
-yo m
+yo m-ionic
 ```
-**IMPORTANT:** Cordova needs an empty directory to work. Please run any other setup (e.g. `git init`) after running `yo m`.
+**IMPORTANT:** Cordova needs an empty directory to work. Please run any other setup (e.g. `git init`) after running `yo m-ionic`.
 
 ## Get started
 #### gulp watch
@@ -365,24 +365,24 @@ gulp --cordova 'run android' # won't work on windows
 
 ## Sub-generators
 
-#### yo m:...
+#### yo m-ionic:...
 A handy and fast way to create different angular components, handling all the boilerplate for you.
 The `<moduleName>` is optional and defaults to the main module when left blank
 ```sh
-yo m:constant <constantName> <moduleName>
-yo m:controller <controllerName> <moduleName>
-yo m:directive <directiveName> <moduleName>
-yo m:filter <filterName> <moduleName>
-yo m:pair <pairName> <moduleName> # creates controller & template
-yo m:template <templateName> <moduleName>
-yo m:service <serviceName> <moduleName>
+yo m-ionic:constant <constantName> <moduleName>
+yo m-ionic:controller <controllerName> <moduleName>
+yo m-ionic:directive <directiveName> <moduleName>
+yo m-ionic:filter <filterName> <moduleName>
+yo m-ionic:pair <pairName> <moduleName> # creates controller & template
+yo m-ionic:template <templateName> <moduleName>
+yo m-ionic:service <serviceName> <moduleName>
 ```
 If you have `gulp watch` running, gulp will automatically inject your new files into your application and they will be available right away.
 
-#### yo m:module - creates a new module
+#### yo m-ionic:module - creates a new module
 **Important**: While we are particularly proud of this feature, please note that using modules is only useful in large projects. We recommend that you only use them, if you know why you want to use them in your project. In our experience for most projects using one module is just fine.
 
-1. `yo m:module <moduleName>` - create a new module
+1. `yo m-ionic:module <moduleName>` - create a new module
 2. choose your template: `sidemenu`, `tabs` or `blank`
 2. add your module to the `app/app.js`:
 
@@ -446,14 +446,14 @@ If you're experiencing difficulties using the generator please refer to the [Tro
 
 ## Options for debugging and development
 ```sh
-yo m --appName='App Name' # set appName via CLI
-yo m --skip-welcome-message # skips welcome message
-yo m --skip-sdk # skip adding cordova platforms and plugins (sdk-specific) for travis
-yo m --skip-install # for debugging purposes, no npm and bower install
-yo m --skip-prompts # for debugging purposes, run with predefined answers
-yo m --ios-only # in conjunction with --skip-prompts
-yo m --android-only # in conjunction with --skip-prompts
-yo m --no-cordova # in conjunction with --skip-prompts, no platforms/plugins
+yo m-ionic --appName='App Name' # set appName via CLI
+yo m-ionic --skip-welcome-message # skips welcome message
+yo m-ionic --skip-sdk # skip adding cordova platforms and plugins (sdk-specific) for travis
+yo m-ionic --skip-install # for debugging purposes, no npm and bower install
+yo m-ionic --skip-prompts # for debugging purposes, run with predefined answers
+yo m-ionic --ios-only # in conjunction with --skip-prompts
+yo m-ionic --android-only # in conjunction with --skip-prompts
+yo m-ionic --no-cordova # in conjunction with --skip-prompts, no platforms/plugins
 ```
 
 ## Want to contribute?
