@@ -10,7 +10,7 @@ module.exports = yeoman.generators.NamedBase.extend({
     this.moduleFolder = utils.moduleFolder(this.moduleName);
     this.barColor = utils.barColor();
 
-    this.log('You called the m:template subgenerator.');
+    this.log('You called the m-ionic:template subgenerator.');
 
     this.templateName = this.name;
     this.fileName = utils.fileName(this.templateName);

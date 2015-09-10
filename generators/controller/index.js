@@ -11,7 +11,7 @@ module.exports = yeoman.generators.NamedBase.extend({
     this.configName = utils.configName(this.moduleName);
     this.moduleFolder = utils.moduleFolder(this.moduleName);
 
-    this.log('You called the m:controller subgenerator.');
+    this.log('You called the m-ionic:controller subgenerator.');
 
     this.controllerName = utils.controllerName(this.name);
     this.fileName = utils.fileName(this.controllerName);

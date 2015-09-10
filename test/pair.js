@@ -4,7 +4,7 @@ var path = require('path');
 var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 
-describe('M:generators/pair', function () {
+describe('M-ionic:generators/pair', function () {
   before(function (done) {
     helpers.run(path.join(__dirname, '../generators/pair'))
       .withGenerators([ // configure path to subgenerators

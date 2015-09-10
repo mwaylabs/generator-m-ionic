@@ -8,7 +8,7 @@ module.exports = yeoman.generators.NamedBase.extend({
     this.moduleName =  utils.checkModule(this.module);
     this.moduleFolder = utils.moduleFolder(this.moduleName);
 
-    this.log('You called the m:filter subgenerator.');
+    this.log('You called the m-ionic:filter subgenerator.');
 
     this.filterName = this.name;
     this.fileName = utils.fileName(this.filterName);

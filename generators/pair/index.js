@@ -12,14 +12,14 @@ module.exports = yeoman.generators.Base.extend({
     this.argument('module', { type: String, required: false });
     this.moduleName = utils.checkModule(this.module);
 
-    this.log('You called the m:pair subgenerator with the argument ' + this.name + '.');
+    this.log('You called the m-ionic:pair subgenerator with the argument ' + this.name + '.');
   },
 
   writing: function () {
-    this.composeWith('m:controller', {
+    this.composeWith('m-ionic:controller', {
       arguments: this.name + ' ' + this.moduleName,
     });
-    this.composeWith('m:template', {
+    this.composeWith('m-ionic:template', {
       arguments: this.name + ' ' + this.moduleName,
     });
   }

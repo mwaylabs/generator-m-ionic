@@ -8,7 +8,7 @@ module.exports = yeoman.generators.NamedBase.extend({
     this.moduleName =  utils.checkModule(this.module);
     this.moduleFolder = utils.moduleFolder(this.moduleName);
 
-    this.log('You called the m:directive subgenerator.');
+    this.log('You called the m-ionic:directive subgenerator.');
 
     this.directiveName = this.name;
     this.directiveTagName = utils.directiveTagName(this.directiveName);

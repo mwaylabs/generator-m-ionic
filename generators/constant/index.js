@@ -8,7 +8,7 @@ module.exports = yeoman.generators.NamedBase.extend({
     this.moduleName =  utils.checkModule(this.module);
     this.moduleFolder = utils.moduleFolder(this.moduleName);
 
-    this.log('You called the m:constant subgenerator.');
+    this.log('You called the m-ionic:constant subgenerator.');
 
     this.constantName = this.name;
     this.fileName = utils.fileName(this.constantName);

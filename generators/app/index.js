@@ -241,7 +241,7 @@ module.exports = yeoman.generators.Base.extend({
 
     subgenerators: function () {
       // create main module
-      this.composeWith('m:module', {
+      this.composeWith('m-ionic:module', {
         arguments: config.DEFAULT_MODULE,
         options: {
           mainModule: true,

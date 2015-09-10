@@ -9,7 +9,7 @@ module.exports = yeoman.generators.NamedBase.extend({
     this.moduleName =  utils.checkModule(this.module);
     this.moduleFolder = utils.moduleFolder(this.moduleName);
 
-    this.log('You called the m:service subgenerator.');
+    this.log('You called the m-ionic:service subgenerator.');
 
     this.serviceName = utils.serviceName(this.name);
     this.fileName = utils.fileName(this.serviceName);

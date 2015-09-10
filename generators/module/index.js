@@ -8,7 +8,7 @@ var sampleAnswers = require('../app/sources/sample-answers.js');
 module.exports = yeoman.generators.NamedBase.extend({
 
   initializing: function () {
-    this.log('You called the m:module subgenerator with the argument ' + this.name + '.');
+    this.log('You called the m-ionic:module subgenerator with the argument ' + this.name + '.');
 
     this.moduleName = utils.moduleName(this.name);
     this.controllerName = utils.controllerName(this.name);
@@ -80,7 +80,7 @@ module.exports = yeoman.generators.NamedBase.extend({
     this.template('_module.js', modulePath + '/' + this.moduleFolder + '.js');
     this.template('_module.scss', modulePath + '/styles/' + this.moduleFolder + '.scss');
     // create config constant
-    this.composeWith('m:constant', {
+    this.composeWith('m-ionic:constant', {
       arguments: utils.configName(this.moduleName) + ' ' + this.moduleName,
       options: {
         template: 'config'
@@ -101,25 +101,25 @@ module.exports = yeoman.generators.NamedBase.extend({
       this.template('_module-debug.spec.js', 'test/protractor/' + this.moduleFolder + '-debug.spec.js');
 
       // debug
-      this.composeWith('m:controller', {
+      this.composeWith('m-ionic:controller', {
         arguments: this.debugCtrlName + ' ' + this.moduleName,
         options: { template: 'debug' }
       });
-      this.composeWith('m:template', {
+      this.composeWith('m-ionic:template', {
         arguments: 'debug ' + this.moduleName,
         options: { template: 'debug' }
       });
-      this.composeWith('m:service', {
+      this.composeWith('m-ionic:service', {
         arguments: this.name + ' ' + this.moduleName,
         options: {  template: 'debug' }
       });
 
       // other templates
-      this.composeWith('m:template', {
+      this.composeWith('m-ionic:template', {
         arguments: 'list ' + this.moduleName,
         options: { template: 'list' }
       });
-      this.composeWith('m:template', {
+      this.composeWith('m-ionic:template', {
         arguments: 'list-detail ' + this.moduleName,
         options: { template: 'list-detail' }
       });
@@ -127,10 +127,10 @@ module.exports = yeoman.generators.NamedBase.extend({
     // sidemenu
     if (this.answers.template === 'sidemenu') {
       // menu
-      this.composeWith('m:controller', {
+      this.composeWith('m-ionic:controller', {
         arguments: this.menuCtrlName + ' ' + this.moduleName,
       });
-      this.composeWith('m:template', {
+      this.composeWith('m-ionic:template', {
         arguments: 'menu ' + this.moduleName,
         options: { template: 'menu' }
       });
@@ -139,7 +139,7 @@ module.exports = yeoman.generators.NamedBase.extend({
     // tabs
     if (this.answers.template === 'tabs') {
       // tabs
-      this.composeWith('m:template', {
+      this.composeWith('m-ionic:template', {
         arguments: 'tabs ' + this.moduleName,
         options: { template: 'tabs' }
       });
