@@ -93,9 +93,9 @@ var injectFormat = function (obj) {
   // remove first and last line curly braces
   obj = obj.replace(/^\{\n/, '').replace(/\n\}$/, '');
   // remove indentation of first line
-  obj = obj.replace(/^  /, '');
+  obj = obj.replace(/^( ){2}/, '');
   // insert padding for all remaining lines
-  obj = obj.replace(/\n  /g, '\n    ');
+  obj = obj.replace(/\n( ){2}/g, '\n    ');
 
   return obj;
 };
@@ -141,7 +141,7 @@ gulp.task('build-vars', ['environment'], function () {
             if (buildVars) {
               // loop over build variables
               var variables = buildVars.split(',');
-              for (var i = 0, variable; (variable = variables[i]); i++) {
+              for (var i = 0, variable; ((variable = variables[i])); i++) {
                 var splits = variable.split(':');
                 // add key and value to object
                 obj[splits[0]] = splits[1];
