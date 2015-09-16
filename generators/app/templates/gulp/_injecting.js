@@ -33,17 +33,14 @@ gulp.task('inject-all', ['styles', 'wiredep', 'bower-fonts', 'environment', 'bui
 
 // build styles to tmp
 gulp.task('styles', ['clean'], function () {
-  var cssFilter = $.filter(['*.css', '!*.map'], {restore: true});
 
   // compile css starting from each module's scss
   return gulp.src('app/*/styles/!(_)*.scss')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe($.sass.sync().on('error', $.sass.logError))
-    .pipe($.sourcemaps.write('.'))
-    .pipe(cssFilter)
     .pipe($.autoprefixer({ browsers: ['last 2 versions'], remove: false}))
-    .pipe(cssFilter.restore)
+    .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest('.tmp/'));
 });
 
