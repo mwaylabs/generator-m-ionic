@@ -7,7 +7,7 @@ var $ = require('gulp-load-plugins')();
 
 // all linting tasks
 gulp.task('linting', ['eslint', 'jsonlint']);
-gulp.task('linting-throw', ['eslint', 'jsonlint-throw']);
+gulp.task('linting-throw', ['eslint-throw', 'jsonlint-throw']);
 
 // check for eslint errors
 var eslint = function (fail) {
