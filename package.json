@@ -49,7 +49,7 @@
   "dependencies": {
     "chalk": "^1.1.0",
     "cordova-lib": "5.3.3",
-    "inquirer": "^0.9.0",
+    "inquirer": "^0.10.0",
     "mkdirp": "^0.5.1",
     "underscore.string": "^3.2.0",
     "yeoman-generator": "^0.20.1",
