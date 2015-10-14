@@ -63,12 +63,12 @@ gulp.task('wiredep', function () {
 gulp.task('bower-fonts', ['clean'], function () {
   // to do www/fonts (ionic css requires it to be in this folder)
   var DEST = 'www/fonts';
-  var fontFiles = mainBowerFiles({filter: /\.(eot|svg|ttf|woff)$/i});
+  var fontFiles = mainBowerFiles({filter: /\.(eot|otf|svg|ttf|woff|woff2)$/i});
 <% } else { -%>
 gulp.task('bower-fonts', function () {
   // to app/main/assets/fonts (path can be set in app/main/styles/<module>.scss)
   var DEST = 'app/main/assets/fonts';
-  var fontFiles = mainBowerFiles({filter: /\.(eot|svg|ttf|woff)$/i})
+  var fontFiles = mainBowerFiles({filter: /\.(eot|otf|svg|ttf|woff|woff2)$/i})
     .concat('app/main/assets/fonts/**/*');
 <% } -%>
 
