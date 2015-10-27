@@ -112,7 +112,7 @@ For a quick impression head over to https://github.com/mwaylabs/generator-m-ioni
   - gulp: `npm install --global gulp` - http://gulpjs.com/
   - bower: `npm install --global bower` - http://bower.io/
 - In order to run your app on a device, you'll need:
-  - **Platform SDKs** for the ones you are developing for. Head over to cordova documentation: [Platform Guides](http://cordova.apache.org/docs/en/edge/guide_platforms_index.md.html#Platform%20Guides) or cordova cli: [Requirements](https://github.com/apache/cordova-cli/)
+  - **Platform SDKs** for the ones you are developing for. Head over to cordova documentation: [Platform Guides](http://cordova.apache.org/docs/en/edge/guide/platforms/index.html) or cordova cli: [Requirements](https://github.com/apache/cordova-cli/#requirements)
 
 ### Generator
 
@@ -219,7 +219,7 @@ A local wrapper for cordova cli (allows to use different cordova CLI versions in
 ```sh
 gulp --cordova 'plugin ls'
 ```
-Head over to the [cordova cli documentation](http://cordova.apache.org/docs/en/edge/guide_cli_index.md.html#The%20Command-Line%20Interface) or their [github page](https://github.com/apache/cordova-cli/) to learn how to use the cordova cli. Remember that when using Generator-M-Ionic you don't need to install cordova globally!
+Head over to the [cordova cli documentation](http://cordova.apache.org/docs/en/edge/guide/cli/index.html) or their [github page](https://github.com/apache/cordova-cli/) to learn how to use the cordova cli. Remember that when using Generator-M-Ionic you don't need to install cordova globally!
 
 #### gulp --cordova 'build-related task'
 
