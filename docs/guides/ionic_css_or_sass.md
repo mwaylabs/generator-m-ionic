@@ -8,7 +8,7 @@ If you are unsure whether to choose Ionic's CSS or SASS version, there's only on
 If you want to change the style source of your project, generated with Generator-M-Ionic, there's two simple options.
 
 1. Re-generate your project and choose the style source (CSS or SASS) you like
-2. Manually change the style source with the guide below
+2. **OR** manually change the style source with the guide below
 
 ## Manually change the style source
 When changing the from Ionic CSS to SASS or vice versa, there's three files that need alteration.
@@ -23,7 +23,7 @@ When changing the from Ionic CSS to SASS or vice versa, there's three files that
   "ionicCss": false,
   ```
   This is not necessary but it's good for your `.yo-rc.json` to actually reflect the state of your project.
-1. There's two gulp tasks you need to change in the `gulp/building.js` file. The `wiredep` and `bower-fonts` task should look like this:
+1. There's two gulp tasks you need to change in the `gulp/injecting.js` file. The `wiredep` and `bower-fonts` task should look like this:
   ```js
   // inject bower components into index.html
   gulp.task('wiredep', function () {
