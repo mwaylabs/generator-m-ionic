@@ -49,10 +49,10 @@
   "dependencies": {
     "chalk": "^1.1.0",
     "cordova-lib": "5.3.3",
-    "inquirer": "^0.10.0",
+    "inquirer": "^0.11.0",
     "mkdirp": "^0.5.1",
     "underscore.string": "^3.2.0",
-    "yeoman-generator": "^0.20.1",
+    "yeoman-generator": "^0.21.1",
     "yosay": "^1.0.4"
   },
   "devDependencies": {
@@ -66,5 +66,8 @@
     "gulp-mocha": "^2.1.2",
     "gulp-plumber": "^1.0.1",
     "gulp-util": "^3.0.6"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
   }
 }
