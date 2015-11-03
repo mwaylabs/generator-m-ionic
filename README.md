@@ -17,11 +17,6 @@ Development:
 [![Dev Build Status](https://img.shields.io/travis/mwaylabs/generator-m-ionic/dev.svg?style=flat-square)][travis-url]
 [![Dev Dependency Status](http://img.shields.io/david/mwaylabs/generator-m-ionic/dev.svg?style=flat-square)](https://david-dm.org/mwaylabs/generator-m-ionic/dev)
 
-
-## Looking for Generator-M?
-This is it! We changed the name to better reflect what this generator is all about. Read more [here](https://github.com/mwaylabs/generator-m-ionic/wiki/Name-Change)!
-
-
 ## Why you need it
 Build mobile Cordova/PhoneGap apps quickly with the tools you love:
 Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy generator.
