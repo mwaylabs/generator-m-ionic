@@ -59,10 +59,10 @@
     "coveralls": "^2.11.2",
     "eslint": "^1.3.1",
     "gulp": "^3.9.0",
-    "gulp-bump": "^0.3.1",
+    "gulp-bump": "^1.0.0",
     "gulp-eslint": "^1.0.0",
     "gulp-istanbul": "^0.10.0",
-    "gulp-load-plugins": "^0.10.0",
+    "gulp-load-plugins": "^1.0.0",
     "gulp-mocha": "^2.1.2",
     "gulp-plumber": "^1.0.1",
     "gulp-util": "^3.0.6"
