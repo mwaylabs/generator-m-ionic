@@ -11,10 +11,9 @@ var sampleAnswers = require('../generators/app/sources/sample-answers.js');
 describe('m', function () {
   this.timeout(60000); // allow 1 minute to execute
 
-  console.log('here0');
   describe('sampleAnswers (--skip-install)', function () {
     var answers = sampleAnswers.getStandard();
-    console.log('here1');
+
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/app'))
         .withGenerators([ // configure path to subgenerators
@@ -28,9 +27,8 @@ describe('m', function () {
         .withPrompts(answers)  // answer prompts
         .on('end', done);
     });
-    console.log('here2');
+
     it('creates config files etc... in root', function () {
-      console.log('here3');
       assert.file([
         'app/.eslintrc',
         '.bowerrc',
@@ -62,7 +60,6 @@ describe('m', function () {
     });
 
     it('creates /app files', function () {
-      console.log('here4');
       assert.file([
         'app/index.html',
         'app/app.js'
