@@ -82,6 +82,8 @@ describe('m', function () {
     });
 
     it('version injected in README.md', function () {
+      assert.fileContent('README.md', '# ' + answers.appName);
+      assert.fileContent('README.md', 'This project was generated with Generator-M-Ionic v' + pkg.version + '. For more info visit the [repository](https://github.com/mwaylabs/generator-m-ionic) or check out the README below.');
       assert.fileContent('README.md', '# Generator-M-Ionic v' + pkg.version);
     });
 
