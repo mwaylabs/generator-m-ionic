@@ -38,7 +38,7 @@
 
     // os/git options
     "no-trailing-spaces": 2,
-    "linebreak-style": [2, "unix"],
+    "linebreak-style": 0,
     "eol-last": 2
   }
 }
