@@ -233,9 +233,9 @@ module.exports = yeoman.generators.Base.extend({
       this.copy('gitignore', '.gitignore');
       this.copy('.travis.yml', '.travis.yml');
 
-      // inject version into readme
+      // inject project name, version and info into readme
       var readme = this.read(path.join(__dirname, '../../', 'README.md'));
-      readme = readme.replace(/^# Generator-M-Ionic/, '# Generator-M-Ionic v' + this.pkg.version);
+      readme = readme.replace(/^# Generator-M-Ionic/, '# ' + this.answers.appName + '\nThis project was generated with Generator-M-Ionic v' + this. pkg.version + '. For more info visit the [repository](https://github.com/mwaylabs/generator-m-ionic) or check out the README below.\n\n# Generator-M-Ionic v' + this.pkg.version);
       this.write(this.destinationRoot() + '/README.md', readme);
     },
 
