@@ -66,8 +66,5 @@
     "gulp-mocha": "^2.1.2",
     "gulp-plumber": "^1.0.1",
     "gulp-util": "^3.0.6"
-  },
-  "peerDependencies": {
-    "yo": ">=1.0.0"
   }
 }
