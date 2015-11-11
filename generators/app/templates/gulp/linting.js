@@ -16,7 +16,7 @@ var eslint = function (fail) {
       .pipe($.eslint())
       .pipe($.eslint.format())
       .pipe($.if(fail, $.eslint.failOnError()));
-  }
+  };
 };
 gulp.task('eslint', eslint());
 gulp.task('eslint-throw', eslint(true));
