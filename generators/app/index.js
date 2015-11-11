@@ -152,7 +152,7 @@ module.exports = yeoman.generators.Base.extend({
 
       var done = this.async(); // wait with subsequent tasks since cordova needs an empty folder
       // cordova project
-      cordova.create('.', this.answers.appId, this.answers.appName)
+      cordova.create('.', this.answers.appId, this.answers.appName, this.answers.appName)
       // add platforms and save to config.xml
       .then(function () {
         this.log(chalk.green('Created cordova project'));
