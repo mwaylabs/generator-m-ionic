@@ -17,6 +17,7 @@ Development:
 [![Dev Build Status](https://img.shields.io/travis/mwaylabs/generator-m-ionic/dev.svg?style=flat-square)][travis-url]
 [![Dev Dependency Status](http://img.shields.io/david/mwaylabs/generator-m-ionic/dev.svg?style=flat-square)](https://david-dm.org/mwaylabs/generator-m-ionic/dev)
 
+
 ## Why you need it
 Build mobile Cordova/PhoneGap apps quickly with the tools you love:
 Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy generator.
@@ -56,64 +57,39 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
   <a href="https://angular.github.io/protractor/#/" target="_blank" alt="protractor" title="protractor">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/9410114/b99aaa9a-481e-11e5-8655-ebc1e324200d.png">
   </a>
-
 </p>
-We provide:
-
-- **yeoman** to scaffold your app - http://yeoman.io/
-- **gulp** to run your tasks - http://gulpjs.com/
-- **bower** to manage your client packages - http://bower.io/
-
-the following **technology stack**:
-
-- **angular** for app structure & logic - https://angularjs.org/
-  - **angular-ui-router** - https://github.com/angular-ui/ui-router
-- **ionic** for mobile UIs - http://ionicframework.com/
-- **cordova** for accessing phone APIs - http://cordova.apache.org/
-  - **ngCordova** - http://ngcordova.com/
-- **sass** for styling - http://sass-lang.com/
-
-
-an integrated **testing workflow** with:
-
-- **karma** to run your unit tests - http://karma-runner.github.io/
-- **jasmine** for writing unit & integration tests - http://jasmine.github.io/
-- **protractor** for running and writing integration tests - https://angular.github.io/protractor/#/
-
-and many many **features and tools** for your convenience:
-
-- powerful collection of [gulp tasks](https://github.com/mwaylabs/generator-m-ionic#more-gulp-tasks)
-- broad selection of [sub-generators](https://github.com/mwaylabs/generator-m-ionic#sub-generators)
-- fine tuned [integration with git](https://github.com/mwaylabs/generator-m-ionic#git-integration)
-- sensible defaults for:
-  - continuous integration with [Travis CI](https://travis-ci.org/) and [Jenkins CI](https://jenkins-ci.org/)
-  - code style checks with [ESLint](http://eslint.org/)
-  - configuration files like [.editorconfig](http://editorconfig.org/), [.gitignore](http://git-scm.com/docs/gitignore), [.gitattriubtes](http://git-scm.com/docs/gitattributes) and others
-
 
 ## Try the demo
 For a quick impression head over to https://github.com/mwaylabs/generator-m-ionic-demo and clone the sample project generated with the latest version of Generator-M-Ionic.
 
+## Introduction
+- More on: [Why you need it](https://github.com/mwaylabs/generator-m-ionic/intro/1_why_you_need_it.md)
+- More on: [What's in the box](https://github.com/mwaylabs/generator-m-ionic/intro/1_whats_in_the_box.md)
+
+## Installation
+- [Installation and Prerequisites](https://github.com/mwaylabs/generator-m-ionic/intro/2_installation_prerequisites.md)
+
+## Get started
+
+## Guides
+- Setting up and working with [ESLint](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/eslint.md)
+- Working with our [SASS integration](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sass_integration.md)
+- Using Ionic [CSS or SASS](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/ionic_css_or_sass.md)
+- Managing app [icons and splash screens](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/icons_splash_screens.md). Good for different app configurations (beta, production, ...).
+- The contents of the [`config.xml` can be changed programmatically](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/programmatically_change_configxml.md). Good for continuous integration.
+
+## Insights
+We've published 3 blog articles about the generator on our company blog so far:
+- March 2015: [Generator-M: the state of HTML5 mobile app development at M-Way](http://blog.mwaysolutions.com/2015/03/26/generator-m-the-state-of-html5-mobile-app-development-at-m-way/)
+  - the **origins** of the generator development and **company strategy**
+- September 2015: [Generator-M-Ionic: HTML5 mobile app development evolved](http://blog.mwaysolutions.com/2015/09/10/generator-m-ionic-html5-mobile-app-development-evolved/)
+  - provides insight to the **technology choices and ecosystem** and the **benefits of using the generator**
+- September 2015: [Generator-M-Ionic and the search for the holy grail](http://blog.mwaysolutions.com/2015/09/21/generator-m-ionic-and-the-search-for-the-holy-grail/)
+  - rather **technical comparison** between the generator and similar tools as well as technical insights to the **decisions and motivation** behind the generator
+
 
 ## Questions? Talk to us!
 [![Join the chat at https://gitter.im/mwaylabs/generator-m-ionic](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mwaylabs/generator-m-ionic?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-## Install
-
-### Prerequisites
-- Installation and **fair knowledge** of:
-- node & npm - http://nodejs.org/download/
-  - yo: `npm install --global yo` - http://yeoman.io/
-  - gulp: `npm install --global gulp` - http://gulpjs.com/
-  - bower: `npm install --global bower` - http://bower.io/
-- In order to run your app on a device, you'll need:
-  - **Platform SDKs** for the ones you are developing for. Head over to cordova documentation: [Platform Guides](http://cordova.apache.org/docs/en/edge/guide/platforms/index.html) or cordova cli: [Requirements](https://github.com/apache/cordova-cli/#requirements)
-
-### Generator
-
-```sh
-npm install --global generator-m-ionic
-```
 
 
 ## Generate App
@@ -198,14 +174,6 @@ Articles on **testing angular**
 **protractor** website - http://angular.github.io/protractor/#/
 
 **karma** website - http://karma-runner.github.io/
-
-
-## Guides
-- Setting up and working with [ESLint](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/eslint.md)
-- Working with our [SASS integration](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sass_integration.md)
-- Using Ionic [CSS or SASS](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/ionic_css_or_sass.md)
-- Managing app [icons and splash screens](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/icons_splash_screens.md). Good for different app configurations (beta, production, ...).
-- The contents of the [`config.xml` can be changed programmatically](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/programmatically_change_configxml.md). Good for continuous integration.
 
 ## More gulp tasks
 
