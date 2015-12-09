@@ -183,7 +183,7 @@ A local wrapper for cordova cli (allows to use different cordova CLI versions in
 ```sh
 gulp --cordova 'plugin ls'
 ```
-Head over to the [cordova cli documentation](http://cordova.apache.org/docs/en/edge/guide/cli/index.html) or their [github page](https://github.com/apache/cordova-cli/) to learn how to use the cordova cli. Remember that when using Generator-M-Ionic you don't need to install cordova globally!
+Head over to the [cordova cli documentation](http://cordova.apache.org/docs/en/dev/guide/cli/index.html) or their [github page](https://github.com/apache/cordova-cli/) to learn how to use the cordova cli. Remember that when using Generator-M-Ionic you don't need to install cordova globally!
 
 #### gulp --cordova 'build-related task'
 
