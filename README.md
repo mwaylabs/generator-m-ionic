@@ -70,111 +70,35 @@ For a quick impression head over to https://github.com/mwaylabs/generator-m-ioni
 - [Installation and Prerequisites](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/2_installation_prerequisites.md)
 
 ## Get started
+- [Generate your app](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/0_generate_app.md)
+- [File structure](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/1_file_structure.md)
+- [Start Development](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/2_start_development.md)
 
 ## Guides
-- Setting up and working with [ESLint](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/eslint.md)
-- Working with our [SASS integration](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sass_integration.md)
-- Using Ionic [CSS or SASS](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/ionic_css_or_sass.md)
-- Managing app [icons and splash screens](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/icons_splash_screens.md). Good for different app configurations (beta, production, ...).
+**Generation**
+- [Sub-generators](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sub_generators.md) for adding new components
+- [SASS integration](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sass_integration.md) in our module concept
+- Using Ionic's [CSS or SASS](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/ionic_css_or_sass.md)?
+
+**Quality**
+- [ESLint](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/eslint.md) code style checks and setting up your IDE/Editor
+- [Testing](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/3_testing.md) with our testing workflows
+
+**Continuous Integration and Delivery**
+- [App Icons and splash screens](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/icons_splash_screens.md), a simple setup or different ones for different builds - all is possible
 - The contents of the [`config.xml` can be changed programmatically](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/programmatically_change_configxml.md). Good for continuous integration.
 
-## Insights
-We've published 3 blog articles about the generator on our company blog so far:
+## Questions? Talk to us!
+[![Join the chat at https://gitter.im/mwaylabs/generator-m-ionic](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mwaylabs/generator-m-ionic?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+## Generator Insights
+We've published 3 blog articles on our company blog delivering deep insights into the why and how of the generator:
 - March 2015: [Generator-M: the state of HTML5 mobile app development at M-Way](http://blog.mwaysolutions.com/2015/03/26/generator-m-the-state-of-html5-mobile-app-development-at-m-way/)
   - the **origins** of the generator development and **company strategy**
 - September 2015: [Generator-M-Ionic: HTML5 mobile app development evolved](http://blog.mwaysolutions.com/2015/09/10/generator-m-ionic-html5-mobile-app-development-evolved/)
   - provides insight to the **technology choices and ecosystem** and the **benefits of using the generator**
 - September 2015: [Generator-M-Ionic and the search for the holy grail](http://blog.mwaysolutions.com/2015/09/21/generator-m-ionic-and-the-search-for-the-holy-grail/)
   - rather **technical comparison** between the generator and similar tools as well as technical insights to the **decisions and motivation** behind the generator
-
-
-## Questions? Talk to us!
-[![Join the chat at https://gitter.im/mwaylabs/generator-m-ionic](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mwaylabs/generator-m-ionic?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-
-## Generate App
-**create new directory** - and cd into it.
-```sh
-mkdir myApp && cd $_
-```
-**run the generator** - and follow the instructions
-```sh
-yo m-ionic
-```
-**IMPORTANT:** Cordova needs an empty directory to work. Please run any other setup (e.g. `git init`) after running `yo m-ionic`.
-
-## Get started
-#### gulp watch
-Prepares everything for development and opens your default browser. Get ready to start coding!
-```sh
-gulp watch
-```
-Livereloads your application when changing/adding/deleting files to immediately reflect the changes you make. If you don't want this task to open your browser, just add the `--no-open` option and navigate to `http://localhost:9000` yourself. For your convenience any occurring **ESLint or jsonlint errors** will be presented to you on every livereload.
-
-#### File structure
-<pre>
-└──  app/           - your application folder
-│   └──  bower_components/    - local installation of bower packages
-│   └──  main/                - ---main module---
-│   │   ├──  assets/          - assets: fonts, images, translation, etc... goes here
-│   │   ├──  constants/       - angular constants
-│   │   ├──  controllers/     - angular controllers
-│   │   ├──  directives/      - angular directives
-│   │   ├──  filters/         - angular filters
-│   │   ├──  services/        - angular services
-│   │   ├──  styles/          - scss styles
-│   │   ├──  templates/       - angular templates
-│   │   └──  main.js          - angular module definition, routing etc...
-│   └──  anotherModule/       - ---another  module---
-│   │   ├──  ...
-│   ├──  app.js               - application module, includes main module, ionic, ui-router etc ...
-│   └──  index.html           - angular entry point, injects: app files, bower files, fonts,  ...
-├──  gulp/    - gulp tasks
-├──  hooks/         - cordova hooks
-├──  nodes_modules/ - local installation of node modules
-├──  platforms/     - cordova platforms
-├──  plugins/       - corodova plugins
-├──  res/           - resources folder for splash screens and app icons
-├──  test/          - unit and integration tests
-├──  www/           - your gulp build goes here, cordova starts building from here
-├──  .bowerrc       - bower configuration
-├──  .editorconfig  - editor configuration
-├──  .eslintignore  - ESLint ignore configuration
-├──  .eslintrc      - ESLint configuration
-├──  .gitattributes - git's attribute configuration
-├──  .gitignore     - git's ignore configuration
-├──  .travis.yml    - travis continuous integration configuration
-├──  .yo-rc.json    - yeoman's .yo-rc.json
-├──  bower.json     - bower dependencies
-├──  config.xml     - cordova's config.xml
-├──  gulpfile.js    - entry point to all gulp tasks
-├──  jenkins.sh     - shell script for jenkins continuous integration
-├──  package.json   - node dependencies configuration
-├──  README.md      - the generator's README.md
-</pre>
-
-## Testing
-When setting up your project or using the module, controller, service, directive or filter sub-generator, Generator-M-Ionic will automatically generate sample test files for that component. These files can be found in the `test/karma` and `test/protractor` directory respectively. To check if all tests are running properly run:
-
-```sh
-gulp karma
-# and
-gulp protractor
-```
-**Hint**: `gulp watch` and `gulp protractor` cannot be run at the same time.
-
-If you are new to testing your app with protractor, karma and jasmine. Here are some good places to get started:
-
-Articles on **testing angular**
-- AngularJS Developer Guide - [Unit Testing](https://docs.angularjs.org/guide/unit-testing)
-- Smashing Magazine - [Unit Testing In AngularJS](http://www.smashingmagazine.com/2014/10/introduction-to-unit-testing-in-angularjs/)
-  - careful: uses mocha, chai & sinon but we use jasmine. Still worth a look!
-
-**jasmine** website - http://jasmine.github.io/
-
-**protractor** website - http://angular.github.io/protractor/#/
-
-**karma** website - http://karma-runner.github.io/
 
 ## More gulp tasks
 
@@ -326,44 +250,6 @@ instead of this:
 ```sh
 gulp --cordova 'run android' # won't work on windows
 ```
-
-## Sub-generators
-
-#### yo m-ionic:...
-A handy and fast way to create different angular components, handling all the boilerplate for you.
-The `<moduleName>` is optional and defaults to the main module when left blank
-```sh
-yo m-ionic:constant <constantName> <moduleName>
-yo m-ionic:controller <controllerName> <moduleName>
-yo m-ionic:directive <directiveName> <moduleName>
-yo m-ionic:filter <filterName> <moduleName>
-yo m-ionic:pair <pairName> <moduleName> # creates controller & template
-yo m-ionic:template <templateName> <moduleName>
-yo m-ionic:service <serviceName> <moduleName>
-```
-If you have `gulp watch` running, gulp will automatically inject your new files into your application and they will be available right away.
-
-#### yo m-ionic:module - creates a new module
-**Important**: While we are particularly proud of this feature, please note that using modules is only useful in large projects. We recommend that you only use them, if you know why you want to use them in your project. In our experience for most projects using one module is just fine.
-
-1. `yo m-ionic:module <moduleName>` - create a new module
-2. choose your template: `sidemenu`, `tabs` or `blank`
-2. add your module to the `app/app.js`:
-
-  ```js
-  'use strict';
-  angular.module('myProject', [
-    // your modules
-    'main',
-    '<newModuleName>'
-  ]);
-  ```
-3. restart your `gulp watch` task
-3. in your browser, depending on the template you chose, navigate to `http://localhost:9000/#`
-  - `/<module-name-in-kebap-case>` for `blank` templates
-  - `/<module-name-in-kebap-case>/list` for `sidemenu` and `tabs` templates
-4. **Done!** - see your new module in action!
-
 
 ## Git integration
 The generator provides a default set of configuration for git:
