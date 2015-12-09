@@ -1,6 +1,6 @@
 # Installation and Prerequisites
 
-Besides simply installing everything, we recommend having or obtaining a **fair knowledge** of the technologies, so you can understand what you are doing. If you don't know what all this is our blog article [Generator-M-Ionic: HTML5 mobile app development evolved](http://blog.mwaysolutions.com/2015/09/10/generator-m-ionic-html5-mobile-app-development-evolved/) may be a **good starting point**.
+Besides simply installing everything, we recommend having or obtaining a **fair knowledge** of the technologies, so you can understand what you are doing. If you don't know what all this is, our blog article [Generator-M-Ionic: HTML5 mobile app development evolved](http://blog.mwaysolutions.com/2015/09/10/generator-m-ionic-html5-mobile-app-development-evolved/) may be a **good starting point**.
 
 ## Node and dependencies
 - node & npm - http://nodejs.org/download/

@@ -69,14 +69,5 @@ and many many **features and tools** for your convenience:
   - configuration files like [.editorconfig](http://editorconfig.org/), [.gitignore](http://git-scm.com/docs/gitignore), [.gitattriubtes](http://git-scm.com/docs/gitattributes) and others
 
 
-## Learn more
+## In Depth
 You can read more about **technology choices and ecosystem** and the **benefits of using Generator-M-Ionic** in our blog article [Generator-M-Ionic: HTML5 mobile app development evolved](http://blog.mwaysolutions.com/2015/09/10/generator-m-ionic-html5-mobile-app-development-evolved/) which was published in September 2015.
-
-## Alternatives
-There are two major alternatives out there which are similar to the generator in that they also enable HTML5 mobile app development with Ionic. The [Ionic CLI](http://ionicframework.com/getting-started/) and [generator-ionic](https://github.com/diegonetto/generator-ionic). Both of which didn't and to this point still don't suit our needs.
-
-If you want to find out more about **the differences of these tools**, we recently published an article [Generator-M-Ionic and the search for the holy grail](http://blog.mwaysolutions.com/2015/09/21/generator-m-ionic-and-the-search-for-the-holy-grail/) on our company blog concerning that topic. Here's a brief excerpt:
->### Why not use something else?
-The former alternative (Ionic CLI) is being developed by Ionic and is a great tool for beginners, but we got stuck on many occasion when we tried to integrate the CLI in our professional workflow. The latter (generator-ionic) was released by an open source member and it quickly grew immensely popular, however it [hasn't been maintained in over 5 months](https://github.com/diegonetto/generator-ionic/commits/master) (as of the writing of this article) and thus its dependencies are [heavily outdated](https://github.com/diegonetto/generator-ionic/blob/master/package.json#L30) and development came to a complete halt. Issues and pull requests are piling up, but nothing seems to happen.
-
->One of the reasons we started development of Generator-M in the first place was that we felt [Ionic CLI](http://ionicframework.com/getting-started/) was adding too much magic, effectively hiding the whole ecosystem behind a rainbowy cloud. Granted, this makes things easier to begin with, but also keeps you from taking your development to the next level once you mastered the basics. You'll depend on that rainbowy cloud which has limited capabilities. Don't get me wrong. The Ionic CLI is a powerful tool for beginners and thus definitely serves its purpose. It just doesn't meet our demands for professional software development.
