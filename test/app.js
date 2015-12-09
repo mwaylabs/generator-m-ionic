@@ -36,6 +36,7 @@ describe('m', function () {
         '.gitattributes',
         '.gitignore',
         '.eslintrc',
+        '.eslintignore',
         '.travis.yml',
         '.yo-rc.json',
         'README.md',

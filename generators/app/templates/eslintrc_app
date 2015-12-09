@@ -9,5 +9,6 @@
     "ionic": true
   },
   "rules": {
+    "no-console": 1
   }
 }

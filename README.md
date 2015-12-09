@@ -139,6 +139,7 @@ Livereloads your application when changing/adding/deleting files to immediately 
 ├──  www/           - your gulp build goes here, cordova starts building from here
 ├──  .bowerrc       - bower configuration
 ├──  .editorconfig  - editor configuration
+├──  .eslintignore  - ESLint ignore configuration
 ├──  .eslintrc      - ESLint configuration
 ├──  .gitattributes - git's attribute configuration
 ├──  .gitignore     - git's ignore configuration

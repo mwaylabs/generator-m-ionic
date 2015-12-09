@@ -229,6 +229,7 @@ module.exports = yeoman.generators.Base.extend({
       this.copy('bowerrc', '.bowerrc');
       this.copy('editorconfig', '.editorconfig');
       this.copy('eslintrc', '.eslintrc');
+      this.copy('eslintignore', '.eslintignore');
       this.copy('gitattributes', '.gitattributes');
       this.copy('gitignore', '.gitignore');
       this.copy('.travis.yml', '.travis.yml');
