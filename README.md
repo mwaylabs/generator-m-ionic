@@ -62,6 +62,9 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
 ## Try the demo
 For a quick impression head over to https://github.com/mwaylabs/generator-m-ionic-demo and clone the sample project generated with the latest version of Generator-M-Ionic.
 
+## Quick Start
+- [Quick Start](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/0_quick_start.md) for the experienced developer
+
 ## Introduction
 - More on: [Why you need it](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/0_why_you_need_it.md)
 - More on: [What's in the box](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/docs/intro/1_whats_in_the_box.md)
@@ -72,7 +75,7 @@ For a quick impression head over to https://github.com/mwaylabs/generator-m-ioni
 ## Get started
 - [Generate your app](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/0_generate_app.md)
 - [File structure](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/1_file_structure.md)
-- [Start Development](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/2_start_development.md)
+- [Development Introduction](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/2_development_intro.md)
 
 ## Guides
 **Generation**
@@ -85,8 +88,8 @@ For a quick impression head over to https://github.com/mwaylabs/generator-m-ioni
 - [Testing](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/3_testing.md) with our testing workflows
 
 **Continuous Integration and Delivery**
-- [App Icons and splash screens](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/icons_splash_screens.md), a simple setup or different ones for different builds - all is possible
-- The contents of the [`config.xml` can be changed programmatically](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/programmatically_change_configxml.md). Good for continuous integration.
+- [App Icons and splash screens](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/icons_splash_screens.md), a simple setup or different sets for different builds - all is possible
+- [Programmatically change the `config.xml`](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/programmatically_change_configxml.md), an essential part for a successful continuous integration setup
 
 ## Questions? Talk to us!
 [![Join the chat at https://gitter.im/mwaylabs/generator-m-ionic](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mwaylabs/generator-m-ionic?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -101,38 +104,6 @@ We've published 3 blog articles on our company blog delivering deep insights int
   - rather **technical comparison** between the generator and similar tools as well as technical insights to the **decisions and motivation** behind the generator
 
 ## More gulp tasks
-
-#### gulp --cordova 'run any command'
-A local wrapper for cordova cli (allows to use different cordova CLI versions in different projects). For instance instead of running `cordova plugins ls` you'd write the following to list all the installed plugins:
-```sh
-gulp --cordova 'plugin ls'
-```
-Head over to the [cordova cli documentation](http://cordova.apache.org/docs/en/dev/guide/cli/index.html) or their [github page](https://github.com/apache/cordova-cli/) to learn how to use the cordova cli. Remember that when using Generator-M-Ionic you don't need to install cordova globally!
-
-#### gulp --cordova 'build-related task'
-
-If you run one of the following cordova commands: `build <platform>`, `run <platform>`, `emulate <platform>`, 'serve' or `prepare <platform>`, `gulp build` will build your app into the www folder, before cordova will take it from there. For instance if you want to test your app on your connected ios device, run:
-```sh
-gulp --cordova 'run ios' # runs gulp build, then cordova run ios
-```
-Sometimes you don't want `gulp build` to run every time before the cordova command is run. In that case simply add the `--no-build` option and `gulp build` will be skipped.
-
-
-#### gulp watch-build
-Builds into www, watches version in www and opens your browser. Good for debugging and testing your build!
-```sh
-gulp watch-build
-```
-Add the `--no-build` option and `gulp build` will be skipped.
-The `--no-open` options is available here as well, in case you don't want your browser to open automatically and would rather navigate to `http://localhost:9000` yourself.
-
-
-#### gulp build
-Builds your angular app and moves it to the www folder. Usually you don't run this command directly, but it will be implicitly run by `gulp watch-build` and any build-related cordova tasks (as explained above).
-```sh
-gulp build
-```
-Note that the build will not complete if you have any **ESLint or jsonlint errors** in your code! Sometimes it's necessary to let the build run anyway. Use the `--force-build` option to do so. The `--minify` option will minify javascript, css, html and images. These options will also work for all the build-related cordova tasks!
 
 #### gulp environment
 Injects environment (dev, prod and any other you'd like) variables into your `Config` constants.
