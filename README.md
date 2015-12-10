@@ -95,7 +95,7 @@ For a quick impression head over to https://github.com/mwaylabs/generator-m-ioni
 
 **Continuous Integration and Delivery**
 - [App Icons and splash screens](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/icons_splash_screens.md), a simple setup or different sets for different builds - all is possible.
-- [Use Environments](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/environments.md) to take control of different API Endpoints and much more with a single parameter.
+- [Use Environments](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/environments.md) manage different API Endpoints and much more with just a single parameter.
 - [Build Vars](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/build_vars.md), inject vars into your app at build time.
 - [Programmatically change the `config.xml`](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/programmatically_change_configxml.md), an essential part for a successful continuous integration setup. Add environments and build vars for a full blown continuous integration use case!
 
@@ -111,26 +111,17 @@ We've published 3 blog articles on our company blog delivering deep insights int
 ## Questions? Talk to us!
 [![Join the chat at https://gitter.im/mwaylabs/generator-m-ionic](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mwaylabs/generator-m-ionic?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-## Troubleshooting
-If you're experiencing difficulties using the generator please refer to the [Troubleshooting](https://github.com/mwaylabs/generator-m-ionic/wiki/Troubleshooting) section in our wiki or [create an issue](https://github.com/mwaylabs/generator-m-ionic/issues/new)!
-
-## Options for debugging and development
-```sh
-yo m-ionic --appName='App Name' # set appName via CLI
-yo m-ionic --skip-welcome-message # skips welcome message
-yo m-ionic --skip-sdk # skip adding cordova platforms and plugins (sdk-specific) for travis
-yo m-ionic --skip-install # for debugging purposes, no npm and bower install
-yo m-ionic --skip-prompts # for debugging purposes, run with predefined answers
-yo m-ionic --ios-only # in conjunction with --skip-prompts
-yo m-ionic --android-only # in conjunction with --skip-prompts
-yo m-ionic --no-cordova # in conjunction with --skip-prompts, no platforms/plugins
-```
+## Running into issues?
+Do the following:
+ 1. check out our [issues](https://github.com/mwaylabs/generator-m-ionic/issues) and search if there already is a solution to your problem
+ 2. ask other developers and our core team on [gitter](https://gitter.im/mwaylabs/generator-m-ionic) if you're not sure how to proceed
+ 3. If all fails create a [new issue](https://github.com/mwaylabs/generator-m-ionic/issues/new)
 
 ## Want to contribute?
 Start by reading our:
 
-1. [Mission Statement](https://github.com/mwaylabs/generator-m-ionic/wiki/Mission-Statement)
-1. [Contribution Guide](https://github.com/mwaylabs/generator-m-ionic/wiki/Contribution-Guide)
+1. [Mission Statement](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/docs/contribute/mission_statement.md)
+2. [Contribution Guide](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/docs/contribute/contribution_guide.md)
 
 
 ## License

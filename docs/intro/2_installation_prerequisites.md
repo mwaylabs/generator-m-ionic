@@ -20,9 +20,3 @@ npm install --global generator-m-ionic
 ```
 
 Everything went well? - Awesome get started using the [Get started](../../README.md#get-started) documents in the `README.md`.
-
-#### Running in to issues?
-Do the following:
- 1. check out our [issues](https://github.com/mwaylabs/generator-m-ionic/issues) and search if there already is a solution to your problem
- 2. ask other developers and our core team on [gitter](https://gitter.im/mwaylabs/generator-m-ionic) if you're not sure how to proceed
- 3. If all fails create a [new issue](https://github.com/mwaylabs/generator-m-ionic/issues/new)
