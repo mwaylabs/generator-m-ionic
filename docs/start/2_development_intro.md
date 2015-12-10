@@ -29,7 +29,7 @@ How to use it?
 # regular cordova command (when installed globally). Don't use!
 cordova plugin add org.apache.cordova.camera
 # cordova command with local wrapper
-gulp --cordova 'plugin add org.apache.cordova.camera'
+gulp --cordova 'plugin add org.apache.cordova.camera --save'
 ```
 
 For a full list of Cordova CLI commands and their capabilities check out their documentation over at the [Cordova Documentation](https://cordova.apache.org/docs/en/dev/guide/cli/index.html) or the [CLI GitHub page](https://github.com/apache/cordova-cli/).

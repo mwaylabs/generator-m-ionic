@@ -62,12 +62,14 @@ yo m-ionic:<component> <name> <moduleName>
 ```
 3. Handle Cordova platforms/plugins
 ```sh
-# platforms
+# platforms, use --save to add to config.xml
 gulp --cordova 'platform ls' # list
-gulp --cordova 'platform add android' # add
-gulp --cordova 'platform rm android' # remove
-# plugins
+gulp --cordova 'platform add android --save' # add
+gulp --cordova 'platform rm android --save' # remove
+# plugins, use --save to add to config.xml
 gulp --cordova 'plugins ls' # list
-gulp --cordova 'plugins add org.apache.cordova.camera' # add
-gulp --cordova 'plugins rm org.apache.cordova.camera' # remove
+gulp --cordova 'plugins add org.apache.cordova.camera --save' # add
+gulp --cordova 'plugins rm org.apache.cordova.camera ---save' # remove
 ```
+
+At this points our [Guides](https://github.com/mwaylabs/generator-m-ionic#guides) may provide more fodder for your curious intellect.

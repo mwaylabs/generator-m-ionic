@@ -78,21 +78,26 @@ For a quick impression head over to https://github.com/mwaylabs/generator-m-ioni
 - [Development Introduction](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/2_development_intro.md)
 
 ## Guides
+
 **Generation**
-- [Sub-generators](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sub_generators.md) for adding new components
-- [SASS integration](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sass_integration.md) in our module concept
+- [Sub-generators](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sub_generators.md) for adding new components.
 - Using Ionic's [CSS or SASS](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/ionic_css_or_sass.md)?
 
+**App Development**
+- [Developing on Windows](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/windows.md), what you need to know.
+- [Git integration](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/git_integration.md), see how it's done.
+- [SASS integration](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sass_integration.md) in our module concept.
+- [Gulp defaults](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/gulp_defaults.md), spare power users some tedious typing on the command line/
+
 **Quality**
-- [ESLint](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/eslint.md) code style checks and setting up your IDE/Editor
-- [Testing](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/3_testing.md) with our testing workflows
+- [ESLint](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/eslint.md) code style checks and setting up your IDE/Editor.
+- [Testing](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/3_testing.md) with our testing workflows.
 
 **Continuous Integration and Delivery**
-- [App Icons and splash screens](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/icons_splash_screens.md), a simple setup or different sets for different builds - all is possible
-- [Programmatically change the `config.xml`](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/programmatically_change_configxml.md), an essential part for a successful continuous integration setup
-
-## Questions? Talk to us!
-[![Join the chat at https://gitter.im/mwaylabs/generator-m-ionic](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mwaylabs/generator-m-ionic?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+- [App Icons and splash screens](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/icons_splash_screens.md), a simple setup or different sets for different builds - all is possible.
+- [Use Environments](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/environments.md) to take control of different API Endpoints and much more with a single parameter.
+- [Build Vars](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/build_vars.md), inject vars into your app at build time.
+- [Programmatically change the `config.xml`](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/programmatically_change_configxml.md), an essential part for a successful continuous integration setup. Add environments and build vars for a full blown continuous integration use case!
 
 ## Generator Insights
 We've published 3 blog articles on our company blog delivering deep insights into the why and how of the generator:
@@ -103,164 +108,8 @@ We've published 3 blog articles on our company blog delivering deep insights int
 - September 2015: [Generator-M-Ionic and the search for the holy grail](http://blog.mwaysolutions.com/2015/09/21/generator-m-ionic-and-the-search-for-the-holy-grail/)
   - rather **technical comparison** between the generator and similar tools as well as technical insights to the **decisions and motivation** behind the generator
 
-## More gulp tasks
-
-#### gulp environment
-Injects environment (dev, prod and any other you'd like) variables into your `Config` constants.
-
-##### How does it work?
-Your `main` module per default contains the two files `env-dev.json` and `env-prod.json` located under `app/main/constants/`. Any key value pair you define in those files will be copied into the `Config.ENV` constant located in `app/main/constants/config-const.js`, depending on which environment you chosse. So when you're working on dev, all key value pairs from the `main` module's `env-dev.json` will be copied to your `config-const.js`. Same goes for the prod environment respectively. Then simply inject the `Config` constant in any service or controller where you need to use it.
-
-##### Choosing an environment
-When you run `gulp watch` or any other task that runs `gulp build` without specifying an environment it will default to the dev environment:
-```shell
-gulp watch                # defaults to --env=dev
-gulp build                # so does this
-gulp --cordova 'run ios'  # and any other command that uses gulp build
-```
-In order to choose an environment explicitly add the `--env` flag, like this:
-```shell
-gulp watch --env=prod
-gulp build --env=prod
-gulp --cordova 'run ios' --env=prod
-```
-While you're running `gulp watch` you can even **temporarily** switch the environment you're currently working on without having to restart your watch task. Simply type:
-```shell
-gulp environment --env=<env>
-```
-Gulp will livereload with your new environment! It's **important** to note that as soon as you are making more changes and a livereload is triggered, your environment switches back to the one that was supplied when `gulp watch` was started. If you want to **permanently** switch your environment you should do so by restarting your `gulp watch` tasks with the desired environment.
-
-##### Creating a new environment
-If you find yourself faced needing more than a dev and a prod environment simply create a new file: `app/main/constants/dev-env5.json`, fill it with the desired values and then run one the following:
-```shell
-gulp watch --env=env5
-gulp build --env=env5
-gulp environment --env=env5
-```
-
-##### Environments when using several modules
-In case your project grows large and you have several modules in your project you will probably find yourself wanting to share environments across all modules. No problem. Every module you create has it's own `Config` constant located in `app/module/constants/config-const.js`. But only your `main` module contains the environment files. The gulp tasks will automatically copy the environments to all of your modules' `Config.ENV` constants.
-
-
-#### gulp build-vars
-Inject variables into your angular app -namely your `Config` constants which are defined in `app/*/constants/config-const.js`- during a build.
-
-Adding the `--buildVars` flag to `gulp build` or any gulp task that runs `gulp build` implicitly, for instance:
-```sh
-gulp watch --buildVars='key:value,keys2:value2'
-```
-will result in `Config` constants that look like this:
-```js
-'use strict';
-angular.module('main')
-.constant('Config', {
-
-  ENV: {
-    /*inject-env*/
-    // ..
-    /*endinject*/
-  },
-
-  BUILD: {
-    /*inject-build*/
-    'key': 'value',
-    'keys2': 'value2'
-    /*endinject*/
-}
-
-});
-```
-
-#### gulp defaults
-Define default flags for each gulp task.
-
-You may have noticed that the Generator-M-Ionic supplies an extended amount of gulp tasks and flags to modify the behaviour of these tasks. Depending on your project specifics you may find yourself always typing the same flags for the same tasks over and over again. With the `gulp defaults` task you can spare yourself some typing. Here's how it works:
-
-For instance we use `gulp watch --no-open` a lot.
-
-##### setting a default
-Running the following command will create a new `gulp/.gulp_settings.json` file and save your default flags in it. **Note**: the `.gulp_settings.json` file will be ignored by git, so these settings are only applied locally to your machine. If you want these settings to be part of the repository and share it with your team, simply remove the according line from the `.gitignore` and add `.gulp_setting.json` to your commit.
-
-```sh
-gulp defaults --set='watch --no-open'
-```
-
-What if you still want use a different set of flags from time to time? No worries, we though of that too!
-You can add any amount of **additional command line flags**, they will be merged with your defaults. In the next example `gulp watch` will run with both the `--env-prod` from the command line *and* the `--no-open` flag from your defaults.
-
-```sh
-gulp watch --env=prod ## the --no-open flag will be merged
-```
-
-You can also **overwrite** your task's defaults by explicitly setting the flag to a different value. The value that is explicitly set, will always win:
-
-```sh
-gulp watch --open # will run with --open despite defaults
-```
-
-##### clearing a default
-If on of the defaults is no longer required, running the following command will get rid of it:
-
-```sh
-gulp defaults --clear=watch
-```
-
-##### printing all defaults
-By running `gulp defaults` without a 'set' or 'clear' flag, a comprehensive list of all the defaults that are defined in the `.gulp_settings.json` is shown.
-
-```sh
-gulp defaults
-```
-
-## Running on Windows
-The generator should work just like on unix/mac except there's one difference, when running `gulp --cordova` tasks. They need doublequotes. So write this:
-```sh
-gulp --cordova "run android" # will work on windows
-```
-instead of this:
-```sh
-gulp --cordova 'run android' # won't work on windows
-```
-
-## Git integration
-The generator provides a default set of configuration for git:
-- `.gitignore` and `.gitattributes` - http://git-scm.com/docs/gitignore
-
-Leaving them as they are generated, you will allow git to exclude all of the 3rd party code from your project. Specifically this means:
-- no bower components
-- no node modules
-- no cordova platforms and plugins
-
-### After git clone
-Since all these files are excluded from git, you need to install all of them when you start with a fresh clone of your project. In order to do so, run the following commands in that order:
-```sh
-npm install # installs all node modules including cordova, gulp and all that
-bower install # install all bower components including angular, ionic, ng-cordova, ...
-gulp --cordova 'prepare' # install all cordova platforms and plugins from the config.xml
-```
-
-### Platforms and plugins in config.xml
-Since `cordova 5.0` all platforms and plugins you install can be added to the `config.xml`.
-
-Release notes:
-https://cordova.apache.org/news/2015/04/21/tools-release.html
-
-> Added the ability to manage your plugin and platform dependencies in your project’s `config.xml`. When adding plugins or platforms, use the `--save` flag to add them to `config.xml`. Ex: `cordova platform add android --save`. Existing projects can use `cordova plugin save` and `cordova platform save` commands to save all previously installed plugins and platforms into your project’s `config.xml`. Platforms and plugins will be autorestored when `cordova prepare` is run. This allows developers to easily manage and share their dependenceis among different development enviroments and with their coworkers.
->
-
-Since your projects `.gitignore` will completely ignore the `platforms/` and `plugins/` folders, it's important to make sure your `config.xml` contains all the plugins and platforms required by your project. As explained above this can either be achieved by always using the `--save` options when adding/removing platforms:
-
-```sh
-gulp --cordova 'platform add ios --save'
-gulp --cordova 'plugin remove cordova-plugin-camera --save'
-```
-
-or by typing the following commands before you commit:
-
-```sh
-gulp --cordova 'platform save'
-gulp --cordova 'plugin save'
-```
+## Questions? Talk to us!
+[![Join the chat at https://gitter.im/mwaylabs/generator-m-ionic](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mwaylabs/generator-m-ionic?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Troubleshooting
 If you're experiencing difficulties using the generator please refer to the [Troubleshooting](https://github.com/mwaylabs/generator-m-ionic/wiki/Troubleshooting) section in our wiki or [create an issue](https://github.com/mwaylabs/generator-m-ionic/issues/new)!
