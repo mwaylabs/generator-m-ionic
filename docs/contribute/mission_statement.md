@@ -6,15 +6,6 @@ Building enterprise mobile apps can be a challenge. The generator helps **develo
 - workshops
 - prototyping
 
-### Why not any other solution like ionic CLI, generator-cordova, generator-cordova-angular?
-- more flexible
-  - ionic support
-  - gulp as task runner
-  - select components: don’t use ionic bundle, own gulp file, ng-annotate, ...
-  - project specific cordova installation (don't use globally installed version)
-- don't reinvent the wheel rather repackage and redistribute
-  - fit nicely in node, npm, bower, yeoman, cordova, ... ecosystem
-  - enable and educate users about standard tools out there: cordova, cordova cli, gulp, angular, ionic, ...
 
 ## Other goals
 

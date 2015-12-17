@@ -10,7 +10,7 @@ We're living in times of rapid developments and technology life-cycles. We've co
 
 However we also do realize that individual developers and individual projects have individual requirements. So instead of trying to integrate everything ourselves, we highly encourage you to provide [recipes](../../README.md#recipes) on how to integrate your desired technology to share with other developers.
 
-That way we stay open to new technologies and ideas without sacrificing stability and valuable time by maintaining a gazillion of features.
+That way we stay open to new technologies and ideas without sacrificing stability and valuable time by maintaining a gazillion of features. Read more in our [Mission Statement](./mission_statement.md).
 
 
 ## What about Angular 2, Ionic 2, ES6, Babel and Typescript

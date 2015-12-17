@@ -98,12 +98,13 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
 
 ## Generator Insights
 We've published 3 blog articles on our company blog delivering deep insights into the why and how of the generator:
-- March 2015: [Generator-M: the state of HTML5 mobile app development at M-Way](http://blog.mwaysolutions.com/2015/03/26/generator-m-the-state-of-html5-mobile-app-development-at-m-way/)
-  - the **origins** of the generator development and **company strategy**
-- September 2015: [Generator-M-Ionic: HTML5 mobile app development evolved](http://blog.mwaysolutions.com/2015/09/10/generator-m-ionic-html5-mobile-app-development-evolved/)
-  - provides insight to the **technology choices and ecosystem** and the **benefits of using the generator**
 - September 2015: [Generator-M-Ionic and the search for the holy grail](http://blog.mwaysolutions.com/2015/09/21/generator-m-ionic-and-the-search-for-the-holy-grail/)
   - rather **technical comparison** between the generator and similar tools as well as technical insights to the **decisions and motivation** behind the generator
+- September 2015: [Generator-M-Ionic: HTML5 mobile app development evolved](http://blog.mwaysolutions.com/2015/09/10/generator-m-ionic-html5-mobile-app-development-evolved/)
+    - provides insight to the **technology choices and ecosystem** and the **benefits of using the generator**
+- March 2015: [Generator-M: the state of HTML5 mobile app development at M-Way](http://blog.mwaysolutions.com/2015/03/26/generator-m-the-state-of-html5-mobile-app-development-at-m-way/)
+  - the **origins** of the generator development and **company strategy**
+
 
 ## Questions? Talk to us!
 - Read the [FAQ](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/contribute/faq.md)
