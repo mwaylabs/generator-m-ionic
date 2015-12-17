@@ -2,17 +2,20 @@
 var yeoman = require('yeoman-generator');
 var utils = require('../../utils/utils.js');
 
-module.exports = yeoman.generators.Base.extend({
+module.exports = yeoman.Base.extend({
+
   initializing: function () {
+    this.log('You called the m-ionic:pair subgenerator.');
+
+    // arguments
     this.argument('name', {
       required: true,
       type: String,
       desc: 'The subgenerator name'
     });
     this.argument('module', { type: String, required: false });
-    this.moduleName = utils.checkModule(this.module);
 
-    this.log('You called the m-ionic:pair subgenerator with the argument ' + this.name + '.');
+    this.moduleName = utils.checkModule(this.module);
   },
 
   writing: function () {

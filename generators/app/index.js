@@ -14,7 +14,8 @@ var bowerConfig = require('./sources/bower-config.js');
 var cordovaConfig = require('./sources/cordova-config.js');
 var sampleAnswers = require('./sources/sample-answers.js');
 
-module.exports = yeoman.generators.Base.extend({
+module.exports = yeoman.Base.extend({
+
   initializing: function () {
     // get package.json content
     this.pkg = require('../../package.json');
