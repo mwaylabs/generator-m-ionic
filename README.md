@@ -67,7 +67,7 @@ For a quick impression head over to https://github.com/mwaylabs/generator-m-ioni
 
 ## Introduction
 - More on: [Why you need it](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/0_why_you_need_it.md)
-- More on: [What's in the box](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/docs/intro/1_whats_in_the_box.md)
+- More on: [What's in the box](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/1_whats_in_the_box.md)
 
 ## Installation
 - [Installation and Prerequisites](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/2_installation_prerequisites.md)
@@ -113,15 +113,15 @@ We've published 3 blog articles on our company blog delivering deep insights int
 
 ## Running into issues?
 Do the following:
- 1. check out our [issues](https://github.com/mwaylabs/generator-m-ionic/issues) and search if there already is a solution to your problem
+ 1. check out our [faq](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/contribute/faq.md) [issues](https://github.com/mwaylabs/generator-m-ionic/issues) and search if there already is a solution to your problem
  2. ask other developers and our core team on [gitter](https://gitter.im/mwaylabs/generator-m-ionic) if you're not sure how to proceed
  3. If all fails create a [new issue](https://github.com/mwaylabs/generator-m-ionic/issues/new)
 
 ## Want to contribute?
 Start by reading our:
 
-1. [Mission Statement](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/docs/contribute/mission_statement.md)
-2. [Contribution Guide](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/docs/contribute/contribution_guide.md)
+1. [Mission Statement](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/contribute/mission_statement.md)
+2. [Contribution Guide](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/contribute/contribution_guide.md)
 
 
 ## License
