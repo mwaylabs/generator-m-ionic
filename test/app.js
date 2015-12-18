@@ -28,7 +28,7 @@ describe('m', function () {
         .on('end', done);
     });
 
-    it('creates config files etc... in root', function () {
+    it('creates config, cordova, and all other files in root', function () {
       assert.file([
         'app/.eslintrc',
         '.bowerrc',

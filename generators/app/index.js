@@ -151,9 +151,8 @@ module.exports = yeoman.Base.extend({
         return true;
       }
 
-      var done = this.async(); // wait with subsequent tasks since cordova needs an empty folder
       // cordova project
-      cordova.create('.', this.answers.appId, this.answers.appName, this.answers.appName)
+      var promise = cordova.create('.', this.answers.appId, this.answers.appName, this.answers.appName)
       // add platforms and save to config.xml
       .then(function () {
         this.log(chalk.green('Created cordova project'));
@@ -178,12 +177,14 @@ module.exports = yeoman.Base.extend({
       .then(function () {
         this.log(chalk.green('Added plugins: ' + this.answers.plugins.join(', ')));
         this.log(chalk.green('Cordova project was set up successfully! Project Name: '), chalk.bgGreen(this.answers.appName));
-        done();
       }.bind(this))
       .catch(function (err) {
         this.log(chalk.red('Couldn\'t finish generator: \n' + err));
         process.exit(1);
       }.bind(this));
+
+      // since cordova needs empty folder to work, return promise so yeoman waits before creating files
+      return promise;
     },
 
     app: function () {
