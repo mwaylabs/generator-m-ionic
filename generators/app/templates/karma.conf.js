@@ -15,7 +15,8 @@ module.exports = function (config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine', 'angular-filesort'],
+    // phantomjs-shim for Function.prototype.bind https://github.com/karma-runner/karma/issues/1107, should become unnecessary with phantomjs 2.0
+    frameworks: ['jasmine', 'angular-filesort', 'phantomjs-shim'],
 
     // sort app/**/*.js files
     angularFilesort: {
