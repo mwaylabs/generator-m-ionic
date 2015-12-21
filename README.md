@@ -77,14 +77,15 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
 ## Guides
 
 **Generation**
-- [Sub-generators](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sub_generators.md) for adding new components.
 - Using Ionic's [CSS or SASS](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/ionic_css_or_sass.md)?
+- [Sub-generators](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sub_generators.md) for adding new components.
 
 **App Development**
 - [Developing on Windows](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/windows.md), what you need to know.
 - [Git integration](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/git_integration.md), see how it's done.
 - [SASS integration](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sass_integration.md) in our module concept.
 - [Gulp defaults](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/gulp_defaults.md), spare power users some tedious typing on the command line.
+- [Tips & Tricks](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/tips_tricks.md) for working with the generator.
 
 **Quality**
 - [ESLint](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/eslint.md) code style checks and setting up your IDE/Editor.
