@@ -69,7 +69,7 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
 - More on: [What's in the box](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/1_whats_in_the_box.md)
 
 ## Get started
-- [Installation and Prerequisites](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/2_installation_prerequisites.md)
+- [Installation and Prerequisites](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/0_installation_prerequisites.md)
 - [Generate your app](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/0_generate_app.md)
 - [File structure](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/1_file_structure.md)
 - [Development Introduction](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/2_development_intro.md)
@@ -90,7 +90,7 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
 
 **Quality**
 - [ESLint](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/eslint.md) code style checks and setting up your IDE/Editor.
-- [Testing](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/3_testing.md) with our testing workflows.
+- [Testing](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/testing.md) with our testing workflows.
 
 **Continuous Integration and Delivery**
 - [App Icons and splash screens](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/icons_splash_screens.md), a simple setup or different sets for different builds - all is possible.
