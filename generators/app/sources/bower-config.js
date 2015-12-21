@@ -42,8 +42,8 @@ module.exports = {
     },
     new inquirer.Separator('---- persistence ----'),
     {
-      value: 'angular-localForage#~1.2.3',
-      name: 'angular-localForage',
+      value: 'localforage#~1.3.1',
+      name: 'localforage',
       checked: true
     }
   ]

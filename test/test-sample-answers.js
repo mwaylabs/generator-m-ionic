@@ -28,5 +28,26 @@ describe('sample-answers', function () {
       assert(answers.ionicCss);
     });
 
+    it('ionicCss: false', function () {
+      var answers = sampleAnswers.getStandard({'ionicCss': false});
+      assert(!answers.ionicCss);
+    });
+
+    it('localforage: false', function () {
+      var answers = sampleAnswers.getStandard({'localforage': false});
+      var localforage = answers.bowerPackages.filter(function (value) {
+        return value.indexOf('localforage') !== -1;
+      });
+      assert(!localforage.length);
+    });
+
+    it('localforage: true (default)', function () {
+      var answers = sampleAnswers.getStandard();
+      var localforage = answers.bowerPackages.filter(function (value) {
+        return value.indexOf('localforage') !== -1;
+      });
+      assert(localforage.length);
+    });
+
   });
 });

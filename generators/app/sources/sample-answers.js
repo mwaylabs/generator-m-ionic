@@ -49,6 +49,12 @@ module.exports = {
     if (options && options.ionicCss !== undefined) {
       standardCopy.ionicCss = options.ionicCss;
     }
+    if (options && options.localforage === false) {
+      var bowerPackages = standardCopy.bowerPackages.filter(function (value) {
+        return value.indexOf('localforage') === -1;
+      });
+      standardCopy.bowerPackages = bowerPackages;
+    }
     return standardCopy;
   },
 

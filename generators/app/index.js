@@ -227,7 +227,7 @@ module.exports = yeoman.Base.extend({
       this.directory('test', 'test');
 
       // dot files
-      this.copy('eslintrc_app', 'app/.eslintrc');
+      this.template('_eslintrc_app', 'app/.eslintrc');
       this.copy('bowerrc', '.bowerrc');
       this.copy('editorconfig', '.editorconfig');
       this.copy('eslintrc', '.eslintrc');
