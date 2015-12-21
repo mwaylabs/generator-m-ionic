@@ -11,7 +11,7 @@ gulp watch --no-open
 ```
 If you don't want this task to open your browser, just add the `--no-open` option and navigate to `http://localhost:9000` yourself.
 
-## Running on the device
+## Running on the device or emulator
 The Cordova CLI gets installed locally with the generation of your app (you don't have to install it yourself!). Among many other tasks, it enables you to **add plugins and platforms** and **run and build** your app on devices or emulators.
 
 Here's a brief overview of the most important capabilities:
