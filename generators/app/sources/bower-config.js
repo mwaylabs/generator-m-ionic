@@ -5,7 +5,7 @@ var inquirer = require('inquirer');
 module.exports = {
   bowerJSON: {
     dependencies: {
-      'ionic': '~1.1.0',
+      'ionic': '~1.2.0',
       'angular': '~1.4.5',
       'angular-animate': '~1.4.5',
       'angular-sanitize': '~1.4.5',
@@ -42,8 +42,8 @@ module.exports = {
     },
     new inquirer.Separator('---- persistence ----'),
     {
-      value: 'angular-localForage#~1.2.3',
-      name: 'angular-localForage',
+      value: 'localforage#~1.3.1',
+      name: 'localforage',
       checked: true
     }
   ]

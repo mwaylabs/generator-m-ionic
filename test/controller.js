@@ -1,8 +1,8 @@
 'use strict';
 
 var path = require('path');
-var assert = require('yeoman-generator').assert;
-var helpers = require('yeoman-generator').test;
+var assert = require('yeoman-assert');
+var helpers = require('yeoman-test');
 var config = require(path.join(__dirname, '../utils/config.js'));
 
 describe('m-ionic:controller', function () {
@@ -64,11 +64,10 @@ describe('m-ionic:controller', function () {
     it('file, controller signature, debug logic & placeholders', function () {
       var filePath = 'app/main/controllers/some-ctrl.js';
       assert.fileContent([
-        [filePath, '$log, Main, Config'],
+        [filePath, '$log, Main, Config, $cordovaDevice) {'],
         [filePath, 'this.someData = Main.'],
         [filePath, 'this.ENV = Config.ENV'],
-        [filePath, 'this.BUILD = Config.BUILD'],
-        [filePath, 'this.grade = ']
+        [filePath, 'this.BUILD = Config.BUILD']
       ]);
     });
 

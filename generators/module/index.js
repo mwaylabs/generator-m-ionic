@@ -5,10 +5,17 @@ var mkdirp = require('mkdirp');
 var utils = require('../../utils/utils.js');
 var sampleAnswers = require('../app/sources/sample-answers.js');
 
-module.exports = yeoman.generators.NamedBase.extend({
+module.exports = yeoman.Base.extend({
 
   initializing: function () {
-    this.log('You called the m-ionic:module subgenerator with the argument ' + this.name + '.');
+    this.log('You called the m-ionic:module subgenerator.');
+
+    // arguments
+    this.argument('name', {
+      required: true,
+      type: String,
+      desc: 'The subgenerator name'
+    });
 
     this.moduleName = utils.moduleName(this.name);
     this.controllerName = utils.controllerName(this.name);

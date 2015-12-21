@@ -1,8 +1,8 @@
 'use strict';
 
 var path = require('path');
-var assert = require('yeoman-generator').assert;
-var helpers = require('yeoman-generator').test;
+var assert = require('yeoman-assert');
+var helpers = require('yeoman-test');
 var pkg = require('../package.json');
 
 // local modules
@@ -28,7 +28,7 @@ describe('m', function () {
         .on('end', done);
     });
 
-    it('creates config files etc... in root', function () {
+    it('creates config, cordova, and all other files in root', function () {
       assert.file([
         'app/.eslintrc',
         '.bowerrc',
@@ -36,6 +36,7 @@ describe('m', function () {
         '.gitattributes',
         '.gitignore',
         '.eslintrc',
+        '.eslintignore',
         '.travis.yml',
         '.yo-rc.json',
         'README.md',
@@ -57,6 +58,11 @@ describe('m', function () {
         'res/ios/default/icon.png', // one per example
         'test/karma/.eslintrc', // one per example
       ]);
+    });
+
+    it('proper app/.eslintrc file', function () {
+      assert.fileContent('app/.eslintrc', '"ionic": true,');
+      assert.fileContent('app/.eslintrc', '"localforage": true');
     });
 
     it('creates /app files', function () {
@@ -90,16 +96,16 @@ describe('m', function () {
     it('has proper bower.json content', function () {
       assert.fileContent([
         // dependencies, test only one as example
-        ['bower.json', 'ionic": "~1.1.0"'],
+        ['bower.json', 'ionic": "~1.2.0"'],
         // devDependencies, test only on as example
         ['bower.json', 'angular-mocks": "~1.4.5"'],
         // resolutions, test only one as example
         ['bower.json', 'angular": "~1.4.5"'],
         // optional, test all for correctness
-        ['bower.json', 'angular-dynamic-locale": "~0.1.27"'],
-        ['bower.json', 'angular-translate": "~2.8.1"'],
-        ['bower.json', 'angular-translate-loader-static-files": "~2.8.1"'],
-        ['bower.json', 'angular-localForage": "~1.2.3"']
+        ['bower.json', '"angular-dynamic-locale": "~0.1.27"'],
+        ['bower.json', '"angular-translate": "~2.8.1"'],
+        ['bower.json', '"angular-translate-loader-static-files": "~2.8.1"'],
+        ['bower.json', '"localforage": "~1.3.1"']
       ]);
     });
 
@@ -169,6 +175,29 @@ describe('m', function () {
       assert.fileContent('app/main/styles/main.scss', '$light');
       assert.fileContent('gulp/injecting.js', '.pipe(wiredep.stream({exclude: [\'bower_components/ionic/release/css\']}))');
       assert.fileContent('gulp/injecting.js', 'var DEST = \'app/main/assets/fonts\'');
+    });
+  });
+
+  describe('localforage', function () {
+    var answers = sampleAnswers.getStandard({localforage: false});
+
+    before(function (done) {
+      helpers.run(path.join(__dirname, '../generators/app'))
+        .withGenerators([ // configure path to subgenerators
+          path.join(__dirname, '../generators/module'),
+          path.join(__dirname, '../generators/constant'),
+          path.join(__dirname, '../generators/controller'),
+          path.join(__dirname, '../generators/template'),
+          path.join(__dirname, '../generators/service')
+        ])
+        .withOptions({ 'skip-install': true, 'skip-sdk': true }) // execute with options
+        .withPrompts(answers)  // answer prompts
+        .on('end', done);
+    });
+
+    it('proper app/.eslintrc file', function () {
+      assert.noFileContent('app/.eslintrc', '"ionic": true,');
+      assert.noFileContent('app/.eslintrc', '"localforage": true');
     });
   });
 

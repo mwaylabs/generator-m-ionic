@@ -1,6 +1,6 @@
 'use strict';
 
-var assert = require('yeoman-generator').assert;
+var assert = require('yeoman-assert');
 var strings = require('../utils/strings.js');
 
 describe('strings', function () {

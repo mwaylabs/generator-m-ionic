@@ -29,12 +29,11 @@ gulp.task('clean', function () {
 // concatenate files in build:blocks inside index.html
 // and copy to build folder destinations
 gulp.task('build-app', ['clean', 'inject-all'], function () {
-  var assets = $.useref.assets({searchPath: '{.tmp,app}'});
   var jsFilter = $.filter('**/*.js', {restore: true});
   var cssFilter = $.filter('**/*.css', {restore: true});
 
   var stream = gulp.src('app/index.html') // main html file
-    .pipe(assets); // all assets (without index.html)
+    .pipe($.useref({searchPath: '{.tmp,app}'})); // all assets (without index.html)
 
   if (options.minify) {
     stream
@@ -50,10 +49,7 @@ gulp.task('build-app', ['clean', 'inject-all'], function () {
       .pipe(cssFilter.restore);
   }
 
-  stream
-    .pipe(assets.restore()) // switch back to index
-    .pipe($.useref())
-    .pipe(gulp.dest(paths.dist));
+  stream.pipe(gulp.dest(paths.dist));
 
   return stream;
 });

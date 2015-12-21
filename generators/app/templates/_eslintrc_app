@@ -1,0 +1,19 @@
+{
+  "extends": "../.eslintrc",
+  "env": {
+    "node": false,
+    "browser": true
+  },
+  "globals": {
+    "angular": true,
+<% if (!answers.bowerPackages.filter(function (v) {return v.indexOf('localforage') !== -1}).length) { -%>
+    "ionic": true
+<% } else { -%>
+    "ionic": true,
+    "localforage": true
+<% } -%>
+  },
+  "rules": {
+    "no-console": 1
+  }
+}

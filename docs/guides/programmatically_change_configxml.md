@@ -1,6 +1,6 @@
-# Programmatically change `config.xml`
+# Programmatically change the `config.xml`
 
-> The `gulp config` task changes the contents of the `config.xml` programmatically which is very convenient in a continuous integration environment.
+> The `gulp config` task changes the contents of the `config.xml` programmatically which is essential for continuous integration and delivery purposes.
 
 A more elaborate example of how you can put this to use in a **continuous integration** environment can be found in the [`jenkins.sh`](https://github.com/mwaylabs/generator-m-ionic/blob/master/generators/app/templates/jenkins.sh) of your project.
 
