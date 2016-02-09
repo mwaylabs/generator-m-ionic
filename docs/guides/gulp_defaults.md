@@ -26,7 +26,7 @@ gulp watch --open # will run with --open despite defaults
 ```
 
 ## Clearing a Default
-If on of the defaults is no longer required, running the following command will get rid of it:
+If one of the defaults is no longer required, running the following command will get rid of it:
 
 ```sh
 gulp defaults --clear=watch

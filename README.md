@@ -59,20 +59,16 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
   </a>
 </p>
 
-
-## Quick Start
-- [Quick Start](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/0_quick_start.md) for the experienced developer.
-- [Try the demo](https://github.com/mwaylabs/generator-m-ionic-demo). Get a quick impression by cloning the sample project generated with the latest version of Generator-M-Ionic.
-
 ## Introduction
 - More on: [Why you need it](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/0_why_you_need_it.md)
 - More on: [What's in the box](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/1_whats_in_the_box.md)
+- [Quick Start](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/0_quick_start.md) for the experienced developer.
+- [Try the demo](https://github.com/mwaylabs/generator-m-ionic-demo). Get a quick impression by cloning the sample project generated with the latest version of Generator-M-Ionic.
 
 ## Get started
-- [Installation and Prerequisites](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/0_installation_prerequisites.md)
-- [Generate your app](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/0_generate_app.md)
-- [File structure](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/1_file_structure.md)
-- [Development Introduction](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/2_development_intro.md)
+- [Installation and Prerequisites](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/installation_prerequisites.md)
+- [Development Introduction](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/development_intro.md)
+- [File structure](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/file_structure.md)
 
 ## Guides
 
@@ -108,16 +104,12 @@ We've published 3 blog articles on our company blog delivering deep insights int
   - the **origins** of the generator development and **company strategy**
 
 
-## Questions? Talk to us!
-- Read the [FAQ](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/contribute/faq.md)
-- Join the chat at [![Join the chat at https://gitter.im/mwaylabs/generator-m-ionic](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mwaylabs/generator-m-ionic?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)  
-
-
-## Running into issues?
+## Questions, Issues? Talk to us!
 Do the following:
  1. check out our [FAQ](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/contribute/faq.md) and [issues](https://github.com/mwaylabs/generator-m-ionic/issues) see if there already is a solution or answer to that matter.
- 2. ask other developers and our core team on [gitter](https://gitter.im/mwaylabs/generator-m-ionic) if you're not sure how to proceed.
+ 2. [![Join the chat at https://gitter.im/mwaylabs/generator-m-ionic](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mwaylabs/generator-m-ionic?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)  ask other developers and our core team on [gitter](https://gitter.im/mwaylabs/generator-m-ionic) if you're not sure how to proceed.
  3. If all fails create a [new issue](https://github.com/mwaylabs/generator-m-ionic/issues/new).
+- **Important**: we and others can help you a lot quicker if you provide a sample repo that we can clone. With step by step instructions on how to reproduce your error.
 
 ## Want to contribute?
 Start by reading our:
