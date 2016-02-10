@@ -48,6 +48,9 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
   <a href="http://sass-lang.com/" target="_blank" alt="sass" title="sass">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/9410121/c330a3de-481e-11e5-8a69-ca0c56f6cabc.png">
   </a>
+  <a href="http://jade-lang.com/" target="_blank" alt="jade" title="jade">
+    <img height="100" src="http://jade-lang.com/style/jade-logo-header.svg">
+  </a>
   <a href="http://karma-runner.github.io/" target="_blank" alt="karma" title="karma">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/9410216/44fef8fc-481f-11e5-8037-2f7f03678f4c.png">
   </a>
@@ -82,6 +85,7 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
 - [Developing on Windows](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/windows.md), what you need to know.
 - [Git integration](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/git_integration.md), see how it's done.
 - [SASS integration](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sass_integration.md) in our module concept.
+- [JADE integration](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/jade_integration.md) in our module concept.
 - [Bower Component Usage](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/bower_component_usage.md) in our module concept.
 - [Gulp defaults](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/gulp_defaults.md), spare power users some tedious typing on the command line.
 

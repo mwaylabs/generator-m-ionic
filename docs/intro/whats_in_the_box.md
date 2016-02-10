@@ -23,6 +23,9 @@
   <a href="http://sass-lang.com/" target="_blank" alt="sass" title="sass">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/9410121/c330a3de-481e-11e5-8a69-ca0c56f6cabc.png">
   </a>
+  <a href="http://jade-lang.com/" target="_blank" alt="jade" title="jade">
+    <img height="100" src="http://jade-lang.com/style/jade-logo-header.svg">
+  </a>
   <a href="http://karma-runner.github.io/" target="_blank" alt="karma" title="karma">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/9410216/44fef8fc-481f-11e5-8037-2f7f03678f4c.png">
   </a>
@@ -48,6 +51,7 @@ and provide the following **technology stack**:
 - **Cordova** and it's **CLI** for accessing phone APIs and building the app - http://cordova.apache.org/
   - **ngCordova** connecting Angular with Cordova http://ngcordova.com/
 - **SASS** as the CSS preprocessor of choice - http://sass-lang.com/
+- **JADE** as the HTML template engine of choice - http://jade-lang.com/
 
 
 an integrated **testing workflow** with:
@@ -70,4 +74,4 @@ and many many **features and tools** for your convenience:
 
 
 ## In Depth
-You can read more about **technology choices and ecosystem** and the **benefits of using Generator-M-Ionic** in our blog article [Generator-M-Ionic: HTML5 mobile app development evolved](http://blog.mwaysolutions.com/2015/09/10/generator-m-ionic-html5-mobile-app-development-evolved/) which was published in September 2015.
+You can read more about **technology choices and ecosystem** and the **benefits of using Generator-M-Ionic** in our blog article [Generator-M-Ionic: HTML5 mobile app development evolved](http://blog.mwaysolutions.com/2015/09/10/generator-m-ionic-html5-mobile-app-development-evolved/) which was published in September 2016.
