@@ -21,6 +21,9 @@
     "gulp-if": "^2.0.0",
     "gulp-imagemin": "^2.3.0",
     "gulp-inject": "^3.0.0",
+    <% if (answers.jade) { -%>
+    "gulp-jade": "^1.1.0",
+    <% } -%>
     "gulp-jsonlint": "^1.1.0",
     "gulp-load-plugins": "^1.0.0-rc",
     "gulp-natural-sort": "^0.1.0",

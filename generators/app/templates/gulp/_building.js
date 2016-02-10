@@ -9,6 +9,8 @@ var $ = require('gulp-load-plugins')();
 var del = require('del');
 var vinylPaths = require('vinyl-paths');
 
+var jade = require( 'gulp-jade' );
+
 var buildDependencies = [
   options['force-build'] ? 'linting' : 'linting-throw',
   'build-app',
@@ -21,10 +23,27 @@ gulp.task('build', buildDependencies, function () {
     .pipe($.size({showFiles: true}));
 });
 
-gulp.task('clean', function () {
-  return gulp.src(['.tmp', paths.dist + '/*'])
+gulp.task('clean', ['clean-styles','clean-templates'], function () {
+  return gulp.src(paths.dist + '/*')
     .pipe(vinylPaths(del));
 });
+
+gulp.task('clean-styles', function () {
+  return gulp.src(['.tmp/**/*.css'])
+    .pipe(vinylPaths(del));
+});
+
+<% if (answers.jade) { -%>
+gulp.task('clean-templates', function () {
+  return gulp.src(['.tmp/**/*.html'])
+    .pipe(vinylPaths(del));
+});
+<% } else { -%>
+gulp.task('clean-templates', function () {
+  return gulp.src([paths.dist + '/**/*.html'])
+    .pipe(vinylPaths(del));
+});
+<% } -%>
 
 // concatenate files in build:blocks inside index.html
 // and copy to build folder destinations
@@ -54,8 +73,25 @@ gulp.task('build-app', ['clean', 'inject-all'], function () {
   return stream;
 });
 
-// copy templates
-gulp.task('build-templates', ['clean'], function () {
+<% if (answers.jade) { -%>
+//compile jade
+gulp.task('jade',['clean-templates'], function (done) {
+     gulp.src(paths.jade)
+      .pipe(jade())
+      .pipe(gulp.dest('.tmp'))
+      .on('end', done);
+});
+
+// copy jade templates to build
+gulp.task('build-templates', ['jade'], function () {
+  return gulp.src('.tmp/**/*.html')
+  .pipe($.if(options.minify, $.minifyHtml()))
+  .pipe(gulp.dest(paths.dist));
+});
+<% } else { -%>
+
+// copy html templates to build
+gulp.task('build-templates', ['clean-templates'], function () {
   return gulp.src(paths.templates)
   .pipe($.if(options.minify, $.htmlmin({
     removeComments: true,
@@ -66,6 +102,7 @@ gulp.task('build-templates', ['clean'], function () {
   })))
   .pipe(gulp.dest(paths.dist));
 });
+<% } -%>
 
 // copy assets, wait for fonts
 gulp.task('build-assets', ['clean', 'bower-fonts'], function () {

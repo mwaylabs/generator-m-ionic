@@ -33,6 +33,16 @@ describe('sample-answers', function () {
       assert(!answers.ionicCss);
     });
 
+    it('jade: false', function () {
+      var answers = sampleAnswers.getStandard({'jade': false});
+      assert(!answers.jade);
+    });
+
+    it('jade: true', function () {
+      var answers = sampleAnswers.getStandard({'jade': true});
+      assert(answers.jade);
+    });
+
     it('localforage: false', function () {
       var answers = sampleAnswers.getStandard({'localforage': false});
       var localforage = answers.bowerPackages.filter(function (value) {
