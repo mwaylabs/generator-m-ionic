@@ -21,7 +21,7 @@
     <!-- endinject -->
     <!-- endbuild -->
   </head>
-  <body ng-app="<%= answers.appModule %>">
+  <body onload='onLoad()'>
 
     <!-- the nav bar will be updated as we navigate between views -->
     <!-- <ion-nav-bar> can be removed when using sidemenu (contained in menu.html) -->
@@ -43,5 +43,25 @@
     <!-- inject:js -->
     <!-- endinject -->
     <!-- endbuild -->
+
+   <script type="text/javascript" charset="utf-8">
+
+       // Wait for device API libraries to load
+       function onLoad() {
+           try {
+               window.ionic.Platform.ready(onDeviceReady);
+           } catch(err){
+               console.error(err);
+           }
+       }
+
+       // device APIs are available
+       function onDeviceReady() {
+           // Now safe to use device APIs
+           console.log('Device ready, bootstraping angular');
+           angular.bootstrap(document.body, ['<%= answers.appModule %>']);
+       }
+
+   </script>
   </body>
 </html>
