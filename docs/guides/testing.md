@@ -20,13 +20,13 @@ To check if all tests are running properly use:
 ```sh
 gulp karma
 # and
-gulp protractor #
+gulp protractor
 ```
 **Hint**: `gulp watch` and `gulp protractor` cannot be run at the same time.
 
 
 ### Karma and Jasmine for unit tests
-In addition to providing [Karma](http://karma-runner.github.io/) as a task runner for your unit tests our setup is configured to use [Jasmine](http://jasmine.github.io/) as a testing framework. This is done in the `karma.conf.js`. There are other options besides Jasmine but since Protractor is using, it's the simplest just to write your unit tests in Jasmine as well.
+In addition to providing [Karma](http://karma-runner.github.io/) as a task runner for your unit tests our setup is configured to use [Jasmine](http://jasmine.github.io/) as a testing framework. This is done in the `karma.conf.js`. There are other options besides Jasmine but since Protractor is using it too, it's the simplest just to write your unit tests with Jasmine as well.
 
 Here are some good resources to get started with writing unit tests:
 - AngularJS Developer Guide - [Unit Testing](https://docs.angularjs.org/guide/unit-testing)
