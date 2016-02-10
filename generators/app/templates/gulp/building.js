@@ -57,7 +57,13 @@ gulp.task('build-app', ['clean', 'inject-all'], function () {
 // copy templates
 gulp.task('build-templates', ['clean'], function () {
   return gulp.src(paths.templates)
-  .pipe($.if(options.minify, $.minifyHtml()))
+  .pipe($.if(options.minify, $.htmlmin({
+    removeComments: true,
+    removeCommentsFromCDATA: true,
+    collapseWhitespace: true,
+    conservativeCollapse: true,
+    collapseInlineTagWhitespace: true
+  })))
   .pipe(gulp.dest(paths.dist));
 });
 
