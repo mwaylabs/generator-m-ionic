@@ -24,4 +24,4 @@ So stay tuned and join the discussion on [Gitter](https://gitter.im/mwaylabs/gen
 
 
 ## Why not use the Ionic CLI, the plain Cordova CLI or a different generator like generator-ionic?
-There's no trivial answer here, but to wrap it up, they didn't suit our purpose. You can learn more about the why and how of Generator-M-Ionic in our introduction section: [why you need it](../intro/why_you_need_it.md). More detailed information can be found in the [Generator Insights](../../README.md#generator-insights) section of the README.
+There's no trivial answer here, but to wrap it up, they didn't suit our purpose. You can learn more about the why and how of Generator-M-Ionic in our introduction section: [why you need it](../intro/why_you_need_it.md#alternatives).
