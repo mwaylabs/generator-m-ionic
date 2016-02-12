@@ -106,7 +106,7 @@ describe('m-ionic:module', function () {
       if (options && options.mainModule) {
         debugCtrlFile = modulePath + '/controllers/debug-ctrl.js';
         debugCtrlName = utils.controllerName('Debug');
-        debugSpecFile = 'test/protractor/main-debug.spec.js';
+        debugSpecFile = 'test/protractor/main/debug.spec.js';
         configName = utils.configName();
 
         // module.js
@@ -116,7 +116,7 @@ describe('m-ionic:module', function () {
       else {
         debugCtrlFile = modulePath + '/controllers/' + moduleFolder + '-debug-ctrl.js';
         debugCtrlName = utils.controllerName(moduleName + 'Debug');
-        debugSpecFile = 'test/protractor/' + moduleFolder + '-debug.spec.js';
+        debugSpecFile = 'test/protractor/' + moduleFolder + '/debug.spec.js';
         configName = utils.configName(moduleName);
 
         // module.js

@@ -105,7 +105,7 @@ module.exports = yeoman.Base.extend({
       // yo@2x.png
       this.copy('yo.png', modulePath + '/assets/images/yo@2x.png');
       // spec file
-      this.template('_module-debug.spec.js', 'test/protractor/' + this.moduleFolder + '-debug.spec.js');
+      this.template('_module-debug.spec.js', 'test/protractor/' + this.moduleFolder + '/debug.spec.js');
 
       // debug
       this.composeWith('m-ionic:controller', {
