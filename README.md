@@ -80,12 +80,12 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
 **Generation**
 - Using Ionic's [CSS or SASS](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/ionic_css_or_sass.md)?
 - [Sub-generators](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sub_generators.md) for adding new components.
+- [HTML or JADE](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/html_or_jade.md)?
 
 **App Development**
 - [Developing on Windows](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/windows.md), what you need to know.
 - [Git integration](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/git_integration.md), see how it's done.
 - [SASS integration](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sass_integration.md) in our module concept.
-- [JADE integration](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/jade_integration.md) in our module concept.
 - [Bower Component Usage](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/bower_component_usage.md) in our module concept.
 - [Gulp defaults](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/gulp_defaults.md), spare power users some tedious typing on the command line.
 

@@ -1,3 +1,11 @@
+# HTML or JADE
+[Jade vs HTML: Why it matters](http://vstark.net/2014/10/18/jade-vs-html/) A nice article that explains reasons why to choose Jade over HTML.
+
+# Usefull links
+[Jade Chrome's extension](https://chrome.google.com/webstore/detail/copy-html-in-jade/ooimannacmnfehchhnahaaglimfjfedo) allows you to copy and paste from HTML to Jade.
+
+[HTML 2 Jade](http://html2jade.org/) Converts any HTML to Jade
+
 # JADE integration
 > [JADE](http://jade-lang.com/) is tightly integrated into the Generator-M-Ionic's workflow. Learn how to use it to your advantage!
 
