@@ -84,6 +84,23 @@ module.exports = yeoman.Base.extend({
           }
         ]
       },
+      // jade
+      {
+        type: 'list',
+        name: 'jade',
+        message: 'Choose HTML or JADE',
+        default: false,
+        choices: [
+          {
+            name: 'HTML Templating',
+            value: false
+          },
+          {
+            name: 'Jade Templating',
+            value: true
+          }
+        ]
+      },
       // bower packages
       {
         type: 'checkbox',
@@ -202,7 +219,7 @@ module.exports = yeoman.Base.extend({
 
       // dependencies
       this.write('bower.json', JSON.stringify(bowerJSON, null, 2));
-      this.copy('package.json', 'package.json');
+      this.template('_package.json', 'package.json');
 
       // app files
       // add random color to navbar
@@ -212,16 +229,16 @@ module.exports = yeoman.Base.extend({
 
       // other files
       this.directory('hooks', 'hooks');
-      this.copy('gulpfile.js', 'gulpfile.js');
+      this.template('_gulpfile.js', 'gulpfile.js');
       this.template('gulp/_injecting.js', 'gulp/injecting.js');
-      this.copy('gulp/building.js');
+      this.template('gulp/_building.js', 'gulp/building.js');
       this.copy('gulp/configuring.js');
       this.copy('gulp/cordova.js');
       this.copy('gulp/linting.js');
-      this.copy('gulp/testing.js');
-      this.copy('gulp/watching.js');
+      this.template('gulp/_testing.js','gulp/testing.js');
+      this.template('gulp/_watching.js', 'gulp/watching.js');
       this.copy('jenkins.sh', 'jenkins.sh');
-      this.copy('karma.conf.js', 'karma.conf.js');
+      this.template('_karma.conf.js', 'karma.conf.js');
       this.copy('protractor.conf.js', 'protractor.conf.js');
       this.directory('res', 'res');
       this.directory('test', 'test');

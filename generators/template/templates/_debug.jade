@@ -1,0 +1,39 @@
+ion-view(view-title='<%= moduleName %> debug')
+      // do you want padding?
+      ion-content.padding
+        // content goes here
+        ion-list
+          ion-item.item.item-divider
+            | Some basic checks
+          ion-item.item.item-icon
+            | icons working?
+            i.icon.ion-checkmark-circled
+          ion-item.item.item-thumbnail
+            | images working?
+            br
+            img(width='75', src='main/assets/images/yo@2x.png')
+          ion-item.item {{ctrl.someData.binding}}
+          ion-item.item.item-divider Environment variables:
+          ion-item.item.item-text-wrap
+            pre.
+              \n{{ctrl.ENV | json}}              
+          ion-item.item.item-divider Build variables:
+          ion-item.item.item-text-wrap
+            pre.
+              \n{{ctrl.BUILD | json}}              
+          ion-item.item.item-divider Device:
+          ion-item.item.item-text-wrap
+            pre.
+              \n{{ctrl.device | json}}              
+          ion-item.item.item-divider Password Test:
+          ion-item.item.item-text-wrap
+            label.item.item-input
+              span.input-label Password
+              input(type='password', ng-model='ctrl.password.input', ng-change='ctrl.grade()')
+          ion-item.item.item-text-wrap
+            | Strength
+            span.badge(ng-class="{\
+            'badge-assertive': ctrl.password.strength === 'weak',\
+            'badge-balanced': ctrl.password.strength === 'strong',\
+            'badge-energized': ctrl.password.strength === 'medium'\
+            }", ng-bind='ctrl.password.strength')

@@ -1,0 +1,25 @@
+ion-side-menus(enable-menu-with-back-views='false')
+  // CONTENT
+  ion-side-menu-content
+    // header bar
+    // the nav bar will be updated as we navigate between views
+    ion-nav-bar.barColor(class='bar-<%= %>')
+      // back button, shown if applicable
+      ion-nav-back-button
+      // nav button, shown if applicable
+      ion-nav-buttons(side='left')
+        button.button.button-icon.button-clear.ion-navicon(menu-toggle='left')
+    // ROUTING INJECTED HERE: pageContent
+    ion-nav-view(name='pageContent')
+  // SIDEMENU
+  ion-side-menu(side='left')
+    // menu header
+    ion-header-bar.barColor(class='bar-<%= %>')
+      h1.title Nav
+    // menu content
+    ion-content
+      ion-list
+        ion-item(menu-close='', ui-sref='<%= moduleName %>.list')
+          | List
+        ion-item(menu-close='', ui-sref='<%= moduleName %>.debug')
+          | Debug

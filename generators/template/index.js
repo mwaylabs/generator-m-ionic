@@ -21,28 +21,38 @@ module.exports = yeoman.Base.extend({
 
     this.templateName = this.name;
     this.fileName = utils.fileName(this.templateName);
+
+    // read .yo-rc
+    try {
+      this.jade = this.config.getAll().answers.jade;
+    } catch (e) {
+      this.jade = false;
+    }
+
   },
 
   writing: function () {
     // create template with snake-case file name
+    var extension = this.jade ? '.jade' : '.html';
+
     var folder = 'app/' + this.moduleFolder + '/templates/';
     if (!this.options.template) {
-      this.template('_template.html', folder + this.fileName + '.html');
+      this.template('_template' + extension, folder + this.fileName + extension);
     }
     else if (this.options.template === 'debug') {
-      this.template('_debug.html', folder + this.fileName + '.html');
+      this.template('_debug' + extension, folder + this.fileName + extension);
     }
     else if (this.options.template === 'list-detail') {
-      this.template('list-detail.html', folder + this.fileName + '.html');
+      this.template('list-detail' + extension, folder + this.fileName + extension);
     }
     else if (this.options.template === 'list') {
-      this.template('_list.html', folder + this.fileName + '.html');
+      this.template('_list' + extension, folder + this.fileName + extension);
     }
     else if (this.options.template === 'menu') {
-      this.template('_menu.html', folder + this.fileName + '.html');
+      this.template('_menu' + extension, folder + this.fileName + extension);
     }
     else if (this.options.template === 'tabs') {
-      this.template('_tabs.html', folder + this.fileName + '.html');
+      this.template('_tabs' + extension, folder + this.fileName + extension);
     }
   }
 });

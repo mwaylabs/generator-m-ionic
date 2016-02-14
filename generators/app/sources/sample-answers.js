@@ -18,6 +18,7 @@ module.exports = {
       return packages;
     })(),
     ionicCss: true,
+    jade: false,
     platforms: [
       'ios',
       'android'
@@ -48,6 +49,9 @@ module.exports = {
     }
     if (options && options.ionicCss !== undefined) {
       standardCopy.ionicCss = options.ionicCss;
+    }
+    if (options && options.jade !== undefined) {
+      standardCopy.jade = options.jade;
     }
     if (options && options.localforage === false) {
       var bowerPackages = standardCopy.bowerPackages.filter(function (value) {
