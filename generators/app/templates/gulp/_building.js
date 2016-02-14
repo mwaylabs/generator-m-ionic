@@ -9,7 +9,9 @@ var $ = require('gulp-load-plugins')();
 var del = require('del');
 var vinylPaths = require('vinyl-paths');
 
+<% if (answers.jade) { -%>
 var jade = require( 'gulp-jade' );
+<% } -%>
 
 var buildDependencies = [
   options['force-build'] ? 'linting' : 'linting-throw',

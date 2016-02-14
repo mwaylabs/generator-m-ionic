@@ -91,12 +91,12 @@ module.exports = yeoman.Base.extend({
         message: 'Choose HTML or JADE',
         choices: [
           {
-            name: 'classical HTML',
-            value: false
+            name: 'HTML Templating',
+            value: true
           },
           {
-            name: 'JADE compiler (recommended)',
-            value: true
+            name: 'Jade Templating',
+            value: false
           }
         ]
       },
@@ -265,7 +265,6 @@ module.exports = yeoman.Base.extend({
         options: {
           mainModule: true,
           ionicCss: this.answers.ionicCss,
-          jade: this.answers.jade,
           'skip-prompts': this.options['skip-prompts']
         }
       });
