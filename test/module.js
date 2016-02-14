@@ -73,6 +73,14 @@ describe('m-ionic:module', function () {
     });
   };
 
+  var jadeTests = function (moduleName, file) {
+    var moduleFolder = utils.moduleFolder(moduleName);
+
+    it('jade', function () {
+      assert.fileContent('app/' + moduleFolder + '/templates/' + file + '.jade', 'ion-view(view-title=');
+    });
+  };
+
   var noMainModuleTests = function (moduleName) {
     var moduleFolder = utils.moduleFolder(moduleName);
     var modulePath = 'app/' + moduleFolder;
@@ -203,12 +211,36 @@ describe('m-ionic:module', function () {
           path.join(__dirname, '../generators/constant')
         ])
         .withArguments('main')
-        .withPrompts({ template: 'tabs'})
+        .withPrompts({ template: 'tabs' })
         .withOptions(options)
         .on('end', done);
     });
 
     ionicSassTests('main');
+  });
+
+  describe('jade tests', function () {
+    var options = {
+      mainModule: true,
+    };
+
+    before(function (done) {
+      helpers.run(path.join(__dirname, '../generators/module'))
+        .withGenerators([ // configure path to  subgenerators
+          path.join(__dirname, '../generators/controller'),
+          path.join(__dirname, '../generators/template'),
+          path.join(__dirname, '../generators/service'),
+          path.join(__dirname, '../generators/constant')
+        ])
+        .withArguments('main')
+        .withPrompts({ template: 'tabs' })
+        .withOptions(options)
+        .withLocalConfig({ answers: { jade: true } })
+        .on('end', done);
+    });
+
+    jadeTests('main', 'list');
+    jadeTests('main', 'list-detail');
   });
 
   describe('myModule (no main, tabs)', function () {

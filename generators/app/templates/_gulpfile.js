@@ -10,7 +10,10 @@ gulp.paths = {
   dist: 'www',
   jsFiles: ['app/**/*.js', '!app/bower_components/**/*.js'],
   jsonFiles: ['app/**/*.json', '!app/bower_components/**/*.json'],
-  templates: ['app/*/templates/**/*'],
+  templates: ['app/*/templates/**/*'<% if (answers.jade) { -%>,'!app/**/*.jade'<% } -%>],
+<% if (answers.jade) { -%>
+  jade: ['app/*/templates/**/*.jade', '!app/bower_components/**/*'],
+<% } -%>
   karma: ['test/karma/**/*.js'],
   protractor: ['test/protractor/**/*.js']
 };
