@@ -31,8 +31,8 @@ module.exports = {
       name: 'In App Browser - cordova-plugin-inappbrowser'
     },
     {
-      value: 'com.ionic.keyboard',
-      name: 'Keyboard - com.ionic.keyboard'
+      value: 'ionic-plugin-keyboard',
+      name: 'Keyboard - ionic-plugin-keyboard'
     },
     {
       value: 'cordova-plugin-network-information',
