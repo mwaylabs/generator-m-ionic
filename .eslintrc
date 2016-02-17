@@ -15,7 +15,7 @@
     "indent": [2, 2, {"SwitchCase": 1}],
     "quotes": [2, "single"],
     "semi": [2, "always"],
-    "space-after-keywords": [2, "always"],
+    "keyword-spacing": 2,
     "space-before-blocks": [2, "always"],
     "space-before-function-paren": [2, "always"],
     "dot-location": [2, "property"],
