@@ -9,7 +9,7 @@ var $ = require('gulp-load-plugins')();
 gulp.task('linting', ['eslint', 'jsonlint']);
 gulp.task('linting-throw', ['eslint-throw', 'jsonlint-throw']);
 
-// check for eslint errors
+// check app and test for eslint errors
 var eslint = function (fail) {
   return function () {
     return gulp.src(paths.jsFiles.concat(paths.karma).concat(paths.protractor))
@@ -21,7 +21,7 @@ var eslint = function (fail) {
 gulp.task('eslint', eslint());
 gulp.task('eslint-throw', eslint(true));
 
-// check for jsonlint errors
+// check app for jsonlint errors
 var jsonlint = function (fail) {
   var failReporter = function (file) {
     throw new Error(file.path + '\n' + file.jsonlint.message);
@@ -34,3 +34,10 @@ var jsonlint = function (fail) {
 };
 gulp.task('jsonlint', jsonlint());
 gulp.task('jsonlint-throw', jsonlint(true));
+
+// eslint task for contributors
+gulp.task('contrib-linting', ['linting'], function () {
+  return gulp.src(paths.contrib)
+    .pipe($.eslint())
+    .pipe($.eslint.format());
+});

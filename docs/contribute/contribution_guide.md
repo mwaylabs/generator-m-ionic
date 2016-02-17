@@ -34,13 +34,26 @@ Once you issue a pull-request, we'll work with you until your changes can be mer
 1. clone your fork
 1. navigate to your local clone
 1. create an issue branch
-1. run `gulp watch` to automatically run the tests as you make changes
-1. or run `npm test` to run the tests only one time
-1. submit your pull-request
+1. run `gulp watch` to automatically run the tests as you make changes or run `npm test` to run the tests only one time
+1. implement your changes
+1. generate and test project manually (see table below)
+1. submit your pull-request (to merge into dev! not master)
 
-**gulp watch** or **npm test**
-will perform jshint and jscs checks, tests are run and istanbul for code coverage. The results are printed to the terminal. Detailed information on code coverage on every file can be found in `coverage/lcov-report/index.html`.
+#### gulp watch / npm test
+Both will perform eslint and jsonlint checks, tests are run and istanbul for code coverage. The results are printed to the terminal. Detailed information on code coverage on every file can be found in `coverage/lcov-report/index.html`.
 Please make sure your code is compliant and code coverage is as high as possible. Your pull-request will be built using travis and the reports will be shown in the pull-request.
+
+#### Manually test generated project
+We'll tell you which commands you need to run for your PR to be accepted. Unfortunately we haven't found a good way to automate this. If you have an idea please let us know.
+
+| result | command to test in generated project |
+| ------ |  ---- |
+| ok | gulp --cordova |
+| ok | gulp watch |
+| ok | gulp build / gulp watch-build |
+| ok | gulp karma |
+| ok | gulp protractor |
+| ok | gulp contrib-linting |
 
 ### CLI options for debugging and development
 ```sh
