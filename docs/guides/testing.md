@@ -36,3 +36,6 @@ Here are some good resources to get started with writing unit tests:
 ### Protractor for end-to-end tests
 Learn more about [Protractor](https://angular.github.io/protractor/#/) and on writing end-to-end tests here:
   - Protractor for AngularJS - http://ramonvictor.github.io/protractor/slides/#/
+
+### Additional resources
+- Jasmine-Matchers: additional matchers for Jasmine - https://github.com/JamieMason/Jasmine-Matchers
