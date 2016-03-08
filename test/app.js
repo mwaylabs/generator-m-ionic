@@ -98,14 +98,14 @@ describe('m', function () {
         // dependencies, test only one as example
         ['bower.json', 'ionic": "~1.2.0"'],
         // devDependencies, test only on as example
-        ['bower.json', 'angular-mocks": "~1.4.5"'],
+        ['bower.json', 'angular-mocks": "~1.5.0"'],
         // resolutions, test only one as example
-        ['bower.json', 'angular": "~1.4.5"'],
+        ['bower.json', 'angular": "~1.5.0"'],
         // optional, test all for correctness
         ['bower.json', '"angular-dynamic-locale": "~0.1.27"'],
-        ['bower.json', '"angular-translate": "~2.8.1"'],
-        ['bower.json', '"angular-translate-loader-static-files": "~2.8.1"'],
-        ['bower.json', '"localforage": "~1.3.1"']
+        ['bower.json', '"angular-translate": "~2.10.0"'],
+        ['bower.json', '"angular-translate-loader-static-files": "~2.10.0"'],
+        ['bower.json', '"localforage": "~1.4.0"']
       ]);
     });
 
