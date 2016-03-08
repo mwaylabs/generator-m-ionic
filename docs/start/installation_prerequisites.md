@@ -19,4 +19,4 @@ Everything else you need will be installed using:
 npm install --global generator-m-ionic
 ```
 
-Everything went well? - Awesome get started using the [Get started](../../README.md#get-started) documents in the `README.md`.
+Everything went well? - Awesome! Get started using the [Get started](../../README.md#get-started) documents in the `README.md`.
