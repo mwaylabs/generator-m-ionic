@@ -1,6 +1,6 @@
 {
   "name": "generator-m-ionic",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Build mobile Cordova/PhoneGap apps quickly with the tools you love: Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy generator.",
   "license": "MIT",
   "main": "app/index.js",
