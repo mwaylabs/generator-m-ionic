@@ -1,6 +1,6 @@
 # Icons and splash screens
 
-> With cordova it's easy to change the default app icons and splash screens. This can be done in the `config.xml` as described [here](http://cordova.apache.org/docs/en/dev/config_ref/images.html) in the cordova documentation. Generator-M-Ionic provides a **res/** folder and a **gulp task** to make the configuration easier.
+> With Cordova it's easy to change the default app icons and splash screens. This can be done in the `config.xml` as described [here](http://cordova.apache.org/docs/en/latest/config_ref/images.html) and [here](http://cordova.apache.org/docs/en/latest/cordova-plugin-splashscreen/index.html) in the Cordova documentation. Generator-M-Ionic provides a **res/** folder and a **gulp task** to make the configuration easier.
 
 ## The `res/` folder
 For your convenience, Generator-M-Ionic provides a `res/` folder to put in the icons and splash screen files.

@@ -30,7 +30,7 @@ If you don't want this task to open your browser, just add the `--no-open` optio
 ## Using the Cordova CLI
 The Cordova CLI gets installed locally with the generation of your app (you don't have to install it yourself!). We use it instead of the Ionic CLI. Find out why in our [why you need it](../intro/why_you_need_it.md#alternatives) of our introduction section. Among many other tasks, the Cordova CLI enables you to **add plugins and platforms** and **run and build** your app on devices or emulators.
 
-For a full list of Cordova CLI commands and their capabilities check out their documentation over at the [Cordova Documentation](https://cordova.apache.org/docs/en/dev/guide/cli/index.html) or the [CLI GitHub page](https://github.com/apache/cordova-cli/).
+For a full list of Cordova CLI commands and their capabilities check out their documentation over at the [Cordova Documentation](https://cordova.apache.org/docs/en/latest/cordova-cli/index.html) or the [CLI GitHub page](https://github.com/apache/cordova-cli/).
 
 Here's a brief overview of the most important capabilities:
 
@@ -86,7 +86,7 @@ gulp --cordova 'emulate ios'
 gulp --cordova 'emulate android'
 ```
 
-Both commands require your system to be setup correctly for the given platform as described in the Cordova [Platform Guides](https://cordova.apache.org/docs/en/dev/guide/platforms/index.html).
+Both commands require your system to be setup correctly for the given platform as described in the Cordova [Platform Guides](http://cordova.apache.org/docs/en/latest/guide/platforms/index.html).
 
 To emulate a specific device and iOS version (iOS version needs to be installed via Xcode) run:
 ```sh

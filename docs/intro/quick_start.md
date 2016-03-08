@@ -2,7 +2,7 @@
 If you are experienced this summary might be all you need. Every topic has a more elaborate introduction in other parts of the documentation. Check out the [README.md](../../README.md).
 
 1. Installation  
-Check the Cordova [Platform Requirements](http://cordova.apache.org/docs/en/dev/guide/platforms/index.html)
+Check the Cordova [Platform Requirements](http://cordova.apache.org/docs/en/latest/guide/platforms/index.html)
 
     ```sh
     # prerequisites
@@ -67,7 +67,7 @@ Check the Cordova [Platform Requirements](http://cordova.apache.org/docs/en/dev/
     #   service
     #   module
     ```
-3. Handle Cordova platforms/plugins
+3. Handle Cordova platforms/plugins. Check out the [Cordova CLI Documentation](https://cordova.apache.org/docs/en/latest/cordova-cli/index.html) for more info.
 
     ```sh
     # platforms, use --save to add to config.xml
