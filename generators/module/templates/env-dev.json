@@ -1,3 +1,4 @@
 {
-  "SERVER_URL": "https://DEVSERVER/api"
+  "SERVER_URL": "https://DEVSERVER/api",
+  "SOME_OTHER_URL": "/proxy"
 }

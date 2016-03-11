@@ -5,6 +5,7 @@ var paths = gulp.paths;
 var options = gulp.options;
 // modules
 var bs = require('browser-sync').create();
+var chalk = require('chalk');
 
 var bsInit = function (paths, openOverride) {
   var bsOptions = {
@@ -12,6 +13,20 @@ var bsInit = function (paths, openOverride) {
       baseDir: paths
     }
   };
+  if (options.proxyMapTo && options.proxyPath) {
+    var url = require('url');
+    var proxy = require('proxy-middleware');
+    var proxyOptions = url.parse(options.proxyMapTo);
+    proxyOptions.route = options.proxyPath;
+
+    bsOptions.server.middleware = [proxy(proxyOptions)];
+
+    console.log('[' + chalk.green('proxy') + '] ' + chalk.bold('Proxy Configuration:'));
+    console.log(chalk.dim(' ---------------------------------------'));
+    console.log('     Path: ' + chalk.green(options.proxyPath));
+    console.log('   Map to: ' + chalk.green(options.proxyMapTo));
+    console.log(chalk.dim(' ---------------------------------------'));
+  }
   if (options.open === false) {
     bsOptions.open = false;
   }
@@ -69,7 +84,7 @@ gulp.task('watch-build', watchBuildDeps, function () {
   });
 });
 
-// SERVE TASKS
+// SERVE TASKS FOR PROTRACTOR
 gulp.task('serve', ['inject-all'], function () {
   bsInit(['app', '.tmp'], false);
 });

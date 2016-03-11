@@ -1,6 +1,6 @@
 'use strict';
 angular.module('<%= moduleName %>')
-.controller('<%= controllerName %>', function ($log<% if(options.template === 'debug') { %>, <%= serviceName %>, <%= configName %>, $cordovaDevice<% } %>) {
+.controller('<%= controllerName %>', function ($log<% if(options.template === 'debug') { %>, $http, $timeout, <%= serviceName %>, <%= configName %>, $cordovaDevice<% } %>) {
 
   $log.log('Hello from your Controller: <%= controllerName %> in module <%= moduleName%>:. This is your controller:', this);
 
@@ -32,6 +32,23 @@ angular.module('<%= moduleName %>')
     }
   };
   this.grade();
+
+  // Proxy
+  this.proxyState = 'ready';
+  this.proxyRequestUrl = <%= configName %>.ENV.SOME_OTHER_URL + '/get';
+
+  this.proxyTest = function () {
+    this.proxyState = '...';
+
+    $http.get(this.proxyRequestUrl)
+    .then(function (response) {
+      $log.log(response);
+      this.proxyState = 'success (result printed to browser console)';
+    }.bind(this))
+    .then($timeout(function () {
+      this.proxyState = 'ready';
+    }.bind(this), 6000));
+  };
 
 <% } -%>
 });

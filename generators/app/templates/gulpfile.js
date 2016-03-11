@@ -19,7 +19,7 @@ gulp.paths = {
 // OPTIONS
 var options = gulp.options = minimist(process.argv.slice(2));
 
-// set defaults
+// load .gulp_settings.json
 var task = options._[0]; // only for first task
 var gulpSettings;
 if (fs.existsSync('./gulp/.gulp_settings.json')) {

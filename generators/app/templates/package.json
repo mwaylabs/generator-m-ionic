@@ -44,6 +44,7 @@
     "minimist": "^1.2.0",
     "phantomjs-prebuilt": "^2.1.4",
     "plist": "^1.1.0",
+    "proxy-middleware": "^0.15.0",
     "require-dir": "^0.3.0",
     "vinyl-paths": "^2.0.0",
     "wiredep": "^3.0.0",

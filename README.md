@@ -83,6 +83,7 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
 - [Git integration](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/git_integration.md), see how it's done.
 - [SASS integration](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sass_integration.md) in our module concept.
 - [Bower Component Usage](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/bower_component_usage.md) in our module concept.
+- [CORS & Proxying](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/cors_proxy.md), how to cope with CORS issues.
 - [Gulp defaults](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/gulp_defaults.md), spare power users some tedious typing on the command line.
 
 **Quality**
