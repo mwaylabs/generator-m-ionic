@@ -64,7 +64,7 @@ describe('m-ionic:controller', function () {
     it('file, controller signature, debug logic & placeholders', function () {
       var filePath = 'app/main/controllers/some-ctrl.js';
       assert.fileContent([
-        [filePath, '$log, Main, Config, $cordovaDevice) {'],
+        [filePath, '$log, $http, $timeout, Main, Config, $cordovaDevice) {'],
         [filePath, 'this.someData = Main.'],
         [filePath, 'this.ENV = Config.ENV'],
         [filePath, 'this.BUILD = Config.BUILD']
@@ -90,7 +90,7 @@ describe('m-ionic:controller', function () {
     it('file, controller signature, debug logic & placeholders', function () {
       var filePath = 'app/my-module/controllers/some-ctrl.js';
       assert.fileContent([
-        [filePath, '$log, MyModule, MyModuleConfig'],
+        [filePath, '$log, $http, $timeout, MyModule, MyModuleConfig'],
         [filePath, 'this.someData = MyModule.'],
         [filePath, 'this.ENV = MyModuleConfig.ENV'],
         [filePath, 'this.BUILD = MyModuleConfig.BUILD'],
