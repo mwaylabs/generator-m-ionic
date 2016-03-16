@@ -27,7 +27,8 @@ module.exports = {
       'cordova-plugin-dialogs',
       'ionic-plugin-keyboard'
     ],
-    template: 'tabs'
+    template: 'tabs',
+    ecosystems: []
   },
 
   /**
@@ -54,6 +55,12 @@ module.exports = {
         return value.indexOf('localforage') === -1;
       });
       standardCopy.bowerPackages = bowerPackages;
+    }
+    if (options && options.appmobi) {
+      standardCopy.ecosystems.push('appmobi');
+      standardCopy['APP_NAME'] = '0f50dcbf-5c79-41ee-b038-330de3ee07a5.Test';
+      standardCopy['PROJECT_ID'] = '5buk7ayx';
+      standardCopy['CONFIG_URL'] = 'https://cloud.appmobi.com';
     }
     return standardCopy;
   },

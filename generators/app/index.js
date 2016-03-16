@@ -139,12 +139,20 @@ module.exports = yeoman.Base.extend({
     }
     // save appModule in answers
     this.answers.appModule = utils.moduleName(this.answers.appName);
-
-    // store answers in .yo-rc.json
-    this.config.set('answers', this.answers);
   },
 
   writing: {
+    subgenerators: function () {
+      // create main module
+      this.composeWith('m-ionic:module', {
+        arguments: config.DEFAULT_MODULE,
+        options: {
+          mainModule: true,
+          ionicCss: this.answers.ionicCss,
+          'skip-prompts': this.options['skip-prompts']
+        }
+      });
+    },
 
     cordova: function () {
       if (this.update) {
@@ -242,16 +250,38 @@ module.exports = yeoman.Base.extend({
       this.write(this.destinationRoot() + '/README.md', readme);
     },
 
-    subgenerators: function () {
-      // create main module
-      this.composeWith('m-ionic:module', {
-        arguments: config.DEFAULT_MODULE,
-        options: {
-          mainModule: true,
-          ionicCss: this.answers.ionicCss,
-          'skip-prompts': this.options['skip-prompts']
-        }
-      });
+    ecosystemPrompts: function () {
+      if (!this.options['skip-prompts']) {
+        // ecosystem prompts
+        var done = this.async();
+        this.prompt([{
+          type: 'checkbox',
+          name: 'ecosystems',
+          message: 'integrate into the following ecosystems: (can still be done later)',
+          choices: [{
+            name: 'appmobi - have your APP_NAME, PROJECT_ID & CONFIG_URL ready',
+            value: 'appmobi'
+          }]
+        }], function (answers) { // prompt
+          this.answers.ecosystems = answers.ecosystems;
+          done();
+        }.bind(this));
+      }
+    },
+
+    ecosystemIntegration: function () {
+      // store answers in .yo-rc.json, all questions now asked
+      this.config.set('answers', this.answers);
+
+      if (this.answers.ecosystems.indexOf('appmobi') > -1) {
+        this.composeWith('generator-appmobi', {
+          options: {
+            'skip-sdk': this.options['skip-sdk']
+          }
+        }, {
+          local: require.resolve('generator-appmobi/generators/app/index.js')
+        });
+      }
     }
   },
 
