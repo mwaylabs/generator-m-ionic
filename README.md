@@ -96,6 +96,9 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
 - [Build Vars](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/build_vars.md), inject vars into your app at build time.
 - [Programmatically change the `config.xml`](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/programmatically_change_configxml.md), an essential part for a successful continuous integration setup. Add environments and build vars for a full blown continuous integration use case!
 
+**Ecosystems**
+- [Appmobi](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/ecosystems/appmobi.md) - Secure Mobile Development Platform
+
 ## Generator Insights
 We've published 3 blog articles on our company blog delivering deep insights into the why and how of the generator:
 - September 2015: [Generator-M-Ionic and the search for the holy grail](http://blog.mwaysolutions.com/2015/09/21/generator-m-ionic-and-the-search-for-the-holy-grail/)

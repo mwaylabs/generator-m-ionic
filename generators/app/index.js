@@ -259,7 +259,7 @@ module.exports = yeoman.Base.extend({
           name: 'ecosystems',
           message: 'integrate into the following ecosystems: (can still be done later)',
           choices: [{
-            name: 'appmobi - have your APP_NAME, PROJECT_ID & CONFIG_URL ready',
+            name: 'Appmobi - have your APP_NAME, PROJECT_ID & CONFIG_URL ready',
             value: 'appmobi'
           }]
         }], function (answers) { // prompt
