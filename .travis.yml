@@ -20,6 +20,3 @@ notifications:
       - https://webhooks.gitter.im/e/87130ded51c12384d4e7
     on_success: always  # options: [always|never|change] default: always
     on_failure: always  # options: [always|never|change] default: always
-matrix:
-  allow_failures:
-    - node_js: stable
