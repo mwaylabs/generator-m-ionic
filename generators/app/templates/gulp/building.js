@@ -22,7 +22,8 @@ gulp.task('build', buildDependencies, function () {
 });
 
 gulp.task('clean', function () {
-  return gulp.src(['.tmp', paths.dist + '/*'])
+  // pattern is windows-friendly according to https://github.com/mwaylabs/generator-m-ionic/issues/223#issuecomment-196060284
+  return gulp.src(['.tmp/**/*.*', paths.dist + '/**/*.*'])
     .pipe(vinylPaths(del));
 });
 
