@@ -12,9 +12,9 @@ var xml2js = require('xml2js');
 gulp.task('config', function () {
   var parser = new xml2js.Parser();
   var builder = new xml2js.Builder({
-    renderOp: {
+    renderOpts: {
       pretty: true,
-      indent: ' '
+      indent: '    '
     },
     xmldec: {
       version: '1.0',
