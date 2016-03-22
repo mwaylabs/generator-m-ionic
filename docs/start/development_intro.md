@@ -92,6 +92,8 @@ To emulate a specific device and iOS version (iOS version needs to be installed 
 ```sh
 gulp --cordova 'emulate ios --target="iPad-Air, 8.4"'
 gulp --cordova 'emulate ios --target="iPad-Air, 9.0"'
+# to list available targets on your machine, run:
+`./platforms/ios/cordova/lib/list-emulator-images`
 ```
 
 #### Run using Xcode instead of command line
