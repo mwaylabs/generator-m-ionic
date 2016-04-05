@@ -79,7 +79,7 @@ if (options.build !== false) {
 }
 gulp.task('watch-build', watchBuildDeps, function () {
   bsInit(paths.dist);
-  gulp.watch(paths.dist + '**/*', function () {
+  gulp.watch(paths.dist + '/**/*', function () {
     bs.reload();
   });
 });
