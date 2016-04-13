@@ -7,7 +7,7 @@ Please make sure you've read our [Mission Statement](./mission_statement.md) and
 Second: Thank you for trying to make valuable contributions to help us improve the generator. It's people like you who make the whole open source community what it is! <3.
 
 ### Code is a team effort, talk to us!
-Unless you're fixing a minor issue (typo, one-liner, small config, ...) please **talk to us** before starting to code right away. We'd hate to see you investing a lot of time only to find out that you built something that we don't need or something that is of interested but not in line with our coding guidelines.
+Unless you're fixing a minor issue (typo, one-liner, small config, ...) please **talk to us** before starting to code right away. We'd hate to see you investing a lot of time only to find out that you built something that we don't need or something that is of interest but not in line with our coding guidelines.
 The best way to get us aboard is the following:
 
 1. have a good and precise **idea**

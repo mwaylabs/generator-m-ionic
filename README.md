@@ -109,14 +109,13 @@ We've published 3 blog articles on our company blog delivering deep insights int
   - the **origins** of the generator development and **company strategy**
 
 
-## Questions, Issues? Talk to us!
+## Questions, issues? Talk to us!
 Do the following:
- 1. check out our [FAQ](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/contribute/faq.md) and [issues](https://github.com/mwaylabs/generator-m-ionic/issues) see if there already is a solution or answer to that matter.
- 2. [![Join the chat at https://gitter.im/mwaylabs/generator-m-ionic](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mwaylabs/generator-m-ionic?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)  ask other developers and our core team on [gitter](https://gitter.im/mwaylabs/generator-m-ionic) if you're not sure how to proceed.
- 3. If all fails create a [new issue](https://github.com/mwaylabs/generator-m-ionic/issues/new).
-- **Important**: we and others can help you a lot quicker if you provide a sample repo that we can clone. With step by step instructions on how to reproduce your error.
+ 1. check out our [Issue Guidelines](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/contribute/issue_guide.md) and [issues](https://github.com/mwaylabs/generator-m-ionic/issues) to see if there already is a solution or answer.
+ 2. [![Join the chat at https://gitter.im/mwaylabs/generator-m-ionic](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mwaylabs/generator-m-ionic?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) - Get in touch with other developers and our core team.
+ 3. If all fails, make sure you have read the [Issue Guidelines](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/contribute/issue_guide.md) **first** and then [open a new issue](https://github.com/mwaylabs/generator-m-ionic/issues/new).
 
-## Want to contribute?
+## Want to contribute ideas, code?
 Start by reading our:
 
 1. [Mission Statement](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/contribute/mission_statement.md)
