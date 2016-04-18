@@ -128,7 +128,8 @@ module.exports = yeoman.Base.extend({
       this.answers = sampleAnswers.getStandard({
         'ios-only': this.options['ios-only'],
         'android-only': this.options['android-only'],
-        'cordova': this.options.cordova
+        'cordova': this.options.cordova,
+        'ionic-platform': this.options['ionic-platform']
       });
       this.log(chalk.inverse(JSON.stringify(this.answers, null, '  ')));
     }
@@ -259,6 +260,9 @@ module.exports = yeoman.Base.extend({
           name: 'ecosystems',
           message: 'integrate into the following ecosystems: (can still be done later)',
           choices: [{
+            name: 'Ionic Platform (beta)',
+            value: 'ionic-platform'
+          }, {
             name: 'Appmobi - have your APP_NAME, PROJECT_ID & CONFIG_URL ready',
             value: 'appmobi'
           }]
@@ -281,6 +285,9 @@ module.exports = yeoman.Base.extend({
         }, {
           local: require.resolve('generator-appmobi/generators/app/index.js')
         });
+      }
+      if (this.answers.ecosystems.indexOf('ionic-platform') > -1) {
+        this.composeWith('m-ionic:ionic-platform');
       }
     }
   },

@@ -49,5 +49,24 @@ describe('sample-answers', function () {
       assert(localforage.length);
     });
 
+    it('appmobi: true', function () {
+      var answers = sampleAnswers.getStandard({ appmobi: true });
+      var appmobi = answers.ecosystems.filter(function (value) {
+        return value.indexOf('appmobi') !== -1;
+      });
+      assert(appmobi.length);
+      assert(answers['APP_NAME']);
+      assert(answers['PROJECT_ID']);
+      assert(answers['CONFIG_URL']);
+    });
+
+    it('ionic-platform: true', function () {
+      var answers = sampleAnswers.getStandard({ 'ionic-platform': true });
+      var ionic = answers.ecosystems.filter(function (value) {
+        return value.indexOf('ionic-platform') !== -1;
+      });
+      assert(ionic.length);
+    });
+
   });
 });

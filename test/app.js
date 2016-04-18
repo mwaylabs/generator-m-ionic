@@ -224,6 +224,32 @@ describe('m', function () {
     });
   });
 
+  describe('ionic-platform', function () {
+    var answers = sampleAnswers.getStandard({ 'ionic-platform': true });
+
+    before(function (done) {
+      helpers.run(path.join(__dirname, '../generators/app'))
+        .withGenerators([ // configure path to subgenerators
+          path.join(__dirname, '../generators/appmobi'),
+          path.join(__dirname, '../generators/module'),
+          path.join(__dirname, '../generators/constant'),
+          path.join(__dirname, '../generators/controller'),
+          path.join(__dirname, '../generators/template'),
+          path.join(__dirname, '../generators/service'),
+          path.join(__dirname, '../generators/ionic-platform')
+        ])
+        .withOptions({ 'skip-install': true, 'skip-sdk': true }) // execute with options
+        .withPrompts(answers)  // answer prompts
+        .on('end', done);
+    });
+
+    it('creates ionic-platform files', function () {
+      // one per example
+      assert.file('gulp/ionic.js');
+      assert.file('app/main/templates/user.html');
+    });
+  });
+
   describe('--app-name=tradecore', function () {
     var answers = sampleAnswers.getForAppNameOption();
 
@@ -324,5 +350,31 @@ describe('m', function () {
     });
 
     yoRcHasAnswers(answers);
+  });
+
+  describe('--skip-prompts --ionic-platform', function () {
+    var answers = sampleAnswers.getStandard({'ionic-platform': true});
+
+    before(function (done) {
+      helpers.run(path.join(__dirname, '../generators/app'))
+        .withOptions({ 'skip-install': true, 'skip-sdk': true, 'skip-prompts': true, 'ionic-platform': true}) // execute with options
+        .withGenerators([ // configure path to  subgenerators
+          path.join(__dirname, '../generators/module'),
+          path.join(__dirname, '../generators/constant'),
+          path.join(__dirname, '../generators/controller'),
+          path.join(__dirname, '../generators/template'),
+          path.join(__dirname, '../generators/service'),
+          path.join(__dirname, '../generators/ionic-platform')
+        ])
+        .withPrompts(answers)  // answer prompts
+        .on('end', done);
+    });
+    yoRcHasAnswers(answers);
+
+    it('creates ionic-platform files', function () {
+      // one per example
+      assert.file('gulp/ionic.js');
+      assert.file('app/main/templates/user.html');
+    });
   });
 });

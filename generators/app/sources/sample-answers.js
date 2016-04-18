@@ -62,6 +62,9 @@ module.exports = {
       standardCopy['PROJECT_ID'] = '5buk7ayx';
       standardCopy['CONFIG_URL'] = 'https://cloud.appmobi.com';
     }
+    if (options && options['ionic-platform']) {
+      standardCopy.ecosystems.push('ionic-platform');
+    }
     return standardCopy;
   },
 

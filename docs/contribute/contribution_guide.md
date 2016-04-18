@@ -65,6 +65,8 @@ yo m-ionic --skip-prompts # for debugging purposes, run with predefined answers
 yo m-ionic --ios-only # in conjunction with --skip-prompts
 yo m-ionic --android-only # in conjunction with --skip-prompts
 yo m-ionic --no-cordova # in conjunction with --skip-prompts, no platforms/plugins
+yo m-ionic --ionic-platform # in conjunction with --skip-prompts
+
 ```
 
 ## Inspiration
