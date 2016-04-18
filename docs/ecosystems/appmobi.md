@@ -1,5 +1,5 @@
-# Appmobi
-> [Appmobi](https://appmobi.com/) is a Mobile Security as a Service (MSaaS) solution which can be integrated into the generator using the [Appmobi Cordova Plugin](https://github.com/appMobiGithub/cordova-plugin-appmobi).
+# Appmobi Integration
+> [Appmobi](https://appmobi.com/) is a Mobile Security as a Service (MSaaS) solution which can be integrated into [Generator-M-Ionic](https://github.com/mwaylabs/generator-m-ionic) using the [Appmobi Cordova Plugin](https://github.com/appMobiGithub/cordova-plugin-appmobi).
 
 ## Prepare
 

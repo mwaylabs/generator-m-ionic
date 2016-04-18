@@ -1,6 +1,6 @@
 # Sub-generators
 
-As you develop your app you'll want to add additional components. That's where the subgenerators come in.
+As you develop your app you'll want to add additional components. That's where the sub-generators come in.
 
 #### AngularJS module
 **Important**: While we are particularly proud of this feature, please note that using modules is only useful in large projects. We recommend that you only use them, if you know why you want to use them in your project. In our experience for most projects using one module is just fine.
