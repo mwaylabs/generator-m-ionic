@@ -36,6 +36,11 @@ describe('utils', function () {
     assert.textEqual(utils.moduleFolder('another2App24'), 'another2-app24');
   });
 
+  it('.appBowerName()', function () {
+    assert.textEqual(utils.appBowerName(' Some Name'), 'some-name');
+    assert.textEqual(utils.appBowerName('Yo9 There'), 'yo9-there');
+  });
+
   it('.configName()', function () {
     assert.textEqual(utils.configName(), 'Config');
     assert.textEqual(utils.configName('myModule'), 'MyModuleConfig');

@@ -206,7 +206,7 @@ module.exports = yeoman.Base.extend({
       }
 
       // add other properties
-      bowerJSON.name = this.answers.appName;
+      bowerJSON.name = utils.appBowerName(this.answers.appName);
       bowerJSON.private = true;
 
       // dependencies
