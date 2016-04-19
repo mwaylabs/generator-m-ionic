@@ -59,7 +59,9 @@ The first contains your `app_id` and `api_key` that look similar to these:
 }
 ```
 
-The ionic-platform-web-client needs these two values be copied into the library code, that you just installed using bower (read more about the why and how in this issue https://github.com/driftyco/ionic-platform-web-client/issues/4). In order to do so, run this gulp tasks and your instance of ionic-platform-web-client is ready to use:
+The *ionic-platform-web-client* needs these two values be copied into the library code, that you just installed using bower (read more about the why and how in these issues https://github.com/driftyco/ionic-platform-web-client/issues/41, https://github.com/driftyco/ionic-platform-web-client/issues/4). I know this is not exactly nice, but we're actively trying to change this. However for now, until Ionic provides a better solution, we're stuck with this.
+
+So in order to get going, run this gulp tasks and your instance of *ionic-platform-web-client* is ready to use:
 ```sh
 gulp ionic-platform # copies app_id & api_key into the ionic-platform-web-client
 ```
