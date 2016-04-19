@@ -103,8 +103,8 @@ describe('m', function () {
         ['bower.json', 'angular": "~1.5.0"'],
         // optional, test all for correctness
         ['bower.json', '"angular-dynamic-locale": "~0.1.27"'],
-        ['bower.json', '"angular-translate": "~2.10.0"'],
-        ['bower.json', '"angular-translate-loader-static-files": "~2.10.0"'],
+        ['bower.json', '"angular-translate": "~2.11.0"'],
+        ['bower.json', '"angular-translate-loader-static-files": "~2.11.0"'],
         ['bower.json', '"localforage": "~1.4.0"']
       ]);
     });

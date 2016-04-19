@@ -31,12 +31,12 @@ module.exports = {
       checked: true
     },
     {
-      value: 'angular-translate#~2.10.0',
+      value: 'angular-translate#~2.11.0',
       name: 'angular-translate',
       checked: true
     },
     {
-      value: 'angular-translate-loader-static-files#~2.10.0',
+      value: 'angular-translate-loader-static-files#~2.11.0',
       name: 'angular-translate-loader-static-files',
       checked: true
     },
