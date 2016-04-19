@@ -78,16 +78,6 @@ gulp.task('istanbul', function (cb) {
     });
 });
 
-gulp.task('release', ['bump']);
-
-// bump your version
-gulp.task('bump', ['test'], function () {
-  var bumpType = $.util.env.type || 'patch'; // major.minor.patch
-
-  return gulp.src(['./package.json'])
-    .pipe($.bump({ type: bumpType }))
-    .pipe(gulp.dest('./'));
-});
 
 gulp.task('test', ['lint', 'istanbul']);
 

@@ -60,13 +60,11 @@
     "coveralls": "^2.11.2",
     "eslint": "^2.1.0",
     "gulp": "^3.9.0",
-    "gulp-bump": "^1.0.0",
     "gulp-eslint": "^2.0.0",
     "gulp-istanbul": "^0.10.0",
     "gulp-load-plugins": "^1.0.0",
     "gulp-mocha": "^2.1.2",
     "gulp-plumber": "^1.0.1",
-    "gulp-util": "^3.0.6",
     "yeoman-assert": "^2.1.1",
     "yeoman-test": "^1.0.0"
   }
