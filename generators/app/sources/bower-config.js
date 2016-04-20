@@ -1,7 +1,5 @@
 'use strict';
 
-var inquirer = require('inquirer');
-
 module.exports = {
   bowerJSON: {
     dependencies: {
@@ -24,7 +22,10 @@ module.exports = {
     }
   },
   optional: [
-    new inquirer.Separator('---- i18n/l10n ----'),
+    {
+      type: 'separator',
+      line: '---- i18n/l10n ----'
+    },
     {
       value: 'angular-dynamic-locale#~0.1.27',
       name: 'angular-dynamic-locale',
@@ -40,7 +41,10 @@ module.exports = {
       name: 'angular-translate-loader-static-files',
       checked: true
     },
-    new inquirer.Separator('---- persistence ----'),
+    {
+      type: 'separator',
+      line: '---- persistence ----'
+    },
     {
       value: 'localforage#~1.4.0',
       name: 'localforage',
