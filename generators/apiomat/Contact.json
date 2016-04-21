@@ -1,0 +1,51 @@
+{
+  "name": "Contact",
+  "label": "Contact",
+  "description": "specific address fields for business partners, etc.",
+  "attributes": [
+    {
+      "name": "id",
+      "label": "Contact ID",
+      "type": "String",
+      "mandatory": true,
+      "key": true
+    },
+    {
+      "name": "firstName",
+      "label": "First name",
+      "type": "String",
+      "mandatory": false
+    },
+    {
+      "name": "lastName",
+      "label": "Last name",
+      "type": "String",
+      "validation": {
+        "min": 3,
+        "text": "please enter a valid name. min 3 charaters"
+      },
+      "mandatory": true
+    },
+    {
+      "name": "age",
+      "label": "Age",
+      "type": "Number",
+      "validation": {
+        "max": 120,
+        "min": 0,
+        "text": "please enter a valid number between 0 and 120 years"
+      },
+      "mandatory": false
+    },
+    {
+      "name": "email",
+      "label": "E-Mail",
+      "type": "String",
+      "validation": {
+        "regEx": "[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}",
+        "text": "please enter a valid mail address"
+      },
+      "mandatory": false
+    }
+  ]
+}
