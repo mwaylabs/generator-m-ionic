@@ -70,4 +70,4 @@ and many many **features and tools** for your convenience:
 
 
 ## In Depth
-You can read more about **technology choices and ecosystem** and the **benefits of using Generator-M-Ionic** in our blog article [Generator-M-Ionic: HTML5 mobile app development evolved](http://blog.mwaysolutions.com/2015/09/10/generator-m-ionic-html5-mobile-app-development-evolved/) which was published in September 2015.
+You can read more about **technology choices** and the **benefits of using Generator-M-Ionic** in our blog article [Generator-M-Ionic: HTML5 mobile app development evolved](http://blog.mwaysolutions.com/2015/09/10/generator-m-ionic-html5-mobile-app-development-evolved/) which was published in September 2015.
