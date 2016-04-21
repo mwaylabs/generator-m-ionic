@@ -1,20 +1,25 @@
 'use strict';
 
-describe('module: main, controller: ApiomatCtrl', function () {
+describe('module: <%= moduleName %>, controller: ApiomatCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('main'));
+  beforeEach(module('<%= moduleName %>'));
   // load all the templates to prevent unexpected $http requests from ui-router
   beforeEach(module('ngHtml2Js'));
 
   // instantiate controller
   var ApiomatCtrl;
-  beforeEach(inject(function ($controller) {
+  var $timeout;
+  beforeEach(inject(function ($controller, _$timeout_) {
     ApiomatCtrl = $controller('ApiomatCtrl');
+    $timeout = _$timeout_;
   }));
 
-  it('should do something', function () {
-    expect(!!ApiomatCtrl).toBe(true);
+  it('should set state.submitting while submitting', function () {
+    ApiomatCtrl.submit();
+    expect(ApiomatCtrl.state.submitting).toBe(true);
+    $timeout.flush();
+    expect(ApiomatCtrl.state.submitting).toBe(false);
   });
 
 });

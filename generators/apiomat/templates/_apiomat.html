@@ -49,13 +49,15 @@
       </div>
       <div class="padding">
         <button class="button button-outline button-block button-positive"
-          ng-disabled="ctrl.form.$invalid">
-          Submit
+          ng-disabled="ctrl.form.$invalid"
+          ng-click="ctrl.submit()">
+          <span ng-if="!ctrl.state.submitting">Submit</span>
+          <ion-spinner ng-if="ctrl.state.submitting" icon="android"></ion-spinner>
         </button>
-        <button class="button button-outline button-block button-positive"
-          ng-click="ctrl.printForm()">
+        <!-- <button class="button button-outline button-block button-positive"
+          ng-click="ctrl.debugForm()">
           Debug
-        </button>
+        </button> -->
       </div>
     </form>
   </ion-content>
