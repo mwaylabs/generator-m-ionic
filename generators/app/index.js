@@ -54,7 +54,7 @@ module.exports = yeoman.Base.extend({
       {
         type: 'input',
         name: 'appName',
-        message: 'state a name for your project (this name will be displayed below the app icon)',
+        message: '\nEnter a name for your project \nThis name will be displayed below the app icon.\n',
         validate: utils.validateAppName,
         when: function () {
           // Show this prompt only if appName is not already set
@@ -65,21 +65,21 @@ module.exports = yeoman.Base.extend({
       {
         type: 'input',
         name: 'appId',
-        message: 'state a bundle identifier for your project (e.g. com.company.project)',
+        message: '\nEnter a bundle identifier for your project \ne.g. com.company.project\n',
         validate: utils.validateAppId
       },
       // ionic css
       {
         type: 'list',
         name: 'ionicCss',
-        message: 'Choose ionic CSS or SASS',
+        message: '\nChoose Ionic CSS or SASS\n',
         choices: [
           {
-            name: 'ionic CSS (faster, for starters)',
+            name: 'Ionic CSS (faster, for starters)',
             value: true
           },
           {
-            name: 'ionic SASS (more flexible, for pros)',
+            name: 'Ionic SASS (more flexible, for pros)',
             value: false
           }
         ]
@@ -88,21 +88,21 @@ module.exports = yeoman.Base.extend({
       {
         type: 'checkbox',
         name: 'bowerPackages',
-        message: 'Choose all bower packages in addition to angular, ionic, angular-ui-router, cordova and ngCordova:',
+        message: '\nChoose bower packages \nIn addition to angular, ionic, angular-ui-router, cordova and ngCordova.\n',
         choices: bowerConfig.optional
       },
       // select platforms
       {
         type: 'checkbox',
         name: 'platforms',
-        message: 'Select all platforms you want to support:',
+        message: '\nSelect all Cordova platforms to set up now\n',
         choices: cordovaConfig.platforms
       },
       // select plugins
       {
         type: 'checkbox',
         name: 'plugins',
-        message: 'Select all cordova plugins you want to install',
+        message: '\nSelect all Cordova plugins to install now\n',
         choices: cordovaConfig.plugins
       },
     ];
@@ -258,12 +258,12 @@ module.exports = yeoman.Base.extend({
         this.prompt([{
           type: 'checkbox',
           name: 'ecosystems',
-          message: 'integrate into the following ecosystems: (can still be done later)',
+          message: '\nIntegrate into the following ecosystems \nCan als be done later, check out the README for further instructions.\n',
           choices: [{
             name: 'Ionic Platform (beta)',
             value: 'ionic-platform'
           }, {
-            name: 'Appmobi - have your APP_NAME, PROJECT_ID & CONFIG_URL ready',
+            name: 'Appmobi        (have your APP_NAME, PROJECT_ID & CONFIG_URL ready)',
             value: 'appmobi'
           }]
         }], function (answers) { // prompt

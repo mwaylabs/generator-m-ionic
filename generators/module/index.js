@@ -34,7 +34,7 @@ module.exports = yeoman.Base.extend({
       this.prompt({
         type: 'list',
         name: 'template',
-        message: 'Choose a starter template',
+        message: '\nChoose a starter template\n',
         choices: [
           {
             value: 'sidemenu',
