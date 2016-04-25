@@ -265,6 +265,9 @@ module.exports = yeoman.Base.extend({
           }, {
             name: 'Appmobi        (have your APP_NAME, PROJECT_ID & CONFIG_URL ready)',
             value: 'appmobi'
+          }, {
+            name: 'Apiomat (beta)',
+            value: 'apiomat'
           }]
         }], function (answers) { // prompt
           this.answers.ecosystems = answers.ecosystems;

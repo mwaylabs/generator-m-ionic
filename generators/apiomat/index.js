@@ -15,7 +15,7 @@ module.exports = yeoman.Base.extend({
     var prompts = [{
       type: 'input',
       name: 'modelPath',
-      message: 'Enter the path to the model JSON file (relative to project root):\n',
+      message: '\nEnter the file path to the JSON file, containing the model definition \nRelative to project root => e.g. app/main/assets/Contact.json\n',
       validate: function (input) {
         var model; // fill with json from file or object from input
 
@@ -83,7 +83,7 @@ module.exports = yeoman.Base.extend({
     }, {
       type: 'input',
       name: 'moduleName',
-      message: 'Enter the module to generate your files into (leave empty for main):\n'
+      message: '\nEnter the module to generate your files into \nRecommended - leave empty for main.\n'
     }];
     this.prompt(prompts, function (props) {
       this.props = props;

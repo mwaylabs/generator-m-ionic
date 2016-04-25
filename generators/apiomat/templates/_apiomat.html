@@ -2,18 +2,16 @@
   <ion-content class="apiomat">
     <form name="ctrl.form" novalidate>
       <!-- content goes here -->
-      <div class="card">
-        <div class="item item-text-wrap">
-          <%= model.label %>:<br>
-          <%= model.description %>
-        </div>
+      <div class="padding">
+        <h2><%= model.label %></h2>
+        <%= model.description %>
       </div>
       <div class="list padding">
 <% for (var i = 0, item; (item = model.attributes[i]); i++) {-%>
         <!-- <%= item.name %> -->
         <label class="item item-input">
 <%  if (item.type.toLowerCase() === 'string') { -%>
-          <input type="text" name="<%= item.name %>" placeholder="<%= item.label %><% if (item.mandatory) {%>*<%}%>"
+          <input type="text" name="<%= item.name %>" placeholder="<%= item.label %><% if (item.mandatory) {%> *<%}%>"
 <%    if (item.validation && item.validation.min ) { -%>
             ng-minlength="<%= item.validation.min %>"
 <%    } -%>
@@ -48,6 +46,7 @@
 <% } -%>
       </div>
       <div class="padding">
+        <p class="required">* Required</p>
         <button class="button button-outline button-block button-positive"
           ng-disabled="ctrl.form.$invalid"
           ng-click="ctrl.submit()">
