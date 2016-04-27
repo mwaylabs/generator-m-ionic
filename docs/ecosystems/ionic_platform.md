@@ -1,8 +1,8 @@
 # Ionic Platform Integration (beta)
 
-> [Ionic Platform](http://ionic.io/platform) is a cloud platform for managing and scaling cross-platform mobile apps that can be integrated into [Generator-M-Ionic](https://github.com/mwaylabs/generator-m-ionic) using its ionic-platform sub-generator.
+> [Ionic Platform](http://ionic.io/platform) is a cloud platform for managing and scaling cross-platform mobile apps by providing services like Push, User and others that can be integrated into [Generator-M-Ionic](https://github.com/mwaylabs/generator-m-ionic) using its ionic-platform sub-generator.
 
-## Papare
+## Prepare
 
 1. You need **Ionic Platform Account**. If you don't have one [register here](https://apps.ionic.io/signup).
 2. Install the latest version of the [Ionic CLI](http://ionicframework.com/docs/cli/): `npm install -g ionic`
@@ -23,10 +23,10 @@ Running the sub-generator or selecting Ionic Platform as an ecosystem during set
 
 ![image](https://cloud.githubusercontent.com/assets/1370779/14608384/c96a5522-0585-11e6-829c-779b4688747b.png)
 
-- `gulp/ionic.js` - additional gulp file.
-- `app/main/templates/user.html` - example UI
-- `app/main/controllers/user-ctrl.js` - example implementation of [Ionic User service](http://docs.ionic.io/docs/user-overview)
-- `test/karma/main/user-ctrl.spec.js` - generic test file
+- `ionic.js` - additional gulp file.
+- `user.html` - example UI
+- `user-ctrl.js` - example implementation of [Ionic User service](http://docs.ionic.io/docs/user-overview)
+- `user-ctrl.spec.js` - generic test file
 
 As you can see, the example implementation will be generated into your **main module**. If you want to generate the files into a different module, do so by typing:
 
@@ -92,6 +92,8 @@ Add a **new route** to your app that will point to the user controller and templ
       .state('main.user', {
         url: '/user',
         views: {
+          // IMPORTANT: the name of the view for the sidemenu
+          // starter template is 'pageContent' instead of 'tab-user'
           'tab-user': {
             templateUrl: 'main/templates/user.html',
             controller: 'UserCtrl as ctrl'
@@ -103,7 +105,7 @@ Add a **new route** to your app that will point to the user controller and templ
 
 Depending on which **starter template** you chose you'll need to add a navigation item to one of these files:
 
-`app/templates/tabs.html` (if you chose the Tabs starter template)
+`app/main/templates/tabs.html` (if you chose the Tabs starter template)
 
 ```html
   <!-- User Tab -->
@@ -113,18 +115,18 @@ Depending on which **starter template** you chose you'll need to add a navigatio
   </ion-tab>
 ```
 
-`app/templates/menu.html` (if you chose the Sidemenu starter template)
+`app/main/templates/menu.html` (if you chose the Sidemenu starter template)
 
 ```html
 <!-- ... -->
-        <ion-item menu-close ui-sref="side.list">
+        <ion-item menu-close ui-sref="main.list">
           List
         </ion-item>
         <!-- add this item -->
-        <ion-item menu-close ui-sref="side.user">
+        <ion-item menu-close ui-sref="main.user">
           User
         </ion-item>
-        <ion-item menu-close ui-sref="side.debug">
+        <ion-item menu-close ui-sref="main.debug">
           Debug
         </ion-item>
 <!-- ... -->
@@ -154,3 +156,6 @@ ionic upload --note 'some change note'
 
 Your app is now ready to be used with the [Ionic View App](http://view.ionic.io/).
 More about the Ionic Upload service [here](http://docs.ionic.io/docs/io-uploading).
+
+#### More services
+The Ionic Platform provides a variety of additional services to enhance your app, like Push, Deploy and Analytics. Make sure to check out the [documentation](http://docs.ionic.io/) so you can start using them in your app.

@@ -99,6 +99,7 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
 **Ecosystems**
 - [Ionic Platform](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/ecosystems/ionic_platform.md) (beta) - A cloud platform for managing and scaling cross-platform mobile apps
 - [Appmobi](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/ecosystems/appmobi.md) - Secure Mobile Development Platform
+- [ApiOmat](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/ecosystems/apiomat.md) (beta) - Enterprise Backend as a Service
 
 ## Generator Insights
 We've published 3 blog articles on our company blog delivering deep insights into the why and how of the generator:
