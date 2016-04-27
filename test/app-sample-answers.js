@@ -3,7 +3,7 @@
 var assert = require('yeoman-assert');
 var sampleAnswers = require('../generators/app/sources/sample-answers.js');
 
-describe('sample-answers', function () {
+describe('generators/app/sample-answers', function () {
 
   describe('.getStandard(options)', function () {
 

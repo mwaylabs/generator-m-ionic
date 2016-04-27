@@ -6,7 +6,7 @@ var helpers = require('yeoman-test');
 var modelDefinition = require('../generators/apiomat/Contact.json');
 // TODO: test reading from file!
 
-describe('generator-m-ionic:apiomat', function () {
+describe('generators/apiomat', function () {
   before(function (done) {
     helpers.run(path.join(__dirname, '../generators/apiomat'))
       .withPrompts({
@@ -15,7 +15,7 @@ describe('generator-m-ionic:apiomat', function () {
       })
       .on('end', function () {
         done();
-        console.log(process.cwd());
+        // console.log(process.cwd());
       });
   });
 

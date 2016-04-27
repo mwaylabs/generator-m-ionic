@@ -4,8 +4,8 @@ var assert = require('yeoman-assert');
 var utils = require('../utils/utils.js');
 var config = require('../utils/config.js');
 
-describe('utils', function () {
-
+describe('utils/utils', function () {
+  console.log(process.cwd());
   it('.validateAppName()', function () {
     assert.textEqual(utils.validateAppName(''), 'Please enter a name');
     assert(utils.validateAppName('asf'));

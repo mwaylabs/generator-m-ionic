@@ -8,7 +8,7 @@ var pkg = require('../package.json');
 // local modules
 var sampleAnswers = require('../generators/app/sources/sample-answers.js');
 
-describe('m', function () {
+describe('generators/app', function () {
   this.timeout(60000); // allow 1 minute to execute
 
   describe('sampleAnswers (--skip-install)', function () {

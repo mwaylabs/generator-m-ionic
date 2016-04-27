@@ -5,7 +5,7 @@ var assert = require('yeoman-assert');
 var helpers = require('yeoman-test');
 var config = require(path.join(__dirname, '../utils/config.js'));
 
-describe('m-ionic:template', function () {
+describe('generators/template', function () {
 
   describe('some-template', function () {
     before(function (done) {

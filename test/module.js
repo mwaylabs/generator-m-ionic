@@ -6,7 +6,7 @@ var helpers = require('yeoman-test');
 
 var utils = require('../utils/utils.js');
 
-describe('m-ionic:module', function () {
+describe('generators/module', function () {
 
   var basicFilesTests = function (moduleName, options) {
     var moduleFolder = utils.moduleFolder(moduleName);

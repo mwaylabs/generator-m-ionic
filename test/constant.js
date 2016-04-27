@@ -5,8 +5,8 @@ var assert = require('yeoman-assert');
 var helpers = require('yeoman-test');
 var config = require(path.join(__dirname, '../utils/config.js'));
 
-describe('m-ionic:constant', function () {
-  describe('m-ionic:constant some', function () {
+describe('generators/constant', function () {
+  describe('generators/constant some', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/constant'))
         .withArguments('some')
@@ -23,7 +23,7 @@ describe('m-ionic:constant', function () {
     });
   });
 
-  describe('m-ionic:constant someThing myModule', function () {
+  describe('generators/constant someThing myModule', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/constant'))
         .withArguments('someThing myModule')
@@ -40,7 +40,7 @@ describe('m-ionic:constant', function () {
     });
   });
 
-  describe('m-ionic:constant myConstant --template=config', function () {
+  describe('generators/constant myConstant --template=config', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/constant'))
         .withArguments('myConstant')
