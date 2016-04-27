@@ -3,7 +3,7 @@
 module.exports = {
   bowerJSON: {
     dependencies: {
-      'ionic': '~1.2.0',
+      'ionic': '~1.3.0',
       'angular': '~1.5.0',
       'angular-animate': '~1.5.0',
       'angular-sanitize': '~1.5.0',

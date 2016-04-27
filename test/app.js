@@ -96,7 +96,7 @@ describe('generators/app', function () {
     it('has proper bower.json content', function () {
       assert.fileContent([
         // dependencies, test only one as example
-        ['bower.json', 'ionic": "~1.2.0"'],
+        ['bower.json', 'ionic": "~1.3.0"'],
         // devDependencies, test only on as example
         ['bower.json', 'angular-mocks": "~1.5.0"'],
         // resolutions, test only one as example
