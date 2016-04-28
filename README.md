@@ -77,6 +77,7 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
 **Generation**
 - Using Ionic's [CSS or SASS](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/ionic_css_or_sass.md)?
 - [Sub-generators](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sub_generators.md) for adding new components.
+- [Generator Update](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/generator_update.md) (experimental) can help you update to a new generator version.
 
 **App Development**
 - [Developing on Windows](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/windows.md), what you need to know.
