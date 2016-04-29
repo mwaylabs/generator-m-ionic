@@ -16,6 +16,11 @@ Additional considerations that play a role on how easy an update is:
 - Did you change any of the **generator's core files** after project setup or just add new stuff?
   - gulp tasks, config files like `.eslintrc` and the `index.html` would be core files for instance. Basically everything that is generated on the first run of `yo m-ionic`
 
+## Additional/alternative measures
+- Consulting the [Changelog](https://github.com/mwaylabs/generator-m-ionic/releases) and the changes between the two version in the [generator repository](https://github.com/mwaylabs/generator-m-ionic-demo/compare/1.6.0...1.7.0) and especially the [demo repository](https://github.com/mwaylabs/generator-m-ionic/compare/1.6.0...1.7.0) **can be enormously helpful**.
+- You might want to simply create a new project with `yo m-ionic` and piece by piece copy your stuff
+
+
 ## Current implementation
 
 #### Versions <1.8.0
@@ -49,6 +54,9 @@ Before you perform the next step.
 - manipulate any other files, and magically make your code work
 - re-run any sub-generators you used
 
+There's still some things that could go wrong:
+- your `.yo-rc.json` is missing some answers (because they weren't available when you set up the project). To remedy this, just add the desired values for those answers.
+
 **If you are lucky** and additionally:
 - the version you're updating form is not too old
 - you didn't drastically change any of the generator's core files
@@ -67,4 +75,4 @@ gulp experimental-update --to=1.8.0
 git diff
 ```
 
-Good luck! Please **give some feedback** in [this issue](https://github.com/mwaylabs/generator-m-ionic/issues/158) if you like!
+Good luck and please **give some feedback** in [this issue](https://github.com/mwaylabs/generator-m-ionic/issues/158)!
