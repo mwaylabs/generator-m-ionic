@@ -12,17 +12,6 @@ var chalk = require('chalk');
 var answers = require('../.yo-rc.json')['generator-m-ionic'].answers;
 
 var help = {
-  projectDir: (function () {
-    var projectDir = process.cwd().split('/');
-    projectDir = projectDir[projectDir.length - 1];
-
-    return projectDir;
-  })(),
-
-  projectDirVersion: function (version) {
-    return this.projectDir + '@' + version;
-  },
-
   getDirectoryDirs: function (dirPath) {
     return fs.readdirSync(dirPath)
     .filter(function (file) {
@@ -36,11 +25,11 @@ var help = {
   updateWithYo: function (version, cb) {
     this.install(version, function () {
       // execute generator
-      var generatorBase = '../' + this.projectDir + '/node_modules/generator-m-ionic';
-      var generatorGenerators = generatorBase + '/generators';
-      console.log(chalk.green('running: ') + require('../' + generatorBase + '/package.json').version);
+      var generatorBase = path.resolve('node_modules/generator-m-ionic');
+      var generatorGenerators = path.join(generatorBase, 'generators');
+      console.log(chalk.green('running: ') + require(path.join(generatorBase, '/package.json')).version);
 
-      var ctx = yeomanTest.run(path.resolve(generatorGenerators + '/app'));
+      var ctx = yeomanTest.run(path.join(generatorGenerators, '/app'));
       ctx.settings.tmpdir = false; // don't run in tempdir
       ctx
       .withGenerators(this.getDirectoryDirs(generatorGenerators))
@@ -58,7 +47,6 @@ var help = {
   },
 
   uninstall: function (version, cb) {
-    process.chdir('../' + this.projectDir);
     console.log(chalk.green('uninstalling: ') + version + ' ' + process.cwd());
     exec('npm uninstall generator-m-ionic', function (error) {
       if (error) {
