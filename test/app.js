@@ -8,7 +8,7 @@ var pkg = require('../package.json');
 // local modules
 var sampleAnswers = require('../generators/app/sources/sample-answers.js');
 
-describe('m', function () {
+describe('generators/app', function () {
   this.timeout(60000); // allow 1 minute to execute
 
   describe('sampleAnswers (--skip-install)', function () {
@@ -96,15 +96,15 @@ describe('m', function () {
     it('has proper bower.json content', function () {
       assert.fileContent([
         // dependencies, test only one as example
-        ['bower.json', 'ionic": "~1.2.0"'],
+        ['bower.json', 'ionic": "~1.3.0"'],
         // devDependencies, test only on as example
         ['bower.json', 'angular-mocks": "~1.5.0"'],
         // resolutions, test only one as example
         ['bower.json', 'angular": "~1.5.0"'],
         // optional, test all for correctness
         ['bower.json', '"angular-dynamic-locale": "~0.1.27"'],
-        ['bower.json', '"angular-translate": "~2.10.0"'],
-        ['bower.json', '"angular-translate-loader-static-files": "~2.10.0"'],
+        ['bower.json', '"angular-translate": "~2.11.0"'],
+        ['bower.json', '"angular-translate-loader-static-files": "~2.11.0"'],
         ['bower.json', '"localforage": "~1.4.0"']
       ]);
     });
@@ -224,6 +224,32 @@ describe('m', function () {
     });
   });
 
+  describe('ionic-platform', function () {
+    var answers = sampleAnswers.getStandard({ 'ionic-platform': true });
+
+    before(function (done) {
+      helpers.run(path.join(__dirname, '../generators/app'))
+        .withGenerators([ // configure path to subgenerators
+          path.join(__dirname, '../generators/appmobi'),
+          path.join(__dirname, '../generators/module'),
+          path.join(__dirname, '../generators/constant'),
+          path.join(__dirname, '../generators/controller'),
+          path.join(__dirname, '../generators/template'),
+          path.join(__dirname, '../generators/service'),
+          path.join(__dirname, '../generators/ionic-platform')
+        ])
+        .withOptions({ 'skip-install': true, 'skip-sdk': true }) // execute with options
+        .withPrompts(answers)  // answer prompts
+        .on('end', done);
+    });
+
+    it('creates ionic-platform files', function () {
+      // one per example
+      assert.file('gulp/ionic.js');
+      assert.file('app/main/templates/user.html');
+    });
+  });
+
   describe('--app-name=tradecore', function () {
     var answers = sampleAnswers.getForAppNameOption();
 
@@ -324,5 +350,31 @@ describe('m', function () {
     });
 
     yoRcHasAnswers(answers);
+  });
+
+  describe('--skip-prompts --ionic-platform', function () {
+    var answers = sampleAnswers.getStandard({'ionic-platform': true});
+
+    before(function (done) {
+      helpers.run(path.join(__dirname, '../generators/app'))
+        .withOptions({ 'skip-install': true, 'skip-sdk': true, 'skip-prompts': true, 'ionic-platform': true}) // execute with options
+        .withGenerators([ // configure path to  subgenerators
+          path.join(__dirname, '../generators/module'),
+          path.join(__dirname, '../generators/constant'),
+          path.join(__dirname, '../generators/controller'),
+          path.join(__dirname, '../generators/template'),
+          path.join(__dirname, '../generators/service'),
+          path.join(__dirname, '../generators/ionic-platform')
+        ])
+        .withPrompts(answers)  // answer prompts
+        .on('end', done);
+    });
+    yoRcHasAnswers(answers);
+
+    it('creates ionic-platform files', function () {
+      // one per example
+      assert.file('gulp/ionic.js');
+      assert.file('app/main/templates/user.html');
+    });
   });
 });

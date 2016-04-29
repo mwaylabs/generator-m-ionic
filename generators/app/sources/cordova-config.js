@@ -1,7 +1,5 @@
 'use strict';
 
-var inquirer = require('inquirer');
-
 module.exports = {
   platforms: [
     {
@@ -16,7 +14,10 @@ module.exports = {
     }
   ],
   plugins: [
-    new inquirer.Separator('-------'),
+    {
+      type: 'separator',
+      line: '------'
+    },
     {
       value: 'cordova-plugin-device',
       name: 'Device - cordova-plugin-device',

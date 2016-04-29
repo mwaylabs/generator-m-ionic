@@ -4,8 +4,8 @@ var assert = require('yeoman-assert');
 var utils = require('../utils/utils.js');
 var config = require('../utils/config.js');
 
-describe('utils', function () {
-
+describe('utils/utils', function () {
+  console.log(process.cwd());
   it('.validateAppName()', function () {
     assert.textEqual(utils.validateAppName(''), 'Please enter a name');
     assert(utils.validateAppName('asf'));
@@ -34,6 +34,11 @@ describe('utils', function () {
   it('.moduleFolder()', function () {
     assert.textEqual(utils.moduleFolder('thisIsMyApp'), 'this-is-my-app');
     assert.textEqual(utils.moduleFolder('another2App24'), 'another2-app24');
+  });
+
+  it('.appBowerName()', function () {
+    assert.textEqual(utils.appBowerName(' Some Name'), 'some-name');
+    assert.textEqual(utils.appBowerName('Yo9 There'), 'yo9-there');
   });
 
   it('.configName()', function () {

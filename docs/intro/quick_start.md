@@ -1,10 +1,10 @@
 # Quick Start
-If you are experienced with the technologies in this generator this summary might be all you need. Every topic has a more elaborate introduction in other parts of the documentation. Check out the [README.md](../../README.md).
+If you are experienced with the technologies in this generator, this summary might be all you need. Every topic has a more elaborate introduction in other parts of the documentation. Check out the [README.md](../../README.md).
 
 ## Setup  
 
 #### Installation
-If your system is not configured to run with node and the Cordova platforms you desire, do so using the [Installation and Prerequisites](https://github.com/mwaylabs/generator-m-ionic/blob/master/docs/start/installation_prerequisites.md) guide. Then simply run:
+If your system is not yet configured to run node and the Cordova platforms you desire, you can get everything up and running using the [Installation and Prerequisites](https://github.com/mwaylabs/generator-m-ionic/blob/master/docs/start/installation_prerequisites.md) guide. Once you've done that simply run:
 ```sh
 # prerequisites
 npm i -g yo gulp bower
@@ -27,7 +27,7 @@ gulp watch
 # add --no-open to avoid browser opening
 gulp watch --no-build
 ```
-#### Run on the device/emulators, build
+#### Build, run on the device/emulators
 
 ```sh
 # both implicitly run gulp build which builds the Ionic app into www/
@@ -37,6 +37,11 @@ gulp --cordova 'emulate ios'
 gulp --cordova 'run ios --device' --no-build
 # build Options
 gulp --cordova 'run ios --device' --minify --force-build
+# Use specific target (e.g. iPhone-6)
+gulp --cordova 'emulate ios --target=iPhone-6'
+# to list available targets on your machine, run:
+`./platforms/ios/cordova/lib/list-emulator-images`
+# these will need to be installed in Xcode before ready to use
 ```
 
 #### Handle Cordova platforms/plugins

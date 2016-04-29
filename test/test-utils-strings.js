@@ -3,7 +3,7 @@
 var assert = require('yeoman-assert');
 var strings = require('../utils/strings.js');
 
-describe('strings', function () {
+describe('utils/strings', function () {
 
   it('.decapitalize()', function () {
     assert.textEqual(strings.decapitalize('Asdf'), 'asdf');

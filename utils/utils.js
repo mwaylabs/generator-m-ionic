@@ -53,6 +53,17 @@ module.exports = {
   },
 
   /**
+   * transforms user input from text to snake-case
+   * @param  {String} userInput free text
+   * @return {String}           snake-case string
+   */
+  appBowerName: function (userInput) {
+    var string = strings.textToCamel(userInput);
+    string = strings.camelToSnake(string);
+    return string;
+  },
+
+  /**
    * yields a configName based on the name of the module
    * @param  {String} moduleName the name of the module to create the config iin
    * @return {String}            the name of the config

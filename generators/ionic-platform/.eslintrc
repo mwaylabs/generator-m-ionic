@@ -1,0 +1,13 @@
+{
+  "extends": "../../.eslintrc",
+  "env": {
+    "mocha": true,
+    "jasmine": true,
+  },
+  "globals": {
+    "angular": true,
+    "Ionic": true,
+    "inject": true,
+    "module": true
+  }
+}

@@ -1,0 +1,63 @@
+<ion-view view-title="Apiomat">
+  <ion-content class="apiomat">
+    <form name="ctrl.form" novalidate>
+      <!-- content goes here -->
+      <div class="padding">
+        <h2><%= model.label %></h2>
+        <%= model.description %>
+      </div>
+      <div class="list padding">
+<% for (var i = 0, item; (item = model.attributes[i]); i++) {-%>
+        <!-- <%= item.name %> -->
+        <label class="item item-input">
+<%  if (item.type.toLowerCase() === 'string') { -%>
+          <input type="text" name="<%= item.name %>" placeholder="<%= item.label %><% if (item.mandatory) {%> *<%}%>"
+<%    if (item.validation && item.validation.min ) { -%>
+            ng-minlength="<%= item.validation.min %>"
+<%    } -%>
+<%    if (item.validation && item.validation.max ) { -%>
+            ng-maxlength="<%= item.validation.max %>"
+<%    } -%>
+<%  } -%>
+<%  if (item.type.toLowerCase() === 'number') { -%>
+          <input type="number" name="<%= item.name %>" placeholder="<%= item.label %><% if (item.mandatory) {%>*<%}%>"
+<%    if (item.validation && item.validation.min ) { -%>
+            min="<%= item.validation.min %>"
+<%    } -%>
+<%    if (item.validation && item.validation.max ) { -%>
+            max="<%= item.validation.max %>"
+<%    } -%>
+<%  } -%>
+<%  if (item.mandatory) { -%>
+            required
+<%  } -%>
+<%  if (item.validation && item.validation.regEx ) { -%>
+            pattern="<%= item.validation.regEx %>"
+<%  } -%>
+            ng-model-options="{ updateOn: 'blur' }"
+            ng-model="ctrl.userInput.<%= item.name %>">
+        </label>
+<%  if (item.validation && item.validation.text ) { -%>
+        <div class="item assertive error-text"
+          ng-if="ctrl.form.<%= item.name %>.$invalid && ctrl.form.<%= item.name %>.$dirty">
+          <%= item.validation.text %>
+        </div>
+<%  } -%>
+<% } -%>
+      </div>
+      <div class="padding">
+        <p class="required">* Required</p>
+        <button class="button button-outline button-block button-positive"
+          ng-disabled="ctrl.form.$invalid"
+          ng-click="ctrl.submit()">
+          <span ng-if="!ctrl.state.submitting">Submit</span>
+          <ion-spinner ng-if="ctrl.state.submitting" icon="android"></ion-spinner>
+        </button>
+        <!-- <button class="button button-outline button-block button-positive"
+          ng-click="ctrl.debugForm()">
+          Debug
+        </button> -->
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

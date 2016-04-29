@@ -1,5 +1,5 @@
-# Appmobi
-> [Appmobi](https://appmobi.com/) is a Mobile Security as a Service (MSaaS) solution which can be integrated into the generator using the [Appmobi Cordova Plugin](https://github.com/appMobiGithub/cordova-plugin-appmobi).
+# Appmobi Integration
+> [Appmobi](https://appmobi.com/) is a Mobile Security as a Service (MSaaS) solution which can be integrated into [Generator-M-Ionic](https://github.com/mwaylabs/generator-m-ionic) using the [Appmobi Cordova Plugin](https://github.com/appMobiGithub/cordova-plugin-appmobi).
 
 ## Prepare
 
@@ -11,21 +11,25 @@
   - `CONFIG_URL: https://cloud.appmobi.com`
 
 ## Integrate
-When you run `yo m-ionic` you'll be asked if you want to integrate appmobi into your app. Simply select it and you'll be guided through the process.
+When you run `yo m-ionic` you'll be asked if you want to integrate appmobi into your app.
 
 ![image](https://cloud.githubusercontent.com/assets/1370779/13854363/604d502c-ec6b-11e5-9aab-90ee1986726d.png)
 
-Additionally you can run the Appmobi sub-generator at any time in your project:
+Simply select it and you'll be guided through the process.
+
+![image](https://cloud.githubusercontent.com/assets/1370779/13854272/ef6b8194-ec6a-11e5-8587-60c0dc07060a.png)
+
+
+Alternatively you can run the Appmobi sub-generator at any time in your project:
 ```
 yo m-ionic:appmobi
 ```
-![image](https://cloud.githubusercontent.com/assets/1370779/13854272/ef6b8194-ec6a-11e5-8587-60c0dc07060a.png)
 
-And **that's it!**
+And **that's it!** The [Appmobi Cordova Plugin](https://github.com/appMobiGithub/cordova-plugin-appmobi) is now ready to use. Learn how to use the plugin's API over at its [repository](https://github.com/appMobiGithub/cordova-plugin-appmobi) or check out the [Appmobi Quickstart Guides](https://support.appmobi.com/support/solutions).
 
 ---
 
-Integration is done using the [Appmobi Cordova Plugin](https://github.com/appMobiGithub/cordova-plugin-appmobi) and is the equivalent of running:
+When you integrate Appmobi during project generation or using the sub-generator [generator-appmobi](https://github.com/mwaylabs/generator-appmobi) is called to setup the plugin and performs steps equivalent to running:
 ```sh
 gulp --cordova 'plugin add https://github.com/appMobiGithub/cordova-plugin-appmobi.git
 --save
