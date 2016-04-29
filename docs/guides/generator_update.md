@@ -17,13 +17,11 @@ Additional considerations that play a role on how easy an update is:
   - gulp tasks, config files like `.eslintrc` and the `index.html` would be core files for instance. Basically everything that is generated on the first run of `yo m-ionic`
 
 ## Additional/alternative measures
-- Consulting the [Changelog](https://github.com/mwaylabs/generator-m-ionic/releases) and the changes between the two version in the [generator repository](https://github.com/mwaylabs/generator-m-ionic-demo/compare/1.6.0...1.7.0) and especially the [demo repository](https://github.com/mwaylabs/generator-m-ionic/compare/1.6.0...1.7.0) **can be enormously helpful**.
+- Consulting the [Changelog](https://github.com/mwaylabs/generator-m-ionic/releases) and the changes between the two version in the [generator repository](https://github.com/mwaylabs/generator-m-ionic/compare/1.6.0...1.7.0) and especially the [demo repository](https://github.com/mwaylabs/generator-m-ionic-demo/compare/1.6.0...1.7.0) **can be enormously helpful**.
 - You might want to simply create a new project with `yo m-ionic` and piece by piece copy your stuff
 
 
-## Current implementation
-
-#### Versions <1.8.0
+## Versions <1.8.0
 If you're upgrading from an version of the generator that is smaller than 1.8.0. You'll need to do two things:
 ```sh
 # install yeoman-test as a devDependency (in your project folder)
@@ -31,7 +29,7 @@ npm i yeoman-test --save-dev
 ```
 And save the following [gulp file](https://github.com/mwaylabs/generator-m-ionic/blob/dev/generators/app/templates/gulp/update.js) as `gulp/update.js` in your project.
 
-#### Perform experimental update
+## Perform experimental update
 First of all we recommend switching to a new git branch (just to be sure).
 ```sh
 git checkout -b update
