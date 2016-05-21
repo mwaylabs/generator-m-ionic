@@ -31,14 +31,14 @@ gulp watch --no-build
 
 ```sh
 # both implicitly run gulp build which builds the Ionic app into www/
-gulp --cordova 'run ios --device'
-gulp --cordova 'emulate ios'
+gulp --cordova "run ios --device"
+gulp --cordova "emulate ios"
 # run the version currently in the www/ folder, without a new build
-gulp --cordova 'run ios --device' --no-build
+gulp --cordova "run ios --device" --no-build
 # build Options
-gulp --cordova 'run ios --device' --minify --force-build
+gulp --cordova "run ios --device" --minify --force-build
 # Use specific target (e.g. iPhone-6)
-gulp --cordova 'emulate ios --target=iPhone-6'
+gulp --cordova "emulate ios --target=iPhone-6"
 # to list available targets on your machine, run:
 `./platforms/ios/cordova/lib/list-emulator-images`
 # these will need to be installed in Xcode before ready to use
