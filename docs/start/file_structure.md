@@ -27,7 +27,7 @@
 ├──  .bowerrc           - bower configuration
 ├──  .editorconfig      - editor configuration
 ├──  .eslintignore      - ESLint ignore configuration
-├──  .eslintrc          - ESLint configuration
+├──  .eslintrc          - ESLint base configuration
 ├──  .gitattributes     - git's attribute configuration
 ├──  .gitignore         - git's ignore configuration
 ├──  .travis.yml        - travis continuous integration configuration
