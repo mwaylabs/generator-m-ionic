@@ -8,8 +8,6 @@ var sampleAnswers = require('../app/sources/sample-answers.js');
 module.exports = yeoman.Base.extend({
 
   initializing: function () {
-    this.log('You called the m-ionic:module subgenerator.');
-
     // arguments
     this.argument('name', {
       required: true,

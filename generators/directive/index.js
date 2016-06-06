@@ -5,8 +5,6 @@ var utils = require('../../utils/utils.js');
 module.exports = yeoman.Base.extend({
 
   initializing: function () {
-    this.log('You called the m-ionic:constant subgenerator.');
-
     // arguments
     this.argument('name', {
       required: true,
@@ -17,8 +15,6 @@ module.exports = yeoman.Base.extend({
 
     this.moduleName =  utils.checkModule(this.module);
     this.moduleFolder = utils.moduleFolder(this.moduleName);
-
-    this.log('You called the m-ionic:directive subgenerator.');
 
     this.directiveName = this.name;
     this.directiveTagName = utils.directiveTagName(this.directiveName);
