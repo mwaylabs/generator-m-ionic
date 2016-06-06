@@ -50,7 +50,7 @@ cordova plugin add org.apache.cordova.camera
 gulp --cordova 'plugin add org.apache.cordova.camera --save'
 ```
 
-Find more plugins on the [Cordova Website](https://cordova.apache.org/plugins/) or on [ngCordova](http://ngcordova.com/docs/plugins/) and find a full list of supported platforms [here](https://cordova.apache.org/docs/en/latest/guide/platforms/index.html).
+Find more plugins on the [Cordova Website](https://cordova.apache.org/plugins/) or on [ngCordova](http://ngcordova.com/docs/plugins/) and find a full list of supported platforms in the [Cordova Documentation](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html).
 
 #### Cordova build, run, emulate, ... under the hood
 
@@ -86,7 +86,7 @@ gulp --cordova 'emulate ios'
 gulp --cordova 'emulate android'
 ```
 
-Both commands require your system to be setup correctly for the given platform as described in the Cordova [Platform Guides](http://cordova.apache.org/docs/en/latest/guide/platforms/index.html).
+Both commands require your system to be setup correctly for the given platform as described in the Cordova [Platform Guides](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html).
 
 To emulate a specific device and iOS version (iOS version needs to be installed via Xcode) run:
 ```sh
