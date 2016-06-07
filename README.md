@@ -74,12 +74,12 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
 
 ## Guides
 
-**Generation**
+#### Generation
 - [Ionic style source](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/ionic_style_source.md), change it from CSS to Sass or vice versa.
 - [Sub-generators](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sub_generators.md) for adding new components.
 - [Generator Update](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/generator_update.md) (experimental) can help you update to a new generator version.
 
-**App Development**
+#### App Development
 - [Developing on Windows](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/windows.md), what you need to know.
 - [Git integration](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/git_integration.md), see how it's done.
 - [Sass integration](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sass_integration.md) in our module concept.
@@ -87,17 +87,17 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
 - [CORS & Proxying](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/cors_proxy.md), how to cope with CORS issues.
 - [Gulp defaults](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/gulp_defaults.md), spare power users some tedious typing on the command line.
 
-**Quality**
+#### Quality
 - [ESLint](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/eslint.md) code style checks and setting up your IDE/Editor.
 - [Testing](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/testing.md) with our testing workflows.
 
-**Continuous Integration and Delivery**
+#### Continuous Integration and Delivery
 - [App Icons and splash screens](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/icons_splash_screens.md), a simple setup or different sets for different builds - all is possible.
 - [Use Environments](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/environments.md) manage different API Endpoints and much more with just a single parameter.
 - [Build Vars](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/build_vars.md), inject vars into your app at build time.
 - [Programmatically change the `config.xml`](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/programmatically_change_configxml.md), an essential part for a successful continuous integration setup. Add environments and build vars for a full blown continuous integration use case!
 
-**Ecosystems**
+#### Ecosystems
 - [Ionic Platform](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/ecosystems/ionic_platform.md) (beta) - A cloud platform for managing and scaling cross-platform mobile apps
 - [Appmobi](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/ecosystems/appmobi.md) - Secure Mobile Development Platform
 - [ApiOmat](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/ecosystems/apiomat.md) (beta) - Enterprise Backend as a Service
