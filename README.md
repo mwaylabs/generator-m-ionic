@@ -75,14 +75,14 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
 ## Guides
 
 **Generation**
-- Using Ionic's [CSS or SASS](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/ionic_css_or_sass.md)?
+- [Ionic style source](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/ionic_style_source.md), change it from CSS to Sass or vice versa.
 - [Sub-generators](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sub_generators.md) for adding new components.
 - [Generator Update](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/generator_update.md) (experimental) can help you update to a new generator version.
 
 **App Development**
 - [Developing on Windows](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/windows.md), what you need to know.
 - [Git integration](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/git_integration.md), see how it's done.
-- [SASS integration](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sass_integration.md) in our module concept.
+- [Sass integration](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sass_integration.md) in our module concept.
 - [Bower Component Usage](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/bower_component_usage.md) in our module concept.
 - [CORS & Proxying](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/cors_proxy.md), how to cope with CORS issues.
 - [Gulp defaults](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/gulp_defaults.md), spare power users some tedious typing on the command line.

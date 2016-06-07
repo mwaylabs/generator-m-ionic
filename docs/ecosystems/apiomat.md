@@ -102,7 +102,7 @@ Depending on which **starter template** you chose you'll need to add a navigatio
 <!-- ... -->
 ```
 
-And last but not least, make the UI look nice and well-balanced with these few lines of SASS:
+And last but not least, make the UI look nice and well-balanced with these few lines of Sass:
 
 `app/main/styles/main.scss`
 

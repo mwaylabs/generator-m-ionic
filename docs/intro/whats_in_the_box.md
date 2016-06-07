@@ -47,7 +47,7 @@ and provide the following **technology stack**:
 - **Ionic** for mobile UIs - http://ionicframework.com/
 - **Cordova** and it's **CLI** for accessing phone APIs and building the app - http://cordova.apache.org/
   - **ngCordova** connecting Angular with Cordova http://ngcordova.com/
-- **SASS** as the CSS preprocessor of choice - http://sass-lang.com/
+- **Sass** as the CSS preprocessor of choice - http://sass-lang.com/
 
 
 an integrated **testing workflow** with:

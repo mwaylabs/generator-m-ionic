@@ -65,21 +65,21 @@ module.exports = yeoman.Base.extend({
       {
         type: 'input',
         name: 'appId',
-        message: '\nEnter a bundle identifier for your project \ne.g. com.company.project\n',
+        message: '\nEnter an app identifier for your project \ne.g. com.company.project\n',
         validate: utils.validateAppId
       },
       // ionic css
       {
         type: 'list',
         name: 'ionicCss',
-        message: '\nChoose Ionic CSS or SASS\n',
+        message: '\nInclude Ionic styles as CSS or Sass\n',
         choices: [
           {
             name: 'Ionic CSS (faster, for starters)',
             value: true
           },
           {
-            name: 'Ionic SASS (more flexible, for pros)',
+            name: 'Ionic Sass (more flexible, for pros)',
             value: false
           }
         ]
