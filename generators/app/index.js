@@ -88,21 +88,21 @@ module.exports = yeoman.Base.extend({
       {
         type: 'checkbox',
         name: 'bowerPackages',
-        message: '\nChoose bower packages \nIn addition to angular, ionic, angular-ui-router, cordova and ngCordova.\n',
+        message: '\nChoose additional bower packages \nBesides angular, ionic, angular-ui-router and ngCordova.\n',
         choices: bowerConfig.optional
       },
       // select platforms
       {
         type: 'checkbox',
         name: 'platforms',
-        message: '\nSelect all Cordova platforms to set up now\n',
+        message: '\nSelect Cordova platforms \nOnly works if you have the platforms correctly set up.\n',
         choices: cordovaConfig.platforms
       },
       // select plugins
       {
         type: 'checkbox',
         name: 'plugins',
-        message: '\nSelect all Cordova plugins to install now\n',
+        message: '\nSelect Cordova plugins \nInstall more later at any time.\n',
         choices: cordovaConfig.plugins
       },
     ];
