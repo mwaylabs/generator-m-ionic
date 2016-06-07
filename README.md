@@ -69,6 +69,7 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
 
 ## Get started
 - [Installation and Prerequisites](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/installation_prerequisites.md)
+- [Questions](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/questions.md) the generator will ask and what they mean
 - [Development Introduction](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/development_intro.md)
 - [File structure](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/file_structure.md)
 

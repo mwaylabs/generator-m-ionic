@@ -72,3 +72,13 @@ Just as with the platforms you can add plugins later at any time using the [Cord
 gulp --cordova 'plugin add org.apache.cordova.camera --save'
 ```
 Find all available plugins on the [Cordova plugins page](https://cordova.apache.org/plugins/).
+
+## Starter template?
+![image](https://cloud.githubusercontent.com/assets/1370779/15855054/a47c9050-2cad-11e6-88e3-04d96add5e0a.png)
+
+This choice decides whether your app will be generated with an [Ionic side menu](http://ionicframework.com/docs/api/directive/ionSideMenus/) or [Ionic tab navigation](http://ionicframework.com/docs/api/directive/ionTabs/). Alternatively you may choose to generate a blank module, if you want to build everything from the ground up.
+
+## Ecosystems?
+![image](https://cloud.githubusercontent.com/assets/1370779/15855148/33988dca-2cae-11e6-8e19-f3b57c6ea797.png)
+
+Generator-M-Ionic provides integration into different ecosystems. For more information refer to the `Ecosystems` section of our [Guides](../../README.md#ecosystems). If you don't know what these are, just leave them empty for now.
