@@ -4,7 +4,7 @@ If you are experienced with the technologies in this generator, this summary mig
 ## Setup  
 
 #### Installation
-If your system is not yet configured to run node and the Cordova platforms you desire, you can get everything up and running using the [Installation and Prerequisites](https://github.com/mwaylabs/generator-m-ionic/blob/master/docs/start/installation_prerequisites.md) guide. Once you've done that simply run:
+If your system is not yet configured to run node and the Cordova platforms you desire, you can get everything up and running using the [Installation and Prerequisites](https://github.com/mwaylabs/generator-m-ionic/blob/master/docs/guides/installation_prerequisites.md) guide. Once you've done that simply run:
 ```sh
 # prerequisites
 npm i -g yo gulp bower
@@ -13,7 +13,7 @@ npm i -g generator-m-ionic
 ```
 
 ## Development
-A more detailed and advanced introduction to development with Generator-M-Ionic is provided in the [Development Introduction](https://github.com/mwaylabs/generator-m-ionic/blob/master/docs/start/development_intro.md) guide and [File structure](https://github.com/mwaylabs/generator-m-ionic/blob/master/docs/start/file_structure.md) documentation. The most basic scenario is described here:
+A more detailed and advanced introduction to development with Generator-M-Ionic is provided in the [Development Introduction](https://github.com/mwaylabs/generator-m-ionic/blob/master/docs/guides/development_intro.md) guide and [File structure](https://github.com/mwaylabs/generator-m-ionic/blob/master/docs/guides/file_structure.md) documentation. The most basic scenario is described here:
 #### Generate your project
 
 ```sh

@@ -67,33 +67,35 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
 - [Quick Start](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/quick_start.md) for the experienced developer.
 - [Try the demo](https://github.com/mwaylabs/generator-m-ionic-demo). Get a quick impression by cloning the sample project generated with the latest version of Generator-M-Ionic.
 
-## Get started
-- [Installation and Prerequisites](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/installation_prerequisites.md)
-- [Questions](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/questions.md) the generator will ask and what they mean
-- [Development Introduction](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/development_intro.md)
-- [File structure](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/file_structure.md)
 
 ## Guides
 
-#### Generation
-- [Ionic style source](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/ionic_style_source.md), change it from CSS to Sass or vice versa.
-- [Sub-generators](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sub_generators.md) for adding new components.
-- [Generator Update](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/generator_update.md) (experimental) can help you update to a new generator version.
+#### Setup
+- [Installation and Prerequisites](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/installation_prerequisites.md)
+- [Questions](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/questions.md) the generator will ask and what they mean
 
-#### App Development
+#### Basics
+- [Development Introduction](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/development_intro.md)
+- [File structure](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/file_structure.md)
+- [Sub-generators](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sub_generators.md) for adding new components.
 - [Git integration](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/git_integration.md), see how it's done.
 - [Sass integration](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/sass_integration.md) in our module concept.
 - [Bower component usage](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/bower_component_usage.md) in our module concept.
-- [CORS & Proxying](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/cors_proxy.md), how to cope with CORS issues.
-- [Gulp defaults](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/gulp_defaults.md), spare power users some tedious typing on the command line.
+- [Ionic style source](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/ionic_style_source.md), change it from CSS to Sass or vice versa.
 
 #### Quality
 - [ESLint](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/eslint.md) code style checks and setting up your IDE/Editor.
 - [Testing](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/testing.md) with our testing workflows.
 
-#### Continuous Integration and Delivery
+#### Advanced
+- [CORS & Proxying](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/cors_proxy.md), how to cope with CORS issues.
 - [App Icons and splash screens](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/icons_splash_screens.md), a simple setup or different sets for different builds - all is possible.
 - [Use Environments](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/environments.md) manage different API Endpoints and much more with just a single parameter.
+- [Gulp defaults](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/gulp_defaults.md), spare yourself some tedious typing on the command line.
+- [Generator Update](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/generator_update.md) (experimental) can help you update to a new generator version.
+
+
+#### Building & Continuous Integration
 - [Build Vars](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/build_vars.md), inject vars into your app at build time.
 - [Programmatically change the `config.xml`](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/programmatically_change_configxml.md), an essential part for a successful continuous integration setup. Add environments and build vars for a full blown continuous integration use case!
 
