@@ -20,7 +20,7 @@ Development:
 
 ## Why you need it
 <p align="center">
-  <img height="400" src="docs/resources/logo.svg">
+  <img width="175" src="https://github.com/mwaylabs/generator-m-ionic/tree/dev/docs/resources/logo.png">
 </p>
 
 > **Advanced workflows for rock-solid Ionic apps**: develop, prototype, build, test and deliver high quality apps with Yeoman, Gulp, Bower, Angular, Cordova and of course Ionic. All in one sexy generator.
@@ -29,7 +29,7 @@ Development:
 
 ### What's in the box
 
-<p style="text-align:center; padding: 30px 0 30px 0">
+<p align="center" style="text-align:center; padding: 30px 0 30px 0">
   <a href="http://yeoman.io/" target="_blank" alt="yeoman" title="yeoman">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/6041228/c1f91cac-ac7a-11e4-9c85-1a5298e29067.png">
   </a>
