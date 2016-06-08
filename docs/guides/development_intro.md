@@ -20,12 +20,18 @@
 ```sh
 gulp watch
 ```
-Prepares everything for development and opens your default browser. Livereloads your application when changing/adding/deleting files to immediately reflect the changes you make. For your convenience any occurring **ESLint or jsonlint errors** will be presented to you on every livereload.
+Prepares everything for development and opens your default browser:
+
+When you run `gulp watch` it does this to your `index.html`:
+- inject all bower javascript and css files (Angular, Ionic, ...)
+- inject all of your app files (compiled css, angular files, ...)
+
+`gulp watch` also livereloads your application when changing/adding/deleting files to immediately show the changes you make in your browser. For your convenience any occurring **ESLint or jsonlint errors** will be presented to you on every livereload.
 
 ```sh
 gulp watch --no-open
 ```
-If you don't want this task to open your browser, just add the `--no-open` option and navigate to `http://localhost:9000` yourself.
+If you don't want this task to open your browser every time, just add the `--no-open` option and navigate to `http://localhost:9000` yourself.
 
 ## Using the Cordova CLI
 The Cordova CLI gets installed locally with the generation of your app (you don't have to install it yourself!). We use it instead of the Ionic CLI. Find out why in our [why you need it](../intro/why_you_need_it.md#alternatives) of our introduction section. Among many other tasks, the Cordova CLI enables you to **add plugins and platforms** and **run and build** your app on devices or emulators.
