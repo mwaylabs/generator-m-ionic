@@ -60,10 +60,14 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
 </p>
 
 ## Introduction
+> What is it and why would I use it?
+
 - More on: [Why you need it](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/why_you_need_it.md)
 - More on: [What's in the box](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/whats_in_the_box.md)
 
 ## Quick Start
+> For the experienced and impatient
+
 - [Quick Start](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/quick_start.md) for the experienced developer.
 - [Try the demo](https://github.com/mwaylabs/generator-m-ionic-demo). Get a quick impression by cloning the sample project generated with the latest version of Generator-M-Ionic.
 
