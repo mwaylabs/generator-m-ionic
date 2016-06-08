@@ -1,6 +1,6 @@
-# Why you need it
+# Why you need Generator-M-Ionic
 <p align="center">
-  <img height="400" src="../resources/logo.svg">
+  <img width="175" src="https://raw.githubusercontent.com/mwaylabs/generator-m-ionic/dev/docs/resources/logo.png">
 </p>
 > **Advanced workflows for rock-solid Ionic apps**: develop, prototype, build, test and deliver high quality apps with Yeoman, Gulp, Bower, Angular, Cordova and of course Ionic. All in one sexy generator.
 

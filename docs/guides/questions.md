@@ -39,12 +39,12 @@ A reverse-domain identifier to identify your app. If you don't know what that is
 
 You'll be writing your own styles using Sass in any case. Your choice here is to including the Ionic styles as CSS or Sass. Choosing Sass allows you to change the basic layout of Ionic. Bar heights, colors and more. However the whole Ionic Sass needs to compile with every change you make to your Sass, which is a little slower than if you just include the compiled CSS of the Ionic styles.
 
-You can change this later, after project generation with the help of our [Ionic style source](../guides/ionic_style_source.md) guide.
+You can change this later, after project generation with the help of our [Ionic style source](./ionic_style_source.md) guide.
 
 ## Additional bower packages?
 ![image](https://cloud.githubusercontent.com/assets/1370779/15853161/3d21fbec-2ca4-11e6-9d81-dcec85b4aa2e.png)
 
-The angular, ionic, angular-ui-router and ngCordova bower dependencies will be installed and included by default. Additional packages also get installed and injected into your `index.html`. Refer to their documentations for instructions on how to use them, some are covered in our [Bower component usage](../guides/bower_component_usage.md) guide.
+The angular, ionic, angular-ui-router and ngCordova bower dependencies will be installed and included by default. Additional packages also get installed and injected into your `index.html`. Refer to their documentations for instructions on how to use them, some are covered in our [Bower component usage](./bower_component_usage.md) guide.
 
 Install new ones using the [Bower CLI](http://bower.io/docs/api/):
 ```sh

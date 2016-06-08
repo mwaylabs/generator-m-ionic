@@ -11,7 +11,7 @@
   - `CONFIG_URL: https://cloud.appmobi.com`
 
 ## Integrate
-When you run `yo m-ionic` you'll be asked if you want to integrate appmobi into your app.
+When you run `yo m-ionic` you'll be asked if you want to integrate Appmobi into your app.
 
 ![image](https://cloud.githubusercontent.com/assets/1370779/13854363/604d502c-ec6b-11e5-9aab-90ee1986726d.png)
 
@@ -38,7 +38,7 @@ gulp --cordova "plugin add https://github.com/appMobiGithub/cordova-plugin-appmo
 --variable CONFIG_URL=https://cloud.appmobi.com"
 ```
 
-For more information on how to run Generator-M-Ionic's Cordova CLI wrapper consult the generator's [Development Introduction](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/development_intro.md).
+For more information on how to run Generator-M-Ionic's Cordova CLI wrapper consult the generator's [Development Introduction](../guides/development_intro.md).
 ## Remove
 To remove Appmobi integration simply remove the plugin:
 ```sh

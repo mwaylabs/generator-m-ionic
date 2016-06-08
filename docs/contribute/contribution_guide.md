@@ -30,7 +30,7 @@ Once you issue a pull-request, we'll work with you until your changes can be mer
 
 ## Getting your hands dirty
 
-1. [fork](https://github.com/mwaylabs/generator-m/fork) our repository [ [github help](https://help.github.com/articles/fork-a-repo/) ]
+1. [fork](https://github.com/mwaylabs/generator-m-ionic/fork) our repository [ [github help](https://help.github.com/articles/fork-a-repo/) ]
 1. clone your fork
 1. navigate to your local clone
 1. create an issue branch
