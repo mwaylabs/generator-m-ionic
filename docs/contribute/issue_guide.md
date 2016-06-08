@@ -3,7 +3,7 @@ Although we do a lot of testing on our core features, we depend on the community
 
 ## What's your need?
 If you want to open an issue your need will fall into one of those three categories:
-- You have an **idea, how things could be better** and possibly want to **contribute code**? - Head over to our [Contribution Guide](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/contribute/contribution_guide.md).
+- You have an **idea, how things could be better** and possibly want to **contribute code**? - Head over to our [Contribution Guide](./contribution_guide.md).
 - You have an **issue with one of the features** and it doesn't work the way you thought it would? - Keep reading this document!
 - Something completely different? - [Open an issue](https://github.com/mwaylabs/generator-m-ionic/issues/new) and let's get talking.
 

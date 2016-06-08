@@ -10,7 +10,7 @@ We built the generator because we at [M-Way Solutions](http://www.mwaysolutions.
  - for development, testing, quality assurance, building, continuous integration
  - for complex project requirements like managing different sets and versions of APIs, app icons and splash screens
 - **Embed nicely into ecosystem**
-  - integrates nicely into different solutions like [Ionic Platform](http://ionicframework.com/docs/api/utility/ionic.Platform/) or our own [Relution](https://www.relution.io/en/)
+  - integrates nicely into different solutions like [Ionic Platform](https://ionic.io/platform) or our own [Relution](https://www.relution.io/en/)
   - use technology stack many developers already know: [Git](https://git-scm.com/), [Yeoman](http://yeoman.io/), [Bower](http://bower.io/), [Gulp](http://gulpjs.com/), [Cordova](https://cordova.apache.org/), ...
 - **Standardize project setup**
   - tame and wire together an ever-changing and **complex frontend technology stack**

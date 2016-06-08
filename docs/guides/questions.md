@@ -58,7 +58,7 @@ Choose the platforms you want to build for. This will only work if you have the 
 
 You can add and remove platforms at any time using the Cordova CLI wrapper:
 ```sh
-gulp --cordova 'platform add android --save'
+gulp --cordova "platform add android --save"
 ```
 More detailed instructions are found in the [Development Introduction](./development_intro.md). So if you're not sure, leave these empty for now. A full list of platforms supported by Cordova is found in the [Cordova Documentation](https://cordova.apache.org/docs/en/latest/guide/support/).
 
@@ -67,9 +67,9 @@ More detailed instructions are found in the [Development Introduction](./develop
 
 Select the ones you want to install now. Unlike the Cordova platforms, these will not fail without the proper Cordova platform setup.
 
-Just as with the platforms you can add plugins later at any time using the [Cordova CLI wrapper](./development_intro.md):
+Just as with the platforms you can add plugins later at any time using the [Cordova CLI wrapper](./development_intro.md#using-the-cordova-cli):
 ```sh
-gulp --cordova 'plugin add org.apache.cordova.camera --save'
+gulp --cordova "plugin add org.apache.cordova.camera --save"
 ```
 Find all available plugins on the [Cordova plugins page](https://cordova.apache.org/plugins/).
 

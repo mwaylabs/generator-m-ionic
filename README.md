@@ -97,7 +97,7 @@ Development:
 - [App Icons and splash screens](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/icons_splash_screens.md), a simple setup or different sets for different builds - all is possible.
 - [Use Environments](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/environments.md) manage different API Endpoints and much more with just a single parameter.
 - [Gulp defaults](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/gulp_defaults.md), spare yourself some tedious typing on the command line.
-- [Generator Update](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/generator_update.md) (experimental) can help you update to a new generator version.
+- [Generator Update (experimental)](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/generator_update.md) can help you update to a new generator version.
 
 
 ##### Building & Continuous Integration

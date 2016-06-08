@@ -46,7 +46,7 @@ Output:
 <author email="your@mail.com" href="http://yourwebsite.com">Your Name</author>
 <name>hello world</name>
 ```
-**Important**: When **changing the name** or **bundle identifier** of your project, it may lead to problems with the platform projects. If you have your plugins and platforms managed in the `config.xml` you can avoid this by deleting your `plugins/` and `platforms/` folders and installing them again using `gulp --cordova 'prepare'`. For more information see the **Git integration** section of the [README.md](../../README.md).
+**Important**: When **changing the name** or **bundle identifier** of your project, it may lead to problems with the platform projects. If you have your plugins and platforms managed in the `config.xml` you can avoid this by deleting your `plugins/` and `platforms/` folders and installing them again using `gulp --cordova 'prepare'`. For more information consult the [Git integration](./git_integration.md) guide.
 
 ### Retrieving arbitrary attributes from the `<widget>` tag
 In other cases it's sometimes useful to retrieve said information from the `config.xml`. When doing so, it's often necessary to add the `--silent` tag to prevent gulp from outputting unnecessary task information. Thus your output can serve as input to other scripts unaltered.

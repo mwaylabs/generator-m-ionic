@@ -1,5 +1,5 @@
 # What's in the box
-<p style="text-align:center; padding: 30px 0 30px 0">
+<p align="center" style="text-align:center; padding: 30px 0 30px 0">
   <a href="http://yeoman.io/" target="_blank" alt="yeoman" title="yeoman">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/6041228/c1f91cac-ac7a-11e4-9c85-1a5298e29067.png">
   </a>
@@ -45,7 +45,7 @@ and provide the following **technology stack**:
 - **[Angular](https://angularjs.org/)** for app structure & logic
   - **[angular-ui-router](https://github.com/angular-ui/ui-router)** for advanced routing
 - **[Ionic](http://ionicframework.com/)** for mobile UIs
-- **[Cordova](cordova.apache.org)** and it's **CLI** for accessing phone APIs and building the app
+- **[Cordova](http://cordova.apache.org)** and it's **CLI** for accessing phone APIs and building the app
   - **[ngCordova](http://ngcordova.com/)** connecting Angular with Cordova
 - **[Sass](http://sass-lang.com/)** as the CSS preprocessor of choice
 
