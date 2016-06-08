@@ -159,7 +159,7 @@ gulp watch-build
 This will build your app into the `www/` folder and open your browser to view it. If you're confident with the results run:
 
 ```sh
-ionic upload --note 'some change note'
+ionic upload --note "some change note"
 ```
 
 Your app is now ready to be used with the [Ionic View App](http://view.ionic.io/).

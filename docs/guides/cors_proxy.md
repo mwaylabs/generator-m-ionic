@@ -71,13 +71,13 @@ GET http://localhost:3000/proxy/get 404 (Not Found)
 ```
 Of course, because you have to **configure and start the proxy** first. This is done like this:
 ```sh
-gulp watch --no-open --proxyPath="/proxy" --proxyMapTo="https://echo.getpostman.com"
+gulp watch --no-open --proxyPath=/proxy --proxyMapTo=https://echo.getpostman.com
 # this proxies all requests of the pattern
 # /proxy/**/* => https://echo.getpostman.com/**/*
 ```
 That's it. That simple. Additionally you might set the proxy as a default for your watch task using [gulp defaults](./gulp_defaults.md), so you don't have to type the URLs every time you start the watch task.
 ```sh
-gulp defaults --set='watch --proxyPath="/proxy" --proxyMapTo="https://echo.getpostman.com"'
+gulp defaults --set="watch --proxyPath=/proxy --proxyMapTo=https://echo.getpostman.com"
 ```
 
 

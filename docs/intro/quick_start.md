@@ -31,29 +31,29 @@ gulp watch --no-build
 
 ```sh
 # both implicitly run gulp build which builds the Ionic app into www/
-gulp --cordova 'run ios --device'
-gulp --cordova 'emulate ios'
+gulp --cordova "run ios"
+gulp --cordova "emulate ios"
 # run the version currently in the www/ folder, without a new build
-gulp --cordova 'run ios --device' --no-build
+gulp --cordova "run ios" --no-build
 # build Options
-gulp --cordova 'run ios --device' --minify --force-build
+gulp --cordova "run ios" --minify --force-build
 # Use specific target (e.g. iPhone-6)
-gulp --cordova 'emulate ios --target=iPhone-6'
-# to list available targets on your machine, run:
-`./platforms/ios/cordova/lib/list-emulator-images`
-# these will need to be installed in Xcode before ready to use
+gulp --cordova "emulate ios --target=iPhone-6"
+# to list available iOS emulator targets on your machine, run:
+./platforms/ios/cordova/lib/list-emulator-images
+# emulators will need to be installed in Xcode before ready to use
 ```
 
 #### Handle Cordova platforms/plugins
 ```sh
 # platforms, use --save to add to config.xml
-gulp --cordova 'platform ls' # list
-gulp --cordova 'platform add android --save' # add
-gulp --cordova 'platform rm android --save' # remove
+gulp --cordova "platform ls" # list
+gulp --cordova "platform add android --save" # add
+gulp --cordova "platform rm android --save" # remove
 # plugins, use --save to add to config.xml
-gulp --cordova 'plugins ls' # list
-gulp --cordova 'plugins add org.apache.cordova.camera --save' # add
-gulp --cordova 'plugins rm org.apache.cordova.camera ---save' # remove
+gulp --cordova "plugins ls" # list
+gulp --cordova "plugins add org.apache.cordova.camera --save" # add
+gulp --cordova "plugins rm org.apache.cordova.camera ---save" # remove
 ```
 
 ##  Other topics
@@ -64,12 +64,12 @@ More information in the  [Git integration](https://github.com/mwaylabs/generator
 # with gulp watch
 git init
 git add .
-git commit -m 'project setup'
+git commit -m "project setup"
 
 # Instead if you cloned a project from a repository, run
 npm install # install node packages
 bower install # install bower packages
-gulp --cordova 'prepare' # install Cordova platforms and plugins
+gulp --cordova "prepare" # install Cordova platforms and plugins
 gulp watch
 ```
 #### Adding AngularJS components

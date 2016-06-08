@@ -36,7 +36,7 @@ Here's a brief overview of the most important capabilities:
 
 #### Cordova CLI wrapper
 ```sh
-gulp --cordova '<run any cordova command>'
+gulp --cordova "<run any cordova command>"
 ```
 A wrapper for **local installation** of Cordova CLI that comes with the generator. As opposed to a global installation the local installation allows you to have different projects with different CLI versions, which happens a lot if you have several projects with different schedules. Additionally this gulp wrapper can trigger additional gulp commands, significantly reducing the number of commands it takes to build your app. You'll learn about this in a minute.
 
@@ -47,7 +47,7 @@ How to use it?
 # DON'T USE!
 cordova plugin add org.apache.cordova.camera
 # cordova command with local wrapper
-gulp --cordova 'plugin add org.apache.cordova.camera --save'
+gulp --cordova "plugin add org.apache.cordova.camera --save"
 ```
 
 Find more plugins on the [Cordova Website](https://cordova.apache.org/plugins/) or on [ngCordova](http://ngcordova.com/docs/plugins/) and find a full list of supported platforms in the [Cordova Documentation](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html).
@@ -55,45 +55,45 @@ Find more plugins on the [Cordova Website](https://cordova.apache.org/plugins/) 
 #### Cordova build, run, emulate, ... under the hood
 
 ```sh
-gulp --cordova '<build related task>' # runs gulp build, then cordova command
+gulp --cordova "<build related task>" # runs gulp build, then cordova command
 ```
 
 If you run one of the commands above or following Cordova commands: `build <platform>`, `run <platform>`, `emulate <platform>`, `serve` or `prepare <platform>` then under the hood `gulp build` will build your Ionic app into the `www/` folder, then the Cordova command will take it from there.
 
 So running:
 ```sh
-gulp --cordova 'run android'
+gulp --cordova "run android"
 # is exactly the same as
 gulp build
-gulp --cordova 'run android' --no-build
+gulp --cordova "run android" --no-build
 ```
 So as you can see the implicit run of `gulp build` that comes with any of the above mentioned Cordova commands can be disabled by adding the `--no-build` flag. This can be handy if you don't make any changes to the source files or just want to be more verbose to make it more obvious what's happening.
 ```sh
-gulp --cordova 'run ios --device' --no-build # no gulp build, only cordova run ios
-gulp --cordova 'run android' --no-build # same for android or any other platform
+gulp --cordova "run ios" --no-build # no gulp build, only cordova run ios
+gulp --cordova "run android" --no-build # same for android or any other platform
 ```
 
 #### Run on device or simulator
 If you want to run your app on your connected iOS or Android device or a simulator run:
 ```sh
-gulp --cordova 'run ios --device' # runs gulp build, then cordova run ios
-gulp --cordova 'run android' # same for android
+gulp --cordova "run ios" # runs gulp build, then cordova run ios
+gulp --cordova "run android" # same for android
 
 ```
 or
 ```sh
-gulp --cordova 'emulate ios'
-gulp --cordova 'emulate android'
+gulp --cordova "emulate ios"
+gulp --cordova "emulate android"
 ```
 
 Both commands require your system to be setup correctly for the given platform as described in the Cordova [Platform Guides](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html).
 
-To emulate a specific device and iOS version (iOS version needs to be installed via Xcode) run:
+To emulate a specific device and iOS version (iOS version needs to be installed via Xcode before) run:
 ```sh
-gulp --cordova 'emulate ios --target="iPad-Air, 8.4"'
-gulp --cordova 'emulate ios --target="iPad-Air, 9.0"'
-# to list available targets on your machine, run:
-`./platforms/ios/cordova/lib/list-emulator-images`
+gulp --cordova "emulate ios --target='iPad-Air, 8.4'"
+gulp --cordova "emulate ios --target='iPad-Air, 9.0'"
+# to list available iOS emulator targets on your machine, run:
+./platforms/ios/cordova/lib/list-emulator-images
 ```
 
 #### Run using Xcode instead of command line
@@ -101,10 +101,11 @@ Some people prefer to launch their apps (device or emulator) using the Xcode pro
 
 In order to view changes that you made in the project run the following:
 ```sh
-gulp --cordova 'prepare ios'
-# or individually
+gulp --cordova "prepare ios"
+
+# or separately
 gulp build
-gulp --cordova 'prepare ios' --no-build
+gulp --cordova "prepare ios" --no-build
 ```
 Then run or simulate via Xcode.
 
@@ -117,7 +118,7 @@ gulp build --force-build # build despite linting errors
 gulp build --minify # minifies javascript, CSS, HTML and images.
 
 # this works as well with all cordova build-related commands (as they implicitly run gulp build)
-gulp --cordova 'run ios --device' --force-build --minify
+gulp --cordova "run ios" --force-build --minify
 ```
 Usually you don't run this command directly, but it will be implicitly run by any build-related Cordova task `gulp watch-build`. It builds your angular app and moves it to the `www/` folder and performs **ESLint or jsonlint** checks.
 

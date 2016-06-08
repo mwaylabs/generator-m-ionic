@@ -9,7 +9,7 @@ For instance we use `gulp watch --no-open` a lot.
 Running the following command will create a new `gulp/.gulp_settings.json` file and save your default flags in it. **Note**: the `.gulp_settings.json` file will be ignored by git, so these settings are only applied locally to your machine. If you want these settings to be part of the repository and share it with your team, simply remove the according line from the `.gitignore` and add `.gulp_setting.json` to your commit.
 
 ```sh
-gulp defaults --set='watch --no-open'
+gulp defaults --set="watch --no-open"
 ```
 
 What if you still want use an **additional set** of flags from time to time? No worries, we thought of that too!
