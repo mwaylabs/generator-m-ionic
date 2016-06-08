@@ -1,22 +1,31 @@
 # Why you need it
-> Build mobile Cordova/PhoneGap apps quickly with the tools you love:
-Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy generator.
+<p align="center">
+  <img height="400" src="../resources/logo.svg">
+</p>
+> **Advanced workflows for rock-solid Ionic apps**: develop, prototype, build, test and deliver high quality apps with Yeoman, Gulp, Bower, Angular, Cordova and of course Ionic. All in one sexy generator.
 
 ## Why we built it
-We built the generator because the existing tools didn't quite suit our needs. We at [M-Way Solutions](http://www.mwaysolutions.com/) wanted a tool for HTML5 mobile app development that:
-- makes use of the **usual web development tooling** which is already used by web developers worldwide. Especially: [Node.js](https://nodejs.org/), [npm](https://www.npmjs.com/), [Yeoman](http://yeoman.io/), [Gulp](http://gulpjs.com/), [Bower](http://bower.io/).
-- allows us to quickly switch between different projects of different creators.
-- uses current up-to-date **industry standards for HTML5 mobile app development** without reinventing the wheel. Namely: [AngularJS](https://angularjs.org/), [Ionic](http://ionicframework.com/), [Cordova](https://cordova.apache.org/) and its CLI
-- enables a **professional workflow** for testing, building, continuous delivery and development
-of high-quality apps
-- is **flexible** so it can evolve over time and can be **enhanced** on a per-project basis for special use-cases
+We built the generator because we at [M-Way Solutions](http://www.mwaysolutions.com/) wanted a single tool that allows us to quickly create compelling prototypes for impressing our customers ***AND*** that later scales with complex project requirements like testing, quality assurance, and continuous integration. Therefore it should:
+- **Provide useful workflows**
+ - for development, testing, quality assurance, building, continuous integration
+ - for complex project requirements like managing different sets and versions of APIs, app icons and splash screens
+- **Embed nicely into ecosystem**
+  - integrates nicely into different solutions like [Ionic Platform](http://ionicframework.com/docs/api/utility/ionic.Platform/) or our own [Relution](https://www.relution.io/en/)
+  - use technology stack many developers already know: [Git](https://git-scm.com/), [Yeoman](http://yeoman.io/), [Bower](http://bower.io/), [Gulp](http://gulpjs.com/), [Cordova](https://cordova.apache.org/), ...
+- **Standardize project setup**
+  - tame and wire together an ever-changing and **complex frontend technology stack**
+  - give a default **project & file structure**
+  - come with **sensible default configurations** for development tools like [Git](https://git-scm.com/), [ESLint](http://eslint.org/) and others
+  - is still easily modified to suit **different project requirements**
+  - make app development more **approachable** for newcomers
+  - simplify **project handovers**
 
-And this generator being the result of these reflections **does just that**.
+And this generator being the result of these reflections **does just that**. The best part? You can start using it right away!
 
 ## Alternatives
 There are two major alternatives out there which are similar to the generator in that they also enable HTML5 mobile app development with Ionic. The [Ionic CLI](http://ionicframework.com/getting-started/) and [generator-ionic](https://github.com/diegonetto/generator-ionic). Both of which did not and to this point still don't suit our needs.
 
-If you want to find out more about **the differences of these tools**, we recently published an article [Generator-M-Ionic and the search for the holy grail](http://blog.mwaysolutions.com/2015/09/21/generator-m-ionic-and-the-search-for-the-holy-grail/) on our company blog concerning that topic. Here's a brief excerpt:
+If you want to find out more about **the differences of these tools**, in late 2015 we published an article [Generator-M-Ionic and the search for the holy grail](http://blog.mwaysolutions.com/2015/09/21/generator-m-ionic-and-the-search-for-the-holy-grail/) on our company blog concerning that topic. Here's a brief excerpt:
 >### Why not use something else?
 The former alternative (Ionic CLI) is being developed by Ionic and is a great tool for beginners, but we got stuck on many occasion when we tried to integrate the CLI in our professional workflow. The latter (generator-ionic) was released by an open source member and it quickly grew immensely popular, however it [hasn't been maintained in over 5 months](https://github.com/diegonetto/generator-ionic/commits/master) (as of the writing of this article) and thus its dependencies are [heavily outdated](https://github.com/diegonetto/generator-ionic/blob/master/package.json#L30) and development came to a complete halt. Issues and pull requests are piling up, but nothing seems to happen.
 

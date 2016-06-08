@@ -1,5 +1,5 @@
 # What's in the box
-<p align="center">
+<p style="text-align:center; padding: 30px 0 30px 0">
   <a href="http://yeoman.io/" target="_blank" alt="yeoman" title="yeoman">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/6041228/c1f91cac-ac7a-11e4-9c85-1a5298e29067.png">
   </a>
@@ -36,38 +36,25 @@
 
 We use (in the order of appearance):
 
-- **Yeoman** to scaffold your app - http://yeoman.io/
-- **Gulp** to run your tasks - http://gulpjs.com/
-- **Bower** to manage your client packages - http://bower.io/
+- **[Yeoman](http://yeoman.io/)** to scaffold your app
+- **[Gulp](http://gulpjs.com/)** to run your tasks
+- **[Bower](http://bower.io/)** to manage your client packages
 
 and provide the following **technology stack**:
 
-- **Angular** for app structure & logic - https://angularjs.org/
-  - **angular-ui-router** - https://github.com/angular-ui/ui-router
-- **Ionic** for mobile UIs - http://ionicframework.com/
-- **Cordova** and it's **CLI** for accessing phone APIs and building the app - http://cordova.apache.org/
-  - **ngCordova** connecting Angular with Cordova http://ngcordova.com/
-- **Sass** as the CSS preprocessor of choice - http://sass-lang.com/
+- **[Angular](https://angularjs.org/)** for app structure & logic
+  - **[angular-ui-router](https://github.com/angular-ui/ui-router)** for advanced routing
+- **[Ionic](http://ionicframework.com/)** for mobile UIs
+- **[Cordova](cordova.apache.org)** and it's **CLI** for accessing phone APIs and building the app
+  - **[ngCordova](http://ngcordova.com/)** connecting Angular with Cordova
+- **[Sass](http://sass-lang.com/)** as the CSS preprocessor of choice
+
+a powerful collection of **gulp tasks** and **features**:
+- Check out our [Guides](../../README.md#guides) for **development, build** and **continuous integration** related features.
 
 
-an integrated **testing workflow** with:
-
-- **Karma** to run your unit tests - http://karma-runner.github.io/
-- **Jasmine** for writing unit & integration tests - http://jasmine.github.io/
-- **Protractor** for running and writing integration tests - https://angular.github.io/protractor/#/
-
-a professional **build, development** and **continuous delivery workflow**
-- enabled through a powerful collection of **gulp tasks**
-
-and many many **features and tools** for your convenience:
-
-- fine tuned [integration with git](https://github.com/mwaylabs/generator-m-ionic#git-integration)
-- broad selection of [sub-generators](https://github.com/mwaylabs/generator-m-ionic#sub-generators)
-- sensible defaults for:
-  - continuous integration with [Travis CI](https://travis-ci.org/) and [Jenkins CI](https://jenkins-ci.org/)
-  - code style checks with [ESLint](http://eslint.org/)
-  - configuration files like [.editorconfig](http://editorconfig.org/), [.gitignore](http://git-scm.com/docs/gitignore), [.gitattriubtes](http://git-scm.com/docs/gitattributes) and others
-
-
-## In Depth
-You can read more about **technology choices** and the **benefits of using Generator-M-Ionic** in our blog article [Generator-M-Ionic: HTML5 mobile app development evolved](http://blog.mwaysolutions.com/2015/09/10/generator-m-ionic-html5-mobile-app-development-evolved/) which was published in September 2015.
+And our **testing and quality** workflows use:
+- **[ESLint](http://eslint.org/)** and other linting for JavaScript and JSON style checks
+- **[Karma](http://karma-runner.github.io/)** to run your unit tests
+- **[Jasmine](http://jasmine.github.io/)** for writing unit & integration tests
+- **[Protractor](https://angular.github.io/protractor/#/)** for running and writing integration tests

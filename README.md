@@ -19,12 +19,17 @@ Development:
 
 
 ## Why you need it
-> Build mobile Cordova/PhoneGap apps quickly with the tools you love:
-Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy generator.
+<p align="center">
+  <img height="400" src="docs/resources/logo.svg">
+</p>
+
+> **Advanced workflows for rock-solid Ionic apps**: develop, prototype, build, test and deliver high quality apps with Yeoman, Gulp, Bower, Angular, Cordova and of course Ionic. All in one sexy generator.
+
+[Read more ... ](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/why_you_need_it.md)
 
 ### What's in the box
 
-<p align="center">
+<p style="text-align:center; padding: 30px 0 30px 0">
   <a href="http://yeoman.io/" target="_blank" alt="yeoman" title="yeoman">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/6041228/c1f91cac-ac7a-11e4-9c85-1a5298e29067.png">
   </a>
@@ -48,6 +53,9 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
   <a href="http://sass-lang.com/" target="_blank" alt="sass" title="sass">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/9410121/c330a3de-481e-11e5-8a69-ca0c56f6cabc.png">
   </a>
+  <a href="http://eslint.org/" target="_blank" alt="eslint" title="eslint">
+    <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/15893052/ada5651e-2d7d-11e6-9246-dc749c7afd63.png">
+  </a>
   <a href="http://karma-runner.github.io/" target="_blank" alt="karma" title="karma">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/9410216/44fef8fc-481f-11e5-8037-2f7f03678f4c.png">
   </a>
@@ -59,11 +67,7 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
   </a>
 </p>
 
-## Introduction
-> What is it and why would I use it?
-
-- More on: [Why you need it](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/why_you_need_it.md)
-- More on: [What's in the box](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/whats_in_the_box.md)
+[Read more ...](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/whats_in_the_box.md)
 
 ## Quick Start
 > For the experienced and impatient
@@ -73,6 +77,7 @@ Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy gener
 
 
 ## Guides
+> Become a master
 
 #### Setup
 - [Installation and Prerequisites](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/installation_prerequisites.md)
