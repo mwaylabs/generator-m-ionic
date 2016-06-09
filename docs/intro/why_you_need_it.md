@@ -5,7 +5,7 @@
 > **Advanced workflows for rock-solid Ionic apps**: develop, prototype, build, test and deliver high quality apps with Yeoman, Gulp, Bower, Angular, Cordova and of course Ionic. All in one sexy generator.
 
 ## Why we built it
-We built the generator because we at [M-Way Solutions](http://www.mwaysolutions.com/) wanted a single tool that allows us to quickly create compelling prototypes for impressing our customers ***AND*** that later scales with complex project requirements like testing, quality assurance, and continuous integration. Therefore it should:
+We at [M-Way Solutions](http://www.mwaysolutions.com/) wanted a single tool that allows us to quickly create compelling prototypes for impressing our customers ***AND*** that later scales with complex project requirements like testing, quality assurance, and continuous integration. Therefore it should:
 - **Provide useful workflows**
  - for development, testing, quality assurance, building, continuous integration
  - for complex project requirements like managing different sets and versions of APIs, app icons and splash screens

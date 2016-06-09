@@ -1,5 +1,5 @@
 # File structure
-Your project folder contains a lot of files that were generated for you. To give you a good understanding of which files do what, we organized them by groups in this document.
+Your project folder contains a lot of files that were generated for you. To give you a good understanding of which files do what, we organized them by groups in this document. Also the relevant files for each topic are also mentioned in the other [Guides](../../README.md#guides).
 
 #### Cordova related files and folders
 ```sh
