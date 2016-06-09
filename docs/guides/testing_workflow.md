@@ -1,5 +1,5 @@
 # Husky hooks
-> You can configure your project to run linting and tests prior to certain git actions with [husky](https://github.com/typicode/husky). That way you can ensure your quality checks pass before you commit or push for instance.
+> You can configure your project to run linting and tests prior for certain git actions with [husky](https://github.com/typicode/husky). That way you can ensure your quality checks pass before you, for instance, commit or push.
 
 ## Setup
 ... is done quickly.
