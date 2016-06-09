@@ -90,7 +90,8 @@ Development:
 
 ##### Quality
 - [ESLint](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/eslint.md) code style checks and setting up your IDE/Editor.
-- [Testing](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/testing.md) with our testing workflows.
+- [Testing](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/testing.md) with our testing setup.
+- [Husky hooks](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/testing_workflow.md), automatically run linting and tests before you commit.
 
 ##### Advanced
 - [CORS & Proxying](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/cors_proxy.md), how to cope with CORS issues.
