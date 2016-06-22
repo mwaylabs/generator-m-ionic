@@ -1,6 +1,8 @@
+sudo: false
 language: node_js
 node_js:
-  - 'stable'
-  - '0.12'
-install: bower install && gulp --cordova "prepare"
+  - v6
+  - v5
+  - v4
+install: npm install && bower install && gulp --cordova "prepare"
 script: gulp build
