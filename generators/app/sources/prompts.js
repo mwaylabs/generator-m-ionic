@@ -66,7 +66,7 @@ module.exports = {
     {
       type: 'checkbox',
       name: 'ecosystems',
-      message: '\nIntegrate into the following ecosystems \nCan als be done later, check out the README for further instructions.\n',
+      message: '\nIntegrate into the following ecosystems \nCan also be done later, check out the README for further instructions.\n',
       choices: [{
         name: 'Ionic Platform (beta)',
         value: 'ionic-platform'
