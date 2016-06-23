@@ -18,7 +18,7 @@ Add a `scripts` property to your `package.json` for all the [hooks](https://gith
 {
   "scripts": {
     "precommit": "gulp linting-throw",
-    "prepush": "gulp linting-throw && gulp karma",
+    "prepush": "gulp linting-throw && gulp karma && gulp protractor",
   }
 }
 ```
@@ -27,6 +27,3 @@ The above example will run ESLint and JSONLint checks when you `git commit` and 
 ## Additional information on gulp tasks
 #### gulp linting-throw
 The `gulp linting-throw` task will run linting checks and *throw* an error on failed checks. The `gulp linting` on the other hand will perform checks, report errors on the command line but not throw an error. Thus it would successfully pass the hook even when there's linting issues.
-
-#### gulp protractor
-Unfortunately the `gulp protractor` task will not finish upon running all the test. So **for now you cannot use it** in a hook. We're [working on it](https://github.com/mwaylabs/generator-m-ionic/issues/310).

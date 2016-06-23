@@ -1,5 +1,5 @@
 # Testing
-When you generate an app with Generator-M-Ionic it comes with a fully configured and ready to use setup for unit and end-to-end testing.
+When you generate an app with Generator-M-Ionic it comes with a fully configured and ready-to-use setup for unit and end-to-end testing.
 
 The setup uses [Karma](http://karma-runner.github.io/) for your unit tests and [Protractor](http://angular.github.io/protractor/#/) for end-to-end tests. The Karma configuration consists of a fully configured `karma.conf.js` and some sample tests in `test/karma/`. Likewise the Protractor configuration consists of a `protractor.conf.js` and sample tests in `test/protractor/`. Both also provide a ready-to-use `.eslintrc` configuration that extends the one in `app/.eslintrc`.
 
@@ -13,16 +13,18 @@ The setup uses [Karma](http://karma-runner.github.io/) for your unit tests and [
 
 Using any of Generator-M-Ionic's [sub-generators](./sub_generators.md) will also create a sample unit test file for that component in `test/karma/<module>/`.
 
+If you are new to testing with Angular we recommend [angulartestingquickstart.com](http://angulartestingquickstart.com/) **to learn about testing with karma and protractor**.
+
 
 ## Gulp tasks
-To check if all tests are running properly use:
+To check if all tests in your project are running properly use:
 
 ```sh
 gulp karma
 # and
 gulp protractor
 ```
-**Hint**: `gulp watch` and `gulp protractor` cannot be run at the same time.
+**Hint**: `gulp watch`, `gulp protractor` and `gulp watch` should not be run at the same time, this will yield unexpected and weird results. Make sure to run them separately!
 
 
 ### Karma and Jasmine for unit tests
