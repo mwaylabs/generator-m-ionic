@@ -23,7 +23,7 @@ Development:
   <img width="175" src="https://raw.githubusercontent.com/mwaylabs/generator-m-ionic/dev/docs/resources/logo.png">
 </p>
 
-> **Advanced workflows for rock-solid Ionic apps**: develop, prototype, build, test and deliver high quality apps with Yeoman, Gulp, Bower, Angular, Cordova and of course Ionic. All in one sexy generator.
+> **Advanced workflows for building rock-solid Ionic apps**: develop, prototype, test, build and deliver high quality apps with Yeoman, Gulp, Bower, Angular, Cordova and of course Ionic. All in one sexy generator.
 
 [Read more ... ](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/why_you_need_it.md)
 
