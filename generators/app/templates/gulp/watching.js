@@ -4,7 +4,7 @@ var gulp = require('gulp');
 var paths = gulp.paths;
 var options = gulp.options;
 // modules
-var bs = require('browser-sync').create();
+var bs = require('browser-sync').create('m-ionic');
 var chalk = require('chalk');
 
 var bsInit = function (paths, openOverride) {
