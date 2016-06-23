@@ -13,10 +13,11 @@ Install [husky](https://github.com/typicode/husky) using npm and save it as a de
 ```sh
 npm install husky --save-dev
 ```
-Add a `scripts` property to your `package.json` for all the [hooks](https://github.com/typicode/husky/blob/master/HOOKS.md) you want:
+Extend the `scripts` property of your `package.json` with all the [hooks](https://github.com/typicode/husky/blob/master/HOOKS.md) you want:
 ```js
 {
   "scripts": {
+    // ...
     "precommit": "gulp linting-throw",
     "prepush": "gulp linting-throw && gulp karma && gulp protractor",
   }

@@ -2,9 +2,9 @@ sudo: false
 language: node_js
 env: CI=true
 node_js:
-  - v6
-  - v5
-  - v4
+  - "6"
+  - "5"
+  - "4"
 after_script:
   - npm run coveralls
 notifications:
