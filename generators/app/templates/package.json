@@ -4,7 +4,7 @@
     "node": ">=4.0.0"
   },
   "scripts": {
-    "test": "gulp build && gulp karm"
+    "test": "gulp build && gulp karma"
   },
   "devDependencies": {
     "browser-sync": "^2.8.3",
