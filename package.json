@@ -49,7 +49,7 @@
   "dependencies": {
     "chalk": "^1.1.0",
     "cordova-lib": "^6.0.0",
-    "generator-appmobi": "^0.0.5",
+    "generator-appmobi": "^0.0.6",
     "mkdirp": "^0.5.1",
     "underscore.string": "^3.2.0",
     "yeoman-generator": "^0.22.1",
