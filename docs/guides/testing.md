@@ -24,7 +24,7 @@ gulp karma
 # and
 gulp protractor
 ```
-**Hint**: `gulp watch`, `gulp protractor` and `gulp watch` should not be run at the same time, this will yield unexpected and weird results. Make sure to run them separately!
+**Hint**: `gulp watch` and `gulp protractor` should not be run at the same time, this will yield unexpected and weird results. Make sure to run them separately!
 
 
 ### Karma and Jasmine for unit tests

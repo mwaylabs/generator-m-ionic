@@ -23,6 +23,9 @@
   <a href="http://sass-lang.com/" target="_blank" alt="sass" title="sass">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/9410121/c330a3de-481e-11e5-8a69-ca0c56f6cabc.png">
   </a>
+  <a href="http://eslint.org/" target="_blank" alt="eslint" title="eslint">
+    <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/15893052/ada5651e-2d7d-11e6-9246-dc749c7afd63.png">
+  </a>
   <a href="http://karma-runner.github.io/" target="_blank" alt="karma" title="karma">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/9410216/44fef8fc-481f-11e5-8037-2f7f03678f4c.png">
   </a>

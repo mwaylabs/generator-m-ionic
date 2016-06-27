@@ -1,5 +1,5 @@
 # Quick Start
-If you are experienced with the technologies in this generator, this summary might be all you need. Every topic has a more elaborate introduction in other parts of the documentation. Check out the [README.md](../../README.md).
+If you are experienced with the technologies in this generator, this summary might be all you need to get started. Every topic has a more elaborate introduction in other parts of the documentation. And the [Guides section of the README.md](../../README.md#guides) directs to more advanced topics like Splashscreen and App Icon handling, Testing, Linting, Continuous integration and others. Please refer to our [Guides](https://github.com/mwaylabs/generator-m-ionic#guides) section in the README.
 
 ## Setup  
 
@@ -20,13 +20,23 @@ A more detailed and advanced introduction to development with Generator-M-Ionic 
 mkdir myProject && cd $_
 yo m-ionic # needs a completely empty directory (not even git!)
 ```
-#### Run in browser
+Find information on all the questions the generator will ask and what they mean in the [Questions Document](../guides/questions.md).
+#### Run in browser with livereload
 
 ```sh
 gulp watch
 # add --no-open to avoid browser opening
 gulp watch --no-build
 ```
+
+#### Run on a device/emulator with livereload
+Needs a proper setup of Cordova and the Platform SDKs according to our [Installation and Prerequisites Guide](../guides/installation_prerequisites.md). Both your machine and your device need to be connected to the same network before you run:
+
+```sh
+gulp --livereload "run ios"
+gulp --livereload "run ios --emulate"
+```
+
 #### Build, run on the device/emulators
 
 ```sh
@@ -93,5 +103,3 @@ yo m-ionic:<component> <name> <moduleName>
 #   template
 #   service
 ```
-#### For more advanced topics
-... like Splashscreen and App Icon handling, Testing, Linting, Continuous integration and others. Please refer to our [Guides](https://github.com/mwaylabs/generator-m-ionic#guides) section in the README.
