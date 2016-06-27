@@ -53,12 +53,10 @@ module.exports = yeoman.Base.extend({
     if (!this.options['skip-prompts']) {
       // tell yeoman we're doing asynchronous stuff here
       // so it can wait with subsequent tasks
-      var done = this.async();
 
-      this.prompt(prompts.main, function (answers) { // prompt
+      return this.prompt(prompts.main)
+      .then(function (answers) { // prompt
         this.answers = answers;
-
-        done();
       }.bind(this));
     }
   },
@@ -196,10 +194,9 @@ module.exports = yeoman.Base.extend({
     ecosystemPrompts: function () {
       if (!this.options['skip-prompts']) {
         // ecosystem prompts
-        var done = this.async();
-        this.prompt(prompts.ecosystems, function (answers) { // prompt
+        return this.prompt(prompts.ecosystems)
+        .then(function (answers) { // prompt
           this.answers.ecosystems = answers.ecosystems;
-          done();
         }.bind(this));
       }
     },
