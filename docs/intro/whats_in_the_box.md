@@ -1,5 +1,8 @@
 # What's in the box
-<p align="center" style="text-align:center; padding: 30px 0 30px 0">
+<br>
+<br>
+<br>
+<p align="center">
   <a href="http://yeoman.io/" target="_blank" alt="yeoman" title="yeoman">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/6041228/c1f91cac-ac7a-11e4-9c85-1a5298e29067.png">
   </a>
@@ -8,6 +11,9 @@
   </a>
   <a href="http://bower.io/" target="_blank" alt="bower" title="bower">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/6041250/ef9a78b8-ac7a-11e4-9586-7e7e894e201e.png">
+  </a>
+  <a href="https://www.browsersync.io/" target="_blank" alt="bower" title="bower">
+    <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/16412038/77028548-3d2a-11e6-88d0-2c0d66582f4c.png">
   </a>
   <a href="https://angularjs.org/" target="_blank" alt="angular" title="angular">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/6041199/5978cb96-ac7a-11e4-9568-829e2ea4312f.png">
@@ -36,12 +42,16 @@
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/9410114/b99aaa9a-481e-11e5-8655-ebc1e324200d.png">
   </a>
 </p>
+<br>
+<br>
+<br>
 
 We use (in the order of appearance):
 
 - **[Yeoman](http://yeoman.io/)** to scaffold your app
 - **[Gulp](http://gulpjs.com/)** to run your tasks
 - **[Bower](http://bower.io/)** to manage your client packages
+- **[Browsersync](https://www.browsersync.io/)** for livereload in the browser and on the device
 
 and provide the following **technology stack**:
 
