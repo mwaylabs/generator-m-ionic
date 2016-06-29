@@ -43,6 +43,7 @@ describe('generators/app', function () {
         'bower.json',
         'config.xml',
         'hooks/after_prepare/update_platform_config.js', // one per example
+        'gulp/utils/Patcher.js',
         'gulp/building.js',
         'gulp/configuring.js',
         'gulp/cordova.js',

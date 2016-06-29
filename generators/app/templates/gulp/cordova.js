@@ -46,7 +46,7 @@ gulp.task('resources', ['clean-res'], function () {
 });
 
 // LIVERELOAD
-gulp.task('livereload', ['serve-livereload'], function () {
+gulp.task('livereload', ['serve-livereload', 'inject-all'], function () {
   // watch for changes in scss
   gulp.watch('app/*/styles/**/*.scss', ['styles']);
   return runCordova(options.livereload + ' --noprepare');

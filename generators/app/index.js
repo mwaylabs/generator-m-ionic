@@ -162,6 +162,7 @@ module.exports = yeoman.Base.extend({
       // other files
       this.directory('hooks', 'hooks');
       this.copy('gulpfile.js', 'gulpfile.js');
+      this.copy('gulp/utils/Patcher.js', 'gulp/utils/Patcher.js');
       this.template('gulp/_injecting.js', 'gulp/injecting.js');
       this.copy('gulp/building.js');
       this.copy('gulp/configuring.js');
