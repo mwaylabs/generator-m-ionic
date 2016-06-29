@@ -60,6 +60,7 @@ Find more plugins on the [Cordova Website](https://cordova.apache.org/plugins/) 
 
 #### Run on device or emulator with livereload
 For development purposes you can run your app on a connected iOS or Android device or an emulator. This requires your system to be setup correctly for the given platform as described in the Cordova [Platform Guides](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html). Then:
+
 1. **connect** your device to your machine
 2. **network**: your machine and device need to be in the same one
 3. **run**:
