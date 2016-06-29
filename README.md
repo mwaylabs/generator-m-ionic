@@ -80,7 +80,7 @@ Development:
 - **Livereload** for the device! Wohoo! See [how it's done](https://github.com/mwaylabs/generator-m-ionic/blob/master/docs/guides/development_intro.md#run-on-device-or-emulator-with-livereload).
 - **Testing workflow** improvements
   - **Precommit hooks** and others in a new [Husky Guide](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/testing_workflow.md)
-  - **gulp protractor** now returns allowing it to be used with husky, travis, jenkins, ...
+  - **gulp protractor** now returns, allowing it to be used with husky, travis, jenkins, ...
 - **Questions** the generator asks are documented and explained in the [Questions](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/questions.md) document
 - [read more ...](https://github.com/mwaylabs/generator-m-ionic/releases/tag/1.9.0)
 
