@@ -143,15 +143,23 @@ Now navigate to the new `User` tab icon and you're ready to explore the [Ionic P
 
 
 #### Upload to ionic.io
-Before you can upload your app to ionic.io, you'll need to create a running build:
+Before you can upload your app to ionic.io, you'll need to create a running build.
+
+Comment the `cordova.js` script in your `index.html`:
+```html
+<!-- will be a 404 during development -->
+<!-- <script src="cordova.js"></script> -->
+```
+Remember to undo this if you are building or running using `gulp --cordova`.
+Then in order to build and see your app run:
 
 ```sh
 gulp watch-build
 ```
-will build your app into the `www/` folder and open your browser to view it. If you're confident with the results run:
+This will build your app into the `www/` folder and open your browser to view it. If you're confident with the results run:
 
 ```sh
-ionic upload --note 'some change note'
+ionic upload --note "some change note"
 ```
 
 Your app is now ready to be used with the [Ionic View App](http://view.ionic.io/).

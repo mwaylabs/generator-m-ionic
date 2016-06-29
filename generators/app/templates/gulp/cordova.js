@@ -6,8 +6,11 @@ var options = gulp.options;
 var $ = require('gulp-load-plugins')();
 // packages
 var path = require('path');
+var process = require('process');
 var del = require('del');
 var vinylPaths = require('vinyl-paths');
+var bs = require('browser-sync').create('m-ionic:livereload');
+var Patcher = require('./utils/Patcher');
 
 var runCordova = function (command, stream) {
   // allow to overwrite command from option.cordova with parameter
@@ -21,16 +24,16 @@ var runCordova = function (command, stream) {
     ]));
 };
 
+// CORDOVA
 gulp.task('cordova', runCordova);
 gulp.task('cordova-only-resources', ['resources'], runCordova);
 gulp.task('cordova-with-build', ['build', 'resources'], runCordova);
 
-// Handle resources
+// RESOURCES
 gulp.task('clean-res', function () {
   return gulp.src('res/*/current/*')
     .pipe(vinylPaths(del));
 });
-
 gulp.task('resources', ['clean-res'], function () {
   var setFolder = options.res || 'default';
 
@@ -40,4 +43,37 @@ gulp.task('resources', ['clean-res'], function () {
       path.dirname = path.dirname.replace('/' + setFolder, '/current');
     }))
     .pipe(gulp.dest('res'));
+});
+
+// LIVERELOAD
+gulp.task('livereload', ['serve-livereload'], function () {
+  // watch for changes in scss
+  gulp.watch('app/*/styles/**/*.scss', ['styles']);
+  return runCordova(options.livereload + ' --noprepare');
+});
+gulp.task('serve-livereload', ['cordova-prepare'], function (done) {
+  var bsOptions = {
+    logConnections: true,
+    open: false,
+    files: ['app', '.tmp'],
+    server: {
+      baseDir: ['app', '.tmp', 'platforms/ios/www/', 'platforms/android/assets/www/'],
+      // platform www's for cordova.js
+    }
+  };
+
+  bs.init(bsOptions, function (err, bsInstance) {
+    if (err) {
+      console.log(err);
+    }
+    var urls = bsInstance.options.getIn(['urls']);
+    var patcher = new Patcher(process.cwd());
+    // patch platform's config xml to allow navigation to
+    // & to set content tag to bs externalUrl
+    patcher.patchConfigXml(urls.get('external'));
+    done();
+  });
+});
+gulp.task('cordova-prepare', function () {
+  return runCordova('prepare');
 });

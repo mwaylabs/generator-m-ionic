@@ -4,6 +4,7 @@
 
 ## Prepare
 You need:
+
 1. An **ApiOmat Account**. [Register here](https://apiomat.com/en/sign-up-en/) if you don't have one already.
 3. A **working [Generator-M-Ionic](https://github.com/mwaylabs/generator-m-ionic) project** with either tabs or a sidemenu navigation.
 2. A **model definition** that is located inside your project (e.g. `app/main/assets/Contact.json`) to generate the UI from.
@@ -102,7 +103,7 @@ Depending on which **starter template** you chose you'll need to add a navigatio
 <!-- ... -->
 ```
 
-And last but not least, make the UI look nice and well-balanced with these few lines of SASS:
+And last but not least, make the UI look nice and well-balanced with these few lines of Sass:
 
 `app/main/styles/main.scss`
 

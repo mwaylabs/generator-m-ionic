@@ -69,13 +69,13 @@ When you run `gulp watch` or any other task that runs `gulp build` without speci
 ```shell
 gulp watch                # defaults to --env=dev
 gulp build                # so does this
-gulp --cordova 'run ios'  # and any other command that uses gulp build
+gulp --cordova "run ios"  # and any other command that uses gulp build
 ```
 In order to choose an environment explicitly add the `--env` flag, like this:
 ```shell
 gulp watch --env=prod
 gulp build --env=prod
-gulp --cordova 'run ios' --env=prod
+gulp --cordova "run ios" --env=prod
 ```
 While you're running `gulp watch` you can even **temporarily** switch the environment you're currently working on without having to restart your watch task. Simply type:
 ```shell

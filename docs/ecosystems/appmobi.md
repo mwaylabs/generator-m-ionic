@@ -11,7 +11,7 @@
   - `CONFIG_URL: https://cloud.appmobi.com`
 
 ## Integrate
-When you run `yo m-ionic` you'll be asked if you want to integrate appmobi into your app.
+When you run `yo m-ionic` you'll be asked if you want to integrate Appmobi into your app.
 
 ![image](https://cloud.githubusercontent.com/assets/1370779/13854363/604d502c-ec6b-11e5-9aab-90ee1986726d.png)
 
@@ -31,16 +31,16 @@ And **that's it!** The [Appmobi Cordova Plugin](https://github.com/appMobiGithub
 
 When you integrate Appmobi during project generation or using the sub-generator [generator-appmobi](https://github.com/mwaylabs/generator-appmobi) is called to setup the plugin and performs steps equivalent to running:
 ```sh
-gulp --cordova 'plugin add https://github.com/appMobiGithub/cordova-plugin-appmobi.git
+gulp --cordova "plugin add https://github.com/appMobiGithub/cordova-plugin-appmobi.git
 --save
---variable APP_NAME="0f50dcbf-5c79-41ee-b038-330de3ee07a7.MyApp"
---variable PROJECT_ID="5bus7arx"
---variable CONFIG_URL="https://cloud.appmobi.com"'
+--variable APP_NAME=0f50dcbf-5c79-41ee-b038-330de3ee07a7.MyApp
+--variable PROJECT_ID=5bus7arx
+--variable CONFIG_URL=https://cloud.appmobi.com"
 ```
 
-For more information on how to run Generator-M-Ionic's Cordova CLI wrapper consult the generator's [Development Introduction](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/start/development_intro.md).
+For more information on how to run Generator-M-Ionic's Cordova CLI wrapper consult the generator's [Development Introduction](../guides/development_intro.md).
 ## Remove
 To remove Appmobi integration simply remove the plugin:
 ```sh
-gulp --cordova 'plugin rm cordova-plugin-appmobi --save'
+gulp --cordova "plugin rm cordova-plugin-appmobi --save"
 ```

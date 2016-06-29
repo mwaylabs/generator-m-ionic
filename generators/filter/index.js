@@ -5,8 +5,6 @@ var utils = require('../../utils/utils.js');
 module.exports = yeoman.Base.extend({
 
   initializing: function () {
-    this.log('You called the m-ionic:filter subgenerator.');
-
     // arguments
     this.argument('name', {
       required: true,

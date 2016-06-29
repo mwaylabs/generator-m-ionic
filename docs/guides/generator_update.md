@@ -27,7 +27,7 @@ If you're upgrading from an version of the generator that is smaller than 1.8.0.
 # install yeoman-test as a devDependency (in your project folder)
 npm i yeoman-test --save-dev
 ```
-And save the following [gulp file](https://github.com/mwaylabs/generator-m-ionic/blob/dev/generators/app/templates/gulp/update.js) as `gulp/update.js` in your project.
+And save the following [gulp file](https://github.com/mwaylabs/generator-m-ionic/blob/master/generators/app/templates/gulp/update.js) as `gulp/update.js` in your project.
 
 ## Perform experimental update
 First of all we recommend switching to a new git branch (just to be sure).

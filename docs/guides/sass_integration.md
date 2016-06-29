@@ -1,5 +1,5 @@
-# SASS integration
-> [SASS](http://sass-lang.com/) is tightly integrated into the Generator-M-Ionic's workflow. Learn how to use it to your advantage!
+# Sass integration
+> [Sass](http://sass-lang.com/) is tightly integrated into the Generator-M-Ionic's workflow. Learn how to use it to your advantage!
 
 With the creation of every module comes a dedictated `.scss` file in the module's `styles` folder carrying the name of the module.
 
@@ -21,9 +21,9 @@ The above example has three modules: `main`, `side` and `blank`.
 **Note**: That all the files are linked in the `index.html` and are concatenated into a single `app.css` upon building the app. Thus when you define a CSS rule it **spans across all modules!**
 
 ## Splitting into several files
-Many developers like to split their SASS into several files (if you don't use stick to the one that is generated with each module). If you do however, the Generator also supports this.
+Many developers like to split their Sass into several files (if you don't, stick to the one that is generated with each module). However if you do, the Generator also supports this:
 
-So you can create as many `_file.scss` files as you like and include them in any of your modules' `.scss` files without having to worry about multiple includes. The Generator only compiles files and injects them into your `index.html` when they start with a character that is different from an `_` (underscore).
+You can create as many `_file.scss` files as you like and include them in any of your modules' `.scss` files without having to worry about multiple includes. The Generator only compiles files and injects them into your `index.html` when they start with a character that is different from an `_` (underscore).
 
 Let's create a `_test.scss` file:
 

@@ -8,8 +8,6 @@ var sampleAnswers = require('../app/sources/sample-answers.js');
 module.exports = yeoman.Base.extend({
 
   initializing: function () {
-    this.log('You called the m-ionic:module subgenerator.');
-
     // arguments
     this.argument('name', {
       required: true,
@@ -29,9 +27,8 @@ module.exports = yeoman.Base.extend({
     if (!this.options['skip-prompts']) {
       // tell yeoman we're doing asynchronous stuff here
       // so it can wait with subsequent tasks
-      var done = this.async();
 
-      this.prompt({
+      return this.prompt({
         type: 'list',
         name: 'template',
         message: '\nChoose a starter template\n',
@@ -49,11 +46,9 @@ module.exports = yeoman.Base.extend({
             name: 'blank'
           }
         ]
-      },
-      function (answers) { // prompt
+      })
+      .then(function (answers) { // prompt
         this.answers = answers;
-
-        done();
       }.bind(this));
     }
     else {

@@ -1,6 +1,6 @@
 # Icons and splash screens
 
-> With Cordova it's easy to change the default app icons and splash screens. This can be done in the `config.xml` as described [here](http://cordova.apache.org/docs/en/latest/config_ref/images.html) and [here](http://cordova.apache.org/docs/en/latest/cordova-plugin-splashscreen/index.html) in the Cordova documentation. Generator-M-Ionic provides a **res/** folder and a **gulp task** to make the configuration easier.
+> With Cordova it's easy to change the default app icons and splash screens. This can be done in the `config.xml` as described in [Customize Icons](http://cordova.apache.org/docs/en/latest/config_ref/images.html) and [Splashscreen Plugin](http://cordova.apache.org/docs/en/latest/cordova-plugin-splashscreen/index.html) of the Cordova documentation. Generator-M-Ionic provides a **res/** folder and a **gulp task** to make the configuration even easier.
 
 ## The `res/` folder
 For your convenience, Generator-M-Ionic provides a `res/` folder to put in the icons and splash screen files.
@@ -34,7 +34,7 @@ For the simplest example include this in your `config.xml`:
 And run any of the cordova build related commands (`cordova run, build, emulate, serve, prepare`), for instance:
 
 ```sh
-gulp --cordova 'run ios --device'
+gulp --cordova "run ios"
 ```
 
 This will build the app with a custom app icon for android and ios. If you haven't changed the files that Generator-M-Ionic created for you, cordova will build the app with the following app icons:
@@ -69,7 +69,7 @@ First we start out similar to the last example, however this time the icon's src
 
 When you now run any of the build-related cordova commands, you'll notice that this produces the same result as when linking to the icons inside the `default/` folders. When you don't specify anything, gulp will copy the contents of the `default/` folder to the `current/` folder before every build-related task.
 ```sh
-gulp --cordova 'run ios --device'
+gulp --cordova "run ios"
 ```
 **Android** (default)
 <img height="100px" src="../../generators/app/templates/res/android/default/icon.png" />
@@ -78,7 +78,7 @@ gulp --cordova 'run ios --device'
 
 Now try:
 ```sh
-gulp --cordova 'run ios --device' --res=set1
+gulp --cordova "run ios" --res=set1
 ```
 
 The result for the app icons is, which are the icons that lie in `res/*/set1/`:
@@ -110,6 +110,6 @@ No problem! - Simply put the static resources into your `default/` folder and di
 
 Now when you run:
 ```sh
-gulp --cordova 'run ios --device' --res=set1
+gulp --cordova "run ios" --res=set1
 ```
 only the iOS resources will be changed, while the android resources stay the same. This is also useful for instance when you want to only change the icons, but not the splash screens of your app.

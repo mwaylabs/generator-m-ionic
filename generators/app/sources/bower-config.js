@@ -7,7 +7,7 @@ module.exports = {
       'angular': '~1.5.0',
       'angular-animate': '~1.5.0',
       'angular-sanitize': '~1.5.0',
-      'angular-ui-router': '~0.2.15',
+      'angular-ui-router': '~0.3.1',
       'ngCordova': '~0.1.17-alpha'
     },
     devDependencies: {
@@ -18,7 +18,7 @@ module.exports = {
       'angular': '~1.5.0',
       'angular-animate': '~1.5.0',
       'angular-sanitize': '~1.5.0',
-      'angular-ui-router': '~0.2.15'
+      'angular-ui-router': '~0.3.1'
     }
   },
   optional: [

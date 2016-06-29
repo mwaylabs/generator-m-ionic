@@ -10,13 +10,13 @@ A more elaborate example of how you can put this to use in a **continuous integr
 
 ```sh
 # version
-gulp config --setWidgetAttr='version=1.0.0.93'
+gulp config --setWidgetAttr="version=1.0.0.93"
 # android-versionCode
-gulp config --setWidgetAttr='android-versionCode=93'
+gulp config --setWidgetAttr="android-versionCode=93"
 # ios-CFBundleVersion
-gulp config --setWidgetAttr='ios-CFBundleVersion=3.3.3'
+gulp config --setWidgetAttr="ios-CFBundleVersion=3.3.3"
 # id / bundle identifier, USE WITH CARE! (see below)
-gulp config --setWidgetAttr='id=com.new.bundle'
+gulp config --setWidgetAttr="id=com.new.bundle"
 ```
 
 Output:
@@ -32,11 +32,11 @@ Output:
 
 ```sh
 # <description>
-gulp config --setDescription='a small app to make the world a happy place'
+gulp config --setDescription="a small app to make the world a happy place"
 # <author>
-gulp config --setAuthor='Your Name---your@mail.com---http://yourwebsite.com'
+gulp config --setAuthor="Your Name---your@mail.com---http://yourwebsite.com"
 # <name>
-gulp config --setName='hello world' # USE WITH CARE! (see below)
+gulp config --setName="hello world" # USE WITH CARE! (see below)
 ```
 
 Output:
@@ -46,7 +46,7 @@ Output:
 <author email="your@mail.com" href="http://yourwebsite.com">Your Name</author>
 <name>hello world</name>
 ```
-**Important**: When **changing the name** or **bundle identifier** of your project, it may lead to problems with the platform projects. If you have your plugins and platforms managed in the `config.xml` you can avoid this by deleting your `plugins/` and `platforms/` folders and installing them again using `gulp --cordova 'prepare'`. For more information see the **Git integration** section of the [README.md](../../README.md).
+**Important**: When **changing the name** or **bundle identifier** of your project, it may lead to problems with the platform projects. If you have your plugins and platforms managed in the `config.xml` you can avoid this by deleting your `plugins/` and `platforms/` folders and installing them again using `gulp --cordova 'prepare'`. For more information consult the [Git integration](./git_integration.md) guide.
 
 ### Retrieving arbitrary attributes from the `<widget>` tag
 In other cases it's sometimes useful to retrieve said information from the `config.xml`. When doing so, it's often necessary to add the `--silent` tag to prevent gulp from outputting unnecessary task information. Thus your output can serve as input to other scripts unaltered.
@@ -99,7 +99,7 @@ gulp config --setWidgetAttr="version=${VERSION}.${BUILD}"
 # set the android-versionCode
 gulp config --setWidgetAttr="android-versionCode=${BUILD}"
 # inject version and build number into app
-gulp --cordova 'prepare' --buildVars="version:${VERSION},build:${BUILD}"
+gulp --cordova "prepare" --buildVars="version:${VERSION},build:${BUILD}"
 ```
 
 Note the **double quotes here**. They allow the content of the strings to be interpolated by the shell and replaced with the proper values.

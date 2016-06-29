@@ -10,8 +10,6 @@ module.exports = yeoman.Base.extend({
    * saves modelJSON to this.model on success
    */
   prompting: function () {
-    var done = this.async();
-
     var prompts = [{
       type: 'input',
       name: 'modelPath',
@@ -23,9 +21,10 @@ module.exports = yeoman.Base.extend({
       name: 'moduleName',
       message: '\nEnter the module to generate your files into \nRecommended - leave empty for main.\n'
     }];
-    this.prompt(prompts, function (props) {
+
+    return this.prompt(prompts)
+    .then(function (props) {
       this.props = props;
-      done();
     }.bind(this));
   },
 

@@ -1,23 +1,17 @@
-# Use Ionic CSS or SASS
+# Switch the Ionic style source
+If you want to change the style source of your project after you have generated it with Generator-M-Ionic, there's two options:
 
-If you are unsure whether to choose Ionic's CSS or SASS version, there's only one thing to consider:
-
-> Ionic SASS simplifies changing the basic layout of ionic components, but comes with the drawback of having to compile the whole Ionic SCSS on every change. If Ionic suffices for your project as is, use the CSS version, which is much faster.
-
-## Switching the Ionic style source
-If you want to change the style source of your project, generated with Generator-M-Ionic, there's two simple options.
-
-1. Re-generate your project and choose the style source (CSS or SASS) you like
+1. Re-generate your project and choose the desired style source (CSS or Sass) you like
 2. **OR** manually change the style source with the guide below
 
 ## Manually change the style source
-When changing the from Ionic CSS to SASS or vice versa, there's three files that need alteration.
+When changing the style source from Ionic CSS to Sass or vice versa, there's three files that need alteration.
 
 1. `.yo-rc.json` - ionicCss option
 2. `gulp/injecting.js` - the `wiredep` and `bower-fonts` task
 3. `app/main/styles/main.scss` - ionic includes and settings
 
-### Change to SCSS
+### From CSS to Sass
 1. In the `.yo-rc.json` change the ionicCss option to false:
   ```json
   "ionicCss": false,
@@ -74,7 +68,7 @@ When changing the from Ionic CSS to SASS or vice versa, there's three files that
   ```
 
 
-### Change to CSS
+### From Sass to CSS
 1. In the `.yo-rc.json` change the ionicCss option to true:
   ```json
   "ionicCss": true,

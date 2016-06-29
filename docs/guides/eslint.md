@@ -16,7 +16,18 @@ Here are the installation instructions for the most popular editors based on the
 - It may be necessary that you **disable any other style-checking plugin** like jscs or jshint while working with ESLint.
 
 ## Configuring ESLint to suit your needs
-You may not be happy with some of the choices we made regarding code styles and linting. If that's the case, you are free to make any changes to the `.eslintrc` files throughout your project.
+You may not be happy with some of the choices we made regarding code styles and linting. If that's the case, you are free to make any changes to the `.eslintrc` files throughout your project. These are found in the following locations and are valid for the files in the directory and all sub-directories:
+
+```sh
+.eslintrc         # ESLint base configuration, extends 'recommended'
+.eslintignore     # tell ESLint which files to ignore
+app/
+  └── .eslintrc   # app specific configuration, extends .eslintrc
+test/karma/
+  └── .eslintrc   # karma specific configuration, extends app/.eslintrc
+test/protractor/
+  └── .eslintrc   # protractor specific configuration, extends app/.eslintrc
+```
 
 Here are some good places to start figuring out your own configuration:
 - All the **rules** that are built-in and ship with ESLint - http://eslint.org/docs/rules/

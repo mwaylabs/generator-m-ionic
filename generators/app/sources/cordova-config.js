@@ -11,6 +11,11 @@ module.exports = {
       value: 'android',
       name: 'Android',
       checked: true
+    },
+    {
+      value: 'windows',
+      name: 'Windows',
+      checked: false
     }
   ],
   plugins: [
