@@ -1,7 +1,7 @@
 {
   "name": "generator-m-ionic",
-  "version": "1.8.0",
-  "description": "Build mobile Cordova/PhoneGap apps quickly with the tools you love: Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy generator.",
+  "version": "1.9.0",
+  "description": "Advanced workflows for building rock-solid Ionic apps: develop, prototype, test, build and deliver high quality apps with Yeoman, Gulp, Bower, Angular, Cordova and of course Ionic. All in one sexy generator.",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "mwaylabs/generator-m-ionic",
