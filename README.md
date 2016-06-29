@@ -30,7 +30,6 @@ Development:
 ### What's in the box
 <br>
 <br>
-<br>
 <p align="center" >
   <a href="http://yeoman.io/" target="_blank" alt="yeoman" title="yeoman">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/6041228/c1f91cac-ac7a-11e4-9c85-1a5298e29067.png">
@@ -71,7 +70,6 @@ Development:
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/9410114/b99aaa9a-481e-11e5-8655-ebc1e324200d.png">
   </a>
 </p>
-<br>
 <br>
 <br>
 
