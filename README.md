@@ -25,7 +25,7 @@ Development:
 
 > **Advanced workflows for building rock-solid Ionic apps**: develop, prototype, test, build and deliver high quality apps with Yeoman, Gulp, Bower, Angular, Cordova and of course Ionic. All in one sexy generator.
 
-[Read more ... ](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/why_you_need_it.md)
+**[Read more ... ](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/why_you_need_it.md)**
 
 ### What's in the box
 <br>
@@ -73,7 +73,7 @@ Development:
 <br>
 <br>
 
-[Read more ...](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/whats_in_the_box.md)
+**[Read more ...](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/whats_in_the_box.md)**
 
 ### What's new
 1.9.0
