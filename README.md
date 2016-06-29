@@ -20,7 +20,9 @@ Development:
 
 ## Why you need it
 <p align="center">
-  <img width="175" src="https://raw.githubusercontent.com/mwaylabs/generator-m-ionic/dev/docs/resources/logo.png">
+  <a href="https://github.com/mwaylabs/generator-m-ionic" alt="Generator-M-Ionic">
+    <img width="175" src="https://raw.githubusercontent.com/mwaylabs/generator-m-ionic/dev/docs/resources/logo.png">
+  </a>
 </p>
 
 > **Advanced workflows for building rock-solid Ionic apps**: develop, prototype, test, build and deliver high quality apps with Yeoman, Gulp, Bower, Angular, Cordova and of course Ionic. All in one sexy generator.
