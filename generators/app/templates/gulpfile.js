@@ -6,16 +6,24 @@ var chalk = require('chalk');
 var fs = require('fs');
 
 // config
-gulp.paths = {
+var paths = gulp.paths = {
   bowerComponents: 'app/bower_components',
   dist: 'www',
   jsFiles: ['app/**/*.js', '!app/bower_components/**/*.js'],
   jsonFiles: ['app/**/*.json', '!app/bower_components/**/*.json'],
+  scssFiles: ['app/*/styles/**/*.scss'],
+  cssFiles: ['.tmp/*/styles/*.css'],
   templates: ['app/*/templates/**/*'],
   contrib: ['gulpfile.js', 'gulp/**/*.js', 'hooks/**/*.js'],
   karma: ['test/karma/**/*.js'],
   protractor: ['test/protractor/**/*.js']
 };
+paths.watchFiles = paths.jsFiles
+  .concat([
+    'app/index.html',
+    'app/*/assets/**/*'
+  ])
+  .concat(paths.templates);
 
 // OPTIONS
 var options = gulp.options = minimist(process.argv.slice(2));

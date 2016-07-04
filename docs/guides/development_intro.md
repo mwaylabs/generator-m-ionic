@@ -69,14 +69,19 @@ For development purposes you can run your app on a connected iOS or Android devi
 gulp --livereload "run ios"
 gulp --livereload "run ios --emulate"
 ```
+The livereload command works just like `gulp watch`, hence `gulp --livereload` works with [Environments](./environments.md) and [Build Vars](./build_vars.md) and automatically performs linting, compiles your scss, injects new files and so on.
 
-To emulate a specific device and iOS version (iOS version needs to be installed via Xcode before) run:
 ```sh
-gulp --cordova "run ios --emulate --target='iPad-Air, 8.4'"
-gulp --cordova "run ios --emulate --target='iPad-Air, 9.0'"
-# to list available iOS emulator targets on your machine, run:
-./platforms/ios/cordova/lib/list-emulator-images
+gulp --livereload "run ios" --env=prod --buildVars="build:123"
 ```
+When you change anything Cordova related, like adding a plugin, you'll need to restart livereload.
+```sh
+# make cordova related changes
+gulp --cordova "plugin add cordova-plugin-camera"
+# restart
+gulp --livereload "run ios"
+```
+**Note:** Sometimes, your livereload app might hang, especially when creating new files. If that happens just leave the `gulp --livereload` command running, close and reopen your app. That should fix it.
 
 #### Build on a device/emulator
 In order to test a fully built version of your app on a device or emulator, without having to rely your development machine to run the livereload command, run the following commands:
@@ -89,6 +94,14 @@ or
 ```sh
 gulp --cordova "emulate ios" # also runs gulp build first
 gulp --cordova "emulate android"
+```
+
+To emulate a specific device and iOS version (iOS version needs to be installed via Xcode before) run:
+```sh
+gulp --cordova "run ios --emulate --target='iPad-Air, 8.4'"
+gulp --cordova "run ios --emulate --target='iPad-Air, 9.0'"
+# to list available iOS emulator targets on your machine, run:
+./platforms/ios/cordova/lib/list-emulator-images
 ```
 
 #### Cordova build, run, emulate, ... under the hood

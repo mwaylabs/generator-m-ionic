@@ -1,6 +1,6 @@
 {
   "name": "generator-m-ionic",
-  "version": "1.9.1",
+  "version": "1.9.2",
   "description": "Advanced workflows for building rock-solid Ionic apps: develop, prototype, test, build and deliver high quality apps with Yeoman, Gulp, Bower, Angular, Cordova and of course Ionic. All in one sexy generator.",
   "license": "MIT",
   "main": "app/index.js",
@@ -48,7 +48,7 @@
   "dependencies": {
     "chalk": "^1.1.0",
     "cordova-lib": "^6.0.0",
-    "generator-appmobi": "^0.0.7",
+    "generator-appmobi": "^1.0.0",
     "mkdirp": "^0.5.1",
     "underscore.string": "^3.2.0",
     "yeoman-generator": "^0.23.4",
@@ -56,9 +56,9 @@
   },
   "devDependencies": {
     "coveralls": "^2.11.2",
-    "eslint": "^2.1.0",
+    "eslint": "^3.0.0",
     "gulp": "^3.9.0",
-    "gulp-eslint": "^2.0.0",
+    "gulp-eslint": "^3.0.0",
     "gulp-istanbul": "^1.0.0",
     "gulp-load-plugins": "^1.0.0",
     "gulp-mocha": "^2.1.2",

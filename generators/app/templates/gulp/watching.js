@@ -42,16 +42,9 @@ gulp.task('watch', ['inject-all'], function () {
   // browser sync server
   bsInit(['app', '.tmp']);
 
-  var watchFiles = paths.jsFiles
-    .concat([
-      'app/index.html',
-      'app/*/assets/**/*'
-    ])
-    .concat(paths.templates);
-
   // start linting and watching
   gulp.start('linting');
-  gulp.watch(watchFiles, function (event) {
+  gulp.watch(paths.watchFiles, function (event) {
     console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     if (event.type === 'changed') {
       bs.reload();
@@ -63,9 +56,9 @@ gulp.task('watch', ['inject-all'], function () {
     }
   });
   // watch for changes in scss
-  gulp.watch('app/*/styles/**/*.scss', ['styles']);
+  gulp.watch(paths.scssFiles, ['styles']);
   // watch for changes in css
-  gulp.watch('.tmp/*/styles/*.css', function () {
+  gulp.watch(paths.cssFiles, function () {
     bs.reload();
   });
   // watch for changes in environment files and new config files
