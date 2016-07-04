@@ -1,5 +1,5 @@
 # Quick Start
-If you are experienced with the technologies in this generator, this summary might be all you need to get started. Every topic has a more elaborate introduction in other parts of the documentation. And the [Guides section of the README.md](../../README.md#guides) directs to more advanced topics like Splashscreen and App Icon handling, Testing, Linting, Continuous integration and others. Please refer to our [Guides](https://github.com/mwaylabs/generator-m-ionic#guides) section in the README.
+If you are experienced with the technologies in this generator, this summary might be all you need to get started. Every topic has a more elaborate introduction in other parts of the documentation. And the [Guides section of the README.md](../../README.md#guides) directs to more advanced topics like Splashscreen and App Icon handling, Testing, Linting, Continuous integration and others.
 
 ## Setup  
 
@@ -26,7 +26,7 @@ Find information on all the questions the generator will ask and what they mean 
 ```sh
 gulp watch
 # add --no-open to avoid browser opening
-gulp watch --no-build
+gulp watch --no-open
 ```
 
 #### Run on a device/emulator with livereload
@@ -36,6 +36,8 @@ Needs a proper setup of Cordova and the Platform SDKs according to our [Installa
 gulp --livereload "run ios"
 gulp --livereload "run ios --emulate"
 ```
+
+More information on how to use livereload is found in the [Development Introduction](../guides/development_intro.md#run-on-a-deviceemulator-with-livereload).
 
 #### Build, run on the device/emulators
 

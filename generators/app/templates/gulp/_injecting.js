@@ -23,7 +23,7 @@ gulp.task('inject-all', ['styles', 'wiredep', 'bower-fonts', 'environment', 'bui
         {relative: true}))
     .pipe(
       $.inject( // inject compiled css
-        gulp.src('.tmp/*/styles/*.css', {read: false})
+        gulp.src(paths.cssFiles, {read: false})
           .pipe($.naturalSort()),
         {
           ignorePath: '../.tmp',

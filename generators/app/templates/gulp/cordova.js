@@ -2,6 +2,7 @@
 // gulp
 var gulp = require('gulp');
 var options = gulp.options;
+var paths = gulp.paths;
 // plugins
 var $ = require('gulp-load-plugins')();
 // packages
@@ -46,9 +47,7 @@ gulp.task('resources', ['clean-res'], function () {
 });
 
 // LIVERELOAD
-gulp.task('livereload', ['serve-livereload', 'inject-all'], function () {
-  // watch for changes in scss
-  gulp.watch('app/*/styles/**/*.scss', ['styles']);
+gulp.task('livereload', ['serve-livereload'], function () {
   return runCordova(options.livereload + ' --noprepare');
 });
 gulp.task('serve-livereload', ['cordova-prepare'], function (done) {
@@ -72,8 +71,29 @@ gulp.task('serve-livereload', ['cordova-prepare'], function (done) {
     // & to set content tag to bs externalUrl
     patcher.patchConfigXml(urls.get('external'));
     done();
+
+    // start linting and watching
+    gulp.start('linting');
+    gulp.watch(paths.watchFiles, function (event) {
+      console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+      if (event.type === 'changed') {
+        gulp.start('linting');
+      }
+      else { // added or deleted
+        // inject in index (implicitly reloads)
+        gulp.start('inject-all');
+      }
+    });
+    // watch for changes in scss
+    gulp.watch(paths.scssFiles, ['styles']);
+    // watch for changes in environment files and new config files
+    gulp.watch([
+      'app/main/constants/env-*.json',
+      'app/*/constants/*config-const.js'
+    ], ['environment']);
+
   });
 });
-gulp.task('cordova-prepare', function () {
+gulp.task('cordova-prepare', ['inject-all'], function () {
   return runCordova('prepare');
 });
