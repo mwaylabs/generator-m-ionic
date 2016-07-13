@@ -64,8 +64,8 @@ gulp --cordova "platform add android --save" # add
 gulp --cordova "platform rm android --save" # remove
 # plugins, use --save to add to config.xml
 gulp --cordova "plugins ls" # list
-gulp --cordova "plugins add org.apache.cordova.camera --save" # add
-gulp --cordova "plugins rm org.apache.cordova.camera ---save" # remove
+gulp --cordova "plugin add cordova-plugin-camera --save" # add
+gulp --cordova "plugins rm cordova-plugin-camera ---save" # remove
 ```
 
 ##  Other topics

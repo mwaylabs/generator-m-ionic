@@ -51,9 +51,9 @@ How to use it?
 ```sh
 # regular cordova command (when installed globally).
 # DON'T USE!
-cordova plugin add org.apache.cordova.camera
+cordova plugin add cordova-plugin-camera
 # cordova command with local wrapper
-gulp --cordova "plugin add org.apache.cordova.camera --save"
+gulp --cordova "plugin add cordova-plugin-camera --save"
 ```
 
 Find more plugins on the [Cordova Website](https://cordova.apache.org/plugins/) or on [ngCordova](http://ngcordova.com/docs/plugins/) and find a full list of supported platforms in the [Cordova Documentation](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html).

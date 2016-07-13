@@ -72,7 +72,7 @@ Select the ones you want to install now. Unlike the Cordova platforms, these wil
 
 Just as with the platforms you can add plugins later at any time using the [Cordova CLI wrapper](./development_intro.md#using-the-cordova-cli):
 ```sh
-gulp --cordova "plugin add org.apache.cordova.camera --save"
+gulp --cordova "plugin add cordova-plugin-camera --save"
 ```
 Find all available plugins on the [Cordova plugins page](https://cordova.apache.org/plugins/).
 
