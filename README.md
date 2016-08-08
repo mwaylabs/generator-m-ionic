@@ -49,7 +49,7 @@ Development:
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/6041199/5978cb96-ac7a-11e4-9568-829e2ea4312f.png">
   </a>
   <a href="http://ionicframework.com/" target="_blank" alt="ionic" title="ionic">
-    <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/6041296/59c5717a-ac7b-11e4-9d5d-9c5232aace64.png">
+    <img height="100" src="https://cloud.githubusercontent.com/assets/1134310/17360098/b5975f2e-5961-11e6-8a13-70d258d35ffe.png">
   </a>
   <a href="http://cordova.apache.org/" target="_blank" alt="cordova" title="cordova">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/6041269/20ed1196-ac7b-11e4-8707-68fa331f1aeb.png">
