@@ -33,8 +33,8 @@ gulp watch --no-open
 Needs a proper setup of Cordova and the Platform SDKs according to our [Installation and Prerequisites Guide](../guides/installation_prerequisites.md). Both your machine and your device need to be connected to the same network before you run:
 
 ```sh
-gulp --livereload "run ios"
-gulp --livereload "run ios --emulate"
+gulp --livereload "run ios --device" # --device is not always necessary
+gulp --livereload "emulate ios"
 ```
 
 More information on how to use livereload is found in the [Development Introduction](../guides/development_intro.md#run-on-a-deviceemulator-with-livereload).
