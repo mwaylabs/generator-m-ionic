@@ -6,7 +6,7 @@ We recommend using [mozilla/localForage](https://github.com/mozilla/localForage)
 
 When you want to install `localforage` after you've set up your project, run:
 ```sh
-bower install angular-translate --save
+bower install localforage --save
 ```
 To tell ESLint that `localforage` is a safe global modify your `app/.eslintrc` file accordingly and add `localforage` as an available global variable. If you choose `localforage` during project setup, this will be done for you.
 
