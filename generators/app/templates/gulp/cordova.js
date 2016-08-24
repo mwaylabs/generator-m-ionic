@@ -66,7 +66,9 @@ gulp.task('serve-livereload', ['cordova-prepare'], function (done) {
       console.log(err);
     }
     var urls = bsInstance.options.getIn(['urls']);
-    var patcher = new Patcher(process.cwd());
+    // initialize patcher with cwd and options to react to platform
+    // given in options
+    var patcher = new Patcher(process.cwd(), options);
     // patch platform's config xml to allow navigation to
     // & to set content tag to bs externalUrl
     patcher.patchConfigXml(urls.get('external'));
