@@ -78,7 +78,15 @@ Development:
 **[Read more ...](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/whats_in_the_box.md)**
 
 ### What's new
-1.9.0
+**Ionic Blog Series** - Great ride through everything Generator-M-Ionic has to offer:
+> Advanced workflows for building rock-solid Ionic Apps
+
+  - [Part 1: Playground](http://blog.ionic.io/advanced-workflows-for-building-rock-solid-ionic-apps-part-1/)
+  - [Part 2: Mountain](http://blog.ionic.io/advanced-workflows-for-building-rock-solid-ionic-apps-part-2/)
+  - [Part 3: Orbit](http://blog.ionic.io/advanced-workflows-for-building-rock-solid-ionic-apps-part-3/)
+
+
+**1.9.0**
 - **Livereload** for the device! Wohoo! See [how it's done](https://github.com/mwaylabs/generator-m-ionic/blob/master/docs/guides/development_intro.md#run-on-device-or-emulator-with-livereload).
 - **Testing workflow** improvements
   - **Precommit hooks** and others in a new [Husky Guide](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/testing_workflow.md)
