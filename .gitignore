@@ -1,5 +1,15 @@
 .DS_Store
 node_modules/
 coverage
-.idea
-atlassian-ide-plugin.xml
+
+# IDE
+# sublime
+*.sublime-project
+*.sublime-workspace
+
+# vscode
+/.vscode/
+
+# webstorm
+/.idea/workspace.xml
+/.idea/libraries

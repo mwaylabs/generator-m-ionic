@@ -22,5 +22,13 @@
 /www/**
 
 # IDE
+# sublime
 *.sublime-project
 *.sublime-workspace
+
+# vscode
+/.vscode/
+
+# webstorm
+/.idea/workspace.xml
+/.idea/libraries
