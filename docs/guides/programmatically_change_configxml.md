@@ -1,8 +1,6 @@
 # Programmatically change the `config.xml`
 
-> The `gulp config` task changes the contents of the `config.xml` programmatically which is essential for continuous integration and delivery purposes.
-
-A more elaborate example of how you can put this to use in a **continuous integration** environment can be found in the [`jenkins.sh`](https://github.com/mwaylabs/generator-m-ionic/blob/master/generators/app/templates/jenkins.sh) of your project.
+> The `gulp config` task changes and reads the contents of the `config.xml` programmatically which is essential for Continuous Integration and delivery purposes. Consult our [Continuous Integration Guide](./ci.md) for a full sample use case.
 
 ## gulp config
 
@@ -74,57 +72,4 @@ gulp config --silent --getWidgetAttr=ios-CFBundleVersion
 # id
 gulp config --silent --getWidgetAttr=id
 com.new.bundle
-```
-
-## Putting it all together, a live example
-At M-Way we like to maintain the version of an app in just one place. For us, this is the `config.xml`. While the app is build, our integration server adds further information.
-
-> In this example we read the app version from the `config.xml`, add the build number and inject each value as a build variable. Effectively being able to display both values without the use of any plugin in the app later.
-
-Assume the `config.xml` looks somewhat like this:
-```xml
-<widget version="1.0.1"
-  id="com.new.bundle"
-  ...>
-```
-
-This snippet now reads the value, appends the build number, sets the `android-versionCode` to the build number and then injects the version and the build number into the app using the build vars command.
-
-```sh
-# BUILD is set by our continuous integration server, let's assume it's 25
-# retrieve the version from the config.xml
-VERSION="$(gulp config --silent --getWidgetAttr=version)"
-# append the build number and save in config.xml
-gulp config --setWidgetAttr="version=${VERSION}.${BUILD}"
-# set the android-versionCode
-gulp config --setWidgetAttr="android-versionCode=${BUILD}"
-# inject version and build number into app
-gulp --cordova "prepare" --buildVars="version:${VERSION},build:${BUILD}"
-```
-
-Note the **double quotes here**. They allow the content of the strings to be interpolated by the shell and replaced with the proper values.
-
-After this process the `config.xml` contains:
-```xml
-<widget version="1.0.0.25"
-   id="com.new.bundle"
-   android-versionCode="25">
-```
-
-And the `config-const.js` contains:
-```js
-'use strict';
-angular.module('main')
-.constant('Config', {
-
-  // gulp build-vars: injects build vars
-  // https://github.com/mwaylabs/generator-m-ionic#gulp-build-vars
-  BUILD: {
-    /*inject-build*/
-    'version': '1.0.0',
-    'build': '25'
-    /*endinject*/
-  }
-
-});
 ```
