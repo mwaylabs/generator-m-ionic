@@ -1,7 +1,7 @@
 # Build Vars
->Inject variables into your app's Config constants at build time. For instance build numbers.
+>Inject variables into your app's Config constants at build time. For instance build numbers which is essential for Continuous Integration and delivery purposes. Consult our [Continuous Integration Guide](./ci.md) for a full sample use case.
 
-Adding the `--buildVars` flag to `gulp watch` or any gulp task that runs `gulp build` implicitly, for instance:
+Adding the `--buildVars` flag to `gulp watch`, `gulp build` or any gulp task that runs `gulp build` implicitly, for instance:
 ```sh
 gulp watch --buildVars="build:12343,key:value"
 ```

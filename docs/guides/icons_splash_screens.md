@@ -8,11 +8,13 @@ For your convenience, Generator-M-Ionic provides a `res/` folder to put in the i
 ```
 res/
   |- android/
+    | current/
     | default/
-    | ....
+    | set1/
   |- ios/
+    | current/
     | default/
-    | ....
+    | set1/
 ```
 
 The Generator-M-Ionic also creates a couple of files and folders. Initially a folder for the android and ios resources with some more example files in them.
