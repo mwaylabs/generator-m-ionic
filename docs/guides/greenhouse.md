@@ -19,7 +19,7 @@ There's three alternatives here:
 - **New project**: Setup your own [Generator-M-Ionic](https://github.com/mwaylabs/generator-m-ionic) project. Checkout the [documentation](https://github.com/mwaylabs/generator-m-ionic#generator-m-ionic) to get started.
 - **Existing project**: Use an existing project that you've set up with [Generator-M-Ionic](https://github.com/mwaylabs/generator-m-ionic). It needs to be in a repository that is available on the web.
 
-In any case your Generator-M-Ionic project needs the `greenhouse.sh` build script. The demo project already contains this, so if you chose to build the demo project, you'll have to do nothing. If you create a new project however, you need to select the `Greenhouse & Relution` option in the [Ecosystems Question](./questions.md#ecosystems). And for your existing project you can run the `greenhouse` [sub-generator](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/ecosystems/greenhouse.md) which will generate the `greenhouse.sh` for you:
+In any case your Generator-M-Ionic project needs the `greenhouse.sh` build script. The demo project already contains this, so if you chose to build the demo project, you'll have to do nothing. If you create a new project however, you need to select the `Greenhouse & Relution` option in the [Ecosystems Question](./questions.md#ecosystems). And for your existing project you can run the `greenhouse` [sub-generator](../ecosystems/greenhouse.md) which will generate the `greenhouse.sh` for you:
 ```sh
 yo m-ionic:greenhouse
 ```
