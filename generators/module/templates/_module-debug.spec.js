@@ -13,17 +13,17 @@ describe('Debug page', function () {
 
     // weak
     passwordInput.sendKeys('my');
-    expect(passwordStrength.getText()).toEqual('weak');
+    expect(passwordStrength.getInnerHtml()).toEqual('weak');
     expect(passwordStrength.getAttribute('class')).toContain('badge-assertive');
 
     // medium
     passwordInput.sendKeys('test');
-    expect(passwordStrength.getText()).toEqual('medium');
+    expect(passwordStrength.getInnerHtml()).toEqual('medium');
     expect(passwordStrength.getAttribute('class')).toContain('badge-energized');
 
     // strong
     passwordInput.sendKeys('tesyasdft');
-    expect(passwordStrength.getText()).toEqual('strong');
+    expect(passwordStrength.getInnerHtml()).toEqual('strong');
     expect(passwordStrength.getAttribute('class')).toContain('badge-balanced');
 
   });
