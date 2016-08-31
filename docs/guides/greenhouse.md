@@ -3,6 +3,7 @@ Learn how to build and distribute your Ionic app that you've set up with [Genera
 
 ## Preparations
 What you need:
+
 1. A working **[Generator-M-Ionic](https://github.com/mwaylabs/generator-m-ionic) project**
 2. A **[Relution](https://www.relution.io/) Account** - the [free subscription](https://www.relution.io/en/pricing/) suffices
 3. A **[Greenhouse CI](https://app.greenhouseci.com) Account** - [free plan](https://greenhouseci.com/pricing.html) is plenty here as well
