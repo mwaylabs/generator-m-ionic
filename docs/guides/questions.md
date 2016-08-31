@@ -82,6 +82,6 @@ Find all available plugins on the [Cordova plugins page](https://cordova.apache.
 This choice decides whether your app will be generated with an [Ionic side menu](http://ionicframework.com/docs/api/directive/ionSideMenus/) or [Ionic tab navigation](http://ionicframework.com/docs/api/directive/ionTabs/). Alternatively you may choose to generate a blank module, if you wish to build everything from the ground up.
 
 ## Ecosystems?
-![image](https://cloud.githubusercontent.com/assets/1370779/15855148/33988dca-2cae-11e6-8e19-f3b57c6ea797.png)
+![image](https://cloud.githubusercontent.com/assets/1370779/18129151/ab97cc8c-6f89-11e6-81c9-4e0c8985ea6b.png)
 
-Generator-M-Ionic provides integration into different ecosystems. For more information refer to the [Ecosystems section of our Guides](../../README.md#ecosystems). If you don't know what these are, just leave them empty for now.
+Generator-M-Ionic provides integration into different ecosystems. For more information refer to the [Ecosystems section of our Guides](../../README.md#ecosystems). If you don't know what these are, just leave them empty for now. They can be included at any time.
