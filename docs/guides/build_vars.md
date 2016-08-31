@@ -26,3 +26,4 @@ angular.module('main')
 
 });
 ```
+Of course this works nicely in conjunction with [environments](./environments.md) as well.
