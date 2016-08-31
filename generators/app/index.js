@@ -206,6 +206,9 @@ module.exports = yeoman.Base.extend({
       // store answers in .yo-rc.json, all questions now asked
       this.config.set('answers', this.answers);
 
+      if (this.answers.ecosystems.indexOf('greenhouse') > -1) {
+        this.composeWith('m-ionic:greenhouse');
+      }
       if (this.answers.ecosystems.indexOf('appmobi') > -1) {
         this.composeWith('generator-appmobi', {
           options: {

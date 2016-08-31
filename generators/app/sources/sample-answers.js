@@ -28,7 +28,7 @@ module.exports = {
       'ionic-plugin-keyboard'
     ],
     template: 'tabs',
-    ecosystems: []
+    ecosystems: ['greenhouse']
   },
 
   /**

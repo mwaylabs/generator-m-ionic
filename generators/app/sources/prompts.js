@@ -68,13 +68,16 @@ module.exports = {
       name: 'ecosystems',
       message: '\nIntegrate into the following ecosystems \nCan also be done later, check out the README for further instructions.\n',
       choices: [{
-        name: 'Ionic Platform (beta)',
+        name: 'Greenhouse & Relution  - build and distribute your app in the cloud',
+        value: 'greenhouse'
+      }, {
+        name: 'Ionic Platform         (beta)',
         value: 'ionic-platform'
       }, {
-        name: 'Appmobi        (have your APP_NAME, PROJECT_ID & CONFIG_URL ready)',
+        name: 'Appmobi                (have your APP_NAME, PROJECT_ID & CONFIG_URL ready)',
         value: 'appmobi'
       }, {
-        name: 'ApiOmat        (beta)',
+        name: 'ApiOmat                (beta)',
         value: 'apiomat'
       }]
     }

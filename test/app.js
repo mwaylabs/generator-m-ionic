@@ -17,6 +17,7 @@ describe('generators/app', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/app'))
         .withGenerators([ // configure path to subgenerators
+          path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
@@ -64,6 +65,10 @@ describe('generators/app', function () {
     it('proper app/.eslintrc file', function () {
       assert.fileContent('app/.eslintrc', '"ionic": true,');
       assert.fileContent('app/.eslintrc', '"localforage": true');
+    });
+
+    it('greenhouse.sh', function () {
+      assert.file('greenhouse.sh');
     });
 
     it('creates /app files', function () {
@@ -137,6 +142,7 @@ describe('generators/app', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/app'))
         .withGenerators([ // configure path to subgenerators
+          path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
@@ -161,6 +167,7 @@ describe('generators/app', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/app'))
         .withGenerators([ // configure path to subgenerators
+          path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
@@ -185,6 +192,7 @@ describe('generators/app', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/app'))
         .withGenerators([ // configure path to subgenerators
+          path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
@@ -208,6 +216,7 @@ describe('generators/app', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/app'))
         .withGenerators([ // configure path to subgenerators
+          path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/appmobi'),
           path.join(__dirname, '../generators/module'),
           path.join(__dirname, '../generators/constant'),
@@ -231,6 +240,7 @@ describe('generators/app', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/app'))
         .withGenerators([ // configure path to subgenerators
+          path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/appmobi'),
           path.join(__dirname, '../generators/module'),
           path.join(__dirname, '../generators/constant'),
@@ -257,6 +267,7 @@ describe('generators/app', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/app'))
         .withGenerators([ // configure path to  subgenerators
+          path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
@@ -300,6 +311,7 @@ describe('generators/app', function () {
       helpers.run(path.join(__dirname, '../generators/app'))
         .withOptions({ 'skip-install': true, 'skip-sdk': true, 'skip-prompts': true}) // execute with options
         .withGenerators([ // configure path to  subgenerators
+          path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
@@ -320,6 +332,7 @@ describe('generators/app', function () {
       helpers.run(path.join(__dirname, '../generators/app'))
         .withOptions({ 'skip-install': true, 'skip-sdk': true, 'skip-prompts': true, 'ios-only': true}) // execute with options
         .withGenerators([ // configure path to  subgenerators
+          path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
@@ -340,6 +353,7 @@ describe('generators/app', function () {
       helpers.run(path.join(__dirname, '../generators/app'))
         .withOptions({ 'skip-install': true, 'skip-sdk': true, 'skip-prompts': true, 'cordova': false}) // execute with options
         .withGenerators([ // configure path to  subgenerators
+          path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
@@ -360,6 +374,7 @@ describe('generators/app', function () {
       helpers.run(path.join(__dirname, '../generators/app'))
         .withOptions({ 'skip-install': true, 'skip-sdk': true, 'skip-prompts': true, 'ionic-platform': true}) // execute with options
         .withGenerators([ // configure path to  subgenerators
+          path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
