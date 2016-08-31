@@ -18,10 +18,11 @@ There's three alternatives here:
 - **New project**: Setup your own [Generator-M-Ionic](https://github.com/mwaylabs/generator-m-ionic) project. Checkout the [documentation](https://github.com/mwaylabs/generator-m-ionic#generator-m-ionic) to get started.
 - **Existing project**: Use an existing project that you've set up with [Generator-M-Ionic](https://github.com/mwaylabs/generator-m-ionic). It needs to be in a repository that is available on the web.
 
-In any case your Generator-M-Ionic project needs the `greenhouse.sh` build script. The demo project already contains this, if you chose this option, you'll have to do nothing. If you create a new project however, you need to select the `Greenhouse & Relution` option in the [Ecosystems Question](./questions.md#ecosystems). And for your existing project you can run the `greenhouse` sub-generator which will generate the `greenhouse.sh` for you:
+In any case your Generator-M-Ionic project needs the `greenhouse.sh` build script. The demo project already contains this, so if you chose to build the demo project, you'll have to do nothing. If you create a new project however, you need to select the `Greenhouse & Relution` option in the [Ecosystems Question](./questions.md#ecosystems). And for your existing project you can run the `greenhouse` sub-generator which will generate the `greenhouse.sh` for you:
 ```sh
 yo m-ionic:greenhouse
 ```
+Reading the Generator-M-Ionic [Continuous Integration Guide](./ci.md) sheds some light on the `greenhouse.sh`'s functioning. However it is not necessary to understand that in order to proceed.
 
 ## Build your app in Greenhouse
 After you've prepared your project, created your Relution and Greenhouse accounts and signed into [app.greenhouseci.com](https://app.greenhouseci.com/#/login) and [live.relution.io](https://live.relution.io/relution/portal/#/login) using your browser, you can now create a new app in Greenhouse.
@@ -44,7 +45,7 @@ Alternatively if you want to build your own project provide any other URL to a p
 
 
 #### Configure Greenhouse Environment
-When you hit `continue`, the setup will jump right to the `Build` configuration. Navigate back to `Environment`. This part is needed to tell Greenhouse how to build your Generator-M-Ionic app:
+When you hit `continue`, the setup will jump right to the `Build` configuration. Navigate back to `Environment`. This part is needed to tell Greenhouse how to prepare and build your Generator-M-Ionic app by uploading the `greenhouse.sh` file of your project. If you're interested on what exactly the `greenhouse.sh` does, read the Generator-M-Ionic [Continuous Integration Guide](./ci.md).
 
 <p align="center">
   <img width="800" src="res/4_gh_environment.png"><br>
@@ -69,7 +70,6 @@ And name it `GH_POST_CLONE_SCRIPT`:
   <img width="800" src="res/5.2_gh_envfiles.png"><br>
   <i>Greenhouse CI: GH_POST_CLONE_SCRIPT</i>
 </p>
-
 
 
 ## Configure Greenhouse Build

@@ -1,6 +1,6 @@
 # Continuous Integration - Putting it all together
 
-> In other guides you may have learned about [environments](./environments.md), [build vars](./build_vars.md), [`gulp config`](./programmatically_change_configxml.md) and other features to change the configuration and behavior of your app via the command line. This guides shows you how to combine all those features and build your app from the command line.
+> In other guides you may have learned about [environments](./environments.md), [build vars](./build_vars.md), [`gulp config`](./programmatically_change_configxml.md) and other features to change the configuration and behavior of your app via the command line. This guides shows you how to combine all those features and build your app from the command line. This enables you for instance to to understand how your app is built in our [Greenhouse & Relution Guide](./greenhouse.md).
 
 
 Find the full example of how you can put all of this to use in a **Continuous Integration** environment in the [`jenkins.sh`](https://github.com/mwaylabs/generator-m-ionic/blob/master/generators/app/templates/jenkins.sh) shell script of your project. We'll go through each part step by step.
@@ -121,3 +121,5 @@ Note: for iOS it is usually necessary to perform the build using Xcode to take c
 
 ## Delivery
 So that's it. Once you've created the proper build artifacts, namely the `.ipa` file for iOS and `.apk` for Android they can be delivered to your customers.
+
+For a more automated process to build your apps and additionally deliver them to all stakeholders in a smooth and hastle-free workflow visit our [Greenhouse & Relution Guide](./greenhouse.md).
