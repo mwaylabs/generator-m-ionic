@@ -221,6 +221,9 @@ module.exports = yeoman.Base.extend({
       if (this.answers.ecosystems.indexOf('ionic-platform') > -1) {
         this.composeWith('m-ionic:ionic-platform');
       }
+      if (this.answers.ecosystems.indexOf('apiomat') > -1) {
+        // do nothing: apiomat can only be done after project setup
+      }
     }
   },
 
