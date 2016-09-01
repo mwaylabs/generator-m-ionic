@@ -51,7 +51,7 @@
     "generator-appmobi": "^1.0.0",
     "mkdirp": "^0.5.1",
     "underscore.string": "^3.2.0",
-    "yeoman-generator": "^0.23.4",
+    "yeoman-generator": "^0.24.1",
     "yosay": "^1.0.4"
   },
   "devDependencies": {
@@ -61,7 +61,7 @@
     "gulp-eslint": "^3.0.0",
     "gulp-istanbul": "^1.0.0",
     "gulp-load-plugins": "^1.0.0",
-    "gulp-mocha": "^2.1.2",
+    "gulp-mocha": "^3.0.1",
     "gulp-plumber": "^1.0.1",
     "yeoman-assert": "^2.1.1",
     "yeoman-test": "^1.0.0"
