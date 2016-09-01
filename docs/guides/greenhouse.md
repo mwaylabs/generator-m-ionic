@@ -205,7 +205,7 @@ Now every time code changes are pushed to the master branch of your repository, 
 With Relution you can register different devices and different users to your organization and assign them different roles so they can see different apps at different stages. For instance apps in `Development` are only visible to the development team until they approve a specific version for `Review` by other stakeholders, who can then in turn approve the app which will move that app to `Production` and make it available for the end-users.
 
 ## Further
-For further information on how to use Relution, head over to the [relution.io documentation](https://live.relution.io/relution/docs/manual.html) and in order to learn more about how to use the Greenhouse CI head over to their documentation on [docs.greenhouseci.com/docs](http://docs.greenhouseci.com/docs).
+For further information on how to use Relution, head over to the [relution.io documentation](https://live.relution.io/relution/docs/manual.html#mam) and in order to learn more about how to use the Greenhouse CI head over to their documentation on [docs.greenhouseci.com/docs](http://docs.greenhouseci.com/docs).
 
 ## Notes
 Granted, the Greenhouse CI integration for Generator-M-Ionic project is a little time-consuming at times and not ideal yet, but it works for now. Nevertheless we're looking to improve the whole process and make it more slick! Feedback is very welcome!
