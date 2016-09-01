@@ -16,6 +16,11 @@ module.exports = {
       value: 'windows',
       name: 'Windows',
       checked: false
+    },
+    {
+      value: 'browser',
+      name: 'Browser',
+      checked: false
     }
   ],
   plugins: [

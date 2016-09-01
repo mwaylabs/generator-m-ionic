@@ -35,6 +35,7 @@ Needs a proper setup of Cordova and the Platform SDKs according to our [Installa
 ```sh
 gulp --livereload "run ios --device" # --device is not always necessary
 gulp --livereload "emulate ios"
+# supported cordova platforms: ios, android, browser
 ```
 
 More information on how to use livereload is found in the [Development Introduction](../guides/development_intro.md#run-on-a-deviceemulator-with-livereload).

@@ -55,7 +55,7 @@ bower install angular-translate --save
 ```
 
 ## Cordova platforms?
-![image](https://cloud.githubusercontent.com/assets/1370779/15854124/7704465e-2ca8-11e6-80e3-92a99243dffb.png)
+![image](https://cloud.githubusercontent.com/assets/1370779/18171803/82d59a06-7063-11e6-9455-254a7e322930.png)
 
 Choose the platforms you want to build for. This will only work if you have the platforms' requirements correctly set up. For more information visit [Installation and Prerequisites](./installation_prerequisites.md).
 

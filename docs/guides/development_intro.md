@@ -68,6 +68,7 @@ For development purposes you can run your app on a connected iOS or Android devi
 ```sh
 gulp --livereload "run ios --device" # --device is not always necessary
 gulp --livereload "emulate ios"
+# supported cordova platforms: ios, android, browser
 ```
 The livereload command works just like `gulp watch`, hence `gulp --livereload` works with [Environments](./environments.md) and [Build Vars](./build_vars.md) and automatically performs linting, compiles your scss, injects new files and so on.
 

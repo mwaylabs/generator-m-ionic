@@ -20,7 +20,8 @@ module.exports = {
     ionicCss: true,
     platforms: [
       'ios',
-      'android'
+      'android',
+      'browser'
     ],
     plugins: [
       'cordova-plugin-device',
