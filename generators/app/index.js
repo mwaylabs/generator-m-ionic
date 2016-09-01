@@ -169,6 +169,7 @@ module.exports = yeoman.Base.extend({
       this.copy('gulp/cordova.js');
       this.copy('gulp/linting.js');
       this.copy('gulp/testing.js');
+      this.copy('gulp/update.js');
       this.copy('gulp/watching.js');
       this.copy('jenkins.sh', 'jenkins.sh');
       this.copy('karma.conf.js', 'karma.conf.js');
