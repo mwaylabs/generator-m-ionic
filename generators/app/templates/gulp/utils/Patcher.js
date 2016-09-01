@@ -9,11 +9,36 @@ var chalk = require('chalk');
  * @param {string} projectRoot  path to project root
  * @param  {object} options     CLI options parsed by minimist, to discover platform
  */
-function Patcher (projectRoot, options) {
-  this.projectRoot = projectRoot || '.';
+var Patcher = function (projectRoot, options) {
+
+  this.platformConfig = {
+    android: {
+      configLocation: 'res/xml',
+      wwwLocation: 'assets/www/'
+    },
+    ios: {
+      // retrieve project name which is necessary for ios config.xml path
+      configLocation: this.getProjectName(projectRoot),
+      wwwLocation: 'www/'
+    },
+    browser: {
+      configLocation: '',
+      wwwLocation: 'www/'
+    }
+  };
+
   this.platform = this.extractPlatform(options);
-  this.configXmlPath = this.getConfigXmlPath(this.projectRoot, this.platform);
-}
+  this.configXmlPath = this.getConfigXmlPath(projectRoot, this.platform);
+  this.wwwPath = path.join(projectRoot, 'platforms', this.platform, this.platformConfig[this.platform].wwwLocation);
+
+  console.log(chalk.green(this.platform) + ' routing to: \n\t' + this.configXmlPath + '\n\t' + this.wwwPath);
+};
+
+Patcher.prototype.getProjectName = function (projectRoot) {
+  var parsedConfigXML = this.parseXml(path.join(projectRoot, 'config.xml'));
+  var nameTag = parsedConfigXML.find('name');
+  return nameTag.text;
+};
 
 Patcher.prototype.parseXml = function (filename) {
   return new et.ElementTree(et.XML(fs.readFileSync(filename, 'utf-8')));
@@ -34,6 +59,9 @@ Patcher.prototype.extractPlatform = function (options) {
       if (options[key].indexOf('android') > - 1) {
         return 'android';
       }
+      if (options[key].indexOf('browser') > - 1) {
+        return 'browser';
+      }
     }
   }
 };
@@ -45,12 +73,7 @@ Patcher.prototype.extractPlatform = function (options) {
  * @return {string}          path as a string
  */
 Patcher.prototype.getConfigXmlPath = function (projectRoot, platform) {
-  var CONFIG_LOCATION = {
-    android: 'res/xml',
-    // retrieve project name which is necessary for ios config.xml path
-    ios: this.getProjectName()
-  };
-  var configXmlPath = path.join(projectRoot, 'platforms', platform, CONFIG_LOCATION[platform], 'config.xml');
+  var configXmlPath = path.join(projectRoot, 'platforms', platform, this.platformConfig[platform].configLocation, 'config.xml');
   return configXmlPath;
 };
 
@@ -62,7 +85,7 @@ Patcher.prototype.patchConfigXml = function (externalUrl) {
 
   // retrieve platform's path to config.xml & parse it
   var configXml = this.parseXml(this.configXmlPath);
-  console.log(chalk.green('patching ') + this.configXmlPath);
+  console.log(chalk.green('patching ') + 'cordova.xml \n\t' + this.configXmlPath + '\n\t' + chalk.green(externalUrl));
 
   // set content src attrib to externalUrl
   var contentTag = configXml.find('content[@src]');
@@ -76,12 +99,5 @@ Patcher.prototype.patchConfigXml = function (externalUrl) {
     indent: 4
   }), 'utf-8');
 };
-
-Patcher.prototype.getProjectName = function () {
-  var parsedConfigXML = this.parseXml(path.join(this.projectRoot, 'config.xml'));
-  var nameTag = parsedConfigXML.find('name');
-  return nameTag.text;
-};
-
 
 module.exports = Patcher;

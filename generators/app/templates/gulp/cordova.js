@@ -51,13 +51,17 @@ gulp.task('livereload', ['serve-livereload'], function () {
   return runCordova(options.livereload + ' --noprepare');
 });
 gulp.task('serve-livereload', ['cordova-prepare'], function (done) {
+  // initialize patcher with cwd and options to react to platform
+  // given in options
+  var patcher = new Patcher(process.cwd(), options);
+
   var bsOptions = {
     logConnections: true,
     open: false,
     files: ['app', '.tmp'],
     server: {
-      baseDir: ['app', '.tmp', 'platforms/ios/www/', 'platforms/android/assets/www/'],
-      // platform www's for cordova.js
+      baseDir: ['app', '.tmp'].concat([patcher.wwwPath]),
+      // add platform www's for cordova.js
     }
   };
 
@@ -66,11 +70,8 @@ gulp.task('serve-livereload', ['cordova-prepare'], function (done) {
       console.log(err);
     }
     var urls = bsInstance.options.getIn(['urls']);
-    // initialize patcher with cwd and options to react to platform
-    // given in options
-    var patcher = new Patcher(process.cwd(), options);
     // patch platform's config xml to allow navigation to
-    // & to set content tag to bs externalUrl
+    // & to set content tag to browsersync's externalUrl
     patcher.patchConfigXml(urls.get('external'));
     done();
 
