@@ -50,7 +50,7 @@ this.proxyRequestUrl = Config.ENV.SOME_OTHER_URL + '/get';
 ```
 Depending on the [environment](./environments.md) that is used this will result in either of the two URLs.
 ```
-[GET] http://localhost:3000/proxy/get => for the dev environment (default)
+[GET] http://localhost:3000/postman-proxy/get => for the dev environment (default)
 [GET] https://echo.getpostman.com/get => for the prod environment
 ```
 The latter is the actual end point. If you try it with the following watch command you'll get an error on tapping the button:
@@ -69,15 +69,43 @@ gulp watch --no-open # defaults to dev environment
 ```
 GET http://localhost:3000/proxy/get 404 (Not Found)
 ```
-Of course, because you have to **configure and start the proxy** first. This is done like this:
+Of course, because you have to **configure and start the proxy** first.
+
+#### Proxy configuration
+You find an initial configuration of the proxy in the `package.json`. The syntax is fairly simple and quite self-explanatory.
+
+`package.json`:
+```json
+{
+  "generator-m-ionic": {
+    "proxies": [
+      {
+        "proxyMapFrom": "/postman-proxy",
+        "proxyMapTo": "https://echo.getpostman.com"
+      },
+      {
+        "proxyMapFrom": "/another-proxy",
+        "proxyMapTo": "https://echo.getpostman.com"
+      }
+    ]
+  }
+}
+```
+There's two URLs that are being proxied in this example, both are proxied to `https://echo.getpostman.com`:
+```
+localhost:3000/postman-proxy ~> https://echo.getpostman.com
+localhost:3000/another-proxy ~> https://echo.getpostman.com
+```
+You can add as many proxies as you like.
+
+#### Start the proxy
+In order to start the proxy with your `gulp watch`:
 ```sh
-gulp watch --no-open --proxyPath=/proxy --proxyMapTo=https://echo.getpostman.com
-# this proxies all requests of the pattern
-# /proxy/**/* => https://echo.getpostman.com/**/*
+gulp watch --proxy
 ```
 That's it. That simple. Additionally you might set the proxy as a default for your watch task using [gulp defaults](./gulp_defaults.md), so you don't have to type the URLs every time you start the watch task.
 ```sh
-gulp defaults --set="watch --proxyPath=/proxy --proxyMapTo=https://echo.getpostman.com"
+gulp defaults --set="watch --proxy"
 ```
 
 

@@ -13,19 +13,27 @@ var bsInit = function (paths, openOverride) {
       baseDir: paths
     }
   };
-  if (options.proxyMapTo && options.proxyPath) {
+  if (options.proxy) {
     var url = require('url');
-    var proxy = require('proxy-middleware');
-    var proxyOptions = url.parse(options.proxyMapTo);
-    proxyOptions.route = options.proxyPath;
-
-    bsOptions.server.middleware = [proxy(proxyOptions)];
+    var proxyMiddleware = require('proxy-middleware');
+    var process = require('process');
+    var path = require('path');
+    var proxyConfs = require(path.join(process.cwd(), 'package.json'))['generator-m-ionic'].proxies;
 
     console.log('[' + chalk.green('proxy') + '] ' + chalk.bold('Proxy Configuration:'));
     console.log(chalk.dim(' ---------------------------------------'));
-    console.log('     Path: ' + chalk.green(options.proxyPath));
-    console.log('   Map to: ' + chalk.green(options.proxyMapTo));
-    console.log(chalk.dim(' ---------------------------------------'));
+    var middleware = [];
+    for (var proxyConf, i = 0; (proxyConf = proxyConfs[i]); i++) {
+      var proxyOptions = url.parse(proxyConf.proxyMapTo);
+      proxyOptions.route = proxyConf.proxyMapFrom;
+
+      middleware.push(proxyMiddleware(proxyOptions));
+
+      console.log('   Map From: ' + chalk.green(proxyConf.proxyMapFrom));
+      console.log('     Map to: ' + chalk.green(proxyConf.proxyMapTo));
+      console.log(chalk.dim(' ---------------------------------------'));
+    }
+    bsOptions.server.middleware = middleware;
   }
   if (options.open === false) {
     bsOptions.open = false;

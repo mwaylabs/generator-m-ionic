@@ -53,5 +53,17 @@
     "wiredep": "^4.0.0",
     "xml2js": "^0.4.9",
     "yeoman-test": "^1.1.0"
+  },
+  "generator-m-ionic": {
+    "proxies": [
+      {
+        "proxyMapFrom": "/postman-proxy",
+        "proxyMapTo": "https://echo.getpostman.com"
+      },
+      {
+        "proxyMapFrom": "/another-proxy",
+        "proxyMapTo": "https://echo.getpostman.com"
+      }
+    ]
   }
 }
