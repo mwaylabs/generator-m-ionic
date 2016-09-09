@@ -1,29 +1,30 @@
-# Ionic Platform Integration (beta)
+# Ionic Cloud Integration (beta)
 
-> [Ionic Platform](http://ionic.io/platform) is a cloud platform for managing and scaling cross-platform mobile apps by providing services like Push, User and others that can be integrated into [Generator-M-Ionic](https://github.com/mwaylabs/generator-m-ionic) using its ionic-platform sub-generator.
+> [Ionic Cloud](https://ionic.io/cloud) offers powerful tools for managing and scaling cross-platform mobile apps by providing mobile backend services like Push, User Management and others that can be integrated into [Generator-M-Ionic](https://github.com/mwaylabs/generator-m-ionic) using its ionic-cloud sub-generator.
+
+In this guide you'll learn how to prepare your Generator-M-Ionic project in order to use it with the [Ionic Cloud](https://ionic.io/cloud). Additionally we'll create a User Tab to sign up and sign in with the [Ionic Users Service](http://docs.ionic.io/services/users/).
 
 ## Prepare
 
-1. You need **Ionic Platform Account**. If you don't have one [register here](https://apps.ionic.io/signup).
+1. You need **Ionic Cloud Account**. If you don't have one [register here](https://apps.ionic.io/signup).
 2. Install the latest version of the [Ionic CLI](http://ionicframework.com/docs/cli/): `npm install -g ionic`
 
 ## Integrate
 
 #### Code generation
-When you run `yo m-ionic` you'll be asked if you want to integrate Ionic Platform into your app.
+When you run `yo m-ionic` you'll be asked if you want to integrate Ionic Cloud into your app.
 
-![image](https://cloud.githubusercontent.com/assets/1370779/14608492/343773a8-0586-11e6-9d22-1e41288151e5.png)
+![image](https://cloud.githubusercontent.com/assets/1370779/18383581/95ff88fc-7686-11e6-8850-24a24ae23070.png)
 
-Alternatively you can run the Ionic Platform sub-generator at any time in your project:
+Alternatively you can run the Ionic Cloud sub-generator at any time in your project:
 ```sh
-yo m-ionic:ionic-platform
+yo m-ionic:ionic-cloud
 ```
 
-Running the sub-generator or selecting Ionic Platform as an ecosystem during setup will create the following files:
+Running the sub-generator or selecting Ionic Cloud as an ecosystem during setup will create the following files:
 
-![image](https://cloud.githubusercontent.com/assets/1370779/14608384/c96a5522-0585-11e6-829c-779b4688747b.png)
+![image](https://cloud.githubusercontent.com/assets/1370779/18383722/10274714-7687-11e6-8b26-fa735ce8044f.png)
 
-- `ionic.js` - additional gulp file.
 - `user.html` - example UI
 - `user-ctrl.js` - example implementation of [Ionic User service](http://docs.ionic.io/docs/user-overview)
 - `user-ctrl.spec.js` - generic test file
@@ -31,7 +32,7 @@ Running the sub-generator or selecting Ionic Platform as an ecosystem during set
 As you can see, the example implementation will be generated into your **main module**. If you want to generate the files into a different module, do so by typing:
 
 ```sh
-yo m-ionic:ionic-platform <moduleName>
+yo m-ionic:ionic-cloud <moduleName>
 ```
 For the rest of this guide, we'll assume that you generated the code into the main module.
 
@@ -67,6 +68,7 @@ gulp ionic-platform # copies app_id & api_key into the ionic-platform-web-client
 ```
 Since we're manipulating library code here, you'll need to run `gulp ionic-platform` every time you're cloning your repository or install your bower dependencies.
 
+#### ionic upload
 
 #### Code integration & adjustments
 Now that we have successfully created the sample code and set up the ionic-platform-web-client, we just need to wire everything together in order for the User service example to show up in your app.
@@ -131,7 +133,6 @@ Depending on which **starter template** you chose you'll need to add a navigatio
         </ion-item>
 <!-- ... -->
 ```
-
 #### Test the Ionic Platform sample
 Run
 ```sh
@@ -164,6 +165,7 @@ ionic upload --note "some change note"
 
 Your app is now ready to be used with the [Ionic View App](http://view.ionic.io/).
 More about the Ionic Upload service [here](http://docs.ionic.io/docs/io-uploading).
+
 
 #### More services
 The Ionic Platform provides a variety of additional services to enhance your app, like Push, Deploy and Analytics. Make sure to check out the [documentation](http://docs.ionic.io/) so you can start using them in your app.
