@@ -11,7 +11,6 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
-    this.copy('gulp/ionic.js', 'gulp/ionic.js');
     this.copy('user.html', 'app/' + this.moduleFolder + '/templates/user.html');
     this.copy('user-ctrl.js', 'app/' + this.moduleFolder + '/controllers/user-ctrl.js');
     this.copy('user-ctrl.spec.js', 'test/karma/' + this.moduleFolder + '/user-ctrl.spec.js');

@@ -60,10 +60,10 @@ describe('generators/app/sample-answers', function () {
       assert(answers['CONFIG_URL']);
     });
 
-    it('ionic-platform: true', function () {
-      var answers = sampleAnswers.getStandard({ 'ionic-platform': true });
+    it('ionic-cloud: true', function () {
+      var answers = sampleAnswers.getStandard({ 'ionic-cloud': true });
       var ionic = answers.ecosystems.filter(function (value) {
-        return value.indexOf('ionic-platform') !== -1;
+        return value.indexOf('ionic-cloud') !== -1;
       });
       assert(ionic.length);
     });

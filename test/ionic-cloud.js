@@ -3,17 +3,16 @@ var path = require('path');
 var assert = require('yeoman-assert');
 var helpers = require('yeoman-test');
 
-describe('generator-m-ionic:ionic-platform', function () {
+describe('generator-m-ionic:ionic-cloud', function () {
 
   describe('main module', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../generators/ionic-platform'))
+      helpers.run(path.join(__dirname, '../generators/ionic-cloud'))
         .on('end', done);
     });
 
     it('creates proper files', function () {
       assert.file([
-        'gulp/ionic.js',
         'app/main/templates/user.html',
         'app/main/controllers/user-ctrl.js',
         'test/karma/main/user-ctrl.spec.js'
@@ -24,14 +23,13 @@ describe('generator-m-ionic:ionic-platform', function () {
 
   describe('custom module', function () {
     before(function (done) {
-      helpers.run(path.join(__dirname, '../generators/ionic-platform'))
+      helpers.run(path.join(__dirname, '../generators/ionic-cloud'))
         .withArguments('ionic')
         .on('end', done);
     });
 
     it('creates proper files', function () {
       assert.file([
-        'gulp/ionic.js',
         'app/ionic/templates/user.html',
         'app/ionic/controllers/user-ctrl.js',
         'test/karma/ionic/user-ctrl.spec.js'

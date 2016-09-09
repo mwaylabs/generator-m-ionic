@@ -235,8 +235,8 @@ describe('generators/app', function () {
     });
   });
 
-  describe('ionic-platform', function () {
-    var answers = sampleAnswers.getStandard({ 'ionic-platform': true });
+  describe('ionic-cloud', function () {
+    var answers = sampleAnswers.getStandard({ 'ionic-cloud': true });
 
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/app'))
@@ -248,16 +248,15 @@ describe('generators/app', function () {
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
           path.join(__dirname, '../generators/service'),
-          path.join(__dirname, '../generators/ionic-platform')
+          path.join(__dirname, '../generators/ionic-cloud')
         ])
         .withOptions({ 'skip-install': true, 'skip-sdk': true }) // execute with options
         .withPrompts(answers)  // answer prompts
         .on('end', done);
     });
 
-    it('creates ionic-platform files', function () {
+    it('creates ionic-cloud files', function () {
       // one per example
-      assert.file('gulp/ionic.js');
       assert.file('app/main/templates/user.html');
     });
   });
@@ -368,12 +367,12 @@ describe('generators/app', function () {
     yoRcHasAnswers(answers);
   });
 
-  describe('--skip-prompts --ionic-platform', function () {
-    var answers = sampleAnswers.getStandard({'ionic-platform': true});
+  describe('--skip-prompts --ionic-cloud', function () {
+    var answers = sampleAnswers.getStandard({'ionic-cloud': true});
 
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/app'))
-        .withOptions({ 'skip-install': true, 'skip-sdk': true, 'skip-prompts': true, 'ionic-platform': true}) // execute with options
+        .withOptions({ 'skip-install': true, 'skip-sdk': true, 'skip-prompts': true, 'ionic-cloud': true}) // execute with options
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
@@ -381,16 +380,15 @@ describe('generators/app', function () {
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
           path.join(__dirname, '../generators/service'),
-          path.join(__dirname, '../generators/ionic-platform')
+          path.join(__dirname, '../generators/ionic-cloud')
         ])
         .withPrompts(answers)  // answer prompts
         .on('end', done);
     });
     yoRcHasAnswers(answers);
 
-    it('creates ionic-platform files', function () {
+    it('creates ionic-cloud files', function () {
       // one per example
-      assert.file('gulp/ionic.js');
       assert.file('app/main/templates/user.html');
     });
   });

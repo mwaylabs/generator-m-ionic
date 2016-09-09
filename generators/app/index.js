@@ -69,7 +69,7 @@ module.exports = yeoman.Base.extend({
         'ios-only': this.options['ios-only'],
         'android-only': this.options['android-only'],
         'cordova': this.options.cordova,
-        'ionic-platform': this.options['ionic-platform']
+        'ionic-cloud': this.options['ionic-cloud']
       });
       this.log(chalk.inverse(JSON.stringify(this.answers, null, '  ')));
     }
@@ -219,8 +219,8 @@ module.exports = yeoman.Base.extend({
           local: require.resolve('generator-appmobi/generators/app/index.js')
         });
       }
-      if (this.answers.ecosystems.indexOf('ionic-platform') > -1) {
-        this.composeWith('m-ionic:ionic-platform');
+      if (this.answers.ecosystems.indexOf('ionic-cloud') > -1) {
+        this.composeWith('m-ionic:ionic-cloud');
       }
       if (this.answers.ecosystems.indexOf('apiomat') > -1) {
         // do nothing: apiomat can only be done after project setup

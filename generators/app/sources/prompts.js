@@ -71,8 +71,8 @@ module.exports = {
         name: 'Greenhouse & Relution  (build and distribute your app in the cloud)',
         value: 'greenhouse'
       }, {
-        name: 'Ionic Platform         (beta)',
-        value: 'ionic-platform'
+        name: 'Ionic Cloud            (beta)',
+        value: 'ionic-cloud'
       }, {
         name: 'Appmobi                (have your APP_NAME, PROJECT_ID & CONFIG_URL ready)',
         value: 'appmobi'
