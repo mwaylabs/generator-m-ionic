@@ -22,16 +22,21 @@ npm install -g ionic
 ### Generate files
 When you run `yo m-ionic` you'll be asked if you want to integrate Ionic Cloud into your app.
 
-![image](https://cloud.githubusercontent.com/assets/1370779/18383581/95ff88fc-7686-11e6-8850-24a24ae23070.png)
+<p align="center">
+  <img width="600" src="https://cloud.githubusercontent.com/assets/1370779/18383581/95ff88fc-7686-11e6-8850-24a24ae23070.png">
+</p>
 
 Alternatively you can run the Ionic Cloud sub-generator at any time in your project:
+
 ```sh
 yo m-ionic:ionic-cloud
 ```
 
 Running the sub-generator or selecting Ionic Cloud as an ecosystem during setup will create the following files:
 
-![image](https://cloud.githubusercontent.com/assets/1370779/18432239/36750f9e-78e1-11e6-966d-70fd08e8938b.png)
+<p align="center">
+  <img width="600" src="https://cloud.githubusercontent.com/assets/1370779/18432239/36750f9e-78e1-11e6-966d-70fd08e8938b.png">
+</p>
 
 - `ionic.config.json` - ionic configuration file
 - `user.html` - example UI for [Ionic Users](http://docs.ionic.io/services/users/)
@@ -213,7 +218,9 @@ gulp watch
 ```
 Now navigate to the new `User` navigation item and you're ready to explore the [Ionic Cloud User](http://docs.ionic.io/services/users/) service with a simple example. For added insights open your browser's developer tools!
 
-![image](https://cloud.githubusercontent.com/assets/1370779/14609829/be9cb21a-058b-11e6-9212-d573f053c348.png)
+<p align="center">
+  <img width="600" src="https://cloud.githubusercontent.com/assets/1370779/14609829/be9cb21a-058b-11e6-9212-d573f053c348.png">
+</p>
 
 ### Upload to Ionic Cloud (with changes)
 Again, if you're confident with results. Run the following command to build your app with the new changes into `www/` to prepare it for uploading to the Ionic CLI:
