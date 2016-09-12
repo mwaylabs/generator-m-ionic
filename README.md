@@ -125,11 +125,11 @@ Development:
 - [Build Vars](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/build_vars.md), inject vars into your app at build time.
 - [Programmatically change the `config.xml`](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/programmatically_change_configxml.md), with `gulp config` an essential part for a successful continuous integration setup.
 - [Full-blown Continuous Integration Guide](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/ci.md) - putting it all together: environments, build vars and `gulp config`!
-- [Greenhouse & Relution Integration Guide](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/greenhouse.md) - build and distribute your apps using these cloud services
+- [Greenhouse & Relution Integration Guide](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/greenhouse.md) - build and distribute your apps using these powerful cloud services
 
 ##### Ecosystems
-- [Greenhouse & Relution](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/ecosystems/greenhouse.md) - create the `greenhouse.sh` file for integration with Greenhouse & Relution
-- [Ionic Platform](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/ecosystems/ionic_platform.md) (beta) - A cloud platform for managing and scaling cross-platform mobile apps
+- [Greenhouse & Relution](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/ecosystems/greenhouse.md) - build and distribute your apps using these powerful cloud services
+- [Ionic Cloud](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/ecosystems/ionic_platform.md) (beta) - a powerful suite of hybrid-focused mobile backend services and tools
 - [Appmobi](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/ecosystems/appmobi.md) - Secure Mobile Development Platform
 - [ApiOmat](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/ecosystems/apiomat.md) (beta) - Enterprise Backend as a Service
 
