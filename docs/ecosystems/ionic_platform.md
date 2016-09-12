@@ -9,6 +9,7 @@ In this guide you'll learn tow things:
 
 ## Prepare
 You need to:
+
 1. create an **Ionic Cloud Account**, if you don't have one already. [Register here](https://apps.ionic.io/signup).
 2. install the latest version of the [Ionic CLI](http://ionicframework.com/docs/cli/):
 
@@ -18,7 +19,7 @@ npm install -g ionic
 
 ## Setup
 
-#### Generate files
+### Generate files
 When you run `yo m-ionic` you'll be asked if you want to integrate Ionic Cloud into your app.
 
 ![image](https://cloud.githubusercontent.com/assets/1370779/18383581/95ff88fc-7686-11e6-8850-24a24ae23070.png)
@@ -44,7 +45,7 @@ yo m-ionic:ionic-cloud <moduleName>
 ```
 For the rest of this guide, we'll assume that you generated the code into the main module.
 
-#### Link project with Ionic Cloud
+### Link project with Ionic Cloud
 Now that you have generate a valid `ionic.config.json`, use the Ionic CLI to register your app with Ionic Cloud.
 ```sh
 ionic io init
@@ -67,7 +68,7 @@ Additionally this will add your `app_id` to the `ionic.config.json` file:
 ```
 The `app_id` property identifies your app in the Ionic Cloud context. You'll need the `app_id` again a minute, so keep track of it. In order to change the name of your project that it goes by in the Ionic Cloud, change the `name` property to adjust it.
 
-#### Install ionic-cloud library
+### Install ionic-cloud library
 In order to use the Ionic Cloud services we need to install the [ionic-cloud](https://github.com/driftyco/ionic-cloud) library via npm:
 ```sh
 npm install @ionic/cloud --save
@@ -85,7 +86,7 @@ You will have to manually copy this file at every point where you run `bower ins
 Since git has previously excluded all files in `bower_components/` you might need to [forcibly add](http://stackoverflow.com/questions/8006393/force-add-despite-the-gitignore-file) the `ionic.cloud.min.js`.
 
 
-#### Include and configure ionic-cloud library
+### Include and configure ionic-cloud library
 Now that you've installed the `ionic-cloud` library you need to add it to your `index.html`. The best place to include the `ionic.cloud.min.js` file is in between the following [two lines](https://github.com/mwaylabs/generator-m-ionic-demo/blob/master/app/index.html#L54-L55) of your `index.html`:
 ```html
 <!-- endbower -->
@@ -118,7 +119,7 @@ After that the beginning of your `main.js` should look similar to this:
 // ...
 ```
 
-#### Upload to the Ionic Cloud
+### Upload to the Ionic Cloud
 At this point your project is fully configured to work with [Ionic Cloud](https://ionic.io/cloud).
 
 To try this out, run:
@@ -132,7 +133,9 @@ ionic upload --note "first upload"
 ```
 The CLI **might throw an error** after uploading. This is a [known problem](https://github.com/driftyco/ionic-cli/issues/1332) with the Ionic CLI in conjunction with Generator-M-Ionic project's. However **your app will still upload** without any restrictions and you should be able to see it under [https://apps.ionic.io/apps](https://apps.ionic.io/apps):
 
-![image](https://cloud.githubusercontent.com/assets/1370779/18433918/72e84c1c-78ea-11e6-9615-75ccb97431bd.png)
+<p align="center">
+  <img width="500" src="https://cloud.githubusercontent.com/assets/1370779/18433918/72e84c1c-78ea-11e6-9615-75ccb97431bd.png">
+</p>
 
 Your app is now ready to be used with the [Ionic View App](http://view.ionic.io/).
 More about the Ionic Upload service [here](http://docs.ionic.io/services/deploy/#snapshots).
@@ -145,7 +148,7 @@ You have fully configured your project to work with the Ionic Cloud, the only th
 
 These tasks differ a little bit, depending on which **starter template** you chose during the setup of you Generator-M-Ionic project.
 
-#### Add a new route
+### Add a new route
 Add a **new route** to your app that will point to the example controller and template for the Ionic Users service:
 
 This is done in your `app/main/main.js`:
@@ -180,7 +183,7 @@ Code for Sidemenu template:
 //...
 ```
 
-#### Add a navigation item
+### Add a navigation item
 
 For Tabs template: `app/main/templates/tabs.html`
 ```html
@@ -203,7 +206,7 @@ For Sidemenu template: `app/main/templates/menu.html`
 </ion-item>
 <!-- ... -->
 ```
-#### See the Example
+### See the Example
 Run
 ```sh
 gulp watch
@@ -212,7 +215,7 @@ Now navigate to the new `User` navigation item and you're ready to explore the [
 
 ![image](https://cloud.githubusercontent.com/assets/1370779/14609829/be9cb21a-058b-11e6-9212-d573f053c348.png)
 
-#### Upload to Ionic Cloud (with changes)
+### Upload to Ionic Cloud (with changes)
 Again, if you're confident with results. Run the following command to build your app with the new changes into `www/` to prepare it for uploading to the Ionic CLI:
 ```sh
 gulp watch-build
@@ -222,7 +225,7 @@ Check the results in your browser. If everything works as expected, upload via:
 ionic upload --note 'working ionic user example'
 ```
 
-#### Yeah! And how to proceed.
+### Yeah! And how to proceed.
 Nice.  
 You've setup your project to work with the [Ionic Cloud](https://ionic.io/cloud) and integrated the [Ionic Users](http://docs.ionic.io/services/users/) service as your frist service!
 
@@ -230,5 +233,5 @@ The Ionic Cloud provides a variety of additional services to enhance your app, l
 
 Have fun!
 
-#### Troubles?
+### Troubles?
 If you're having problems while trying to use Ionic Cloud with Generator-M-Ionic, open a [new issue](https://github.com/mwaylabs/generator-m-ionic/issues/new) and we'll try to help you out if we can. However our time is limited so please make sure you discover other options as well!
