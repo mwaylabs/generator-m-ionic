@@ -13,11 +13,11 @@ describe('generator-m-ionic:ionic-cloud', function () {
 
     it('creates proper files', function () {
       assert.file([
+        'ionic.config.json',
         'app/main/templates/user.html',
         'app/main/controllers/user-ctrl.js',
         'test/karma/main/user-ctrl.spec.js'
       ]);
-      assert.fileContent('app/main/controllers/user-ctrl.js', 'Ionic.Auth');
     });
   });
 
@@ -30,11 +30,11 @@ describe('generator-m-ionic:ionic-cloud', function () {
 
     it('creates proper files', function () {
       assert.file([
+        'ionic.config.json',
         'app/ionic/templates/user.html',
         'app/ionic/controllers/user-ctrl.js',
         'test/karma/ionic/user-ctrl.spec.js'
       ]);
-      assert.fileContent('app/ionic/controllers/user-ctrl.js', 'Ionic.Auth');
     });
   });
 
