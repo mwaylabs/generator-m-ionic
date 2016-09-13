@@ -21,7 +21,7 @@ Development:
 ## Why you need it
 <p align="center">
   <a href="https://github.com/mwaylabs/generator-m-ionic" alt="Generator-M-Ionic">
-    <img width="175" src="https://raw.githubusercontent.com/mwaylabs/generator-m-ionic/dev/docs/resources/logo.png">
+    <img width="175" src="https://raw.githubusercontent.com/mwaylabs/generator-m-ionic/master/docs/resources/logo.png">
   </a>
 </p>
 
