@@ -35,8 +35,8 @@ Needs a proper setup of Cordova and the Platform SDKs according to our [Installa
 ```sh
 gulp --livereload "run ios --device" # --device is not always necessary
 gulp --livereload "emulate ios"
-# supported cordova platforms: ios, android, browser
 ```
+Find all supported platforms [here](../guides/questions.md#cordova-platforms).
 
 More information on how to use livereload is found in the [Development Introduction](../guides/development_intro.md#run-on-a-deviceemulator-with-livereload).
 
@@ -63,6 +63,9 @@ gulp --cordova "emulate ios --target=iPhone-6"
 gulp --cordova "platform ls" # list
 gulp --cordova "platform add android --save" # add
 gulp --cordova "platform rm android --save" # remove
+```
+Find all supported platforms [here](../guides/questions.md#cordova-platforms).
+```sh
 # plugins, use --save to add to config.xml
 gulp --cordova "plugins ls" # list
 gulp --cordova "plugin add cordova-plugin-camera --save" # add
