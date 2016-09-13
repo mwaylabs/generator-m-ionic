@@ -21,7 +21,7 @@ When facing issues with CORS, we recommend to proceed in this order. There are m
     - PRO: quick setup
     - PRO: can disable CORS for multiple endpoints
     - CON: we had some issues with advanced features of CORS, like custom headers, that we couldn't resolve
-  - **Built-in proxy feature** [[How?](#built-in-proxy)] of the generator.
+  - **Built-in mutliple proxies feature** [[How?](#built-in-multiple-proxies)] of the generator.
     - PRO: completely get around CORS
     - CON: can proxy only one endpoint
     - CON: requires code changes (replace the endpoint with an URL pointing to the proxy, what you might forget when building/deploying)
@@ -38,7 +38,7 @@ When facing issues with CORS, we recommend to proceed in this order. There are m
 
 ![image](https://cloud.githubusercontent.com/assets/1370779/13707912/42b0238c-e7ac-11e5-895b-4d5ef4e1d8e5.png)
 
-### Built-in proxy
+### Built-in multiple proxies
 When you freshly generate a module using the generator, there will be a `Test Proxy` button on the debug page that can be found at `http://localhost:3000/#/main/debug`.
 
 ![image](https://cloud.githubusercontent.com/assets/1370779/13710336/34f4ca38-e7b9-11e5-900f-4340051f8a03.png)

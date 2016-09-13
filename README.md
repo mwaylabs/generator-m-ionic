@@ -87,7 +87,7 @@ Development:
 
 **v1.10**
 - Support for **multiple proxies** and **Cordova Browser** platform
-- **Integrations** into [Ionic Cloud](https://ionic.io/cloud), [Relution](https://www.relution.io/en/) and [Greenhouse](https://greenhouseci.com/)
+- **Integrations** into [Ionic Cloud](https://github.com/mwaylabs/generator-m-ionic/blob/master/docs/ecosystems/ionic_platform.md), [Relution & Greenhouse](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/greenhouse.md)
 - Full **Continuous Integration** Guide
 - [read more ...](https://github.com/mwaylabs/generator-m-ionic/releases/tag/1.10.0)
 
