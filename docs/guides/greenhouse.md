@@ -1,5 +1,8 @@
-# Greenhouse CI & Relution
-Learn how to build and distribute your Ionic app that you've set up with [Generator-M-Ionic](https://github.com/mwaylabs/generator-m-ionic) in this 30 minute guide using only free to use features. Build your app in the cloud using [Greenhouse CI](https://app.greenhouseci.com) and deliver them straight to your team members' and customers' devices with [Relution](https://www.relution.io/)! For every push to your repository Greenhouse will build and publish a new version of your app that will then automatically be available through Relution to everyone who needs it. A smooth and stress-free workflow.
+# Build and Distribute your Ionic apps using Greenhouse CI & Relution
+A smooth and stress-free workflow that you can explore right now. For free!
+
+Learn how to build and distribute your Ionic app that you've set up with [Generator-M-Ionic](https://github.com/mwaylabs/generator-m-ionic). Build your app in the cloud using [Greenhouse CI](https://app.greenhouseci.com) and deliver them straight to your colleagues' and customers' devices with [Relution](https://www.relution.io/)! For every push to your repository you app will be built and published, making it available to everyone who needs it by a simple button press!
+
 
 ## Preparations
 What you need:
