@@ -85,8 +85,13 @@ Development:
   - [Part 2: Mountain](http://blog.ionic.io/advanced-workflows-for-building-rock-solid-ionic-apps-part-2/)
   - [Part 3: Orbit](http://blog.ionic.io/advanced-workflows-for-building-rock-solid-ionic-apps-part-3/)
 
+**v1.10**
+- Support for **multiple proxies** and **Cordova Browser** platform
+- **Integrations** into [Ionic Cloud](https://ionic.io/cloud), [Relution](https://www.relution.io/en/) and [Greenhouse](https://greenhouseci.com/)
+- Full **Continuous Integration** Guide
+- [read more ...](https://github.com/mwaylabs/generator-m-ionic/releases/tag/1.10.0)
 
-**1.9.0**
+**v1.9**
 - **Livereload** for the device! Wohoo! See [how it's done](https://github.com/mwaylabs/generator-m-ionic/blob/master/docs/guides/development_intro.md#run-on-device-or-emulator-with-livereload).
 - [read more ...](https://github.com/mwaylabs/generator-m-ionic/releases/tag/1.9.0)
 
