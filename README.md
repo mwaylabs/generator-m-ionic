@@ -19,8 +19,8 @@ Development:
 
 
 ## Why you need it
-#### Note on Angular 2 / Ionic 2:
-This Generator delivers **highly advanced workflows** for Angular 1 / Ionic 1 with the latest Cordova. If you are looking for a version for Angular 2 / Ionic 2, we're working on one but progress is slow for [various reasons](https://github.com/mwaylabs/generator-m-ionic/issues/403#issuecomment-268562372). Meanwhile, we are still solidly committed to maintaining and rolling updates for the Angular 1 / Ionic 1 stack. Everybody looking to get involved in either topic is very welcome!
+#### Note on Angular 2 & Ionic 2:
+This Generator delivers **highly advanced workflows** for Angular 1 & Ionic 1 with the latest Cordova. If you are looking for a version for Angular 2 & Ionic 2, we're working on one but progress is slow for [various reasons](https://github.com/mwaylabs/generator-m-ionic/issues/403#issuecomment-268562372). Meanwhile, we are still solidly committed to maintaining and rolling updates for the Angular 1 & Ionic 1 stack. Everybody looking to get involved in either topic is very welcome!
 <p align="center">
   <a href="https://github.com/mwaylabs/generator-m-ionic" alt="Generator-M-Ionic">
     <img width="175" src="https://raw.githubusercontent.com/mwaylabs/generator-m-ionic/master/docs/resources/logo.png">
