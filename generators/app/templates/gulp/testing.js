@@ -12,8 +12,9 @@ var bs = require('browser-sync');
 
 // KARMA
 function runKarma (singleRun, done) {
+  var confFile = options.conf ? options.conf : 'karma.conf.js';
   new Server({
-    configFile: path.join(__dirname, '/../karma.conf.js'),
+    configFile: path.join(__dirname, '/../' + confFile),
     singleRun: singleRun,
     autoWatch: !singleRun
   }, done).start();
@@ -35,7 +36,7 @@ gulp.task('webdriver-standalone', $.protractor.webdriver_standalone);
 function runProtractor (done) {
   gulp.src(paths.protractor)
     .pipe($.protractor.protractor({
-      configFile: 'protractor.conf.js'
+      configFile: options.conf ? options.conf : 'protractor.conf.js'
     }))
     .on('error', function (err) {
       // Make sure failed tests cause gulp to exit non-zero
