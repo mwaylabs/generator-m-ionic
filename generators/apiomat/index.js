@@ -1,9 +1,9 @@
 'use strict';
-var yeoman = require('yeoman-generator');
+var Generator = require('yeoman-generator');
 var utils = require('../../utils/utils.js');
 var io = require('../../utils/io.js');
 
-module.exports = yeoman.Base.extend({
+module.exports = Generator.extend({
 
   /**
    * prompts the user for a path to the modelFile (with proper validation)

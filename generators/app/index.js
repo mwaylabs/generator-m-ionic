@@ -1,7 +1,7 @@
 'use strict';
 
 var path = require('path');
-var yeoman = require('yeoman-generator');
+var Generator = require('yeoman-generator');
 var yosay = require('yosay');
 var chalk = require('chalk');
 var cordova = require('cordova-lib').cordova.raw; // get the promise version of all methods
@@ -14,7 +14,7 @@ var bowerConfig = require('./sources/bower-config.js');
 var prompts = require('./sources/prompts.js');
 var sampleAnswers = require('./sources/sample-answers.js');
 
-module.exports = yeoman.Base.extend({
+module.exports = Generator.extend({
 
   initializing: function () {
     // get package.json content

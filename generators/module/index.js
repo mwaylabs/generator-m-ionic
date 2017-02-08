@@ -1,11 +1,11 @@
 'use strict';
-var yeoman = require('yeoman-generator');
+var Generator = require('yeoman-generator');
 var mkdirp = require('mkdirp');
 
 var utils = require('../../utils/utils.js');
 var sampleAnswers = require('../app/sources/sample-answers.js');
 
-module.exports = yeoman.Base.extend({
+module.exports = Generator.extend({
 
   initializing: function () {
     // arguments
