@@ -17,6 +17,7 @@ module.exports = Generator.extend({
 
     var moduleName = utils.moduleName(this.options.name);
     this.templateVars = {
+      options: this.options,
       moduleName: moduleName,
       controllerName: utils.controllerName(this.options.name),
       fileName: utils.fileName(this.options.name),
@@ -51,11 +52,11 @@ module.exports = Generator.extend({
         ]
       })
       .then(function (answers) { // prompt
-        this.answers = answers;
+        this.answers = this.templateVars.answers = answers;
       }.bind(this));
     }
     else {
-      this.answers = sampleAnswers.getStandard();
+      this.answers = this.templateVars.answers = sampleAnswers.getStandard();
     }
   },
 
@@ -122,7 +123,8 @@ module.exports = Generator.extend({
       // spec file
       this.fs.copyTpl(
         this.templatePath('_module-debug.spec.js'),
-        this.destinationPath('test/protractor/' + this.templateVars.moduleFolder + '/debug.spec.js')
+        this.destinationPath('test/protractor/' + this.templateVars.moduleFolder + '/debug.spec.js'),
+        this.templateVars
       );
 
       // debug

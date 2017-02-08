@@ -150,47 +150,115 @@ module.exports = Generator.extend({
       bowerJSON.private = true;
 
       // dependencies
-      this.write('bower.json', JSON.stringify(bowerJSON, null, 2));
-      this.copy('package.json', 'package.json');
+      this.fs.write(
+        this.destinationPath('bower.json'),
+        JSON.stringify(bowerJSON, null, 2)
+      );
+      this.fs.copy(
+        this.templatePath('package.json'),
+        this.destinationPath('package.json')
+      );
 
       // app files
       // add random color to navbar
+      var templateVars = {
+        answers: this.answers,
+        barColor: this.barColor
+      };
       this.barColor = utils.barColor();
-      this.template('_index.html', 'app/index.html');
-      this.template('_app.js', 'app/app.js');
+      this.fs.copyTpl(
+        this.templatePath('_index.html'),
+        this.destinationPath('app/index.html'),
+        templateVars
+      );
+      this.fs.copyTpl(
+        this.templatePath('_app.js'),
+        this.destinationPath('app/app.js'),
+        templateVars
+      );
 
       // other files
-      this.directory('hooks', 'hooks');
-      this.copy('gulpfile.js', 'gulpfile.js');
-      this.copy('gulp/utils/Patcher.js', 'gulp/utils/Patcher.js');
-      this.template('gulp/_injecting.js', 'gulp/injecting.js');
-      this.copy('gulp/building.js');
-      this.copy('gulp/configuring.js');
-      this.copy('gulp/cordova.js');
-      this.copy('gulp/linting.js');
-      this.copy('gulp/testing.js');
-      this.copy('gulp/update.js');
-      this.copy('gulp/watching.js');
-      this.copy('jenkins.sh', 'jenkins.sh');
-      this.copy('karma.conf.js', 'karma.conf.js');
-      this.copy('protractor.conf.js', 'protractor.conf.js');
-      this.directory('res', 'res');
-      this.directory('test', 'test');
+      this.fs.copy(
+        this.templatePath('hooks/**'),
+        this.destinationPath('hooks/')
+      );
+      this.fs.copy(
+        this.templatePath('gulpfile.js'),
+        this.destinationPath('gulpfile.js')
+      );
+      this.fs.copyTpl(
+        this.templatePath('gulp/_injecting.js'),
+        this.destinationPath('gulp/injecting.js'),
+        templateVars
+      );
+      this.fs.copy(
+        this.templatePath('gulp/**/!(_*)'),
+        this.destinationPath('gulp/')
+      );
+      this.fs.copy(
+        this.templatePath('jenkins.sh'),
+        this.destinationPath('jenkins.sh')
+      );
+      this.fs.copy(
+        this.templatePath('karma.conf.js'),
+        this.destinationPath('karma.conf.js')
+      );
+      this.fs.copy(
+        this.templatePath('protractor.conf.js'),
+        this.destinationPath('protractor.conf.js')
+      );
+      this.fs.copy(
+        this.templatePath('res/**'),
+        this.destinationPath('res/')
+      );
+      this.fs.copy(
+        this.templatePath('test/karma/.eslintrc'),
+        this.destinationPath('test/karma/.eslintrc')
+      );
+      this.fs.copy(
+        this.templatePath('test/protractor/.eslintrc'),
+        this.destinationPath('test/protractor/.eslintrc')
+      );
 
       // dot files
-      this.template('_eslintrc_app', 'app/.eslintrc');
-      this.copy('bowerrc', '.bowerrc');
-      this.copy('editorconfig', '.editorconfig');
-      this.copy('eslintrc', '.eslintrc');
-      this.copy('eslintignore', '.eslintignore');
-      this.copy('gitattributes', '.gitattributes');
-      this.copy('gitignore', '.gitignore');
-      this.copy('.travis.yml', '.travis.yml');
+      this.fs.copyTpl(
+        this.templatePath('_eslintrc_app'),
+        this.destinationPath('app/.eslintrc'),
+        templateVars
+      );
+      this.fs.copy(
+        this.templatePath('bowerrc'),
+        this.destinationPath('.bowerrc')
+      );
+      this.fs.copy(
+        this.templatePath('editorconfig'),
+        this.destinationPath('.editorconfig')
+      );
+      this.fs.copy(
+        this.templatePath('eslintrc'),
+        this.destinationPath('.eslintrc')
+      );
+      this.fs.copy(
+        this.templatePath('eslintignore'),
+        this.destinationPath('.eslintignore')
+      );
+      this.fs.copy(
+        this.templatePath('gitattributes'),
+        this.destinationPath('.gitattributes')
+      );
+      this.fs.copy(
+        this.templatePath('gitignore'),
+        this.destinationPath('.gitignore')
+      );
+      this.fs.copy(
+        this.templatePath('.travis.yml'),
+        this.destinationPath('.travis.yml')
+      );
 
       // inject project name, version and info into readme
-      var readme = this.read(path.join(__dirname, '../../', 'README.md'));
-      readme = readme.replace(/^# Generator-M-Ionic/, '# ' + this.answers.appName + '\nThis project was generated with Generator-M-Ionic v' + this. pkg.version + '. For more info visit the [repository](https://github.com/mwaylabs/generator-m-ionic) or check out the README below.\n\n# Generator-M-Ionic v' + this.pkg.version);
-      this.write(this.destinationRoot() + '/README.md', readme);
+      var readme = this.fs.read(path.join(__dirname, '../../', 'README.md'));
+      readme = readme.replace(/^# Generator-M-Ionic/, '# ' + this.answers.appName + '\nThis project was generated with Generator-M-Ionic v' + this.pkg.version + '. For more info visit the [repository](https://github.com/mwaylabs/generator-m-ionic) or check out the README below.\n\n# Generator-M-Ionic v' + this.pkg.version);
+      this.fs.write(this.destinationPath('/README.md'), readme);
     },
 
     ecosystemPrompts: function () {
@@ -211,12 +279,10 @@ module.exports = Generator.extend({
         this.composeWith('m-ionic:greenhouse');
       }
       if (this.answers.ecosystems.indexOf('appmobi') > -1) {
-        this.composeWith('generator-appmobi', {
+        this.composeWith(require.resolve('generator-appmobi/generators/app/index.js'), {
           options: {
             'skip-sdk': this.options['skip-sdk']
           }
-        }, {
-          local: require.resolve('generator-appmobi/generators/app/index.js')
         });
       }
       if (this.answers.ecosystems.indexOf('ionic-cloud') > -1) {
