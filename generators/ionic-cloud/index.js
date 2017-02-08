@@ -6,14 +6,28 @@ module.exports = Generator.extend({
 
   initializing: function () {
     this.argument('module', { type: String, required: false });
-    this.moduleName = utils.checkModule(this.module);
-    this.moduleFolder = utils.moduleFolder(this.moduleName);
   },
 
   writing: function () {
-    this.copy('ionic.config.json', 'ionic.config.json');
-    this.copy('user.html', 'app/' + this.moduleFolder + '/templates/user.html');
-    this.copy('user-ctrl.js', 'app/' + this.moduleFolder + '/controllers/user-ctrl.js');
-    this.copy('user-ctrl.spec.js', 'test/karma/' + this.moduleFolder + '/user-ctrl.spec.js');
+
+    var moduleName = utils.checkModule(this.options.module);
+    var moduleFolder = utils.moduleFolder( moduleName);
+
+    this.fs.copy(
+      this.templatePath('ionic.config.json'),
+      this.destinationPath('ionic.config.json')
+    );
+    this.fs.copy(
+      this.templatePath('user.html'),
+      this.destinationPath('app/' + moduleFolder + '/templates/user.html')
+    );
+    this.fs.copy(
+      this.templatePath('user-ctrl.js'),
+      this.destinationPath('app/' + moduleFolder + '/controllers/user-ctrl.js')
+    );
+    this.fs.copy(
+      this.templatePath('user-ctrl.spec.js'),
+      this.destinationPath('test/karma/' + moduleFolder + '/user-ctrl.spec.js')
+    );
   }
 });
