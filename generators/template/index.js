@@ -13,34 +13,65 @@ module.exports = Generator.extend({
     });
     this.argument('module', { type: String, required: false });
 
-    this.moduleName =  utils.checkModule(this.module);
-    this.moduleFolder = utils.moduleFolder(this.moduleName);
-    this.barColor = utils.barColor();
+    var moduleName =  utils.checkModule(this.options.module);
+    var moduleFolder = utils.moduleFolder(moduleName);
+    var barColor = utils.barColor();
 
-    this.templateName = this.name;
-    this.fileName = utils.fileName(this.templateName);
+    var templateName = this.options.name;
+    var fileName = utils.fileName(templateName);
+
+    this.templateVars = {
+      moduleName: moduleName,
+      moduleFolder: moduleFolder,
+      barColor: barColor,
+      templateName: templateName,
+      fileName: fileName
+    };
   },
 
   writing: function () {
     // create template with snake-case file name
-    var folder = 'app/' + this.moduleFolder + '/templates/';
+    var folder = 'app/' + this.templateVars.moduleFolder + '/templates/';
     if (!this.options.template) {
-      this.template('_template.html', folder + this.fileName + '.html');
+      this.fs.copyTpl(
+        this.templatePath('_template.html'),
+        this.destinationPath(folder + this.templateVars.fileName + '.html'),
+        this.templateVars
+      );
     }
     else if (this.options.template === 'debug') {
-      this.template('_debug.html', folder + this.fileName + '.html');
+      this.fs.copyTpl(
+        this.templatePath('_debug.html'),
+        this.destinationPath(folder + this.templateVars.fileName + '.html'),
+        this.templateVars
+      );
     }
     else if (this.options.template === 'list-detail') {
-      this.template('list-detail.html', folder + this.fileName + '.html');
+      this.fs.copy(
+        this.templatePath('list-detail.html'),
+        this.destinationPath(folder + this.templateVars.fileName + '.html')
+      );
     }
     else if (this.options.template === 'list') {
-      this.template('_list.html', folder + this.fileName + '.html');
+      this.fs.copyTpl(
+        this.templatePath('_list.html'),
+        this.destinationPath(folder + this.templateVars.fileName + '.html'),
+        this.templateVars
+      );
     }
     else if (this.options.template === 'menu') {
-      this.template('_menu.html', folder + this.fileName + '.html');
+      this.fs.copyTpl(
+        this.templatePath('_menu.html'),
+        this.destinationPath(folder + this.templateVars.fileName + '.html'),
+        this.templateVars
+      );
     }
     else if (this.options.template === 'tabs') {
-      this.template('_tabs.html', folder + this.fileName + '.html');
+      this.fs.copyTpl(
+        this.templatePath('_tabs.html'),
+        this.destinationPath(folder + this.templateVars.fileName + '.html'),
+        this.templateVars
+      );
     }
   }
 });

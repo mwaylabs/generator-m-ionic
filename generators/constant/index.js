@@ -13,16 +13,28 @@ module.exports = Generator.extend({
     });
     this.argument('module', { type: String, required: false });
 
-    this.moduleName =  utils.checkModule(this.module);
-    this.moduleFolder = utils.moduleFolder(this.moduleName);
+    var moduleName =  utils.checkModule(this.options.module);
+    var moduleFolder = utils.moduleFolder(moduleName);
 
-    this.constantName = this.name;
-    this.fileName = utils.fileName(this.constantName);
+    var constantName = this.options.name;
+    var fileName = utils.fileName(constantName);
+
+    this.templateVars = {
+      options: this.options,
+      moduleName: moduleName,
+      moduleFolder: moduleFolder,
+      constantName: constantName,
+      fileName: fileName
+    };
   },
 
   writing: function () {
     // create constant with snake-case file name
-    var folder = 'app/' + this.moduleFolder + '/constants/';
-    this.template('_constant.js', folder + this.fileName + '-const.js');
+    var folder = 'app/' + this.templateVars.moduleFolder + '/constants/';
+    this.fs.copyTpl(
+      this.templatePath('_constant.js'),
+      this.destinationPath(folder + this.templateVars.fileName + '-const.js'),
+      this.templateVars
+    );
   }
 });

@@ -258,7 +258,7 @@ module.exports = Generator.extend({
       // inject project name, version and info into readme
       var readme = this.fs.read(path.join(__dirname, '../../', 'README.md'));
       readme = readme.replace(/^# Generator-M-Ionic/, '# ' + this.answers.appName + '\nThis project was generated with Generator-M-Ionic v' + this.pkg.version + '. For more info visit the [repository](https://github.com/mwaylabs/generator-m-ionic) or check out the README below.\n\n# Generator-M-Ionic v' + this.pkg.version);
-      this.fs.write(this.destinationPath('/README.md'), readme);
+      this.fs.write(this.destinationPath('README.md'), readme);
     },
 
     ecosystemPrompts: function () {

@@ -13,21 +13,39 @@ module.exports = Generator.extend({
     });
     this.argument('module', { type: String, required: false });
 
-    this.moduleName = utils.checkModule(this.module);
-    this.serviceName = utils.serviceName(this.moduleName);
-    this.configName = utils.configName(this.moduleName);
-    this.moduleFolder = utils.moduleFolder(this.moduleName);
+    var moduleName = utils.checkModule(this.options.module);
+    var serviceName = utils.serviceName(moduleName);
+    var configName = utils.configName(moduleName);
+    var moduleFolder = utils.moduleFolder(moduleName);
 
-    this.controllerName = utils.controllerName(this.name);
-    this.fileName = utils.fileName(this.controllerName);
+    var controllerName = utils.controllerName(this.options.name);
+    var fileName = utils.fileName(controllerName);
+
+    this.templateVars = {
+      options: this.options,
+      moduleName: moduleName,
+      serviceName: serviceName,
+      configName: configName,
+      moduleFolder: moduleFolder,
+      controllerName: controllerName,
+      fileName: fileName
+    };
   },
 
   writing: function () {
     // create controller with snake-case file name
-    var folder = 'app/' + this.moduleFolder + '/controllers/';
-    this.template('_controller.js', folder + this.fileName + '.js');
+    var folder = 'app/' + this.templateVars.moduleFolder + '/controllers/';
+    this.fs.copyTpl(
+      this.templatePath('_controller.js'),
+      this.destinationPath(folder + this.templateVars.fileName + '.js'),
+      this.templateVars
+    );
     // create karma test file
-    var testFolder = 'test/karma/' + this.moduleFolder + '/';
-    this.template('_controller.spec.js', testFolder + this.fileName + '.spec.js');
+    var testFolder = 'test/karma/' + this.templateVars.moduleFolder + '/';
+    this.fs.copyTpl(
+      this.templatePath('_controller.spec.js'),
+      this.destinationPath(testFolder + this.templateVars.fileName + '.spec.js'),
+      this.templateVars
+    );
   }
 });
