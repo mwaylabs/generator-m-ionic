@@ -13,15 +13,15 @@ module.exports = Generator.extend({
     });
     this.argument('module', { type: String, required: false });
 
-    this.moduleName = utils.checkModule(this.module);
+    this.moduleName = utils.checkModule(this.options.module);
   },
 
   writing: function () {
     this.composeWith('m-ionic:controller', {
-      arguments: this.name + ' ' + this.moduleName,
+      arguments: this.options.name + ' ' + this.moduleName,
     });
     this.composeWith('m-ionic:template', {
-      arguments: this.name + ' ' + this.moduleName,
+      arguments: this.options.name + ' ' + this.moduleName,
     });
   }
 });

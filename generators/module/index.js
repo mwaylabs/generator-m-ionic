@@ -63,7 +63,7 @@ module.exports = Generator.extend({
   writing: function () {
 
     // basic files
-    var modulePath = 'app/' + this.templateVars.module;
+    var modulePath = 'app/' + this.templateVars.moduleFolder;
     mkdirp.sync(modulePath);
     mkdirp.sync(modulePath + '/assets/images');
     mkdirp.sync(modulePath + '/constants/');
@@ -85,20 +85,18 @@ module.exports = Generator.extend({
     }
     this.fs.copyTpl(
       this.templatePath('_module.js'),
-      this.destinationPath(modulePath + '/' + this.moduleFolder + '.js'),
+      this.destinationPath(modulePath + '/' + this.templateVars.moduleFolder + '.js'),
       this.templateVars
     );
     this.fs.copyTpl(
       this.templatePath('_module.scss'),
-      this.destinationPath(modulePath + '/styles/' + this.moduleFolder + '.scss'),
+      this.destinationPath(modulePath + '/styles/' + this.templateVars.moduleFolder + '.scss'),
       this.templateVars
     );
     // create config constant
     this.composeWith('m-ionic:constant', {
       arguments: utils.configName(this.templateVars.moduleName) + ' ' + this.templateVars.moduleName,
-      options: {
-        template: 'config'
-      }
+      template: 'config'
     });
 
     // main module files
@@ -130,25 +128,25 @@ module.exports = Generator.extend({
       // debug
       this.composeWith('m-ionic:controller', {
         arguments: this.templateVars.debugCtrlName + ' ' + this.templateVars.moduleName,
-        options: { template: 'debug' }
+        template: 'debug'
       });
       this.composeWith('m-ionic:template', {
         arguments: 'debug ' + this.templateVars.moduleName,
-        options: { template: 'debug' }
+        template: 'debug'
       });
       this.composeWith('m-ionic:service', {
-        arguments: this.name + ' ' + this.templateVars.moduleName,
-        options: {  template: 'debug' }
+        arguments: this.options.name + ' ' + this.templateVars.moduleName,
+        template: 'debug'
       });
 
       // other templates
       this.composeWith('m-ionic:template', {
         arguments: 'list ' + this.templateVars.moduleName,
-        options: { template: 'list' }
+        template: 'list'
       });
       this.composeWith('m-ionic:template', {
         arguments: 'list-detail ' + this.templateVars.moduleName,
-        options: { template: 'list-detail' }
+        template: 'list-detail'
       });
     }
     // sidemenu
@@ -159,7 +157,7 @@ module.exports = Generator.extend({
       });
       this.composeWith('m-ionic:template', {
         arguments: 'menu ' + this.templateVars.moduleName,
-        options: { template: 'menu' }
+        template: 'menu'
       });
     }
 
@@ -168,7 +166,7 @@ module.exports = Generator.extend({
       // tabs
       this.composeWith('m-ionic:template', {
         arguments: 'tabs ' + this.templateVars.moduleName,
-        options: { template: 'tabs' }
+        template: 'tabs'
       });
     }
   }

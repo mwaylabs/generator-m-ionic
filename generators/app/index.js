@@ -87,11 +87,9 @@ module.exports = Generator.extend({
       // create main module
       this.composeWith('m-ionic:module', {
         arguments: config.DEFAULT_MODULE,
-        options: {
-          mainModule: true,
-          ionicCss: this.answers.ionicCss,
-          'skip-prompts': this.options['skip-prompts']
-        }
+        mainModule: true,
+        ionicCss: this.answers.ionicCss,
+        'skip-prompts': this.options['skip-prompts']
       });
     },
 
@@ -280,9 +278,7 @@ module.exports = Generator.extend({
       }
       if (this.answers.ecosystems.indexOf('appmobi') > -1) {
         this.composeWith(require.resolve('generator-appmobi/generators/app/index.js'), {
-          options: {
-            'skip-sdk': this.options['skip-sdk']
-          }
+          'skip-sdk': this.options['skip-sdk']
         });
       }
       if (this.answers.ecosystems.indexOf('ionic-cloud') > -1) {
