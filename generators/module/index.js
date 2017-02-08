@@ -15,10 +15,13 @@ module.exports = Generator.extend({
       desc: 'The subgenerator name'
     });
 
-    this.moduleName = utils.moduleName(this.name);
-    this.controllerName = utils.controllerName(this.name);
-    this.fileName = utils.fileName(this.name);
-    this.moduleFolder = utils.moduleFolder(this.moduleName);
+    var moduleName = utils.moduleName(this.options.name);
+    this.templateVars = {
+      moduleName: moduleName,
+      controllerName: utils.controllerName(this.options.name),
+      fileName: utils.fileName(this.options.name),
+      moduleFolder: utils.moduleFolder(moduleName)
+    };
   },
 
   prompting: function () {
@@ -59,7 +62,7 @@ module.exports = Generator.extend({
   writing: function () {
 
     // basic files
-    var modulePath = 'app/' + this.moduleFolder;
+    var modulePath = 'app/' + this.templateVars.module;
     mkdirp.sync(modulePath);
     mkdirp.sync(modulePath + '/assets/images');
     mkdirp.sync(modulePath + '/constants/');
@@ -72,18 +75,26 @@ module.exports = Generator.extend({
 
     // basic templated files
     if (this.options.mainModule) {
-      this.menuCtrlName = utils.controllerName('Menu');
-      this.debugCtrlName = utils.controllerName('Debug');
+      this.templateVars.menuCtrlName = utils.controllerName('Menu');
+      this.templateVars.debugCtrlName = utils.controllerName('Debug');
     }
     else {
-      this.menuCtrlName = utils.controllerName(this.moduleName + 'Menu');
-      this.debugCtrlName = utils.controllerName(this.moduleName + 'Debug');
+      this.templateVars.menuCtrlName = utils.controllerName(this.templateVars.moduleName + 'Menu');
+      this.templateVars.debugCtrlName = utils.controllerName(this.templateVars.moduleName + 'Debug');
     }
-    this.template('_module.js', modulePath + '/' + this.moduleFolder + '.js');
-    this.template('_module.scss', modulePath + '/styles/' + this.moduleFolder + '.scss');
+    this.fs.copyTpl(
+      this.templatePath('_module.js'),
+      this.destinationPath(modulePath + '/' + this.moduleFolder + '.js'),
+      this.templateVars
+    );
+    this.fs.copyTpl(
+      this.templatePath('_module.scss'),
+      this.destinationPath(modulePath + '/styles/' + this.moduleFolder + '.scss'),
+      this.templateVars
+    );
     // create config constant
     this.composeWith('m-ionic:constant', {
-      arguments: utils.configName(this.moduleName) + ' ' + this.moduleName,
+      arguments: utils.configName(this.templateVars.moduleName) + ' ' + this.templateVars.moduleName,
       options: {
         template: 'config'
       }
@@ -91,38 +102,50 @@ module.exports = Generator.extend({
 
     // main module files
     if (this.options.mainModule) {
-      this.copy('env-dev.json', modulePath + '/constants/env-dev.json');
-      this.copy('env-prod.json', modulePath + '/constants/env-prod.json');
+      this.fs.copy(
+        this.templatePath('env-dev.json'),
+        this.destinationPath(modulePath + '/constants/env-dev.json')
+      );
+      this.fs.copy(
+        this.templatePath('env-prod.json'),
+        this.destinationPath(modulePath + '/constants/env-prod.json')
+      );
     }
 
     // both (sidemenu & tabs)
     if (this.answers.template !== 'blank') {
       // yo@2x.png
-      this.copy('yo.png', modulePath + '/assets/images/yo@2x.png');
+      this.fs.copy(
+        this.templatePath('yo.png'),
+        this.destinationPath(modulePath + '/assets/images/yo@2x.png')
+      );
       // spec file
-      this.template('_module-debug.spec.js', 'test/protractor/' + this.moduleFolder + '/debug.spec.js');
+      this.fs.copyTpl(
+        this.templatePath('_module-debug.spec.js'),
+        this.destinationPath('test/protractor/' + this.templateVars.moduleFolder + '/debug.spec.js')
+      );
 
       // debug
       this.composeWith('m-ionic:controller', {
-        arguments: this.debugCtrlName + ' ' + this.moduleName,
+        arguments: this.templateVars.debugCtrlName + ' ' + this.templateVars.moduleName,
         options: { template: 'debug' }
       });
       this.composeWith('m-ionic:template', {
-        arguments: 'debug ' + this.moduleName,
+        arguments: 'debug ' + this.templateVars.moduleName,
         options: { template: 'debug' }
       });
       this.composeWith('m-ionic:service', {
-        arguments: this.name + ' ' + this.moduleName,
+        arguments: this.name + ' ' + this.templateVars.moduleName,
         options: {  template: 'debug' }
       });
 
       // other templates
       this.composeWith('m-ionic:template', {
-        arguments: 'list ' + this.moduleName,
+        arguments: 'list ' + this.templateVars.moduleName,
         options: { template: 'list' }
       });
       this.composeWith('m-ionic:template', {
-        arguments: 'list-detail ' + this.moduleName,
+        arguments: 'list-detail ' + this.templateVars.moduleName,
         options: { template: 'list-detail' }
       });
     }
@@ -130,10 +153,10 @@ module.exports = Generator.extend({
     if (this.answers.template === 'sidemenu') {
       // menu
       this.composeWith('m-ionic:controller', {
-        arguments: this.menuCtrlName + ' ' + this.moduleName,
+        arguments: this.templateVars.menuCtrlName + ' ' + this.templateVars.moduleName,
       });
       this.composeWith('m-ionic:template', {
-        arguments: 'menu ' + this.moduleName,
+        arguments: 'menu ' + this.templateVars.moduleName,
         options: { template: 'menu' }
       });
     }
@@ -142,7 +165,7 @@ module.exports = Generator.extend({
     if (this.answers.template === 'tabs') {
       // tabs
       this.composeWith('m-ionic:template', {
-        arguments: 'tabs ' + this.moduleName,
+        arguments: 'tabs ' + this.templateVars.moduleName,
         options: { template: 'tabs' }
       });
     }
