@@ -14,7 +14,8 @@ module.exports = Generator.extend({
       type: 'input',
       name: 'modelPath',
       message: '\nEnter the file path to the JSON file, containing the model definition \nRelative to project root => e.g. app/main/assets/Contact.json\n',
-      // validates the file and saves the JSON to this.model
+      // validates the file and saves the JSON
+      // to this.model
       validate: io.validateModelDefinition.bind(this)
     }, {
       type: 'input',
@@ -29,15 +30,33 @@ module.exports = Generator.extend({
   },
 
   writing: function () {
-    // for testing, when model is directly given as json
+    var templateVars = {};
     if (!this.model) {
-      this.model = this.props.modelPath;
+      templateVars.model = this.props.modelPath;
+    }
+    // for testing, model is given directly as JSON
+    // in this.model through io.validateModelDefinition
+    else {
+      templateVars.model = this.model;
     }
 
-    this.moduleName = utils.checkModule(this.props.moduleName);
-    this.moduleFolder = utils.moduleFolder(this.moduleName);
-    this.template('_apiomat.html', 'app/' + this.moduleFolder + '/templates/apiomat.html');
-    this.template('_apiomat-ctrl.js', 'app/' + this.moduleFolder + '/controllers/apiomat-ctrl.js');
-    this.template('_apiomat-ctrl.spec.js', 'test/karma/' + this.moduleFolder + '/apiomat-ctrl.spec.js');
+    var moduleName = templateVars.moduleName = utils.checkModule(this.props.moduleName);
+    var moduleFolder = utils.moduleFolder(moduleName);
+
+    this.fs.copyTpl(
+      this.templatePath('_apiomat.html'),
+      this.destinationPath('app/' + moduleFolder + '/templates/apiomat.html'),
+      templateVars
+    );
+    this.fs.copyTpl(
+      this.templatePath('_apiomat-ctrl.js'),
+      this.destinationPath('app/' + moduleFolder + '/controllers/apiomat-ctrl.js'),
+      templateVars
+    );
+    this.fs.copyTpl(
+      this.templatePath('_apiomat-ctrl.spec.js'),
+      this.destinationPath('test/karma/' + moduleFolder + '/apiomat-ctrl.spec.js'),
+      templateVars
+    );
   }
 });

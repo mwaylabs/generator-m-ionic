@@ -15,7 +15,7 @@ describe('generators/apiomat', function () {
       })
       .on('end', function () {
         done();
-        // console.log(process.cwd());
+        // console.log(process.cwd(), __dirname);
       });
   });
 
