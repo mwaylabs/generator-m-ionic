@@ -146,6 +146,7 @@ Your `gulp build` can be minified or forced:
 gulp build
 gulp build --force-build # build despite linting errors
 gulp build --minify # minifies javascript, CSS, HTML and images.
+gulp build --cachebust # generates hashes and puts them at the end of css/js files
 ```
 
 As you usually don't run this command directly, but rather implicitly by running any build-related Cordova task like `gulp --cordova "run ios"` these options can be passed to those Cordova commands as well.
