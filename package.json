@@ -52,7 +52,7 @@
     "mkdirp": "^0.5.1",
     "underscore.string": "^3.2.0",
     "yeoman-generator": "^0.24.1",
-    "yosay": "^1.0.4"
+    "yosay": "^2.0.0"
   },
   "devDependencies": {
     "coveralls": "^2.11.2",
