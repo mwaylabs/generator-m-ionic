@@ -15,8 +15,7 @@
     "npm": ">=1.4.3"
   },
   "scripts": {
-    "test": "gulp test && cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "coveralls": "gulp test && cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    "test": "gulp test && cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "files": [
     "utils",
