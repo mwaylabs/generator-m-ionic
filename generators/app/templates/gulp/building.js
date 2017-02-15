@@ -9,12 +9,28 @@ var $ = require('gulp-load-plugins')();
 var del = require('del');
 var vinylPaths = require('vinyl-paths');
 
+var stream;
+
 var buildDependencies = [
   options['force-build'] ? 'linting' : 'linting-throw',
   'build-app',
   'build-templates',
   'build-assets'
 ];
+
+// cachebusting function, which will update stream (index.html),
+// update js/css files with revision, then replace the occurences
+// in index.html
+var cachebust = function () {
+  if (!options.cachebust) {
+    return stream;
+  }
+
+  return stream
+    .pipe($.if('*.js', $.rev()))
+    .pipe($.if('*.css', $.rev()))
+    .pipe($.revReplace());
+};
 
 gulp.task('build', buildDependencies, function () {
   return gulp.src(paths.dist + '/**/*')
@@ -33,7 +49,7 @@ gulp.task('build-app', ['clean', 'inject-all'], function () {
   var jsFilter = $.filter('**/*.js', {restore: true});
   var cssFilter = $.filter('**/*.css', {restore: true});
 
-  var stream = gulp.src('app/index.html') // main html file
+  stream = gulp.src('app/index.html') // main html file
     .pipe($.useref({searchPath: '{.tmp,app}'})); // all assets (without index.html)
 
   if (options.minify) {
@@ -50,7 +66,9 @@ gulp.task('build-app', ['clean', 'inject-all'], function () {
       .pipe(cssFilter.restore);
   }
 
-  stream.pipe(gulp.dest(paths.dist));
+  stream
+  .pipe(cachebust())
+  .pipe(gulp.dest(paths.dist));
 
   return stream;
 });
