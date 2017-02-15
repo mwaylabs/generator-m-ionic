@@ -1,8 +1,9 @@
 'use strict';
 
 // tasks based on : https://github.com/youngmountain/generator-node-gulp/blob/master/gulpfile.js
-
+var path = require('path');
 var gulp = require('gulp');
+var nsp = require('gulp-nsp');
 var $ = require('gulp-load-plugins')();
 
 // ADD PATHS AUTOMATICALLY
@@ -47,6 +48,10 @@ if (process.env.CI) {
   };
 }
 
+gulp.task('nsp', function (cb) {
+  nsp({package: path.resolve('package.json')}, cb);
+});
+
 // will run istanbul & lint while you develop
 gulp.task('watch', ['lint', 'istanbul'], function () {
   gulp.watch(paths.watch, ['lint', 'istanbul']);
@@ -81,4 +86,5 @@ gulp.task('istanbul', function (cb) {
 
 gulp.task('test', ['lint', 'istanbul']);
 
+gulp.task('prepublish', ['nsp']);
 gulp.task('default', ['test']);
