@@ -1,8 +1,11 @@
 'use strict';
-var yeoman = require('yeoman-generator');
+var Generator = require('yeoman-generator');
 
-module.exports = yeoman.Base.extend({
+module.exports = Generator.extend({
   writing: function () {
-    this.copy('greenhouse.sh', 'greenhouse.sh');
+    this.fs.copy(
+      this.templatePath('greenhouse.sh'),
+      this.destinationPath('greenhouse.sh')
+    );
   }
 });

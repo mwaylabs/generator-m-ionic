@@ -1,11 +1,11 @@
 'use strict';
-var yeoman = require('yeoman-generator');
+var Generator = require('yeoman-generator');
 var mkdirp = require('mkdirp');
 
 var utils = require('../../utils/utils.js');
 var sampleAnswers = require('../app/sources/sample-answers.js');
 
-module.exports = yeoman.Base.extend({
+module.exports = Generator.extend({
 
   initializing: function () {
     // arguments
@@ -15,10 +15,14 @@ module.exports = yeoman.Base.extend({
       desc: 'The subgenerator name'
     });
 
-    this.moduleName = utils.moduleName(this.name);
-    this.controllerName = utils.controllerName(this.name);
-    this.fileName = utils.fileName(this.name);
-    this.moduleFolder = utils.moduleFolder(this.moduleName);
+    var moduleName = utils.moduleName(this.options.name);
+    this.templateVars = {
+      options: this.options,
+      moduleName: moduleName,
+      controllerName: utils.controllerName(this.options.name),
+      fileName: utils.fileName(this.options.name),
+      moduleFolder: utils.moduleFolder(moduleName)
+    };
   },
 
   prompting: function () {
@@ -48,18 +52,18 @@ module.exports = yeoman.Base.extend({
         ]
       })
       .then(function (answers) { // prompt
-        this.answers = answers;
+        this.answers = this.templateVars.answers = answers;
       }.bind(this));
     }
     else {
-      this.answers = sampleAnswers.getStandard();
+      this.answers = this.templateVars.answers = sampleAnswers.getStandard();
     }
   },
 
   writing: function () {
 
     // basic files
-    var modulePath = 'app/' + this.moduleFolder;
+    var modulePath = 'app/' + this.templateVars.moduleFolder;
     mkdirp.sync(modulePath);
     mkdirp.sync(modulePath + '/assets/images');
     mkdirp.sync(modulePath + '/constants/');
@@ -72,69 +76,88 @@ module.exports = yeoman.Base.extend({
 
     // basic templated files
     if (this.options.mainModule) {
-      this.menuCtrlName = utils.controllerName('Menu');
-      this.debugCtrlName = utils.controllerName('Debug');
+      this.templateVars.menuCtrlName = utils.controllerName('Menu');
+      this.templateVars.debugCtrlName = utils.controllerName('Debug');
     }
     else {
-      this.menuCtrlName = utils.controllerName(this.moduleName + 'Menu');
-      this.debugCtrlName = utils.controllerName(this.moduleName + 'Debug');
+      this.templateVars.menuCtrlName = utils.controllerName(this.templateVars.moduleName + 'Menu');
+      this.templateVars.debugCtrlName = utils.controllerName(this.templateVars.moduleName + 'Debug');
     }
-    this.template('_module.js', modulePath + '/' + this.moduleFolder + '.js');
-    this.template('_module.scss', modulePath + '/styles/' + this.moduleFolder + '.scss');
+    this.fs.copyTpl(
+      this.templatePath('_module.js'),
+      this.destinationPath(modulePath + '/' + this.templateVars.moduleFolder + '.js'),
+      this.templateVars
+    );
+    this.fs.copyTpl(
+      this.templatePath('_module.scss'),
+      this.destinationPath(modulePath + '/styles/' + this.templateVars.moduleFolder + '.scss'),
+      this.templateVars
+    );
     // create config constant
     this.composeWith('m-ionic:constant', {
-      arguments: utils.configName(this.moduleName) + ' ' + this.moduleName,
-      options: {
-        template: 'config'
-      }
+      arguments: utils.configName(this.templateVars.moduleName) + ' ' + this.templateVars.moduleName,
+      template: 'config'
     });
 
     // main module files
     if (this.options.mainModule) {
-      this.copy('env-dev.json', modulePath + '/constants/env-dev.json');
-      this.copy('env-prod.json', modulePath + '/constants/env-prod.json');
+      this.fs.copy(
+        this.templatePath('env-dev.json'),
+        this.destinationPath(modulePath + '/constants/env-dev.json')
+      );
+      this.fs.copy(
+        this.templatePath('env-prod.json'),
+        this.destinationPath(modulePath + '/constants/env-prod.json')
+      );
     }
 
     // both (sidemenu & tabs)
     if (this.answers.template !== 'blank') {
       // yo@2x.png
-      this.copy('yo.png', modulePath + '/assets/images/yo@2x.png');
+      this.fs.copy(
+        this.templatePath('yo.png'),
+        this.destinationPath(modulePath + '/assets/images/yo@2x.png')
+      );
       // spec file
-      this.template('_module-debug.spec.js', 'test/protractor/' + this.moduleFolder + '/debug.spec.js');
+      this.fs.copyTpl(
+        this.templatePath('_module-debug.spec.js'),
+        this.destinationPath('test/protractor/' + this.templateVars.moduleFolder + '/debug.spec.js'),
+        this.templateVars
+      );
 
       // debug
       this.composeWith('m-ionic:controller', {
-        arguments: this.debugCtrlName + ' ' + this.moduleName,
-        options: { template: 'debug' }
+        arguments: this.templateVars.debugCtrlName + ' ' + this.templateVars.moduleName,
+        template: 'debug'
       });
       this.composeWith('m-ionic:template', {
-        arguments: 'debug ' + this.moduleName,
-        options: { template: 'debug' }
+        arguments: 'debug ' + this.templateVars.moduleName,
+        template: 'debug'
       });
       this.composeWith('m-ionic:service', {
-        arguments: this.name + ' ' + this.moduleName,
-        options: {  template: 'debug' }
+        arguments: this.options.name + ' ' + this.templateVars.moduleName,
+        template: 'debug'
       });
 
       // other templates
       this.composeWith('m-ionic:template', {
-        arguments: 'list ' + this.moduleName,
-        options: { template: 'list' }
+        arguments: 'list ' + this.templateVars.moduleName,
+        template: 'list'
       });
       this.composeWith('m-ionic:template', {
-        arguments: 'list-detail ' + this.moduleName,
-        options: { template: 'list-detail' }
+        arguments: 'list-detail ' + this.templateVars.moduleName,
+        template: 'list-detail'
       });
     }
     // sidemenu
     if (this.answers.template === 'sidemenu') {
       // menu
       this.composeWith('m-ionic:controller', {
-        arguments: this.menuCtrlName + ' ' + this.moduleName,
+        arguments: this.templateVars.menuCtrlName + ' ' + this.templateVars.moduleName,
       });
       this.composeWith('m-ionic:template', {
-        arguments: 'menu ' + this.moduleName,
-        options: { template: 'menu' }
+        arguments: 'menu ' + this.templateVars.moduleName,
+        template: 'menu'
       });
     }
 
@@ -142,8 +165,8 @@ module.exports = yeoman.Base.extend({
     if (this.answers.template === 'tabs') {
       // tabs
       this.composeWith('m-ionic:template', {
-        arguments: 'tabs ' + this.moduleName,
-        options: { template: 'tabs' }
+        arguments: 'tabs ' + this.templateVars.moduleName,
+        template: 'tabs'
       });
     }
   }

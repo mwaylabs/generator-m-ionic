@@ -1,8 +1,8 @@
 'use strict';
-var yeoman = require('yeoman-generator');
+var Generator = require('yeoman-generator');
 var utils = require('../../utils/utils.js');
 
-module.exports = yeoman.Base.extend({
+module.exports = Generator.extend({
 
   initializing: function () {
     // arguments
@@ -13,19 +13,35 @@ module.exports = yeoman.Base.extend({
     });
     this.argument('module', { type: String, required: false });
 
-    this.moduleName =  utils.checkModule(this.module);
-    this.moduleFolder = utils.moduleFolder(this.moduleName);
+    var moduleName =  utils.checkModule(this.options.module);
+    var moduleFolder = utils.moduleFolder(moduleName);
 
-    this.serviceName = utils.serviceName(this.name);
-    this.fileName = utils.fileName(this.serviceName);
+    var serviceName = utils.serviceName(this.options.name);
+    var fileName = utils.fileName(serviceName);
+
+    this.templateVars = {
+      options: this.options,
+      moduleName: moduleName,
+      moduleFolder: moduleFolder,
+      serviceName: serviceName,
+      fileName: fileName
+    };
   },
 
   writing: function () {
     // create service with snake-case file name
-    var folder = 'app/' + this.moduleFolder + '/services/';
-    this.template('_service.js', folder + this.fileName + '-serv.js');
+    var folder = 'app/' + this.templateVars.moduleFolder + '/services/';
+    this.fs.copyTpl(
+      this.templatePath('_service.js'),
+      this.destinationPath(folder + this.templateVars.fileName + '-serv.js'),
+      this.templateVars
+    );
     // create karma test file
-    var testFolder = 'test/karma/' + this.moduleFolder + '/';
-    this.template('_service.spec.js', testFolder + this.fileName + '-serv.spec.js');
+    var testFolder = 'test/karma/' + this.templateVars.moduleFolder + '/';
+    this.fs.copyTpl(
+      this.templatePath('_service.spec.js'),
+      this.destinationPath(testFolder + this.templateVars.fileName + '-serv.spec.js'),
+      this.templateVars
+    );
   }
 });

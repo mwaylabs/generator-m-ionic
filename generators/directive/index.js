@@ -1,8 +1,8 @@
 'use strict';
-var yeoman = require('yeoman-generator');
+var Generator = require('yeoman-generator');
 var utils = require('../../utils/utils.js');
 
-module.exports = yeoman.Base.extend({
+module.exports = Generator.extend({
 
   initializing: function () {
     // arguments
@@ -13,20 +13,37 @@ module.exports = yeoman.Base.extend({
     });
     this.argument('module', { type: String, required: false });
 
-    this.moduleName =  utils.checkModule(this.module);
-    this.moduleFolder = utils.moduleFolder(this.moduleName);
-
-    this.directiveName = this.name;
-    this.directiveTagName = utils.directiveTagName(this.directiveName);
-    this.fileName = utils.fileName(this.directiveName);
   },
 
   writing: function () {
+    var moduleName =  utils.checkModule(this.options.module);
+    var moduleFolder = utils.moduleFolder(moduleName);
+
+    var directiveName = this.options.name;
+    var directiveTagName = utils.directiveTagName(directiveName);
+    var fileName = utils.fileName(directiveName);
+
+    var templateVars = {
+      moduleName: moduleName,
+      moduleFolder: moduleFolder,
+      directiveName: directiveName,
+      directiveTagName: directiveTagName,
+      fileName: fileName
+    };
+
     // create directive with snake-case file name
-    var folder = 'app/' + this.moduleFolder + '/directives/';
-    this.template('_directive.js', folder + this.fileName + '-dir.js');
+    var folder = 'app/' + moduleFolder + '/directives/';
+    this.fs.copyTpl(
+      this.templatePath('_directive.js'),
+      this.destinationPath(folder + fileName + '-dir.js'),
+      templateVars
+    );
     // create karma test file
-    var testFolder = 'test/karma/' + this.moduleFolder + '/';
-    this.template('_directive.spec.js', testFolder + this.fileName + '-dir.spec.js');
+    var testFolder = 'test/karma/' + moduleFolder + '/';
+    this.fs.copyTpl(
+      this.templatePath('_directive.spec.js'),
+      this.destinationPath(testFolder + fileName + '-dir.spec.js'),
+      templateVars
+    );
   }
 });

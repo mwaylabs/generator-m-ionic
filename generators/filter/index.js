@@ -1,8 +1,8 @@
 'use strict';
-var yeoman = require('yeoman-generator');
+var Generator = require('yeoman-generator');
 var utils = require('../../utils/utils.js');
 
-module.exports = yeoman.Base.extend({
+module.exports = Generator.extend({
 
   initializing: function () {
     // arguments
@@ -12,21 +12,36 @@ module.exports = yeoman.Base.extend({
       desc: 'The subgenerator name'
     });
     this.argument('module', { type: String, required: false });
-
-    this.moduleName =  utils.checkModule(this.module);
-    this.moduleFolder = utils.moduleFolder(this.moduleName);
-
-
-    this.filterName = this.name;
-    this.fileName = utils.fileName(this.filterName);
   },
 
   writing: function () {
+    var moduleName =  utils.checkModule(this.options.module);
+    var moduleFolder = utils.moduleFolder(moduleName);
+
+    var filterName = this.options.name;
+    var fileName = utils.fileName(filterName);
+
+    var templateVars = {
+      options: this.options,
+      moduleName: moduleName,
+      moduleFolder: moduleFolder,
+      filterName: filterName,
+      fileName: fileName
+    };
+
     // create filter with snake-case file name
-    var folder = 'app/' + this.moduleFolder + '/filters/';
-    this.template('_filter.js', folder + this.fileName + '-fil.js');
+    var folder = 'app/' + moduleFolder + '/filters/';
+    this.fs.copyTpl(
+      this.templatePath('_filter.js'),
+      this.destinationPath(folder + fileName + '-fil.js'),
+      templateVars
+    );
     // create karma test file
-    var testFolder = 'test/karma/' + this.moduleFolder + '/';
-    this.template('_filter.spec.js', testFolder + this.fileName + '-fil.spec.js');
+    var testFolder = 'test/karma/' + moduleFolder + '/';
+    this.fs.copyTpl(
+      this.templatePath('_filter.spec.js'),
+      this.destinationPath(testFolder + fileName + '-fil.spec.js'),
+      templateVars
+    );
   }
 });
