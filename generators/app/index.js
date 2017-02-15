@@ -259,13 +259,18 @@ module.exports = Generator.extend({
       this.fs.write(this.destinationPath('README.md'), readme);
     },
 
-    ecosystemPrompts: function () {
+    morePrompts: function () {
       if (!this.options['skip-prompts']) {
         // ecosystem prompts
         return this.prompt(prompts.ecosystems)
-        .then(function (answers) { // prompt
+        .then(answers => { // prompt
           this.answers.ecosystems = answers.ecosystems;
-        }.bind(this));
+          // yarn/npm prompt
+          return this.prompt(prompts.install);
+        })
+        .then(answers => {
+          this.answers.install = answers.install;
+        });
       }
     },
 
@@ -290,13 +295,20 @@ module.exports = Generator.extend({
     }
   },
 
+
   install: function () {
-    // insall npm, bower and save plugins/platforms
-    this.installDependencies({
-      npm: true,
+    let installConf = {
       bower: true,
       skipInstall: this.options['skip-install']
-    });
+    };
+    // install via yarn or npm according to prompts
+    installConf[this.answers.install] = true;
+    // unset default npm install
+    if (this.answers.install === 'yarn') {
+      installConf.npm = false;
+    }
+    // insall npm, bower and save plugins/platforms
+    this.installDependencies(installConf);
   },
 
   end: function () {

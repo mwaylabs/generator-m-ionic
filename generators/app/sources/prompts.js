@@ -81,5 +81,22 @@ module.exports = {
         value: 'apiomat'
       }]
     }
+  ],
+  install: [
+    {
+      type: 'list',
+      name: 'install',
+      message: '\nInstall dependencies via Bower and:\n',
+      choices: [
+        {
+          name: 'yarn (faster)',
+          value: 'yarn'
+        },
+        {
+          name: 'npm (more established, reliable)',
+          value: 'npm'
+        }
+      ]
+    }
   ]
 };

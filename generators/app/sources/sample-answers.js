@@ -18,6 +18,7 @@ module.exports = {
       return packages;
     })(),
     ionicCss: true,
+    install: 'yarn',
     platforms: [
       'ios',
       'android',
