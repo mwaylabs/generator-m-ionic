@@ -27,7 +27,7 @@ module.exports = {
       line: '---- i18n/l10n ----'
     },
     {
-      value: 'angular-dynamic-locale#~0.1.32',
+      value: 'angular-dynamic-locale#~0.1.37',
       name: 'angular-dynamic-locale',
       checked: true
     },
