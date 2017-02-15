@@ -7,8 +7,8 @@ module.exports = {
       'angular': '~1.5.0',
       'angular-animate': '~1.5.0',
       'angular-sanitize': '~1.5.0',
-      'angular-ui-router': '~0.3.1',
-      'ngCordova': '~0.1.17-alpha'
+      'angular-ui-router': '~0.4.2',
+      'ngCordova': '~0.1.27-alpha'
     },
     devDependencies: {
       'angular-mocks': '~1.5.0'
@@ -18,7 +18,7 @@ module.exports = {
       'angular': '~1.5.0',
       'angular-animate': '~1.5.0',
       'angular-sanitize': '~1.5.0',
-      'angular-ui-router': '~0.3.1'
+      'angular-ui-router': '~0.4.2'
     }
   },
   optional: [
@@ -27,17 +27,17 @@ module.exports = {
       line: '---- i18n/l10n ----'
     },
     {
-      value: 'angular-dynamic-locale#~0.1.27',
+      value: 'angular-dynamic-locale#~0.1.32',
       name: 'angular-dynamic-locale',
       checked: true
     },
     {
-      value: 'angular-translate#~2.11.0',
+      value: 'angular-translate#~2.13.0',
       name: 'angular-translate',
       checked: true
     },
     {
-      value: 'angular-translate-loader-static-files#~2.11.0',
+      value: 'angular-translate-loader-static-files#~2.13.0',
       name: 'angular-translate-loader-static-files',
       checked: true
     },

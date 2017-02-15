@@ -26,6 +26,9 @@ gulp protractor
 ```
 **Hint**: `gulp watch` and `gulp protractor` should not be run at the same time, this will yield unexpected and weird results. Make sure to run them separately!
 
+**Advanced**: You can start both commands with optional parameter `--conf=configfile.js`. So in case you have different setup configurations, you can run
+`gulp karma --conf='karma.extra.conf.js'` or `gulp protractor --conf='protractor.ios.conf.js'`.
+
 
 ### Karma and Jasmine for unit tests
 In addition to providing [Karma](http://karma-runner.github.io/) as a task runner for your unit tests our setup is configured to use [Jasmine](http://jasmine.github.io/) as a testing framework. This is done in the `karma.conf.js`. There are other options besides Jasmine but since Protractor is using it too, it's the simplest just to write your unit tests with Jasmine as well.

@@ -67,7 +67,7 @@ gulp.task('watch', ['inject-all'], function () {
   gulp.watch(paths.scssFiles, ['styles']);
   // watch for changes in css
   gulp.watch(paths.cssFiles, function () {
-    bs.reload();
+    gulp.src(paths.cssFiles).pipe(bs.stream());
   });
   // watch for changes in environment files and new config files
   gulp.watch([
