@@ -158,7 +158,7 @@ describe('generators/module', function () {
 
       // tests
       assert.fileContent([
-        [debugSpecFile, 'browser.get(\'/#/' + moduleFolder + '/debug']
+        [debugSpecFile, 'browser.get(\'#/' + moduleFolder + '/debug']
       ]);
     });
   };
