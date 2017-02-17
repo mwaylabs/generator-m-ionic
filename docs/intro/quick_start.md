@@ -49,7 +49,7 @@ gulp --cordova "emulate ios"
 # run the version currently in the www/ folder, without a new build
 gulp --cordova "run ios" --no-build
 # build Options
-gulp --cordova "run ios" --minify --force-build
+gulp --cordova "run ios" --minify --cachebust --force-build
 # Use specific target (e.g. iPhone-6)
 gulp --cordova "emulate ios --target=iPhone-6"
 # to list available iOS emulator targets on your machine, run:
