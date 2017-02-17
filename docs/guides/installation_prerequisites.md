@@ -6,7 +6,7 @@ Besides simply installing everything, we recommend having or obtaining a **fair 
 -  **[Nodejs & npm](https://nodejs.org/)** - install via their website, **[yarn](https://yarnpkg.com/)** is also a viable option
 - **[Yo](http://yeoman.io/)**, **[Gulp](http://gulpjs.com/)** and **[Bower](http://bower.io/)** - install via npm
 
-```
+```sh
 # npm
 npm install --global yo
 npm install --global gulp
