@@ -4,12 +4,15 @@ If you are experienced with the technologies in this generator, this summary mig
 ## Setup  
 
 #### Installation
-If your system is not yet configured to run node and the Cordova platforms you desire, you can get everything up and running using the [Installation and Prerequisites](../guides/installation_prerequisites.md) guide. Once you've done that simply run:
+If your system is not yet configured to run **node and the Cordova platforms** you desire, you can get everything up and running using the [Installation and Prerequisites](../guides/installation_prerequisites.md) guide. Once you've done that simply run:
 ```sh
 # prerequisites
 npm i -g yo gulp bower
 # generator
 npm i -g generator-m-ionic
+
+# yarn
+yarn global add yo gulp bower generator-m-ionic
 ```
 
 ## Development
@@ -84,6 +87,7 @@ git commit -m "project setup"
 
 # Instead if you cloned a project from a repository, run
 npm install # install node packages
+yarn # use yarn alternatively
 bower install # install bower packages
 gulp --cordova "prepare" # install Cordova platforms and plugins
 gulp watch

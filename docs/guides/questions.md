@@ -85,3 +85,7 @@ This choice decides whether your app will be generated with an [Ionic side menu]
 <img width="600" src="https://cloud.githubusercontent.com/assets/1370779/18129151/ab97cc8c-6f89-11e6-81c9-4e0c8985ea6b.png">
 
 Generator-M-Ionic provides integration into different ecosystems. For more information refer to the [Ecosystems section of our Guides](../../README.md#ecosystems). If you don't know what these are, just leave them empty for now. They can be included at any time.
+
+## npm or yarn?
+<img width="600" src="https://cloud.githubusercontent.com/assets/1370779/23066660/0567f120-f51c-11e6-9429-3fea9c6b8405.png">
+Choose [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/) to install your dependencies. They must be installed separately [beforehand](./installation_prerequisites.md).

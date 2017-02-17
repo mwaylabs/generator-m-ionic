@@ -11,6 +11,7 @@ Leaving them as they are generated, you will allow git to exclude all of the 3rd
 Since all these files are excluded from git, you need to install all of them when you start with a fresh clone of your project. In order to do so, run the following commands in that order:
 ```sh
 npm install # installs all node modules from the package.json
+yarn # alternatively
 bower install # install all bower components from the bower.json
 gulp --cordova "prepare" # install all Cordova platforms and plugins from the config.xml
 ```

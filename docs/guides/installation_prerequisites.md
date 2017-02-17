@@ -3,13 +3,17 @@
 Besides simply installing everything, we recommend having or obtaining a **fair knowledge** of the technologies, so you can understand what you are doing. If you don't know what all this is, our blog article [Generator-M-Ionic: HTML5 mobile app development evolved](http://blog.mwaysolutions.com/2015/09/10/generator-m-ionic-html5-mobile-app-development-evolved/) may be a **good starting point**.
 
 ## Node and dependencies
--  **[Nodejs & npm](https://nodejs.org/)** - install via their website
+-  **[Nodejs & npm](https://nodejs.org/)** - install via their website, **[yarn](https://yarnpkg.com/)** is also a viable option
 - **[Yo](http://yeoman.io/)**, **[Gulp](http://gulpjs.com/)** and **[Bower](http://bower.io/)** - install via npm
 
 ```
+# npm
 npm install --global yo
 npm install --global gulp
 npm install --global bower
+
+# yarn
+yarn global add yo gulp bower
 ```
 
 
@@ -21,7 +25,11 @@ You don't have to install the **Cordova CLI**. It's provided with the generator.
 ## Generator
 Everything else you need will be installed using:
 ```sh
+# npm
 npm install --global generator-m-ionic
+
+# yarn
+yarn global add generator-m-ionic
 ```
 
 Everything went well? - Awesome! Get started using the [Get started](../../README.md#get-started) documents in the `README.md`.
