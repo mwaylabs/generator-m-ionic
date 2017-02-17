@@ -1,5 +1,7 @@
 'use strict';
 
+var SpecReporter = require('jasmine-spec-reporter').SpecReporter;
+
 // An example configuration file.
 exports.config = {
   // The address of a running selenium server.
@@ -16,4 +18,19 @@ exports.config = {
   // Spec patterns are relative to the current working directly when
   // protractor is called.
   specs: ['test/protractor/**/*.js'],
+
+  jasmineNodeOpts: {
+    showColors: true,
+    silent: true,
+    print: function () {}
+  },
+
+  onPrepare: function () {
+    /*globals jasmine*/
+    jasmine.getEnv().addReporter(new SpecReporter({
+      spec: {
+        displayStacktrace: true
+      }
+    }));
+  }
 };
