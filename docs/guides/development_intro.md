@@ -168,3 +168,32 @@ gulp watch-build --no-build # watches current version in www/, no new build
 are your friends!
 
 These commands build your Ionic app into the `www/` folder and watch that version. So you can make changes in the code and livereload will help you debug and test your build!
+
+## npm scripts shorthands
+To make things easier, your project's `package.json` comes with the following set of predefined [npm scripts](https://docs.npmjs.com/cli/run-script) for basic usage-scenarios:
+
+```sh
+"scripts": {
+  "test": "gulp build --minify && gulp karma",
+  "start": "gulp watch",
+  "watch": "npm start",
+  "prepare": "gulp --cordova 'prepare'",
+  "livereload:ios": "gulp --livereload 'run ios'",
+  "livereload:android": "gulp --livereload 'run android'",
+  "run:ios": "gulp --cordova 'run ios",
+  "run:android": "gulp --cordova 'run android'",
+  "watch:build": "gulp watch-build",
+  "build": "gulp build --minify"
+}
+```
+
+Use:
+
+```sh
+# run gulp watch
+npm start
+# run gulp watch-build
+npm run watch:build
+# pass options
+npm run watch:build -- --env=prod --no-open
+```

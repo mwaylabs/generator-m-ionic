@@ -75,6 +75,20 @@ gulp --cordova "plugin add cordova-plugin-camera --save" # add
 gulp --cordova "plugins rm cordova-plugin-camera ---save" # remove
 ```
 
+## npm scripts shorthands
+You can also use the `package.json`'s [npm scripts](https://docs.npmjs.com/cli/run-script) for basic usage scenarios. More in the [development intro](./development_intro.md#npm-scripts-shorthands).
+
+Examples:
+
+```sh
+# run gulp watch
+npm start
+# run gulp watch-build
+npm run watch:build
+# pass options
+npm run watch:build -- --env=prod --no-open
+```
+
 ##  Other topics
 #### Git integration
 More information in the  [Git integration](../guides/git_integration.md) guide.
