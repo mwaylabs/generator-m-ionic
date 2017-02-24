@@ -13,3 +13,6 @@ coverage
 # webstorm
 /.idea/workspace.xml
 /.idea/libraries
+
+# yarn
+yarn.lock
