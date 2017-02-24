@@ -35,3 +35,6 @@
 
 # yarn
 yarn.lock
+
+# npm
+npm-debug.log
