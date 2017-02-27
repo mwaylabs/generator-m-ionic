@@ -177,7 +177,7 @@ To make things easier, your project's `package.json` comes with the following se
   "test": "gulp build --minify && gulp karma",
   "start": "gulp watch",
   "watch": "npm start",
-  "prepare": "gulp --cordova 'prepare'",
+  "prepare:all": "gulp --cordova 'prepare'",
   "livereload:ios": "gulp --livereload 'run ios'",
   "livereload:android": "gulp --livereload 'run android'",
   "run:ios": "gulp --cordova 'run ios",
