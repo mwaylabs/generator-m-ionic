@@ -87,15 +87,12 @@ This Generator delivers **highly advanced workflows for Angular 1 & Ionic 1** wi
   - [Part 2: Mountain](http://blog.ionic.io/advanced-workflows-for-building-rock-solid-ionic-apps-part-2/)
   - [Part 3: Orbit](http://blog.ionic.io/advanced-workflows-for-building-rock-solid-ionic-apps-part-3/)
 
-**v1.10**
-- Support for **multiple proxies** and **Cordova Browser** platform
-- **Integrations** into [Ionic Cloud](https://github.com/mwaylabs/generator-m-ionic/blob/master/docs/ecosystems/ionic_platform.md), [Relution & Greenhouse](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/greenhouse.md)
-- Full **Continuous Integration** Guide
-- [read more ...](https://github.com/mwaylabs/generator-m-ionic/releases/tag/1.10.0)
-
-**v1.9**
+**Latest releases**
+- **Yarn integration**: [see here](https://github.com/mwaylabs/generator-m-ionic/blob/master/docs/guides/questions.md#npm-or-yarn).
+- **Test setup improvements** [#489](https://github.com/mwaylabs/generator-m-ionic/pull/489).
 - **Livereload** for the device! Wohoo! See [how it's done](https://github.com/mwaylabs/generator-m-ionic/blob/master/docs/guides/development_intro.md#run-on-device-or-emulator-with-livereload).
-- [read more ...](https://github.com/mwaylabs/generator-m-ionic/releases/tag/1.9.0)
+- **Integrations** into [Ionic Cloud](https://github.com/mwaylabs/generator-m-ionic/blob/master/docs/ecosystems/ionic_platform.md), [Relution & Greenhouse](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/greenhouse.md).
+- [and many more ...](https://github.com/mwaylabs/generator-m-ionic/releases)
 
 ## Guides
 ##### Quick Start
