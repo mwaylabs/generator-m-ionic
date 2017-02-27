@@ -54,7 +54,7 @@
     "karma-jasmine": "^1.0.2",
     "karma-ng-html2js-preprocessor": "^1.0.0",
     "karma-phantomjs-launcher": "^1.0.0",
-    "karma-spec-reporter": "^0.0.26",
+    "karma-spec-reporter": "^0.0.30",
     "lodash": "^4.3.0",
     "main-bower-files": "^2.9.0",
     "minimist": "^1.2.0",
