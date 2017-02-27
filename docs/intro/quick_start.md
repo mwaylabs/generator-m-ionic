@@ -76,7 +76,7 @@ gulp --cordova "plugins rm cordova-plugin-camera ---save" # remove
 ```
 
 ## npm scripts shorthands
-You can also use the `package.json`'s [npm scripts](https://docs.npmjs.com/cli/run-script) for basic usage scenarios. More in the [development intro](./development_intro.md#npm-scripts-shorthands).
+You can also use the `package.json`'s [npm scripts](https://docs.npmjs.com/cli/run-script) for basic usage scenarios. More in the [development intro](../guides/development_intro.md#npm-scripts-shorthands).
 
 Examples:
 
