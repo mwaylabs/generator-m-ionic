@@ -88,4 +88,5 @@ Generator-M-Ionic provides integration into different ecosystems. For more infor
 
 ## npm or yarn?
 <img width="600" src="https://cloud.githubusercontent.com/assets/1370779/23066660/0567f120-f51c-11e6-9429-3fea9c6b8405.png">
+
 Choose [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/) to install your dependencies. They must be installed separately [beforehand](./installation_prerequisites.md). The [`yarn.lock` file](https://yarnpkg.com/en/docs/yarn-lock) is added to the project's `.gitignore` as a default.
