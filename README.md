@@ -17,6 +17,15 @@ Development:
 [![Dev Build Status](https://img.shields.io/travis/mwaylabs/generator-m-ionic/dev.svg?style=flat-square)][travis-url]
 [![Dev Dependency Status](http://img.shields.io/david/mwaylabs/generator-m-ionic/dev.svg?style=flat-square)](https://david-dm.org/mwaylabs/generator-m-ionic/dev)
 
++## Quick Start
++```bash
++yarn global add yo gulp bower generator-m-ionic
++mkdir myProject
++cd myProject
++yo m-ionic
++gulp watch
++```
++More in the [Cheatsheet](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/cheatsheet.md)
 
 ## Why you need it
 <p align="center">
