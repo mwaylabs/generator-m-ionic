@@ -16,6 +16,7 @@ Development:
 [![Dev Coverage Status](http://img.shields.io/coveralls/mwaylabs/generator-m-ionic/dev.svg?style=flat-square)][coveralls-url]
 [![Dev Build Status](https://img.shields.io/travis/mwaylabs/generator-m-ionic/dev.svg?style=flat-square)][travis-url]
 [![Dev Dependency Status](http://img.shields.io/david/mwaylabs/generator-m-ionic/dev.svg?style=flat-square)](https://david-dm.org/mwaylabs/generator-m-ionic/dev)
+[![Greenkeeper badge](https://badges.greenkeeper.io/mwaylabs/generator-m-ionic.svg)](https://greenkeeper.io/)
 
 
 ## Why you need it
