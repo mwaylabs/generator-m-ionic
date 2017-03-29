@@ -1,5 +1,7 @@
 # Generator-M-Ionic
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/mwaylabs/generator-m-ionic.svg)](https://greenkeeper.io/)
+
 [![NPM version](http://img.shields.io/npm/v/generator-m-ionic.svg?style=flat-square)][npm-url]
 [![Coverage Status](http://img.shields.io/coveralls/mwaylabs/generator-m-ionic/master.svg?style=flat-square)][coveralls-url]
 [![Build Status](https://img.shields.io/travis/mwaylabs/generator-m-ionic/master.svg?style=flat-square)][travis-url]
