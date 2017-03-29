@@ -134,7 +134,6 @@ This Generator delivers **highly advanced workflows for Angular 1 & Ionic 1** wi
 ##### Ecosystems
 - [Greenhouse & Relution](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/ecosystems/greenhouse.md) - build and distribute your apps using these powerful cloud services
 - [Ionic Cloud](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/ecosystems/ionic_platform.md) (beta) - a powerful suite of hybrid-focused mobile backend services and tools
-- [ApiOmat](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/ecosystems/apiomat.md) (beta) - Enterprise Backend as a Service
 
 ## Generator Insights
 We've published 3 blog articles on our company blog delivering deep insights into the why and how of the generator:

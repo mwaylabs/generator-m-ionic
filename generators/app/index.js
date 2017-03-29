@@ -284,9 +284,6 @@ module.exports = Generator.extend({
       if (this.answers.ecosystems.indexOf('ionic-cloud') > -1) {
         this.composeWith('m-ionic:ionic-cloud');
       }
-      if (this.answers.ecosystems.indexOf('apiomat') > -1) {
-        // do nothing: apiomat can only be done after project setup
-      }
     }
   },
 

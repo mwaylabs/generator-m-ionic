@@ -73,9 +73,6 @@ module.exports = {
       }, {
         name: 'Ionic Cloud            (beta)',
         value: 'ionic-cloud'
-      }, {
-        name: 'ApiOmat                (beta)',
-        value: 'apiomat'
       }]
     }
   ],
