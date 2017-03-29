@@ -54,10 +54,10 @@ describe('generators/app/sample-answers', function () {
       var appmobi = answers.ecosystems.filter(function (value) {
         return value.indexOf('appmobi') !== -1;
       });
-      assert(appmobi.length);
-      assert(answers['APP_NAME']);
-      assert(answers['PROJECT_ID']);
-      assert(answers['CONFIG_URL']);
+      assert(appmobi.length === 0);
+      assert(answers['APP_NAME'] === undefined);
+      assert(answers['PROJECT_ID'] === undefined);
+      assert(answers['CONFIG_URL'] === undefined);
     });
 
     it('ionic-cloud: true', function () {

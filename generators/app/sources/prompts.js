@@ -74,9 +74,6 @@ module.exports = {
         name: 'Ionic Cloud            (beta)',
         value: 'ionic-cloud'
       }, {
-        name: 'Appmobi                (have your APP_NAME, PROJECT_ID & CONFIG_URL ready)',
-        value: 'appmobi'
-      }, {
         name: 'ApiOmat                (beta)',
         value: 'apiomat'
       }]

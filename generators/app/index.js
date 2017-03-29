@@ -281,11 +281,6 @@ module.exports = Generator.extend({
       if (this.answers.ecosystems.indexOf('greenhouse') > -1) {
         this.composeWith('m-ionic:greenhouse');
       }
-      if (this.answers.ecosystems.indexOf('appmobi') > -1) {
-        this.composeWith(require.resolve('generator-appmobi/generators/app/index.js'), {
-          'skip-sdk': this.options['skip-sdk']
-        });
-      }
       if (this.answers.ecosystems.indexOf('ionic-cloud') > -1) {
         this.composeWith('m-ionic:ionic-cloud');
       }

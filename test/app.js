@@ -211,30 +211,6 @@ describe('generators/app', function () {
     });
   });
 
-  describe('appmobi', function () {
-    var answers = sampleAnswers.getStandard({appmobi: true});
-
-    before(function (done) {
-      helpers.run(path.join(__dirname, '../generators/app'))
-        .withGenerators([ // configure path to subgenerators
-          path.join(__dirname, '../generators/greenhouse'),
-          path.join(__dirname, '../generators/appmobi'),
-          path.join(__dirname, '../generators/module'),
-          path.join(__dirname, '../generators/constant'),
-          path.join(__dirname, '../generators/controller'),
-          path.join(__dirname, '../generators/template'),
-          path.join(__dirname, '../generators/service')
-        ])
-        .withOptions({ 'skip-install': true, 'skip-sdk': true }) // execute with options
-        .withPrompts(answers)  // answer prompts
-        .on('end', done);
-    });
-
-    it('runs', function () {
-      assert(true);
-    });
-  });
-
   describe('ionic-cloud', function () {
     var answers = sampleAnswers.getStandard({ 'ionic-cloud': true });
 
@@ -242,7 +218,6 @@ describe('generators/app', function () {
       helpers.run(path.join(__dirname, '../generators/app'))
         .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../generators/greenhouse'),
-          path.join(__dirname, '../generators/appmobi'),
           path.join(__dirname, '../generators/module'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),

@@ -58,12 +58,6 @@ module.exports = {
       });
       standardCopy.bowerPackages = bowerPackages;
     }
-    if (options && options.appmobi) {
-      standardCopy.ecosystems.push('appmobi');
-      standardCopy['APP_NAME'] = '0f50dcbf-5c79-41ee-b038-330de3ee07a5.Test';
-      standardCopy['PROJECT_ID'] = '5buk7ayx';
-      standardCopy['CONFIG_URL'] = 'https://cloud.appmobi.com';
-    }
     if (options && options['ionic-cloud']) {
       standardCopy.ecosystems.push('ionic-cloud');
     }
