@@ -1,7 +1,5 @@
 # Generator-M-Ionic
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/mwaylabs/generator-m-ionic.svg)](https://greenkeeper.io/)
-
 [![NPM version](http://img.shields.io/npm/v/generator-m-ionic.svg?style=flat-square)][npm-url]
 [![Coverage Status](http://img.shields.io/coveralls/mwaylabs/generator-m-ionic/master.svg?style=flat-square)][coveralls-url]
 [![Build Status](https://img.shields.io/travis/mwaylabs/generator-m-ionic/master.svg?style=flat-square)][travis-url]
@@ -17,7 +15,7 @@ Development:
 
 [![Dev Coverage Status](http://img.shields.io/coveralls/mwaylabs/generator-m-ionic/dev.svg?style=flat-square)][coveralls-url]
 [![Dev Build Status](https://img.shields.io/travis/mwaylabs/generator-m-ionic/dev.svg?style=flat-square)][travis-url]
-[![Dev Dependency Status](http://img.shields.io/david/mwaylabs/generator-m-ionic/dev.svg?style=flat-square)](https://david-dm.org/mwaylabs/generator-m-ionic/dev)
+[![Dev Dependency Status](http://img.shields.io/david/mwaylabs/generator-m-ionic/dev.svg?style=flat-square)](https://david-dm.org/mwaylabs/generator-m-ionic/dev) [![Greenkeeper badge](https://badges.greenkeeper.io/mwaylabs/generator-m-ionic.svg)](https://greenkeeper.io/)
 
 
 ## Why you need it
