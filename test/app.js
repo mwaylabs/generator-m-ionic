@@ -107,7 +107,7 @@ describe('generators/app', function () {
         // devDependencies, test only on as example
         ['bower.json', 'angular-mocks": "~1.5.0"'],
         // resolutions, test only one as example
-        ['bower.json', 'angular": "~1.5.0"'],
+        ['bower.json', 'angular": "~1.5.11"'],
         // optional, test all for correctness
         ['bower.json', '"angular-dynamic-locale": "~0.1.32"'],
         ['bower.json', '"angular-translate": "~2.13.0"'],
