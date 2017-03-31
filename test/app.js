@@ -51,6 +51,7 @@ describe('generators/app', function () {
         'gulp/injecting.js',
         'gulp/linting.js',
         'gulp/testing.js',
+        'gulp/update.js',
         'gulp/watching.js',
         'gulpfile.js',
         'jenkins.sh',
