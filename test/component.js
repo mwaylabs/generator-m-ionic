@@ -6,13 +6,15 @@ var helpers = require('yeoman-test');
 describe('generator-m-ionic:component', function () {
   before(function () {
     return helpers.run(path.join(__dirname, '../generators/component'))
-      .withPrompts({someAnswer: true})
+      .withArguments('mini')
       .toPromise();
   });
 
   it('creates files', function () {
     assert.file([
-      'dummyfile.txt'
+      'app/main/components/mini/mini-component.js',
+      'app/main/components/mini/mini-component.html',
+      'app/main/components/mini/_mini-component.scss'
     ]);
   });
 });

@@ -14,7 +14,7 @@ module.exports = Generator.extend({
       required: false,
       type: String,
       desc: 'Module to generate component into'
-    })
+    });
   },
 
   writing: function () {
@@ -25,22 +25,35 @@ module.exports = Generator.extend({
     let fileName = utils.fileName(componentName) + '-component';
 
     // create component file with snake-case file name
-    let modulePath = `${moduleFolder}/components/${fileName}/`;
+    let modulePath = `${moduleFolder}/components/${componentName}`;
     // modulePath - needed for componentTemplateUrl
     let folder = `app/${modulePath}`;
     let filePathJs = `${folder}/${fileName}.js`;
     let filePathHtml = `${folder}/${fileName}.html`;
-    let filePathScss = `${folder}/${fileName}.scss`;
+    let filePathScss = `${folder}/_${fileName}.scss`;
+    let filePathScssFromMain = `../components/${fileName}.scss`;
 
     let templateVars = {
       moduleName: moduleName,
       componentName: componentName,
-      componentTemplateUrl: `${modulePath}/${fileName}`
+      componentTemplateUrl: `${modulePath}/${fileName}.html`,
+      filePathScssFromMain: filePathScssFromMain,
     };
 
+    console.log(filePathJs);
     this.fs.copyTpl(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt'),
+      this.templatePath('_component.js'),
+      this.destinationPath(filePathJs),
+      templateVars
+    );
+    this.fs.copyTpl(
+      this.templatePath('_component.html'),
+      this.destinationPath(filePathHtml),
+      templateVars
+    );
+    this.fs.copyTpl(
+      this.templatePath('_component.scss'),
+      this.destinationPath(filePathScss),
       templateVars
     );
   }
