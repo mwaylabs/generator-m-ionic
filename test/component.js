@@ -15,7 +15,8 @@ describe('generator-m-ionic:component', function () {
       assert.file([
         'app/main/components/mini/mini-component.js',
         'app/main/components/mini/mini-component.html',
-        'app/main/components/mini/_mini-component.scss'
+        'app/main/components/mini/_mini-component.scss',
+        'test/karma/main/mini-component.spec.js'
       ]);
     });
   });
@@ -30,7 +31,25 @@ describe('generator-m-ionic:component', function () {
       assert.file([
         'app/main/components/mini-counter/mini-counter-component.js',
         'app/main/components/mini-counter/mini-counter-component.html',
-        'app/main/components/mini-counter/_mini-counter-component.scss'
+        'app/main/components/mini-counter/_mini-counter-component.scss',
+        'test/karma/main/mini-component.spec.js'
+      ]);
+    });
+  });
+
+  describe('miniCounter module', function () {
+    before(function () {
+      return helpers.run(path.join(__dirname, '../generators/component'))
+        .withArguments('miniCounter module')
+        .toPromise();
+    });
+
+    it('creates files', function () {
+      assert.file([
+        'app/module/components/mini/mini-component.js',
+        'app/module/components/mini/mini-component.html',
+        'app/module/components/mini/_mini-component.scss',
+        'test/karma/module/mini-component.spec.js'
       ]);
     });
   });

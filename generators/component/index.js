@@ -19,6 +19,7 @@ module.exports = Generator.extend({
   },
 
   writing: function () {
+    // e.g. main
     let moduleName = utils.checkModule(this.options.module);
     let moduleFolder = utils.moduleFolder(moduleName);
 
@@ -37,6 +38,7 @@ module.exports = Generator.extend({
     let filePathHtml = `${folderPath}/${fileName}.html`;
     let filePathScss = `${folderPath}/_${fileName}.scss`;
     let filePathScssFromMain = `../components/${fileName}.scss`;
+    let filePathTest = `test/karma/${moduleFolder}/${fileName}.spec.js`;
 
     let templateVars = {
       moduleName: moduleName,
@@ -46,20 +48,28 @@ module.exports = Generator.extend({
       filePathScssFromMain: filePathScssFromMain,
     };
 
-    console.log(filePathJs);
+    // controller
     this.fs.copyTpl(
       this.templatePath('_component.js'),
       this.destinationPath(filePathJs),
       templateVars
     );
+    // template
     this.fs.copyTpl(
       this.templatePath('_component.html'),
       this.destinationPath(filePathHtml),
       templateVars
     );
+    // scss
     this.fs.copyTpl(
       this.templatePath('_component.scss'),
       this.destinationPath(filePathScss),
+      templateVars
+    );
+    // test
+    this.fs.copyTpl(
+      this.templatePath('_component.spec.js'),
+      this.destinationPath(filePathTest),
       templateVars
     );
   }
