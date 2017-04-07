@@ -1,7 +1,10 @@
 'use strict';
-var Generator = require('yeoman-generator');
-var utils = require('../../utils/utils.js');
-var strings = require('../../utils/strings.js');
+const Generator = require('yeoman-generator');
+const utils = require('../../utils/utils.js');
+const strings = require('../../utils/strings.js');
+const path = require('path');
+const fs = require('fs');
+const chalk = require('chalk');
 
 module.exports = Generator.extend({
 
@@ -30,47 +33,59 @@ module.exports = Generator.extend({
     let fileName = utils.fileName(componentName) + '-component';
     let folderName = utils.fileName(componentName);
 
-    // create component file with snake-case file name
+    // component file with snake-case file name
     let modulePath = `${moduleFolder}/components/${folderName}`;
     // modulePath - needed for componentTemplateUrl
     let folderPath = `app/${modulePath}`;
-    let filePathJs = `${folderPath}/${fileName}.js`;
-    let filePathHtml = `${folderPath}/${fileName}.html`;
-    let filePathScss = `${folderPath}/_${fileName}.scss`;
-    let filePathScssFromMain = `../components/${fileName}.scss`;
-    let filePathTest = `test/karma/${moduleFolder}/${fileName}.spec.js`;
 
     let templateVars = {
       moduleName: moduleName,
       componentName: componentName,
       componentTagName: componentTagName,
-      componentTemplateUrl: `${modulePath}/${fileName}.html`,
-      filePathScssFromMain: filePathScssFromMain,
+      componentTemplateUrl: `${modulePath}/${fileName}.html`
     };
 
     // controller
+    let filePathJs = `${folderPath}/${fileName}.js`;
     this.fs.copyTpl(
       this.templatePath('_component.js'),
       this.destinationPath(filePathJs),
       templateVars
     );
     // template
+    let filePathHtml = `${folderPath}/${fileName}.html`;
     this.fs.copyTpl(
       this.templatePath('_component.html'),
       this.destinationPath(filePathHtml),
       templateVars
     );
     // scss
+    let filePathScss = `${folderPath}/_${fileName}.scss`;
     this.fs.copyTpl(
       this.templatePath('_component.scss'),
       this.destinationPath(filePathScss),
       templateVars
     );
     // test
+    let filePathTest = `test/karma/${moduleFolder}/${fileName}.spec.js`;
     this.fs.copyTpl(
       this.templatePath('_component.spec.js'),
       this.destinationPath(filePathTest),
       templateVars
     );
+
+    // update the module's .scss with the component's import
+    let filePathScssFromMain = `../components/${fileName}.scss`;
+    let filePathModuleScss = path.resolve(`./app/${moduleFolder}/styles/${moduleFolder}.scss`);
+    if (fs.existsSync(filePathModuleScss)) {
+      let scssContents = this.fs.read(filePathModuleScss);
+      this.fs.write(
+        filePathModuleScss,
+        `${scssContents}\n// added via yo m-ionic:component subgenerator\n@import '${filePathScssFromMain}'`
+      );
+    }
+    else {
+      console.log(chalk.red('not found ') + `${moduleFolder}.scss\n   please import _${fileName}.scss manually\n`);
+    }
   }
 });
