@@ -1,6 +1,7 @@
 'use strict';
 var Generator = require('yeoman-generator');
 var utils = require('../../utils/utils.js');
+var strings = require('../../utils/strings.js');
 
 module.exports = Generator.extend({
 
@@ -21,21 +22,26 @@ module.exports = Generator.extend({
     let moduleName = utils.checkModule(this.options.module);
     let moduleFolder = utils.moduleFolder(moduleName);
 
+    // e.g myPane
     let componentName = this.options.name;
+    // e.g my-pane
+    let componentTagName = strings.camelToSnake(componentName);
     let fileName = utils.fileName(componentName) + '-component';
+    let folderName = utils.fileName(componentName);
 
     // create component file with snake-case file name
-    let modulePath = `${moduleFolder}/components/${componentName}`;
+    let modulePath = `${moduleFolder}/components/${folderName}`;
     // modulePath - needed for componentTemplateUrl
-    let folder = `app/${modulePath}`;
-    let filePathJs = `${folder}/${fileName}.js`;
-    let filePathHtml = `${folder}/${fileName}.html`;
-    let filePathScss = `${folder}/_${fileName}.scss`;
+    let folderPath = `app/${modulePath}`;
+    let filePathJs = `${folderPath}/${fileName}.js`;
+    let filePathHtml = `${folderPath}/${fileName}.html`;
+    let filePathScss = `${folderPath}/_${fileName}.scss`;
     let filePathScssFromMain = `../components/${fileName}.scss`;
 
     let templateVars = {
       moduleName: moduleName,
       componentName: componentName,
+      componentTagName: componentTagName,
       componentTemplateUrl: `${modulePath}/${fileName}.html`,
       filePathScssFromMain: filePathScssFromMain,
     };
