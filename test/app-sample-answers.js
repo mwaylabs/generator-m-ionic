@@ -49,17 +49,6 @@ describe('generators/app/sample-answers', function () {
       assert(localforage.length);
     });
 
-    it('appmobi: true', function () {
-      var answers = sampleAnswers.getStandard({ appmobi: true });
-      var appmobi = answers.ecosystems.filter(function (value) {
-        return value.indexOf('appmobi') !== -1;
-      });
-      assert(appmobi.length);
-      assert(answers['APP_NAME']);
-      assert(answers['PROJECT_ID']);
-      assert(answers['CONFIG_URL']);
-    });
-
     it('ionic-cloud: true', function () {
       var answers = sampleAnswers.getStandard({ 'ionic-cloud': true });
       var ionic = answers.ecosystems.filter(function (value) {

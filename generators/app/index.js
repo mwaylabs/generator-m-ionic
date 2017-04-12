@@ -159,11 +159,11 @@ module.exports = Generator.extend({
 
       // app files
       // add random color to navbar
+      this.barColor = utils.barColor();
       var templateVars = {
         answers: this.answers,
         barColor: this.barColor
       };
-      this.barColor = utils.barColor();
       this.fs.copyTpl(
         this.templatePath('_index.html'),
         this.destinationPath('app/index.html'),
@@ -281,16 +281,8 @@ module.exports = Generator.extend({
       if (this.answers.ecosystems.indexOf('greenhouse') > -1) {
         this.composeWith('m-ionic:greenhouse');
       }
-      if (this.answers.ecosystems.indexOf('appmobi') > -1) {
-        this.composeWith(require.resolve('generator-appmobi/generators/app/index.js'), {
-          'skip-sdk': this.options['skip-sdk']
-        });
-      }
       if (this.answers.ecosystems.indexOf('ionic-cloud') > -1) {
         this.composeWith('m-ionic:ionic-cloud');
-      }
-      if (this.answers.ecosystems.indexOf('apiomat') > -1) {
-        // do nothing: apiomat can only be done after project setup
       }
     }
   },

@@ -10,5 +10,12 @@
       And I'm really good at it.
     </p>
 
+<% if (includeMiniComponent) { -%>
+    <mini
+      content="'some content via attribute'">
+      Some <span class="green">transcluded</span> content
+    </mini>
+
+<% } -%>
   </ion-content>
 </ion-view>

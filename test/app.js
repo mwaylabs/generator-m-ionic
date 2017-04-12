@@ -19,6 +19,7 @@ describe('generators/app', function () {
         .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
@@ -51,7 +52,6 @@ describe('generators/app', function () {
         'gulp/injecting.js',
         'gulp/linting.js',
         'gulp/testing.js',
-        'gulp/update.js',
         'gulp/watching.js',
         'gulpfile.js',
         'jenkins.sh',
@@ -86,6 +86,9 @@ describe('generators/app', function () {
         'app/main/constants/env-dev.json',
       ]);
     });
+    it('creates module\'s scss with imported component scss file', function () {
+      assert.fileContent('app/main/styles/main.scss', 'mini-component');
+    });
 
     it('creates module of type main', function () {
       // not just any module
@@ -107,7 +110,7 @@ describe('generators/app', function () {
         // devDependencies, test only on as example
         ['bower.json', 'angular-mocks": "~1.5.0"'],
         // resolutions, test only one as example
-        ['bower.json', 'angular": "~1.5.0"'],
+        ['bower.json', 'angular": "~1.5.11"'],
         // optional, test all for correctness
         ['bower.json', '"angular-dynamic-locale": "~0.1.32"'],
         ['bower.json', '"angular-translate": "~2.13.0"'],
@@ -145,6 +148,7 @@ describe('generators/app', function () {
         .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
@@ -170,6 +174,7 @@ describe('generators/app', function () {
         .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
@@ -195,6 +200,7 @@ describe('generators/app', function () {
         .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
@@ -211,30 +217,6 @@ describe('generators/app', function () {
     });
   });
 
-  describe('appmobi', function () {
-    var answers = sampleAnswers.getStandard({appmobi: true});
-
-    before(function (done) {
-      helpers.run(path.join(__dirname, '../generators/app'))
-        .withGenerators([ // configure path to subgenerators
-          path.join(__dirname, '../generators/greenhouse'),
-          path.join(__dirname, '../generators/appmobi'),
-          path.join(__dirname, '../generators/module'),
-          path.join(__dirname, '../generators/constant'),
-          path.join(__dirname, '../generators/controller'),
-          path.join(__dirname, '../generators/template'),
-          path.join(__dirname, '../generators/service')
-        ])
-        .withOptions({ 'skip-install': true, 'skip-sdk': true }) // execute with options
-        .withPrompts(answers)  // answer prompts
-        .on('end', done);
-    });
-
-    it('runs', function () {
-      assert(true);
-    });
-  });
-
   describe('ionic-cloud', function () {
     var answers = sampleAnswers.getStandard({ 'ionic-cloud': true });
 
@@ -242,8 +224,8 @@ describe('generators/app', function () {
       helpers.run(path.join(__dirname, '../generators/app'))
         .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../generators/greenhouse'),
-          path.join(__dirname, '../generators/appmobi'),
           path.join(__dirname, '../generators/module'),
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
@@ -269,6 +251,7 @@ describe('generators/app', function () {
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
@@ -313,6 +296,7 @@ describe('generators/app', function () {
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
@@ -334,6 +318,7 @@ describe('generators/app', function () {
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
@@ -355,6 +340,7 @@ describe('generators/app', function () {
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
@@ -376,6 +362,7 @@ describe('generators/app', function () {
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),

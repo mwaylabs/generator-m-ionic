@@ -15,9 +15,9 @@ module.exports = {
     },
     resolutions: {
       // force newest angular versions (not those from ionic)
-      'angular': '~1.5.0',
-      'angular-animate': '~1.5.0',
-      'angular-sanitize': '~1.5.0',
+      'angular': '~1.5.11',
+      'angular-animate': '~1.5.11',
+      'angular-sanitize': '~1.5.11',
       'angular-ui-router': '~0.4.2'
     }
   },

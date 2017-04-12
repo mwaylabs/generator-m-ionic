@@ -80,6 +80,16 @@ This Generator delivers **highly advanced workflows for Angular 1 & Ionic 1** wi
 
 **[Read more ...](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/intro/whats_in_the_box.md)**
 
+
+**Latest releases**
+- **Component subgenerator**: [see here](https://github.com/mwaylabs/generator-m-ionic/blob/master/docs/guides/sub_generators.md#angularjs-components).
+- **Yarn** integration: [see here](https://github.com/mwaylabs/generator-m-ionic/blob/master/docs/guides/questions.md#npm-or-yarn).
+- Test setup improvements [#489](https://github.com/mwaylabs/generator-m-ionic/pull/489).
+- **Livereload** for the device! Wohoo! See [how it's done](https://github.com/mwaylabs/generator-m-ionic/blob/master/docs/guides/development_intro.md#run-on-device-or-emulator-with-livereload).
+- Integrations into [Ionic Cloud](https://github.com/mwaylabs/generator-m-ionic/blob/master/docs/ecosystems/ionic_platform.md), [Relution & Greenhouse](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/greenhouse.md).
+- [and many more ...](https://github.com/mwaylabs/generator-m-ionic/releases)
+
+
 ### What's new
 **Ionic Blog Series** - Great ride through everything Generator-M-Ionic has to offer:
 > Advanced workflows for building rock-solid Ionic Apps
@@ -87,13 +97,6 @@ This Generator delivers **highly advanced workflows for Angular 1 & Ionic 1** wi
   - [Part 1: Playground](http://blog.ionic.io/advanced-workflows-for-building-rock-solid-ionic-apps-part-1/)
   - [Part 2: Mountain](http://blog.ionic.io/advanced-workflows-for-building-rock-solid-ionic-apps-part-2/)
   - [Part 3: Orbit](http://blog.ionic.io/advanced-workflows-for-building-rock-solid-ionic-apps-part-3/)
-
-**Latest releases**
-- **Yarn integration**: [see here](https://github.com/mwaylabs/generator-m-ionic/blob/master/docs/guides/questions.md#npm-or-yarn).
-- **Test setup improvements** [#489](https://github.com/mwaylabs/generator-m-ionic/pull/489).
-- **Livereload** for the device! Wohoo! See [how it's done](https://github.com/mwaylabs/generator-m-ionic/blob/master/docs/guides/development_intro.md#run-on-device-or-emulator-with-livereload).
-- **Integrations** into [Ionic Cloud](https://github.com/mwaylabs/generator-m-ionic/blob/master/docs/ecosystems/ionic_platform.md), [Relution & Greenhouse](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/greenhouse.md).
-- [and many more ...](https://github.com/mwaylabs/generator-m-ionic/releases)
 
 ## Guides
 ##### Quick Start
@@ -123,7 +126,6 @@ This Generator delivers **highly advanced workflows for Angular 1 & Ionic 1** wi
 - [App Icons and splash screens](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/icons_splash_screens.md), a simple setup or different sets for different builds - all is possible.
 - [Use Environments](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/environments.md) manage different API Endpoints and much more with just a single parameter.
 - [Gulp defaults](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/gulp_defaults.md), spare yourself some tedious typing on the command line.
-- [Generator Update (experimental)](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/guides/generator_update.md) can help you update to a new generator version.
 
 
 ##### Building & Continuous Integration
@@ -135,8 +137,6 @@ This Generator delivers **highly advanced workflows for Angular 1 & Ionic 1** wi
 ##### Ecosystems
 - [Greenhouse & Relution](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/ecosystems/greenhouse.md) - build and distribute your apps using these powerful cloud services
 - [Ionic Cloud](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/ecosystems/ionic_platform.md) (beta) - a powerful suite of hybrid-focused mobile backend services and tools
-- [Appmobi](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/ecosystems/appmobi.md) - Secure Mobile Development Platform
-- [ApiOmat](https://github.com/mwaylabs/generator-m-ionic/tree/master/docs/ecosystems/apiomat.md) (beta) - Enterprise Backend as a Service
 
 ## Generator Insights
 We've published 3 blog articles on our company blog delivering deep insights into the why and how of the generator:

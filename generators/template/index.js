@@ -25,7 +25,8 @@ module.exports = Generator.extend({
       moduleFolder: moduleFolder,
       barColor: barColor,
       templateName: templateName,
-      fileName: fileName
+      fileName: fileName,
+      includeMiniComponent: this.options.includeMiniComponent
     };
   },
 
@@ -47,9 +48,10 @@ module.exports = Generator.extend({
       );
     }
     else if (this.options.template === 'list-detail') {
-      this.fs.copy(
-        this.templatePath('list-detail.html'),
-        this.destinationPath(folder + this.templateVars.fileName + '.html')
+      this.fs.copyTpl(
+        this.templatePath('_list-detail.html'),
+        this.destinationPath(folder + this.templateVars.fileName + '.html'),
+        this.templateVars
       );
     }
     else if (this.options.template === 'list') {

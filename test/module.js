@@ -10,19 +10,20 @@ describe('generators/module', function () {
 
   var basicFilesTests = function (moduleName, options) {
     var moduleFolder = utils.moduleFolder(moduleName);
-    var modulePath = 'app/' + moduleFolder;
+    var modulePath =  `app/${moduleFolder}`;
 
     it('basic files and folders', function () {
       assert.file([
-        modulePath + '/' + moduleFolder + '.js',
-        modulePath + '/assets/images',
-        modulePath + '/constants',
-        modulePath + '/controllers',
-        modulePath + '/directives',
-        modulePath + '/filters',
-        modulePath + '/services',
-        modulePath + '/styles/' + moduleFolder + '.scss',
-        modulePath + '/templates'
+        `${modulePath}/${moduleFolder}.js`,
+        `${modulePath}/assets/images`,
+        `${modulePath}/components`,
+        `${modulePath}/constants`,
+        `${modulePath}/controllers`,
+        `${modulePath}/directives`,
+        `${modulePath}/filters`,
+        `${modulePath}/services`,
+        `${modulePath}/styles/${moduleFolder}.scss`,
+        `${modulePath}/templates`
       ]);
 
       // module.js
@@ -172,6 +173,7 @@ describe('generators/module', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/module'))
         .withGenerators([ // configure path to  subgenerators
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
           path.join(__dirname, '../generators/service'),
@@ -197,6 +199,7 @@ describe('generators/module', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/module'))
         .withGenerators([ // configure path to  subgenerators
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
           path.join(__dirname, '../generators/service'),
@@ -216,6 +219,7 @@ describe('generators/module', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/module'))
         .withGenerators([ // configure path to  subgenerators
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
           path.join(__dirname, '../generators/service'),
@@ -316,6 +320,7 @@ describe('generators/module', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/module'))
         .withGenerators([ // configure path to  subgenerators
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
           path.join(__dirname, '../generators/service'),
@@ -337,6 +342,7 @@ describe('generators/module', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/module'))
         .withGenerators([ // configure path to  subgenerators
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
           path.join(__dirname, '../generators/service'),
@@ -376,6 +382,7 @@ describe('generators/module', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/module'))
         .withGenerators([ // configure path to subgenerators
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
           path.join(__dirname, '../generators/service'),
@@ -396,6 +403,7 @@ describe('generators/module', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/module'))
         .withGenerators([ // configure path to subgenerators
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
           path.join(__dirname, '../generators/service'),
