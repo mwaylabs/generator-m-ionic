@@ -19,6 +19,7 @@ describe('generators/app', function () {
         .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
@@ -85,6 +86,9 @@ describe('generators/app', function () {
         'app/main/constants/env-dev.json',
       ]);
     });
+    it('creates module\'s scss with imported component scss file', function () {
+      assert.fileContent('app/main/styles/main.scss', 'mini-component');
+    });
 
     it('creates module of type main', function () {
       // not just any module
@@ -144,6 +148,7 @@ describe('generators/app', function () {
         .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
@@ -169,6 +174,7 @@ describe('generators/app', function () {
         .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
@@ -194,6 +200,7 @@ describe('generators/app', function () {
         .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
@@ -218,6 +225,7 @@ describe('generators/app', function () {
         .withGenerators([ // configure path to subgenerators
           path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
@@ -243,6 +251,7 @@ describe('generators/app', function () {
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
@@ -287,6 +296,7 @@ describe('generators/app', function () {
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
@@ -308,6 +318,7 @@ describe('generators/app', function () {
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
@@ -329,6 +340,7 @@ describe('generators/app', function () {
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),
@@ -350,6 +362,7 @@ describe('generators/app', function () {
         .withGenerators([ // configure path to  subgenerators
           path.join(__dirname, '../generators/greenhouse'),
           path.join(__dirname, '../generators/module'),
+          path.join(__dirname, '../generators/component'),
           path.join(__dirname, '../generators/constant'),
           path.join(__dirname, '../generators/controller'),
           path.join(__dirname, '../generators/template'),

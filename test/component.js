@@ -32,7 +32,7 @@ describe('generator-m-ionic:component', function () {
         'app/main/components/mini-counter/mini-counter-component.js',
         'app/main/components/mini-counter/mini-counter-component.html',
         'app/main/components/mini-counter/_mini-counter-component.scss',
-        'test/karma/main/mini-component.spec.js'
+        'test/karma/main/mini-counter-component.spec.js'
       ]);
     });
   });
@@ -46,10 +46,10 @@ describe('generator-m-ionic:component', function () {
 
     it('creates files', function () {
       assert.file([
-        'app/module/components/mini/mini-component.js',
-        'app/module/components/mini/mini-component.html',
-        'app/module/components/mini/_mini-component.scss',
-        'test/karma/module/mini-component.spec.js'
+        'app/module/components/mini-counter/mini-counter-component.js',
+        'app/module/components/mini-counter/mini-counter-component.html',
+        'app/module/components/mini-counter/_mini-counter-component.scss',
+        'test/karma/module/mini-counter-component.spec.js'
       ]);
     });
   });

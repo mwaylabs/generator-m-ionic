@@ -1,9 +1,9 @@
 'use strict';
-var Generator = require('yeoman-generator');
-var mkdirp = require('mkdirp');
+const Generator = require('yeoman-generator');
+const mkdirp = require('mkdirp');
 
-var utils = require('../../utils/utils.js');
-var sampleAnswers = require('../app/sources/sample-answers.js');
+const utils = require('../../utils/utils.js');
+const sampleAnswers = require('../app/sources/sample-answers.js');
 
 module.exports = Generator.extend({
 
@@ -66,6 +66,7 @@ module.exports = Generator.extend({
     var modulePath = 'app/' + this.templateVars.moduleFolder;
     mkdirp.sync(modulePath);
     mkdirp.sync(modulePath + '/assets/images');
+    mkdirp.sync(modulePath + '/components/');
     mkdirp.sync(modulePath + '/constants/');
     mkdirp.sync(modulePath + '/controllers/');
     mkdirp.sync(modulePath + '/directives/');
@@ -147,6 +148,10 @@ module.exports = Generator.extend({
       this.composeWith('m-ionic:template', {
         arguments: 'list-detail ' + this.templateVars.moduleName,
         template: 'list-detail'
+      });
+      // mini component
+      this.composeWith('m-ionic:component', {
+        arguments: `mini ${this.templateVars.moduleName}`
       });
     }
     // sidemenu

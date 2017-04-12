@@ -74,13 +74,13 @@ module.exports = Generator.extend({
     );
 
     // update the module's .scss with the component's import
-    let filePathScssFromMain = `../components/${fileName}.scss`;
+    let filePathScssFromMain = `../components/${folderName}/${fileName}`;
     let filePathModuleScss = path.resolve(`./app/${moduleFolder}/styles/${moduleFolder}.scss`);
     try {
       let scssContents = this.fs.read(filePathModuleScss);
       this.fs.write(
         filePathModuleScss,
-        `${scssContents}\n// added via yo m-ionic:component subgenerator\n@import '${filePathScssFromMain}'`
+        `${scssContents}\n// added via yo m-ionic:component subgenerator\n@import '${filePathScssFromMain}';`
       );
     }
     catch (e) {
