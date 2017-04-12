@@ -3,7 +3,6 @@ const Generator = require('yeoman-generator');
 const utils = require('../../utils/utils.js');
 const strings = require('../../utils/strings.js');
 const path = require('path');
-const fs = require('fs');
 const chalk = require('chalk');
 
 module.exports = Generator.extend({
@@ -77,14 +76,14 @@ module.exports = Generator.extend({
     // update the module's .scss with the component's import
     let filePathScssFromMain = `../components/${fileName}.scss`;
     let filePathModuleScss = path.resolve(`./app/${moduleFolder}/styles/${moduleFolder}.scss`);
-    if (fs.existsSync(filePathModuleScss)) {
+    try {
       let scssContents = this.fs.read(filePathModuleScss);
       this.fs.write(
         filePathModuleScss,
         `${scssContents}\n// added via yo m-ionic:component subgenerator\n@import '${filePathScssFromMain}'`
       );
     }
-    else {
+    catch (e) {
       console.log(chalk.red('not found ') + `${moduleFolder}.scss\n   please import _${fileName}.scss manually\n`);
     }
   }
