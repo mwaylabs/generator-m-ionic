@@ -34,7 +34,7 @@ This generates the following four files:
 - a component.js file
 - a component.html file
 - a component.scss file
-- a component.sepc.js file
+- a component.spec.js file
 
 ![image](https://cloud.githubusercontent.com/assets/1370779/24964446/95269e4c-1fa1-11e7-977b-6b97293d4458.png)
 

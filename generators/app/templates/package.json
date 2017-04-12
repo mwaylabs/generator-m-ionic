@@ -13,7 +13,8 @@
     "run:ios": "gulp --cordova 'run ios",
     "run:android": "gulp --cordova 'run android'",
     "watch:build": "gulp watch-build",
-    "build": "gulp build --minify"
+    "build": "gulp build --minify",
+    "postinstall": "./node_modules/protractor/bin/webdriver-manager update"
   },
   "devDependencies": {
     "browser-sync": "^2.8.3",
@@ -60,6 +61,7 @@
     "minimist": "^1.2.0",
     "phantomjs-prebuilt": "^2.1.4",
     "plist": "git://github.com/akofman/plist.js.git#3f256fd21ab3ad3ada0f491cfc905098a2631342",
+    "protractor": "^5.1.1",
     "proxy-middleware": "^0.15.0",
     "require-dir": "^0.3.0",
     "vinyl-paths": "^2.0.0",
