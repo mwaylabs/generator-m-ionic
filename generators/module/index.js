@@ -110,6 +110,13 @@ module.exports = Generator.extend({
         this.templatePath('env-prod.json'),
         this.destinationPath(modulePath + '/constants/env-prod.json')
       );
+
+      // generate mini component, only when main and when sidemenu or tabs
+      if (this.answers.template !== 'blank') {
+        this.composeWith('m-ionic:component', {
+          arguments: `mini ${this.templateVars.moduleName}`
+        });
+      }
     }
 
     // both (sidemenu & tabs)
@@ -147,11 +154,9 @@ module.exports = Generator.extend({
       });
       this.composeWith('m-ionic:template', {
         arguments: 'list-detail ' + this.templateVars.moduleName,
-        template: 'list-detail'
-      });
-      // mini component
-      this.composeWith('m-ionic:component', {
-        arguments: `mini ${this.templateVars.moduleName}`
+        template: 'list-detail',
+        // include component in template when generating a main module
+        includeMiniComponent: this.options.mainModule
       });
     }
     // sidemenu
