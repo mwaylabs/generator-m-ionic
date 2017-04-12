@@ -159,11 +159,11 @@ module.exports = Generator.extend({
 
       // app files
       // add random color to navbar
+      this.barColor = utils.barColor();
       var templateVars = {
         answers: this.answers,
         barColor: this.barColor
       };
-      this.barColor = utils.barColor();
       this.fs.copyTpl(
         this.templatePath('_index.html'),
         this.destinationPath('app/index.html'),
