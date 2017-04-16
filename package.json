@@ -63,6 +63,7 @@
     "gulp-mocha": "^3.0.1",
     "gulp-nsp": "^2.4.2",
     "gulp-plumber": "^1.0.1",
+    "jasmine-core": "^2.5.2",
     "yeoman-assert": "^3.0.0",
     "yeoman-test": "^1.0.0"
   }
