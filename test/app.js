@@ -124,7 +124,7 @@ describe('generators/app', function () {
         // inject appModule into title
         ['app/index.html', '<title>' + answers.appName + '</title>'],
         // proper css path
-        ['app/index.html', '<body ng-app="' + answers.appModule + '">'],
+        ['app/index.html', 'angular.bootstrap(document.body, [\'' + answers.appModule + '\']);'],
         // inject appModule into app.js module
         ['app/app.js', 'angular.module(\'' + answers.appModule + '\','],
         // inject appModule.main into app.js module
