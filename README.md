@@ -45,7 +45,7 @@ This Generator delivers **highly advanced workflows for Angular 1 & Ionic 1** wi
   <a href="http://bower.io/" target="_blank" alt="bower" title="bower">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/6041250/ef9a78b8-ac7a-11e4-9586-7e7e894e201e.png">
   </a>
-  <a href="https://www.browsersync.io/" target="_blank" alt="bower" title="bower">
+  <a href="https://www.browsersync.io/" target="_blank" alt="browsersync" title="browsersync">
     <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/16412038/77028548-3d2a-11e6-88d0-2c0d66582f4c.png">
   </a>
   <a href="https://angularjs.org/" target="_blank" alt="angular" title="angular">
