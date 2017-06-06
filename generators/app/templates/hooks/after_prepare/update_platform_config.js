@@ -351,6 +351,11 @@ var platformConfig = (function () {
       });
 
       tempInfoPlist = plist.build(infoPlist);
+
+      // remove NSMainNibFile entry that crashes the App
+      tempInfoPlist = tempInfoPlist.replace(/<key>NSMainNibFile~ipad<\/key>/g, '');
+      tempInfoPlist = tempInfoPlist.replace(/<key>NSMainNibFile<\/key>/g, '');
+
       tempInfoPlist = tempInfoPlist.replace(/<string>[\s\r\n]*<\/string>/g, '<string></string>');
       fs.writeFileSync(targetFile, tempInfoPlist, 'utf-8');
     }
