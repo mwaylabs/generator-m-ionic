@@ -54,7 +54,7 @@
     "yosay": "^2.0.0"
   },
   "devDependencies": {
-    "coveralls": "^2.11.2",
+    "coveralls": "^3.0.0",
     "eslint": "^3.0.0",
     "gulp": "^3.9.0",
     "gulp-eslint": "^3.0.0",
