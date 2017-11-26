@@ -55,7 +55,7 @@
   },
   "devDependencies": {
     "coveralls": "^2.11.2",
-    "eslint": "^3.0.0",
+    "eslint": "^4.12.0",
     "gulp": "^3.9.0",
     "gulp-eslint": "^3.0.0",
     "gulp-istanbul": "^1.0.0",
