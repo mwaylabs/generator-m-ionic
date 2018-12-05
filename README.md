@@ -1,3 +1,6 @@
+## We moved on! This project is not longer maintained from our side. 
+We have completed our shift to the new versions of Angular and Ionic. Therefore we recommend using the [angular cli](https://cli.angular.io/) or the Ionic CLI (https://ionicframework.com/docs/cli/) to scaffold new projects.
+
 # Generator-M-Ionic
 
 [![NPM version](http://img.shields.io/npm/v/generator-m-ionic.svg?style=flat-square)][npm-url]
