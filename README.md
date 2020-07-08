@@ -1,3 +1,6 @@
+## We moved on! This project is not longer maintained from our side. 
+It is still here for sake of completness.
+
 # Generator-M-Ionic
 
 [![NPM version](http://img.shields.io/npm/v/generator-m-ionic.svg?style=flat-square)][npm-url]
