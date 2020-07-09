@@ -180,7 +180,7 @@ To make things easier, your project's `package.json` comes with the following se
   "prepare:all": "gulp --cordova 'prepare'",
   "livereload:ios": "gulp --livereload 'run ios'",
   "livereload:android": "gulp --livereload 'run android'",
-  "run:ios": "gulp --cordova 'run ios",
+  "run:ios": "gulp --cordova 'run ios'",
   "run:android": "gulp --cordova 'run android'",
   "watch:build": "gulp watch-build",
   "build": "gulp build --minify"
